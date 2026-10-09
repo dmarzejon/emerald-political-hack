@@ -14435,6 +14435,55 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_LavaCookieAndLetter,
     },
 
+    // Political hack key items. Icons reuse vanilla art until custom icons exist.
+    [ITEM_SILVER_WING] =
+    {
+        .name = ITEM_NAME("Silver Wing"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A shining silver\n"
+            "feather that was\n"
+            "your mother's."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_PrettyFeather,
+        .iconPalette = gItemIconPalette_PrettyFeather,
+    },
+
+    [ITEM_BELL_RECEIPT] =
+    {
+        .name = ITEM_NAME("Bell Receipt"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A Gilded Scale\n"
+            "grain receipt with\n"
+            "a pale bell seal."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BikeVoucher,
+        .iconPalette = gItemIconPalette_BikeVoucher,
+    },
+
+    [ITEM_SEALED_LETTER] =
+    {
+        .name = ITEM_NAME("Sealed Letter"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "An unopened letter\n"
+            "with a pale bell\n"
+            "seal. No address."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Letter,
+        .iconPalette = gItemIconPalette_LavaCookieAndLetter,
+    },
+
     [ITEM_DEVON_PARTS] =
     {
         .name = ITEM_NAME("Devon Parts"),

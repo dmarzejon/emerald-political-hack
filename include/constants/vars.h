@@ -272,7 +272,7 @@
 #define VAR_KINGS_GIFT_DOG                               0x40F9
 #define VAR_PACT_TERMS_1                                 0x40FA
 #define VAR_PACT_TERMS_2                                 0x40FB
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
+#define VAR_SLICE_STATE                                  0x40FC // Main story step; values in docs/dialogue/events.md
 #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
 #define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var

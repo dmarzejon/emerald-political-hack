@@ -5,8 +5,8 @@ work can rely on. The features thread owns `src/` and `include/` and keeps this 
 Story context: `docs/story/vertical-slice.md` (the story bible).
 
 Need a new flag or var? Ask the features thread rather than taking an `UNUSED` one, so two
-threads never claim the same ID. Free story flags are `0x30`-`0x4F` in
-`include/constants/flags.h`; free vars are `0x40FC`-`0x40FF` in `include/constants/vars.h`.
+threads never claim the same ID. Free story flags are `0x46`-`0x4F` in
+`include/constants/flags.h`; free vars are `0x40FD`-`0x40FF` in `include/constants/vars.h`.
 
 ## Flags
 
@@ -32,6 +32,20 @@ Defined in `include/constants/flags.h`. Scripts use them with `setflag`, `checkf
 | `FLAG_PACT_HIGHCREST` | Pact after Trial 9 (Aurelian) |
 | `FLAG_LOWMERE_SIEGE_SURVIVED` | Lowmere survives the siege (needed for stage 4) |
 
+The dialogue thread's slice scripts also use these, documented in `docs/dialogue/events.md`:
+`FLAG_PENN_MON_RECOVERED`, `FLAG_RECEIVED_SEALED_LETTER`, `FLAG_TALKED_TO_CARTER`,
+`FLAG_MET_CRANE`, `FLAG_CORWIN_PRIVATE_TALK`, `FLAG_TAMSIN_MIRE_ROAD_TALK`, and the NPC hide flags
+`FLAG_HIDE_LOWMERE_ARRIVAL_BRAM`, `FLAG_HIDE_OLD_LODGE_TOFT`, `FLAG_HIDE_OLD_LODGE_BRAM`,
+`FLAG_HIDE_OLD_LODGE_COURIER`, `FLAG_HIDE_LOWMERE_TAMSIN_FORGE`, `FLAG_HIDE_LOWMERE_TAMSIN_ROAD`,
+`FLAG_HIDE_MIRE_ROAD_TAMSIN`, `FLAG_HIDE_MIRE_ROAD_WAGON_CLERKS`,
+`FLAG_HIDE_HAYMARKET_SEIZURE_CLERKS`, `FLAG_HIDE_HAYMARKET_CORWIN_SQUARE`,
+`FLAG_HIDE_HAYMARKET_CRANE`, `FLAG_HIDE_COUNTING_HOUSE_PENN_BALL`,
+`FLAG_HIDE_PAVILION_CORWIN_AFTER`, `FLAG_HIDE_LOWMERE_GRAIN_CARTS`,
+`FLAG_HIDE_MIRE_ROAD_TAMSIN_WAGON`, `FLAG_HIDE_HAYMARKET_TAMSIN` (`0x30`-`0x45`).
+A new game starts with these hidden (set): Old Lodge Bram and courier, Lowmere road Tamsin,
+both Mire Road Tamsins, Haymarket Tamsin, Haymarket Crane and the Lowmere grain carts
+(`SetSliceStartFlags` in `src/new_game.c`). The other hide flags start clear.
+
 The badge for each Trial is still the vanilla `FLAG_BADGE0x_GET`; the pact flag is separate,
 so a scene can happen between the win and the signing.
 
@@ -43,6 +57,7 @@ Defined in `include/constants/vars.h`. They are saved with the game.
 | --- | --- |
 | `VAR_LOWMERE_STAGE` | Lowmere's upgrade stage, `LOWMERE_STAGE_0` to `LOWMERE_STAGE_4`. Raised automatically by `signpact` |
 | `VAR_LOWMERE_STAGE_SEEN` | The last stage the player was shown an upgrade scene for |
+| `VAR_SLICE_STATE` | Main story step through the slice; the dialogue thread lists the values in its docs |
 | `VAR_KINGS_GIFT_DOG` | `KINGS_GIFT_ENTEI` (0), `KINGS_GIFT_RAIKOU` (1), `KINGS_GIFT_SUICUNE` (2) |
 | `VAR_PACT_TERMS_1`, `VAR_PACT_TERMS_2` | Internal storage for pact terms. Read them with `getpactterms` |
 
@@ -159,3 +174,28 @@ in any field text (`msgbox`, signs, trainer intro and defeat lines):
 Example: `"Look, everyone, the Marsh {TITLE_CAP}!"`. "Your Highness" is the same for both
 and needs no code. `{PLAYER}` is still the player's name. For anything else that differs by
 gender, branch with `checkplayergender`.
+
+## Opening: "Who are you?"
+
+A new game opens on a black screen instead of Professor Birch: narration only, then the
+choice of prince or princess (this sets the gender used by `{TITLE}`), then the player's
+name (default **Rowan** for both). The game then starts as usual, so the court
+prologue is the first map script that runs. Birch, Lotad and the Poké Ball are never shown,
+and the gender menu reads Prince / Princess. The text belongs to the dialogue thread: every
+`gText_Birch_*` label in `data/text/birch_speech.inc` is shown in the vanilla order (Welcome,
+Pokemon, MainSpeech, AndYouAre, BoyOrGirl, WhatsYourName, SoItsPlayer, YourePlayer, AreYouReady).
+
+## Map names
+
+The map popups and region map show **LOWMERE** (Littleroot Town's slot), **MIRE ROAD**
+(Route 101) and **HAYMARKET** (Oldale Town). Map constants keep their vanilla names.
+
+## Key items
+
+| Item | Given when | Icon (placeholder) |
+| --- | --- | --- |
+| `ITEM_SILVER_WING` | Mother Hesk gives the keepsake (`FLAG_RECEIVED_SILVER_WING`) | Pretty Feather |
+| `ITEM_BELL_RECEIPT` | Mire Road wagon event (`FLAG_FOUND_BELL_RECEIPT`) | Bike Voucher |
+| `ITEM_SEALED_LETTER` | Found on Crane's desk after the Haymarket pact | Letter |
+
+All three are key items with no use from the bag. Give them with `giveitem` as usual.

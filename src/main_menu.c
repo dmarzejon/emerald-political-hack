@@ -201,7 +201,7 @@ static void Task_NewGameBirchSpeech_WaitForSpriteFadeInWelcome(u8);
 static void NewGameBirchSpeech_ClearWindow(u8);
 static void Task_NewGameBirchSpeech_ThisIsAPokemon(u8);
 static void Task_NewGameBirchSpeech_MainSpeech(u8);
-static void NewGameBirchSpeech_WaitForThisIsPokemonText(struct TextPrinterTemplate *, u16);
+static UNUSED void NewGameBirchSpeech_WaitForThisIsPokemonText(struct TextPrinterTemplate *, u16);
 static void Task_NewGameBirchSpeech_AndYouAre(u8);
 static void Task_NewGameBirchSpeechSub_WaitForLotad(u8);
 static void Task_NewGameBirchSpeech_StartBirchLotadPlatformFade(u8);
@@ -406,7 +406,7 @@ static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
         .bg = 0,
         .tilemapLeft = 3,
         .tilemapTop = 5,
-        .width = 6,
+        .width = 8, // Wide enough for "Princess"
         .height = 4,
         .paletteNum = 15,
         .baseBlock = 0x6D
@@ -418,7 +418,7 @@ static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
         .width = 9,
         .height = 10,
         .paletteNum = 15,
-        .baseBlock = 0x85
+        .baseBlock = 0x8D
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -473,8 +473,8 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
 };
 
 static const struct MenuAction sMenuActions_Gender[] = {
-    {gText_Boy, {NULL}},
-    {gText_Girl, {NULL}}
+    {COMPOUND_STRING("Prince"), {NULL}},
+    {COMPOUND_STRING("Princess"), {NULL}}
 };
 
 static const u8 *const sMalePresetNames[] = {
@@ -1311,6 +1311,7 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     DecompressDataWithHeaderVram(sBirchSpeechBgMap, (void *)(BG_SCREEN_ADDR(7)));
     LoadPalette(sBirchSpeechBgPals, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
     LoadPalette(&sBirchSpeechBgGradientPal[8], BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
+    FillPalette(RGB_BLACK, BG_PLTT_ID(0), PLTT_SIZEOF(1)); // The intro is narrated over a black screen
     ScanlineEffect_Stop();
     ResetSpriteData();
     FreeAllSpritePalettes();
@@ -1321,10 +1322,10 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowBirch;
     gTasks[taskId].tPlayerSpriteId = SPRITE_NONE;
     gTasks[taskId].data[3] = 0xFF;
-    gTasks[taskId].tTimer = 0xD8;
+    gTasks[taskId].tTimer = 60;
     PlayBGM(MUS_ROUTE122);
+    // Birch, Lotad and the platform (bg 1) are never shown; only the text and the player appear.
     ShowBg(0);
-    ShowBg(1);
 }
 
 static void Task_NewGameBirchSpeech_WaitToShowBirch(u8 taskId)
@@ -1340,7 +1341,6 @@ static void Task_NewGameBirchSpeech_WaitToShowBirch(u8 taskId)
         spriteId = gTasks[taskId].tBirchSpriteId;
         gSprites[spriteId].x = 136;
         gSprites[spriteId].y = 60;
-        gSprites[spriteId].invisible = FALSE;
         gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         NewGameBirchSpeech_StartFadeInTarget1OutTarget2(taskId, 10);
         NewGameBirchSpeech_StartFadePlatformOut(taskId, 20);
@@ -1379,8 +1379,9 @@ static void Task_NewGameBirchSpeech_ThisIsAPokemon(u8 taskId)
     if (!gPaletteFade.active && !RunTextPrintersAndIsPrinter0Active())
     {
         gTasks[taskId].func = Task_NewGameBirchSpeech_MainSpeech;
-        StringExpandPlaceholders(gStringVar4, gText_ThisIsAPokemon);
-        AddTextPrinterWithCallbackForMessage(TRUE, NewGameBirchSpeech_WaitForThisIsPokemonText);
+        // The narration's own line (data/text/birch_speech.inc), with no Poké Ball: Lotad never appears.
+        StringExpandPlaceholders(gStringVar4, gText_Birch_Pokemon);
+        AddTextPrinterForMessage(TRUE);
         sBirchSpeechMainTaskId = taskId;
     }
 }
@@ -1634,7 +1635,7 @@ static void Task_NewGameBirchSpeech_StartNamingScreen(u8 taskId)
     {
         FreeAllWindowBuffers();
         FreeAndDestroyMonPicSprite(gTasks[taskId].tLotadSpriteId);
-        NewGameBirchSpeech_SetDefaultPlayerName(Random() % NUM_PRESET_NAMES);
+        StringCopy(gSaveBlock2Ptr->playerName, COMPOUND_STRING("Rowan")); // The story's default name, for both
         DestroyTask(taskId);
         DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_NewGameBirchSpeech_ReturnFromNamingScreen);
     }
@@ -1699,12 +1700,10 @@ static void Task_NewGameBirchSpeech_ReshowBirchLotad(u8 taskId)
         spriteId = gTasks[taskId].tBirchSpriteId;
         gSprites[spriteId].x = 136;
         gSprites[spriteId].y = 60;
-        gSprites[spriteId].invisible = FALSE;
         gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         spriteId = gTasks[taskId].tLotadSpriteId;
         gSprites[spriteId].x = 100;
         gSprites[spriteId].y = 75;
-        gSprites[spriteId].invisible = FALSE;
         gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         NewGameBirchSpeech_StartFadeInTarget1OutTarget2(taskId, 2);
         NewGameBirchSpeech_StartFadePlatformOut(taskId, 1);
@@ -1847,6 +1846,7 @@ static void CB2_NewGameBirchSpeech_ReturnFromNamingScreen(void)
     DecompressDataWithHeaderVram(sBirchSpeechBgMap, (u8 *)(BG_SCREEN_ADDR(7)));
     LoadPalette(sBirchSpeechBgPals, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
     LoadPalette(&sBirchSpeechBgGradientPal[1], BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
+    FillPalette(RGB_BLACK, BG_PLTT_ID(0), PLTT_SIZEOF(1));
     ResetTasks();
     taskId = CreateTask(Task_NewGameBirchSpeech_ReturnFromNamingScreenShowTextbox, 0);
     gTasks[taskId].tTimer = 5;
@@ -1880,7 +1880,6 @@ static void CB2_NewGameBirchSpeech_ReturnFromNamingScreen(void)
     SetGpuReg(REG_OFFSET_BLDALPHA, 0);
     SetGpuReg(REG_OFFSET_BLDY, 0);
     ShowBg(0);
-    ShowBg(1);
     IntrEnable(INTR_FLAG_VBLANK);
     SetVBlankCallback(VBlankCB_MainMenu);
     SetMainCallback2(CB2_MainMenu);
@@ -2280,7 +2279,7 @@ static void NewGameBirchSpeech_ClearWindow(u8 windowId)
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }
 
-static void NewGameBirchSpeech_WaitForThisIsPokemonText(struct TextPrinterTemplate *printer, u16 renderCmd)
+static UNUSED void NewGameBirchSpeech_WaitForThisIsPokemonText(struct TextPrinterTemplate *printer, u16 renderCmd)
 {
     // Wait for Birch's "This is a Pokémon" text to reach the pause
     // Then start the PokéBall release (if it hasn't been started already)

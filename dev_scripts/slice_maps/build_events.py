@@ -181,7 +181,7 @@ def lowmere():
         obj('OBJ_EVENT_GFX_EXPERT_M', 9, 9, st.npc(p + 'Bram', 'BRAM'), 'LOCALID_LOWMERE_BRAM',
             move='MOVEMENT_TYPE_FACE_UP'),
         obj('OBJ_EVENT_GFX_FAT_MAN', 11, 8, st.npc(p + 'Toft', 'REEVE TOFT'), 'LOCALID_LOWMERE_TOFT'),
-        obj('OBJ_EVENT_GFX_RIVAL_MAY_NORMAL', 5, 15, st.npc(p + 'Tamsin', 'TAMSIN'), 'LOCALID_LOWMERE_TAMSIN',
+        obj('OBJ_EVENT_GFX_TAMSIN', 5, 15, st.npc(p + 'Tamsin', 'TAMSIN'), 'LOCALID_LOWMERE_TAMSIN',
             move='MOVEMENT_TYPE_FACE_UP'),
         obj('OBJ_EVENT_GFX_MAN_3', 8, 8, st.npc(p + 'Courier', 'COURIER'), 'LOCALID_LOWMERE_COURIER',
             move='MOVEMENT_TYPE_FACE_LEFT'),

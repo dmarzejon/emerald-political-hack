@@ -248,6 +248,12 @@ colour rather than editing the PNGs.
 | `Bailiff` | Pokémon Ranger (M) | Green livery |
 | `Gardener` | Aroma Lady | Green apron |
 
+Tamsin also has her own overworld sprite, `OBJ_EVENT_GFX_TAMSIN`: May's frames with auburn
+hair and a tan and rust outfit (palette `graphics/object_events/palettes/tamsin.pal`, made by
+the same script). Use it for every Tamsin object so she never looks like the princess player.
+New hack sprites go after `// Political hack` at the end of the list in
+`include/constants/event_objects.h`, and their table entries go outside the `#if IS_FRLG` block.
+
 The Broker, Bidder, Warden and Steward classes have no pic of their own yet. Use Gentleman,
 Rich Boy, Lady or Expert until they do.
 

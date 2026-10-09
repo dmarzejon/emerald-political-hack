@@ -43,6 +43,39 @@ RECOLORS = {
 }
 
 
+# Overworld palettes: (base .pal, {palette index: (r, g, b)}), written as
+# graphics/object_events/palettes/<name>.pal.
+OW_DIR = "graphics/object_events/palettes/"
+OW_RECOLORS = {
+    # Tamsin walks with May's frames, so she needs her own colours or she
+    # looks exactly like the princess player.
+    "tamsin": ("may", {
+        5: (115, 106, 106), 6: (57, 49, 49), 7: (189, 82, 49), 8: (123, 49, 32),
+        10: (230, 180, 90), 11: (180, 123, 57), 12: (205, 106, 65), 13: (148, 74, 49)}),
+}
+
+
+def read_pal(path):
+    lines = open(path).read().split()
+    return [tuple(int(v) for v in lines[3 + i * 3:6 + i * 3]) for i in range(16)]
+
+
+def write_pal(path, pal):
+    with open(path, "w", newline="\r\n") as f:
+        f.write("JASC-PAL\n0100\n16\n")
+        for c in pal:
+            f.write("%d %d %d\n" % c)
+
+
+def make_ow(name):
+    base, changes = OW_RECOLORS[name]
+    pal = read_pal(OW_DIR + base + ".pal")
+    for i, c in changes.items():
+        pal[i] = gba(c)
+    write_pal(OW_DIR + name + ".pal", pal)
+    return base, pal
+
+
 def gba(c):
     # Snap to the 5-bit-per-channel colours the GBA can show.
     return tuple((v >> 3) << 3 for v in c)
@@ -62,6 +95,7 @@ def make(name):
 
 def main():
     pairs = [(n, *make(n)) for n in RECOLORS]
+    ow = [(n, *make_ow(n)) for n in OW_RECOLORS]
     if "--preview" in sys.argv:
         sheet = Image.new("RGB", (len(pairs) * 66, 150), "white")
         d = ImageDraw.Draw(sheet)
@@ -71,6 +105,16 @@ def main():
             d.text((i * 66 + 1, 0), n[:11], fill="black")
         sheet = sheet.resize((sheet.width * 2, sheet.height * 2), Image.NEAREST)
         sheet.save(sys.argv[sys.argv.index("--preview") + 1])
+    if "--preview-ow" in sys.argv:
+        frames = Image.open("graphics/object_events/pics/people/may/walking.png")
+        sheet = Image.new("RGB", (frames.width, frames.height * (1 + len(ow))), "white")
+        sheet.paste(frames.convert("RGB"), (0, 0))
+        for i, (n, base, pal) in enumerate(ow):
+            im = frames.copy()
+            im.putpalette([v for c in pal for v in c])
+            sheet.paste(im.convert("RGB"), (0, frames.height * (i + 1)))
+        sheet = sheet.resize((sheet.width * 4, sheet.height * 4), Image.NEAREST)
+        sheet.save(sys.argv[sys.argv.index("--preview-ow") + 1])
 
 
 if __name__ == "__main__":

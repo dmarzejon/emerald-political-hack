@@ -73,6 +73,7 @@ Lowmere_EventScript_Toft::
 	lock
 	faceplayer
 	setspeaker Slice_Name_Toft
+	goto_if_ge VAR_THORNFIELD_STATE, 3, Lowmere_EventScript_ToftThornfield
 	goto_if_ge VAR_LOWMERE_STAGE, 1, Lowmere_EventScript_ToftStage1
 	goto_if_ge VAR_SLICE_STATE, 12, Lowmere_EventScript_ToftPactSigned
 	goto_if_ge VAR_SLICE_STATE, 7, Lowmere_EventScript_ToftHaymarket
@@ -104,6 +105,13 @@ Lowmere_EventScript_ToftPactSigned::
 
 Lowmere_EventScript_ToftStage1::
 	msgbox Lowmere_Text_ToftStage1, MSGBOX_DEFAULT
+	release
+	end
+
+@ Chapter 2: after the Thornfield pact.
+Lowmere_EventScript_ToftThornfield::
+	setflag FLAG_LOWMERE_GARDENERS_ARRIVED
+	msgbox Lowmere_Text_ToftThornfield, MSGBOX_DEFAULT
 	release
 	end
 
@@ -906,6 +914,16 @@ Lowmere_Text_ToftHaymarket::
 Lowmere_Text_ToftPactSigned::
 	.string "Is it true? A pact? With HAYMARKET? I\n"
 	.string "won't believe it until I've weighed it.$"
+
+Lowmere_Text_ToftThornfield::
+	.string "Carts from THORNFIELD, Your Highness!\n"
+	.string "Seed for every garden in LOWMERE, and\l"
+	.string "two gardeners who keep asking where\l"
+	.string "the soil is.\p"
+	.string "I told them it's under the water. They\n"
+	.string "went very pale.\p"
+	.string "One more pact like that, and LOWMERE\n"
+	.string "might start to look like a real town.$"
 
 Lowmere_Text_ToftStage1::
 	.string "Grain for a month! A whole month!\p"

@@ -27,6 +27,16 @@
 
 #define TRAINER_CORWIN                  TRAINER_ROXANNE_1
 
+// Chapter 2: the Orchard Road (Route 102 slot), Thornfield and Isolde's Trial.
+#define TRAINER_ORCHARD_ROAD_PICKER     TRAINER_DAISY
+#define TRAINER_ORCHARD_ROAD_BAILIFF    TRAINER_RHETT
+#define TRAINER_ORCHARD_ROAD_POET       TRAINER_MARCOS
+#define TRAINER_THORNFIELD_BAILIFF      TRAINER_BERKE
+#define TRAINER_PALACE_GARDENER_1       TRAINER_RANDALL
+#define TRAINER_PALACE_GARDENER_2       TRAINER_PARKER
+#define TRAINER_PALACE_COURTIER         TRAINER_GEORGE
+#define TRAINER_ISOLDE                  TRAINER_NORMAN_1
+
 // The king's gift dog. Give it explicit moves (see docs/balance.md) so Raikou
 // doesn't start with Extreme Speed.
 #define KINGS_GIFT_LEVEL                5

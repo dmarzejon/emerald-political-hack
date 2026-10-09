@@ -25,7 +25,7 @@ All five layouts are the same size and keep every door, exit and NPC spot in the
 | Stage | What changes |
 |---|---|
 | 0 | Marsh paths with mud, a broken well, two empty stall frames, broken fences, houses A, B and C boarded up, and a collapsed jetty. |
-| 1 | Dirt roads, the well repaired, two working stalls with sacks and crates, fences mended, and house C reopened. |
+| 1 | Dirt roads, the well repaired, two working stalls with sacks and crates, fences mended, house C reopened, and two grain carts from Haymarket, parked at (10,9) and (21,9). |
 | 2 | Flagstone roads, a full jetty with two rowboats, berry plots, flowers and a row of fruit trees, a Pokémon Center on house B's lot, and house A reopened. |
 | 3 | Lanterns, restored roofs, a Poké Mart on the empty lot, and more flowers. |
 | 4 | The same as stage 3 for now. |
@@ -59,7 +59,7 @@ Every object, sign and trigger runs a script from `data/scripts/slice/`. The lab
 - **The Old Lodge** (Brendan's house 1F):
   - Toft is at (5,7), Bram at (7,6) and the courier at (8,6).
   - The ledger sign is on the table at (4,6).
-- **The Ranger's Shed** (`LAYOUT_LOWMERE_RANGERS_SHED`): Mr. Briney's beamed cottage with the Fossil Maniac's mounted trophy on the back wall. Bram stands at (5,4). The shelf is the field guides, the clay pots are the trap cages, the table holds the logbook and the cabinet at (8,1) is the PC.
+- **The Ranger's Shed** (`LAYOUT_LOWMERE_RANGERS_SHED`): Mr. Briney's beamed cottage with the Fossil Maniac's mounted trophy on the back wall. Bram stands at (5,4). The shelf is the field guides, the clay pots are the trap cages, the table holds the logbook and the cabinet at (8,1) is the PC. Three Poké Balls (`LOCALID_SHED_BALL_1`…`3`) sit on the table at (7,4), (8,4) and (7,5). They run Bram's script and are hidden by `FLAG_SYS_POKEMON_GET` once the starter is taken.
 - **Hesk's house:** Hesk is at (4,4) downstairs, and Elena's bed is a sign at (7,5) upstairs.
 - **Vanilla objects still there:** Mom, the Twin, the trucks, the rival and Birch keep their spots, because vanilla scripts still name their local ids. The dialogue work removes them together with those scripts.
 
@@ -111,7 +111,7 @@ These are the town's events:
 - **Townsfolk:** the ribbon seller, nervous man, girl, granny, farmer and boy.
 - **Signs:** the town, the Pavilion, the Magistrate's Hall, the counting house and the granary.
 
-Magistrate Arden is at (6,3) inside House 2, with his clerk. Penn's house (House 1) is empty for now.
+Magistrate Arden stands in front of his desk at (8,3) inside House 2, facing down onto open floor, with his clerk at the table. Penn's house (House 1) is empty for now.
 
 These are the exits:
 

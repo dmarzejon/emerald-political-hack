@@ -21,6 +21,7 @@ generations.
 | `B_EXP_CAP_TYPE` | `include/config/caps.h` | `EXP_CAP_SOFT` | Pokémon at or above the level cap still gain experience, but much less. Keeps the legendary dog and over-grinders from flattening the Trials. |
 | `B_LEVEL_CAP_TYPE` | `include/config/caps.h` | `LEVEL_CAP_FLAG_LIST` | The cap rises with each seal (badge flag). Before the first Trial it is **15**. |
 | `B_RARE_CANDY_CAP` | `include/config/caps.h` | `TRUE` | Rare Candies can't push past the cap. |
+| `B_LEVEL_CAP_EXP_UP` | `include/config/caps.h` | `TRUE` | Pokémon below the cap earn bonus experience: +12.5% one level under, rising to double at four or more under. Catches the slow-levelling dog and a freshly caught Pokémon up before the Trial. |
 
 The cap per seal lives in `sLevelCapFlagMap` in `src/caps.c` (15, 19, 24, 29, 31, 33, 42,
 46, 58). Only the first value matters for the slice; balance will retune the rest as each
@@ -37,8 +38,8 @@ Trial is built.
 | Mire Road wild grass | | 3-5 |
 | Mire Road trainers and wagon clerk | 7-9 | 4-7 |
 | Haymarket granary and counting house | 9-11 | 9-10 |
-| Gilt Pavilion courtiers | 11-13 | 10-12 |
-| **Corwin, Trial 1** | 12-14 (cap 15) | 12, 12, 13, ace 15 |
+| Gilt Pavilion courtiers | 10-12 | 9-11 |
+| **Corwin, Trial 1** | 11-13 (cap 15) | 10, 10, 11, ace 12 |
 
 ## The king's gift
 
@@ -48,8 +49,10 @@ Corwin:
 - The dogs are on the Slow experience curve, so they level noticeably slower than the
   starter.
 - The soft level cap (15) stops it running away before the first Trial.
-- Corwin's Bunnelby carries Mud-Slap and Mud Shot, which hit Entei and Raikou
-  super-effectively.
+- Corwin's Bunnelby carries Mud-Slap, which hits Entei and Raikou super-effectively.
+
+The dog's slow curve turned out to hold it back too far in the first playtest (level 5 to
+7 over two fights), so the below-cap experience bonus now helps it catch up.
 
 At level 5 the dogs' default moves would include Extreme Speed (Raikou). Whoever writes the
 gift script should give explicit moves with `givemon`:
@@ -103,7 +106,7 @@ trainer classes and pics.
 
 | Constant | Who | Where | Class / pic (placeholder?) | Team |
 |---|---|---|---|---|
-| `TRAINER_MAY_ROUTE_103_*`, `TRAINER_BRENDAN_ROUTE_103_*` | **Tamsin** | Edge of Lowmere | Rival / May (placeholder pic) | Starter that beats the player's, Lv 5 |
+| `TRAINER_MAY_ROUTE_103_*`, `TRAINER_BRENDAN_ROUTE_103_*` | **Tamsin** | Edge of Lowmere | Rival / May (placeholder pic) | Starter that beats the player's, Lv 5, level-1 moves only |
 | `TRAINER_RICK` | Clerk Hobb, Gilded Scale toll | Mire Road | Gentleman (placeholder) | Purrloin 5, Galarian Zigzagoon 5 |
 | `TRAINER_TIANA` | Grisk, poacher | Mire Road | Hiker (placeholder) | Wooper 5, Croagunk 6 |
 | `TRAINER_ALLEN` | Pip, youngster | Mire Road | Youngster | Bidoof 4, Lillipup 5 |
@@ -112,9 +115,9 @@ trainer classes and pics.
 | `TRAINER_GRUNT_RUSTURF_TUNNEL` | Guild foreman | Haymarket granary | Team Aqua (placeholder) | Mudbray 9, Timburr 10 |
 | `TRAINER_GRUNT_MUSEUM_1` | Clerk | Counting house | Team Aqua (placeholder) | Purrloin 9, Poochyena 9 |
 | `TRAINER_GRUNT_MUSEUM_2` | Clerk | Counting house | Team Aqua (placeholder) | Murkrow 9, Pawniard 10 |
-| `TRAINER_JOSH` | Albrecht, bidder | Gilt Pavilion | Rich Boy | Lillipup 10, Glameow 11 |
-| `TRAINER_TOMMY` | Celeste, broker | Gilt Pavilion | Lady | Skitty 10, Minccino 11 |
-| `TRAINER_MARC` | Fenwick, broker | Gilt Pavilion | Gentleman | Lechonk 11, Aipom 12 |
+| `TRAINER_JOSH` | Albrecht, bidder | Gilt Pavilion | Rich Boy | Lillipup 9, Glameow 10 |
+| `TRAINER_TOMMY` | Celeste, broker | Gilt Pavilion | Lady | Skitty 9, Minccino 10 |
+| `TRAINER_MARC` | Fenwick, broker | Gilt Pavilion | Gentleman | Lechonk 10, Aipom 11 |
 | `TRAINER_ROXANNE_1` | **Prince Corwin**, Trial 1 | Gilt Pavilion | Leader / Roxanne (placeholder pic) | See below |
 
 Tamsin's constant suffix is the **player's** starter, as in vanilla: `_MUDKIP` means the
@@ -124,16 +127,24 @@ Torchic and Mudkip; if the story picks different partners, Tamsin's teams change
 
 ### Corwin, Trial 1
 
-Four "lots", one per round of the auction, with Type: Null unveiled last. Holds 2 Potions.
+Four "lots", one per round of the auction, with Type: Null unveiled last. Corwin carries no items, and the AI's `Ace Pokemon` flag keeps Type: Null back until it is the last Pokémon standing (without it, expansion's switching AI ignores party order).
 
 | Lot | Pokémon | Lv | Ability / item | Moves | Role |
 |---|---|---|---|---|---|
-| 1 | Skwovet | 12 | Cheek Pouch, Oran Berry | Tackle, Bite, Tail Whip, Stuff Cheeks | Eats its berry to heal and raise Defence: Corwin's hoarding |
-| 2 | Meowth | 12 | Technician | Fake Out, Feint, Scratch, Pay Day | Pays out coins all match |
-| 3 | Bunnelby | 13 | Pickup | Mud-Slap, Quick Attack, Mud Shot, Leer | Ground coverage, the check on Entei and Raikou |
-| 4 | **Type: Null** | 15 | Battle Armor | Tackle, Aerial Ace, Scary Face, Double Hit | The final lot. Bulky (95 HP / 95 Def / 95 SpD), no crits |
+| 1 | Skwovet | 10 | Cheek Pouch, Oran Berry | Tackle, Bite, Tail Whip, Stuff Cheeks | Eats its berry to heal and raise Defence: Corwin's hoarding |
+| 2 | Meowth | 10 | Technician | Fake Out, Feint, Scratch, Pay Day | Pays out coins all match |
+| 3 | Bunnelby | 11 | Pickup | Mud-Slap, Quick Attack, Tackle, Leer | Ground coverage, the check on Entei and Raikou |
+| 4 | **Type: Null** | 12 | Battle Armor | Tackle, Aerial Ace, Scary Face | The final lot. Bulky (95 HP / 95 Def / 95 SpD), no crits |
 
-Type: Null is at the pre-Trial cap, like Roxanne's Nosepass, and holds no item (an Eviolite
+Type: Null sits two levels above the rest, like Roxanne's Nosepass, and holds no item (an Eviolite
 would make it unbeatable at this level). Normal type has one weakness, Fighting, which
 none of the starters have yet; Mudkip's Rock Smash and wild Riolu or Croagunk from the
 Mire Road are the intended answers for players who want an edge.
+
+### Playtest 1 changes (2026-10-09)
+
+The first playtest arrived at Corwin with Mudkip and Suicune at level 10 and lost 5 times
+out of 5. Corwin dropped two to three levels per Pokémon, lost his Potions (he had used one
+on Type: Null) and now saves Type: Null for last. The courtiers dropped a level each,
+the below-cap experience bonus is on, and Tamsin's starter only knows its level-1 moves
+(her Treecko's Leafage beat a Tackle-only Mudkip 3 times in 4).

@@ -1146,6 +1146,8 @@
 #define B_LEVEL_CAP_TYPE                 LEVEL_CAP_NONE
 #undef B_RARE_CANDY_CAP
 #define B_RARE_CANDY_CAP                 FALSE
+#undef B_LEVEL_CAP_EXP_UP
+#define B_LEVEL_CAP_EXP_UP               FALSE
 
 // Compression DebugPrintf switch
 #define T_COMPRESSION_SHOULD_PRINT FALSE

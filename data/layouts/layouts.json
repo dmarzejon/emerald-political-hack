@@ -9371,12 +9371,34 @@
     {
       "id": "LAYOUT_HAYMARKET_GILT_PAVILION",
       "name": "Haymarket_GiltPavilion_Layout",
-      "width": 9,
-      "height": 26,
+      "width": 13,
+      "height": 27,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PetalburgGym",
+      "secondary_tileset": "gTileset_GiltPavilion",
       "border_filepath": "data/layouts/Haymarket_GiltPavilion/border.bin",
       "blockdata_filepath": "data/layouts/Haymarket_GiltPavilion/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HAYMARKET_GRANARY",
+      "name": "Haymarket_Granary_Layout",
+      "width": 21,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Haymarket_Granary/border.bin",
+      "blockdata_filepath": "data/layouts/Haymarket_Granary/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LOWMERE_RANGERS_SHED",
+      "name": "Lowmere_RangersShed_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Lowmere_RangersShed/border.bin",
+      "blockdata_filepath": "data/layouts/Lowmere_RangersShed/map.bin",
       "layout_version": "emerald"
     }
   ]

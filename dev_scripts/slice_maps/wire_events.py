@@ -10,7 +10,9 @@ townsfolk and triggers the slice replaces. Vanilla objects that vanilla scripts 
 by local id stay until those scripts are cut. Finally it removes map-thread placeholder
 scripts that nothing points at any more.
 
-Safe to re-run: every step looks events up by local id, script or position first.
+Already applied. map.json is now the source of truth, and later map changes (the granary,
+counting house, Ranger's Shed and Gilt Pavilion rework) were made after it, so re-running it
+would undo them. Kept as a record of how the events were wired.
 """
 import json
 import os

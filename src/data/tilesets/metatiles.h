@@ -18,6 +18,9 @@ const u16 gMetatileAttributes_Lowmere[] = INCBIN_U16("data/tilesets/secondary/lo
 const u16 gMetatiles_Haymarket[] = INCBIN_U16("data/tilesets/secondary/haymarket/metatiles.bin");
 const u16 gMetatileAttributes_Haymarket[] = INCBIN_U16("data/tilesets/secondary/haymarket/metatile_attributes.bin");
 
+const u16 gMetatiles_GiltPavilion[] = INCBIN_U16("data/tilesets/secondary/gilt_pavilion/metatiles.bin");
+const u16 gMetatileAttributes_GiltPavilion[] = INCBIN_U16("data/tilesets/secondary/gilt_pavilion/metatile_attributes.bin");
+
 const u16 gMetatiles_Rustboro[] = INCBIN_U16("data/tilesets/secondary/rustboro/metatiles.bin");
 const u16 gMetatileAttributes_Rustboro[] = INCBIN_U16("data/tilesets/secondary/rustboro/metatile_attributes.bin");
 

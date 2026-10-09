@@ -74,6 +74,17 @@ const struct Tileset gTileset_Haymarket =
     .callback = InitTilesetAnim_Slateport,
 };
 
+const struct Tileset gTileset_GiltPavilion =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GiltPavilion,
+    .palettes = gTilesetPalettes_GiltPavilion,
+    .metatiles = gMetatiles_GiltPavilion,
+    .metatileAttributes = gMetatileAttributes_GiltPavilion,
+    .callback = NULL,
+};
+
 const struct Tileset gTileset_Rustboro =
 {
     .isCompressed = TRUE,

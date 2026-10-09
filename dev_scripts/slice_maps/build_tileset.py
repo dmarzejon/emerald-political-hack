@@ -398,8 +398,61 @@ def build_haymarket():
     print('haymarket tileset: %d metatiles' % len(ts.metatiles))
 
 
+# Slot 9 of the Gilt Pavilion tileset: gold lot plates for the auction-floor puzzle.
+LOT_PAL = [(0, 0, 0), (106, 74, 24), (180, 131, 32), (222, 172, 49), (246, 213, 98),
+           (255, 238, 164), (255, 250, 222), (74, 41, 32)] + [(0, 0, 0)] * 8
+DIGITS = ['111101101101111', '010110010010111', '111001111100111', '111001111001111', '101101111001001',
+          '111100111001111', '111100111101111', '111001001010010', '111101111101111', '111101111001111']
+LOT_NUMBERS = list(range(1, 22))
+
+
+def draw_lot(n):
+    """16x16 gold plate with a raised rim and the lot number in 2x-scaled 3x5 digits."""
+    px = [[5] * 16 for _ in range(16)]
+    for i in range(16):
+        px[0][i] = px[i][0] = 4
+        px[15][i] = px[i][15] = 1
+        px[1][i] = px[i][1] = 6 if 0 < i < 15 else px[1][i]
+        px[14][i] = px[i][14] = 2 if 0 < i < 15 else px[14][i]
+    text = str(n)
+    w = len(text) * 7 - 1
+    x0, y0 = (16 - w) // 2, 3
+    for k, ch in enumerate(text):
+        bits = DIGITS[int(ch)]
+        for r in range(5):
+            for c in range(3):
+                if bits[r * 3 + c] == '1':
+                    for dy in range(2):
+                        for dx in range(2):
+                            px[y0 + r * 2 + dy][x0 + k * 7 + c * 2 + dx] = 7
+    return px
+
+
+def build_gilt_pavilion():
+    """Gilt Pavilion = Petalburg Gym + gold lot plates numbered 1-21 (palette slot 9)."""
+    ts = Tileset(path('data/tilesets/secondary/petalburg_gym'))
+    ts.pals[9] = list(LOT_PAL)
+    ids = {}
+    for n in LOT_NUMBERS:
+        px = draw_lot(n)
+        entries = []
+        for q in range(4):
+            qx, qy = (q % 2) * 8, (q // 2) * 8
+            ts.tiles.append(tuple(px[qy + y][qx + x] for y in range(8) for x in range(8)))
+            entries.append((NUM_PRIMARY_TILES + len(ts.tiles) - 1) | (9 << 12))
+        ids['lot_%d' % n] = NUM_PRIMARY_METATILES + len(ts.metatiles)
+        ts.metatiles.append(entries + [0, 0, 0, 0])
+        ts.attrs.append((LAYER_NORMAL << 12) | MB_NORMAL)
+    assert len(ts.tiles) <= 512 and len(ts.metatiles) <= 512
+    ts.save(path('data/tilesets/secondary/gilt_pavilion'))
+    json.dump({'num_tiles': len(ts.tiles), 'ids': ids},
+              open(os.path.join(os.path.dirname(__file__), 'gilt_pavilion_ids.json'), 'w'), indent=1)
+    print('gilt pavilion tileset: %d tiles, %d metatiles' % (len(ts.tiles), len(ts.metatiles)))
+
+
 def main():
     build_haymarket()
+    build_gilt_pavilion()
     b = Builder()
     swap = {10: 12}
 

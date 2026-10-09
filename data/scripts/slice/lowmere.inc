@@ -452,20 +452,21 @@ Lowmere_OldLodge_EventScript_ConfirmDog::
 	end
 
 Lowmere_OldLodge_EventScript_GiveEntei::
-	givemon SPECIES_ENTEI, KINGS_GIFT_LEVEL
+	givemon SPECIES_ENTEI, KINGS_GIFT_LEVEL, move1=MOVE_EMBER, move2=MOVE_LEER, move3=MOVE_SMOKESCREEN
 	goto Lowmere_OldLodge_EventScript_ReceivedDog
 	end
 
 Lowmere_OldLodge_EventScript_GiveRaikou::
-	givemon SPECIES_RAIKOU, KINGS_GIFT_LEVEL
+	givemon SPECIES_RAIKOU, KINGS_GIFT_LEVEL, move1=MOVE_THUNDER_SHOCK, move2=MOVE_LEER, move3=MOVE_QUICK_ATTACK
 	goto Lowmere_OldLodge_EventScript_ReceivedDog
 	end
 
 Lowmere_OldLodge_EventScript_GiveSuicune::
-	givemon SPECIES_SUICUNE, KINGS_GIFT_LEVEL
+	givemon SPECIES_SUICUNE, KINGS_GIFT_LEVEL, move1=MOVE_WATER_GUN, move2=MOVE_LEER, move3=MOVE_MIST
 	goto Lowmere_OldLodge_EventScript_ReceivedDog
 	end
 
+@ Moves set by the balance thread so the dogs arrive with starter-level moves.
 @ The party has at most two Pokémon at this point, so the gift always goes to
 @ the party.
 Lowmere_OldLodge_EventScript_ReceivedDog::

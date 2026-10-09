@@ -267,7 +267,7 @@ the first real Ghost source.
 | `TRAINER_GRUNT_WEATHER_INST_2` | `TRAINER_ORE_OFFICE_CLERK` | Chancellery ore clerk | Guild Clerk | Nosepass 18, Bronzor 18 |
 | `TRAINER_MIKE_2` | `TRAINER_PITHEAD_FOREMAN` | Durran, pithead foreman | Foreman | Rolycoly 18, Timburr 19 |
 | `TRAINER_BRICE` | `TRAINER_PITHEAD_MINER_1` | Tobin, miner | Hiker | Roggenrola 18, Onix 19 |
-| `TRAINER_CLARK` | `TRAINER_PITHEAD_MINER_2` | Maud, miner | Hiker | Drilbur 18, Nacli 19 |
+| `TRAINER_CLARK` | `TRAINER_PITHEAD_MINER_2` | Maud, miner | Hiker / Picnicker | Drilbur 18, Nacli 19 |
 | `TRAINER_BRAWLY_1` | `TRAINER_BRANNOC` | **Prince Brannoc**, Trial 3 | Prince / Leader Brawly (placeholder pic) | See below |
 
 None of these IDs have rematches or Match Call entries. Brawly's gym rematches only trigger

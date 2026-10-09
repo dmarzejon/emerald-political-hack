@@ -11586,8 +11586,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_CLARK ===
 Name: MAUD
 Class: Hiker
-Pic: Hiker
-Gender: Male
+Pic: Picnicker
+Gender: Female
 Music: Hiker
 Double Battle: No
 AI: Check Bad Move

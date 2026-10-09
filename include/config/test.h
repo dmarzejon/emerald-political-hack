@@ -1139,6 +1139,14 @@
 #undef B_FLAG_INVERSE_BATTLE
 #define B_FLAG_INVERSE_BATTLE            TESTING_FLAG_INVERSE_BATTLE
 
+// Level caps: the hack turns these on in config/caps.h; tests expect vanilla experience.
+#undef B_EXP_CAP_TYPE
+#define B_EXP_CAP_TYPE                   EXP_CAP_NONE
+#undef B_LEVEL_CAP_TYPE
+#define B_LEVEL_CAP_TYPE                 LEVEL_CAP_NONE
+#undef B_RARE_CANDY_CAP
+#define B_RARE_CANDY_CAP                 FALSE
+
 // Compression DebugPrintf switch
 #define T_COMPRESSION_SHOULD_PRINT FALSE
 

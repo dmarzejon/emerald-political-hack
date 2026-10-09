@@ -1,7 +1,14 @@
 InsideOfTruck_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, InsideOfTruck_OnLoad
 	map_script MAP_SCRIPT_ON_RESUME, InsideOfTruck_OnResume
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, InsideOfTruck_OnFrame
 	.byte 0
+
+@ The truck is the cart that brings the player to Lowmere. The court prologue
+@ plays first, over a black screen.
+InsideOfTruck_OnFrame:
+	map_script_2 VAR_SLICE_STATE, 0, Prologue_EventScript_Apportionment
+	.2byte 0
 
 InsideOfTruck_OnLoad:
 	setmetatile 4, 1, METATILE_InsideOfTruck_ExitLight_Top, FALSE
@@ -52,7 +59,7 @@ InsideOfTruck_EventScript_MovingBox::
 	end
 
 InsideOfTruck_Text_BoxPrintedWithMonLogo:
-	.string "The box is printed with a POKéMON logo.\p"
-	.string "It's a POKéMON brand moving and\n"
-	.string "delivery service.$"
+	.string "A crate of your things from the capital.\p"
+	.string "It's stamped: PROPERTY OF THE CROWN.\n"
+	.string "On loan.$"
 

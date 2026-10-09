@@ -130,6 +130,9 @@ gStdScripts::
 gStdScripts_End::
 
 
+	@ Shared constants and macros for the vertical slice; must come before map scripts.
+	.include "data/scripts/slice/common.inc"
+
 	.include "data/maps/PetalburgCity/scripts.inc"
 	.include "data/maps/SlateportCity/scripts.inc"
 	.include "data/maps/MauvilleCity/scripts.inc"
@@ -1738,3 +1741,10 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/battle_frontier.inc"
 	.include "data/scripts/apricorn_tree.inc"
 	.include "data/scripts/wild_encounter.inc"
+
+	@ Vertical slice: Lowmere, Mire Road, Haymarket (see docs/dialogue/events.md)
+	.include "data/scripts/slice/prologue.inc"
+	.include "data/scripts/slice/lowmere.inc"
+	.include "data/scripts/slice/mire_road.inc"
+	.include "data/scripts/slice/haymarket.inc"
+	.include "data/scripts/slice/gilt_pavilion.inc"

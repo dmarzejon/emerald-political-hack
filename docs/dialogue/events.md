@@ -179,6 +179,7 @@ Interiors:
 | --- | --- | --- |
 | Object | `GiltPavilion_EventScript_Auctioneer` | the Gym guide's job, by the door |
 | Trainers | `GiltPavilion_EventScript_Broker1` / `_Bidder` / `_Broker2` | courtiers, `TRAINER_PAVILION_BROKER_1`, `TRAINER_PAVILION_BIDDER`, `TRAINER_PAVILION_BROKER_2` |
+| Object | `GiltPavilion_EventScript_Servant` | a servant with water between the courtiers and Corwin; full heal before the Trial |
 | Object | `GiltPavilion_EventScript_Corwin` | Corwin on the throne, `local_id` `LOCALID_PAVILION_CORWIN`, `TRAINER_CORWIN` |
 | Signs | `GiltPavilion_EventScript_Gallery` | the galleries along the walls |
 | Callable | `GiltPavilion_EventScript_LotCallSeven` / `_LotCallTwelve` / `_LotCallTwenty` / `_WrongLot` | auctioneer lines for the lot-number floor puzzle; `call` them from the puzzle's triggers |

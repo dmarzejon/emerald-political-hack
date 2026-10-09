@@ -77,6 +77,8 @@ Slice_Name_Aurelian::
 	.string "AURELIAN$"
 Slice_Name_Herald::
 	.string "HERALD$"
+Slice_Name_Servant::
+	.string "SERVANT$"
 Slice_Name_Bram::
 	.string "BRAM$"
 Slice_Name_Tamsin::

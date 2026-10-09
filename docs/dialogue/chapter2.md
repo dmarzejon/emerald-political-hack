@@ -136,6 +136,7 @@ the 7-room Petalburg Gym.
 | --- | --- | --- |
 | Object | `Glasshouse_EventScript_Herald` | by the door (the Gym guide's job) |
 | Trainers | `Glasshouse_EventScript_Gardener1` / `_Gardener2` / `_Courtier` | `TRAINER_PALACE_GARDENER_1`, `TRAINER_PALACE_GARDENER_2`, `TRAINER_PALACE_COURTIER` |
+| Object | `Glasshouse_EventScript_Servant` | a servant with rose water between the courtiers and Isolde; full heal before the Trial |
 | Object | `Glasshouse_EventScript_Isolde` | Isolde on the throne, `TRAINER_ISOLDE` |
 | Signs | `Glasshouse_EventScript_GlassWall` | the glass walls |
 

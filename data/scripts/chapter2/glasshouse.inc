@@ -40,6 +40,18 @@ Glasshouse_EventScript_Courtier::
 	end
 
 @ ---------------------------------------------------------------------------
+@ A servant with water before the Trial: a full heal (balance assumes one).
+@ ---------------------------------------------------------------------------
+Glasshouse_EventScript_Servant::
+	lock
+	faceplayer
+	say Slice_Name_Servant, Glasshouse_Text_ServantOffer
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	npc Slice_Name_Servant, Glasshouse_Text_ServantDone
+	end
+
+@ ---------------------------------------------------------------------------
 @ Isolde. Trial 2. Win -> Thornfield Seal (badge 2), the pact, and Isolde's
 @ private talk about the bell and the sealed grove (VAR_THORNFIELD_STATE 2 -> 3).
 @ ---------------------------------------------------------------------------
@@ -404,4 +416,15 @@ Glasshouse_Text_GlassWallAfter::
 	.string "Someone has opened a pane. By the\n"
 	.string "throne, there's a clay pot with a single\l"
 	.string "bean plant in it.$"
+
+Glasshouse_Text_ServantOffer::
+	.string "Rose water, Your Highness, from the\n"
+	.string "terraces. Her Highness has it brought\l"
+	.string "for every guest.\p"
+	.string "Let your POKéMON drink too. It's very\n"
+	.string "calming.$"
+
+Glasshouse_Text_ServantDone::
+	.string "There. All rested. Her Highness says no\n"
+	.string "one should come before her tired.$"
 

@@ -23,6 +23,7 @@
 - [Styleguide and Principles](./STYLEGUIDE.md)
 - [Credits](./CREDITS.md)
 - [Game systems (political hack)](./systems.md)
+- [Slice Dialogue and Events](./dialogue/events.md)
 - [Balance: vertical slice](balance.md)
 - [Tutorials]()
   - [What are AI Flags?](tutorials/ai_flags.md)

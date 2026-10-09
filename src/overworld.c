@@ -1,5 +1,6 @@
 #include "global.h"
 #include "overworld.h"
+#include "town_upgrade.h"
 #include "battle_pyramid.h"
 #include "battle_setup.h"
 #include "battle_util.h"
@@ -657,7 +658,8 @@ static bool32 IsDummyWarp(struct WarpData *warp)
 
 struct MapHeader const *const Overworld_GetMapHeaderByGroupAndId(u16 mapGroup, u16 mapNum)
 {
-    return gMapGroups[mapGroup][mapNum];
+    // Upgradeable towns (Lowmere) swap in the layout for their current stage.
+    return TownUpgrade_GetMapHeader(mapGroup, mapNum, gMapGroups[mapGroup][mapNum]);
 }
 
 struct MapHeader const *const GetDestinationWarpMapHeader(void)

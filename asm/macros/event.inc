@@ -3011,3 +3011,35 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+@ Political hack: town upgrades and pacts. See docs/systems.md.
+
+	@ Signs the pact with a sibling's town after their Trial of Standing. town is a PACT_* constant and
+	@ terms a PACT_TERMS_* constant (it can also be a var, e.g. VAR_RESULT from a choice menu).
+	@ Sets the town's FLAG_PACT_* flag, records the terms and raises VAR_LOWMERE_STAGE to match the
+	@ pacts signed. VAR_RESULT is Lowmere's stage afterwards.
+	.macro signpact town:req, terms:req
+	setorcopyvar VAR_0x8004, \town
+	setorcopyvar VAR_0x8005, \terms
+	special SignPact
+	.endm
+
+	@ Sets VAR_RESULT to the PACT_TERMS_* the player chose for the given PACT_* town, or
+	@ PACT_TERMS_NONE if that pact has not been signed.
+	.macro getpactterms town:req
+	setorcopyvar VAR_0x8004, \town
+	special GetPactTerms
+	.endm
+
+	@ Jumps to the label if Lowmere has reached a stage the player has not been shown yet
+	@ (VAR_LOWMERE_STAGE > VAR_LOWMERE_STAGE_SEEN). Use it in a Lowmere map script to start the
+	@ upgrade scene, then call lowmere_mark_stage_seen at the end of the scene.
+	.macro goto_if_lowmere_stage_new dest:req
+	compare VAR_LOWMERE_STAGE_SEEN, VAR_LOWMERE_STAGE
+	goto_if_lt \dest
+	.endm
+
+	@ Records that the player has seen Lowmere's current stage.
+	.macro lowmere_mark_stage_seen
+	copyvar VAR_LOWMERE_STAGE_SEEN, VAR_LOWMERE_STAGE
+	.endm

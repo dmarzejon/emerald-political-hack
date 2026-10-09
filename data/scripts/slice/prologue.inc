@@ -21,7 +21,9 @@ Prologue_EventScript_Apportionment::
 	say Slice_Name_Aurelian, Prologue_Text_Aurelian
 	say Slice_Name_Venn, Prologue_Text_VennReliquary
 	narrate Prologue_Text_HeirsLeave
-	fadeoutbgm 4
+	@ A real fade-out to the cart's silence. fadeoutbgm only pauses the song,
+	@ and a paused song blocks every later warp (it never counts as stopped).
+	fadedefaultbgm
 	narrate Prologue_Text_VennStops
 	say Slice_Name_Venn, Prologue_Text_VennRestWell
 	narrate Prologue_Text_VennGone
@@ -31,7 +33,6 @@ Prologue_EventScript_Apportionment::
 	say Slice_Name_Bram, Prologue_Text_BramHoldOn
 	closemessage
 	setvar VAR_SLICE_STATE, 1
-	fadedefaultbgm
 	fadescreen FADE_FROM_BLACK
 	releaseall
 	end

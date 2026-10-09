@@ -77,10 +77,8 @@ MireRoad_EventScript_WagonClerk::
 	fadescreen FADE_FROM_BLACK
 	narrate MireRoad_Text_DroppedSlip
 	narrate MireRoad_Text_ReceiptDetails
-	playfanfare MUS_OBTAIN_ITEM
-	message MireRoad_Text_ReceivedBellReceipt
-	waitmessage
-	waitfanfare
+	setspeaker SP_NAME_NONE
+	giveitem ITEM_BELL_RECEIPT
 	setflag FLAG_FOUND_BELL_RECEIPT
 	applymovement LOCALID_MIRE_ROAD_TAMSIN_WAGON, Common_Movement_FacePlayer
 	waitmovement 0
@@ -253,9 +251,6 @@ MireRoad_Text_ReceiptDetails::
 	.string "HAYMARKET.\p"
 	.string "At the bottom is a wax seal. A pale bell,\n"
 	.string "with no clapper.$"
-
-MireRoad_Text_ReceivedBellReceipt::
-	.string "{PLAYER} picked up the BELL RECEIPT!$"
 
 MireRoad_Text_TamsinBell::
 	.string "A bell? The guild's mark is a pair of\n"

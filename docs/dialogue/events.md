@@ -30,16 +30,12 @@ Until the owning thread defines the real names, `common.inc` (and the top of eac
 file) defines fallbacks under `#ifndef`. A fallback disappears as soon as the real
 constant exists, so the owning thread can add it with no change here.
 
-- **Features:** every `VAR_*` and `FLAG_*` below currently borrows a `VAR_UNUSED_*` or
-  `FLAG_UNUSED_*` slot. Please define them for real (any slot), and keep the names or tell
-  the dialogue thread the new ones.
+- **Features:** done. Every `VAR_*`, `FLAG_*` and `ITEM_*` the slice uses is defined on
+  main (PR #7), and the Silver Wing, Bell Receipt and Sealed Letter are given with `giveitem`.
 - **Balance:** every `TRAINER_*` below borrows a vanilla early trainer so the battle runs.
   `KINGS_GIFT_LEVEL` (default 5) is the level of the king's gift.
 - **Map:** every `LOCALID_*` below is a placeholder number. Give the object that
   `local_id` in `map.json` and it takes over.
-- **Items:** the Silver Wing, Bell Receipt and Sealed Letter are flag-only for now (with
-  an "obtained" message). Once features adds `ITEM_SILVER_WING`, `ITEM_BELL_RECEIPT` and
-  `ITEM_SEALED_LETTER` as key items, the scripts switch to `giveitem`.
 
 ## Story progress: `VAR_SLICE_STATE`
 

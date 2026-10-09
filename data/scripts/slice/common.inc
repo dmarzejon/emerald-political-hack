@@ -4,113 +4,13 @@
 
 @ ---------------------------------------------------------------------------
 @ Temporary constants.
-@ Each name below is the one the slice scripts use. Until the features thread
-@ (flags/vars/items), the balance thread (trainers) and the map thread (local IDs)
-@ define the real ones, these fallbacks keep the build green. Every fallback is
-@ inside #ifndef, so it drops out by itself as soon as the real name exists.
+@ The features thread now defines every flag, var and item the slice uses
+@ (include/constants/flags.h, vars.h, items.h). What is left here are the
+@ trainer names and KINGS_GIFT_LEVEL, which the balance thread defines in
+@ include/constants/slice_balance.h. Each fallback is inside #ifndef, so it
+@ drops out by itself once that header is on main.
 @ Delete this block once all of them are defined elsewhere.
 @ ---------------------------------------------------------------------------
-
-@ Story progress through the slice. See docs/dialogue/events.md for each step.
-#ifndef VAR_SLICE_STATE
-#define VAR_SLICE_STATE VAR_UNUSED_0x404E
-#endif
-#ifndef VAR_LOWMERE_STAGE
-#define VAR_LOWMERE_STAGE VAR_UNUSED_0x4083
-#endif
-#ifndef VAR_KINGS_GIFT_DOG
-#define VAR_KINGS_GIFT_DOG VAR_UNUSED_0x408B
-#endif
-
-#ifndef FLAG_RECEIVED_SILVER_WING
-#define FLAG_RECEIVED_SILVER_WING FLAG_UNUSED_0x020
-#endif
-#ifndef FLAG_RECEIVED_KINGS_GIFT
-#define FLAG_RECEIVED_KINGS_GIFT FLAG_UNUSED_0x021
-#endif
-#ifndef FLAG_FOUND_BELL_RECEIPT
-#define FLAG_FOUND_BELL_RECEIPT FLAG_UNUSED_0x022
-#endif
-#ifndef FLAG_HAYMARKET_WEIGHTS_FOUND
-#define FLAG_HAYMARKET_WEIGHTS_FOUND FLAG_UNUSED_0x023
-#endif
-#ifndef FLAG_HAYMARKET_WITNESS
-#define FLAG_HAYMARKET_WITNESS FLAG_UNUSED_0x024
-#endif
-#ifndef FLAG_HAYMARKET_TRIAL_GRANTED
-#define FLAG_HAYMARKET_TRIAL_GRANTED FLAG_UNUSED_0x025
-#endif
-#ifndef FLAG_PACT_HAYMARKET
-#define FLAG_PACT_HAYMARKET FLAG_UNUSED_0x026
-#endif
-#ifndef FLAG_PENN_MON_RECOVERED
-#define FLAG_PENN_MON_RECOVERED FLAG_UNUSED_0x046
-#endif
-#ifndef FLAG_RECEIVED_SEALED_LETTER
-#define FLAG_RECEIVED_SEALED_LETTER FLAG_UNUSED_0x047
-#endif
-#ifndef FLAG_TALKED_TO_CARTER
-#define FLAG_TALKED_TO_CARTER FLAG_UNUSED_0x048
-#endif
-#ifndef FLAG_MET_CRANE
-#define FLAG_MET_CRANE FLAG_UNUSED_0x049
-#endif
-#ifndef FLAG_CORWIN_PRIVATE_TALK
-#define FLAG_CORWIN_PRIVATE_TALK FLAG_UNUSED_0x04A
-#endif
-#ifndef FLAG_TAMSIN_MIRE_ROAD_TALK
-#define FLAG_TAMSIN_MIRE_ROAD_TALK FLAG_UNUSED_0x04B
-#endif
-
-@ Object hide flags (set = hidden). The map thread puts these on the objects.
-#ifndef FLAG_HIDE_LOWMERE_ARRIVAL_BRAM
-#define FLAG_HIDE_LOWMERE_ARRIVAL_BRAM FLAG_UNUSED_0x04C
-#endif
-#ifndef FLAG_HIDE_OLD_LODGE_TOFT
-#define FLAG_HIDE_OLD_LODGE_TOFT FLAG_UNUSED_0x04D
-#endif
-#ifndef FLAG_HIDE_OLD_LODGE_BRAM
-#define FLAG_HIDE_OLD_LODGE_BRAM FLAG_UNUSED_0x04E
-#endif
-#ifndef FLAG_HIDE_OLD_LODGE_COURIER
-#define FLAG_HIDE_OLD_LODGE_COURIER FLAG_UNUSED_0x030
-#endif
-#ifndef FLAG_HIDE_LOWMERE_TAMSIN_FORGE
-#define FLAG_HIDE_LOWMERE_TAMSIN_FORGE FLAG_UNUSED_0x031
-#endif
-#ifndef FLAG_HIDE_LOWMERE_TAMSIN_ROAD
-#define FLAG_HIDE_LOWMERE_TAMSIN_ROAD FLAG_UNUSED_0x032
-#endif
-#ifndef FLAG_HIDE_MIRE_ROAD_TAMSIN
-#define FLAG_HIDE_MIRE_ROAD_TAMSIN FLAG_UNUSED_0x033
-#endif
-#ifndef FLAG_HIDE_MIRE_ROAD_WAGON_CLERKS
-#define FLAG_HIDE_MIRE_ROAD_WAGON_CLERKS FLAG_UNUSED_0x034
-#endif
-#ifndef FLAG_HIDE_HAYMARKET_SEIZURE_CLERKS
-#define FLAG_HIDE_HAYMARKET_SEIZURE_CLERKS FLAG_UNUSED_0x035
-#endif
-#ifndef FLAG_HIDE_HAYMARKET_CORWIN_SQUARE
-#define FLAG_HIDE_HAYMARKET_CORWIN_SQUARE FLAG_UNUSED_0x036
-#endif
-#ifndef FLAG_HIDE_HAYMARKET_CRANE
-#define FLAG_HIDE_HAYMARKET_CRANE FLAG_UNUSED_0x037
-#endif
-#ifndef FLAG_HIDE_COUNTING_HOUSE_PENN_BALL
-#define FLAG_HIDE_COUNTING_HOUSE_PENN_BALL FLAG_UNUSED_0x038
-#endif
-#ifndef FLAG_HIDE_PAVILION_CORWIN_AFTER
-#define FLAG_HIDE_PAVILION_CORWIN_AFTER FLAG_UNUSED_0x039
-#endif
-#ifndef FLAG_HIDE_LOWMERE_GRAIN_CARTS
-#define FLAG_HIDE_LOWMERE_GRAIN_CARTS FLAG_UNUSED_0x03A
-#endif
-#ifndef FLAG_HIDE_MIRE_ROAD_TAMSIN_WAGON
-#define FLAG_HIDE_MIRE_ROAD_TAMSIN_WAGON FLAG_UNUSED_0x03C
-#endif
-#ifndef FLAG_HIDE_HAYMARKET_TAMSIN
-#define FLAG_HIDE_HAYMARKET_TAMSIN FLAG_UNUSED_0x03B
-#endif
 
 @ Trainers. The balance thread owns the teams; the fallbacks borrow vanilla
 @ early-game trainers so the battles run until the real ones exist.

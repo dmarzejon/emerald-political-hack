@@ -222,13 +222,8 @@ Lowmere_HeskHouse_EventScript_GiveSilverWing::
 	msgbox Lowmere_Text_HeskLetMeLook, MSGBOX_DEFAULT
 	say Slice_Name_Hesk, Lowmere_Text_HeskHerHouse
 	say Slice_Name_Hesk, Lowmere_Text_HeskOneDay
-	@ Flag only until the features thread adds ITEM_SILVER_WING as a key item;
-	@ then this becomes giveitem ITEM_SILVER_WING.
 	setspeaker SP_NAME_NONE
-	playfanfare MUS_OBTAIN_ITEM
-	message Lowmere_Text_ReceivedSilverWing
-	waitmessage
-	waitfanfare
+	giveitem ITEM_SILVER_WING
 	setflag FLAG_RECEIVED_SILVER_WING
 	say Slice_Name_Hesk, Lowmere_Text_HeskNeverCold
 	say Slice_Name_Hesk, Lowmere_Text_HeskBellDream
@@ -928,9 +923,6 @@ Lowmere_Text_HeskOneDay::
 	.string "you'd want it one day.\p"
 	.string "I've decided one day is today. I'm old,\n"
 	.string "and I don't trust “one day” anymore.$"
-
-Lowmere_Text_ReceivedSilverWing::
-	.string "{PLAYER} received the SILVER WING!$"
 
 Lowmere_Text_Entei::
 	.string "ENTEI$"

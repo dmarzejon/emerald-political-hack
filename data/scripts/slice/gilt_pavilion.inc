@@ -70,6 +70,18 @@ GiltPavilion_EventScript_Broker2::
 	end
 
 @ ---------------------------------------------------------------------------
+@ A servant with water before the Trial: a full heal (balance assumes one).
+@ ---------------------------------------------------------------------------
+GiltPavilion_EventScript_Servant::
+	lock
+	faceplayer
+	say Slice_Name_Servant, GiltPavilion_Text_ServantOffer
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	npc Slice_Name_Servant, GiltPavilion_Text_ServantDone
+	end
+
+@ ---------------------------------------------------------------------------
 @ Corwin. Trial 1. Win -> Haymarket Seal (badge 1), the pact, and Corwin's
 @ private talk about the bell seal (state 11 -> 12).
 @ ---------------------------------------------------------------------------
@@ -428,4 +440,17 @@ GiltPavilion_Text_GalleryBefore::
 GiltPavilion_Text_GalleryAfter::
 	.string "The galleries are empty. Someone has\n"
 	.string "left behind a bag of nuts.$"
+
+
+GiltPavilion_Text_ServantOffer::
+	.string "Water, Your Highness? His Highness\n"
+	.string "insists. He says nobody should lose to\l"
+	.string "him thirsty.\p"
+	.string "Your POKéMON too. Here, let me see to\n"
+	.string "them.$"
+
+GiltPavilion_Text_ServantDone::
+	.string "There. Good as new. Please don't tell him\n"
+	.string "I said that. Everything here is\l"
+	.string "supposed to be “better than new.”$"
 

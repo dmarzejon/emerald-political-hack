@@ -1052,6 +1052,11 @@ enum __attribute__((packed)) Item
     ITEM_TATSUGIRINITE = 872,
     ITEM_GLIMMORANITE = 873,
 
+// Political hack key items
+    ITEM_SILVER_WING = 874,
+    ITEM_BELL_RECEIPT = 875,
+    ITEM_SEALED_LETTER = 876,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

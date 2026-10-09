@@ -8,7 +8,9 @@ The maps reuse vanilla map slots so that vanilla scripts, flags and the map-grou
 | Lowmere | `MAP_LITTLEROOT_TOWN` | `LAYOUT_LOWMERE_STAGE0`…`4` | 32×26 | `gTileset_Lowmere` |
 | The Mire Road | `MAP_ROUTE101` | `LAYOUT_ROUTE101` | 24×44 | `gTileset_Lowmere` |
 | Haymarket | `MAP_OLDALE_TOWN` | `LAYOUT_OLDALE_TOWN` | 48×39 | `gTileset_Haymarket` |
-| Gilt Pavilion | `MAP_HAYMARKET_GILT_PAVILION` (new) | `LAYOUT_HAYMARKET_GILT_PAVILION` | 9×26 | `gTileset_PetalburgGym` |
+| Gilt Pavilion | `MAP_HAYMARKET_GILT_PAVILION` (new) | `LAYOUT_HAYMARKET_GILT_PAVILION` | 13×27 | `gTileset_GiltPavilion` |
+
+No wild Pokémon appear while the party is empty (`StandardWildEncounter` in `src/wild_encounter.c`), so Lowmere's reeds are safe before the Ranger's Shed hands out a starter.
 
 Map name popups still say LITTLEROOT TOWN, ROUTE 101 and OLDALE TOWN until the `MAPSEC_*` names are renamed.
 
@@ -33,7 +35,7 @@ A boarded door has no door behaviour, so its warp does nothing until a later sta
 |---|---|---|
 | 0 | Hesk's house (25,13) | `MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F` |
 | 1 | The Lodge, the player's home (6,7) | `MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F` |
-| 2 | The shed, Birch's lab slot (20,6) | `MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB` |
+| 2 | The Ranger's Shed, Birch's lab slot (20,6) | `MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB` |
 | 3 | The forge (3,14) | `MAP_LOWMERE_FORGE` (new) |
 | 4 | The reeve's house (10,6) | `MAP_LOWMERE_REEVES_HOUSE` (new) |
 | 5 | House C (10,21), open from stage 1 | `MAP_LOWMERE_REOPENED_HOUSE` (new) |
@@ -54,7 +56,7 @@ Every object, sign and trigger runs a script from `data/scripts/slice/`. The lab
 - **The Old Lodge** (Brendan's house 1F):
   - Toft is at (5,7), Bram at (7,6) and the courier at (8,6).
   - The ledger sign is on the table at (4,6).
-- **The Ranger's Shed:** Bram stands at (5,4).
+- **The Ranger's Shed** (`LAYOUT_LOWMERE_RANGERS_SHED`): Mr. Briney's beamed cottage with the Fossil Maniac's mounted trophy on the back wall. Bram stands at (5,4). The shelf is the field guides, the clay pots are the trap cages, the table holds the logbook and the cabinet at (8,1) is the PC.
 - **Hesk's house:** Hesk is at (4,4) downstairs, and Elena's bed is a sign at (7,5) upstairs.
 - **Vanilla objects still there:** Mom, the Twin, the trucks, the rival and Birch keep their spots, because vanilla scripts still name their local ids. The dialogue work removes them together with those scripts.
 
@@ -118,10 +120,13 @@ These are the exits:
 
 ### Haymarket interiors
 
-- **Gilt Pavilion:** Corwin sits on the throne at (4,4) (`LOCALID_PAVILION_CORWIN`). The auctioneer stands by the door at (3,24). The auction floor holds the three courtiers, `Broker1` at (4,10), `Bidder` at (6,15) and `Broker2` at (2,17). The two statues are the `Gallery` signs, and the music is `MUS_GYM`.
+- **Gilt Pavilion:** Petalburg Gym rooms set into a 13-wide hall, with spectator boxes down both sides (the galleries). Six townsfolk watch from the boxes, and four box faces are the `Gallery` signs. The music is `MUS_GYM`.
+  - Corwin stands below the throne at (6,4) (`LOCALID_PAVILION_CORWIN`), and the auctioneer by the door at (5,25).
+  - The courtiers are `Broker1` at (3,10), `Bidder` at (9,15) and `Broker2` at (3,17), each with a sight range of 4.
+  - **The lot puzzle.** Three rows of numbered gold lots cross the hall, at rows 19, 13 and 7. On the row below each one (rows 20, 14 and 8), the auctioneer calls lot 7, then 12, then 20. Only the called lot lets you on. A wrong lot gets the auctioneer's "wrong lot" line and steps you back. A solved row stays open until you leave the Pavilion, and the floor goes quiet after the Trial. The scripts are in `data/maps/Haymarket_GiltPavilion/scripts.inc`, and they call the auctioneer's lines in `data/scripts/slice/gilt_pavilion.inc`.
 - **Counting house:** this reuses the Devon Corp 1F layout. The front clerk is at the desk, and stairs lead to a back room.
-- **Counting house back room:** this reuses Devon Corp 2F. It holds the trainers `Clerk1` at (9,6) and `Clerk2` at (13,6), and Penn's Poké Ball at (1,7) (`LOCALID_COUNTING_HOUSE_PENN_BALL`). Crane's desk is a sign at (2,4), and the payment shelves are signs at (10,4) and (11,4).
-- **Granary:** this reuses Stern's Shipyard 1F. It holds the foreman, a worker, four Strength boulders as stacked sacks, and the scale, the crown crate and the sacks as signs. The granary's map script turns on Strength, so the sacks can be pushed.
+- **Counting house back room:** this reuses Devon Corp 2F. Penn's Poké Ball is in the corner at (0,8) (`LOCALID_COUNTING_HOUSE_PENN_BALL`). You can only take it from (0,7) or (1,8). `Clerk2` at (0,4), facing down, watches the first, and `Clerk1` at (4,8), facing left, watches the second, so taking the ball always starts a clerk battle. Crane's desk is a sign at (2,4), and the payment shelves are signs at (10,4) and (11,4).
+- **Granary** (`LAYOUT_HAYMARKET_GRANARY`): Stern's Shipyard 1F with crate stacks added. The only way east is a one-tile gap at (13,10), plugged by a sack (a Strength boulder) that you push along a crate-lined lane. The only way up to the scale room is a one-tile aisle at x=17, and the foreman at (16,6), facing right, sees anyone who steps into it. The scale, the crown crate and the sacks are signs. The granary's map script turns on Strength, so the sacks can be pushed. Leaving and coming back puts the sacks back.
 
 ## What other work owns
 
@@ -150,6 +155,7 @@ The FRLG overworld sprites (everything from `OBJ_EVENT_GFX_RED_NORMAL` on, such 
   - hand-drawn props: the well and broken well, fences, sacks, crates, the cart, lanterns, stumps, reeds (tall-grass behaviour), graves and mud (puddle behaviour)
   - names for the added metatiles, in `dev_scripts/slice_maps/lowmere_ids.json`
 - **`gTileset_Haymarket`** (`data/tilesets/secondary/haymarket`) is Slateport plus a gilded Battle Tent dome. The dome uses palette 12.
+- **`gTileset_GiltPavilion`** (`data/tilesets/secondary/gilt_pavilion`) is Petalburg Gym plus gold lot plates numbered 1 to 21 in palette 9. Their ids are in `dev_scripts/slice_maps/gilt_pavilion_ids.json`.
 
 ## Regenerating
 
@@ -161,4 +167,4 @@ python3 dev_scripts/slice_maps/build_maps.py      # layouts
 python3 dev_scripts/slice_maps/validate.py        # reachability, seam and sprite checks
 ```
 
-`build_events.py` placed the first events, and `wire_events.py` then pointed them at the dialogue scripts. Both have been run, and `map.json` is now the source of truth. Change events by hand or in Porymap. Do not re-run `build_events.py`, because it starts from origin/main and would overwrite the wiring. `build_maps.py` only writes layouts, so it is safe to re-run.
+`build_events.py` placed the first events, and `wire_events.py` then pointed them at the dialogue scripts. Both have been run, and `map.json` is now the source of truth. Change events by hand or in Porymap. Do not re-run `build_events.py` or `wire_events.py`, because they would overwrite the wiring and the later rework. `build_maps.py` only writes layouts, so it is safe to re-run.

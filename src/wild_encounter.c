@@ -671,6 +671,10 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
     if (sWildEncountersDisabled == TRUE)
         return FALSE;
 
+    // Lowmere's reeds are walkable before the Ranger's Shed hands out a starter.
+    if (CalculatePlayerPartyCount() == 0)
+        return FALSE;
+
     headerId = GetCurrentMapWildMonHeaderId();
     if (headerId == HEADER_NONE)
     {

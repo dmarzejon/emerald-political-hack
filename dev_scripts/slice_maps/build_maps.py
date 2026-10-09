@@ -521,21 +521,116 @@ def haymarket_town():
 
 
 # ---- the Gilt Pavilion (Corwin's palace) ----------------------------------
-# Built from vanilla Petalburg Gym rooms: the leader's room becomes the throne, two
-# training rooms become the auction floor (the mats are the "lots"), and the gym
-# lobby becomes the entrance hall.
+# Built from vanilla Petalburg Gym rooms, 9 wide, set into a 13-wide hall with
+# spectator boxes (the galleries) down both sides. From the door up:
+#   lobby -> call row A -> lot row A -> room A -> lot row B -> room B -> lot row C -> throne
+# A call row is where the auctioneer calls a lot; the lot row above it is a row of
+# numbered gold plates (gTileset_GiltPavilion) and only the called plate lets you on.
+# The scripts are in data/maps/Haymarket_GiltPavilion/scripts.inc.
 PETALBURG_GYM = Layout.load(path('data/layouts/PetalburgCity_Gym/map.bin'), 9)
-PAVILION_W = 9
-PAVILION_PARTS = [(0, 8), (15, 6), (54, 6), (106, 6)]   # (first source row, rows)
+LOTS = json.load(open(os.path.join(os.path.dirname(__file__), 'gilt_pavilion_ids.json')))['ids']
+PAVILION_W, PAVILION_H = 13, 27
+PAV_HALL_X = 2                       # gym column 0 lands here
+PAV_THRONE = (0, 0, 7)               # (first gym row, first map row, rows)
+PAV_ROOM_B = (16, 8, 5)              # orange mats
+PAV_ROOM_A = (55, 14, 5)             # blue mats
+PAV_LOBBY = (106, 21, 6)
+PAV_CALL_ROW_A = 20
+# lot rows: map row -> (lot numbers for x = 3..9, the called lot)
+PAV_LOT_ROWS = {19: ([3, 11, 5, 9, 7, 1, 15], 7),
+                13: ([2, 12, 8, 14, 19, 6, 10], 12),
+                7: ([13, 17, 4, 18, 16, 21, 20], 20)}
+BOX = [[0x26B, 0x26C], [0x273, 0x274]]
+STATUE_TOP, STATUE_BASE, VOID, WOOD = 0x240, 0x248, 0x001, 0x201
 
 
 def gilt_pavilion():
-    h = sum(n for _, n in PAVILION_PARTS)
-    c = Canvas(PAVILION_W, h)
-    y = 0
-    for src, n in PAVILION_PARTS:
-        c.stamp(PETALBURG_GYM, 0, src, PAVILION_W, n, 0, y)
-        y += n
+    c = Canvas(PAVILION_W, PAVILION_H)
+    gym = lambda x, y: PETALBURG_GYM.get(x, y)
+    hall = lambda src, y, rows: [c.set(PAV_HALL_X + x, y + r, gym(x, src + r))
+                                 for r in range(rows) for x in range(9)]
+    # throne room, widened to the full 13 columns
+    src, y0, rows = PAV_THRONE
+    hall(src, y0, rows)
+    for x in (0, 1, 11):
+        c.set(x, 0, gym(3, 0))
+    c.set(0, 0, gym(0, 0))
+    c.set(12, 0, gym(8, 0))
+    for r in range(1, rows):
+        c.set(0, r, gym(0, r))
+        c.set(1, r, gym(8, r))
+        c.set(11, r, gym(8, r))
+        c.set(12, r, gym(8, r))
+    for x in (1, 2, 11, 12):
+        c.set(x, 1, gym(8, 3))
+    c.set(2, 2, gym(8, 3))
+    for r in range(3, rows):
+        c.set(2, r, gym(8, r))
+    # the two mat rooms, each a call row on top of its mats
+    for src, y0, rows in (PAV_ROOM_B, PAV_ROOM_A):
+        hall(src, y0, rows)
+    for x in range(PAV_HALL_X, PAV_HALL_X + 9):
+        c.set(x, PAV_CALL_ROW_A, gym(1 if x > PAV_HALL_X else 0, PAV_ROOM_A[0] + 4))
+    # lobby, with the void either side
+    src, y0, rows = PAV_LOBBY
+    hall(src, y0, rows)
+    for y in range(y0, y0 + rows):
+        for x in (0, 1, 11, 12):
+            c.set(x, y, block(VOID, 1, 0))
+    # galleries: spectator boxes from the first lot row down to call row A
+    for y in range(7, PAV_CALL_ROW_A + 1, 2):
+        for gx in (0, 11):
+            for dy in range(2):
+                for dx in range(2):
+                    c.set(gx + dx, y + dy, block(BOX[dy][dx], 1, 0))
+    # lot rows, closed at each end by a statue
+    for y, (nums, _) in PAV_LOT_ROWS.items():
+        for i, n in enumerate(nums):
+            c.put(3 + i, y, LOTS['lot_%d' % n])
+        for x in (2, 10):
+            c.set(x, y, block(STATUE_BASE, 1, 0))
+            c.set(x, y - 1, block(STATUE_TOP, 1, 0))
+    return c
+
+
+# ---- the granary ------------------------------------------------------------
+# Stern's Shipyard 1F with crate stacks added so the sack puzzle and the foreman
+# can't be walked around: the only way east is a one-tile gap at (13,10) that a
+# sack (a Strength boulder) fills, and the only way up to the scale room is a
+# one-tile aisle at x=17 beside the foreman.
+STERNS_1F = Layout.load(path('data/layouts/SlateportCity_SternsShipyard_1F/map.bin'), 21)
+CRATE_TOP, CRATE, CRATE_BOTTOM = 0x21F, 0x227, 0x237
+GRANARY_CRATES = [(16, 4), (16, 5), (18, 4), (18, 5),        # aisle to the scale room
+                  (14, 9), (15, 9), (14, 11), (15, 11),      # lane the sack is pushed along
+                  (13, 11), (13, 12), (13, 13)]              # wall below the gap
+GRANARY_CRATE_TOPS = [(16, 3), (18, 3)]
+
+
+def granary():
+    c = Canvas(21, 15)
+    c.b = list(STERNS_1F.b)
+    for x, y in GRANARY_CRATES:
+        c.set(x, y, block(CRATE, 1, 0))
+    c.set(13, 14, block(CRATE_BOTTOM, 1, 0))
+    for x, y in GRANARY_CRATE_TOPS:
+        c.set(x, y, block(CRATE_TOP, 0, 3))
+    return c
+
+
+# ---- the Ranger's Shed ------------------------------------------------------
+# Mr. Briney's cottage (wood beams, clay pots, shelves) with the mounted trophy from
+# the Fossil Maniac's house hung on the back wall. Same tilesets, so ids carry over.
+BRINEYS = Layout.load(path('data/layouts/Route104_MrBrineysHouse/map.bin'), 12)
+FOSSIL_HOUSE = Layout.load(path('data/layouts/Route114_FossilManiacsHouse/map.bin'), 10)
+
+
+def rangers_shed():
+    c = Canvas(12, 9)
+    c.b = list(BRINEYS.b)
+    for dy in range(3):
+        for dx in range(3):
+            c.set(4 + dx, dy, FOSSIL_HOUSE.get(3 + dx, dy))
+    c.set(6, 2, BRINEYS.get(5, 2))
     return c
 
 
@@ -546,9 +641,17 @@ def main():
     save_layout(mire_road(), 'Route101', 'LAYOUT_ROUTE101', FOREST_BORDER)
     save_layout(haymarket(), 'OldaleTown', 'LAYOUT_OLDALE_TOWN', FOREST_BORDER, 'gTileset_Haymarket')
     print('wrote the Mire Road and Haymarket')
+    save_layout(granary(), 'Haymarket_Granary', 'LAYOUT_HAYMARKET_GRANARY',
+                Layout.load(path('data/layouts/SlateportCity_SternsShipyard_1F/border.bin'), 2),
+                'gTileset_Facility', 'gTileset_General')
+    print('wrote the granary')
+    save_layout(rangers_shed(), 'Lowmere_RangersShed', 'LAYOUT_LOWMERE_RANGERS_SHED',
+                Layout.load(path('data/layouts/Route104_MrBrineysHouse/border.bin'), 2),
+                'gTileset_GenericBuilding', 'gTileset_Building')
+    print("wrote the Ranger's Shed")
     pav = gilt_pavilion()
     save_layout(pav, 'Haymarket_GiltPavilion', 'LAYOUT_HAYMARKET_GILT_PAVILION',
-                border([[0x208, 0x208], [0x208, 0x208]]), 'gTileset_PetalburgGym')
+                border([[0x208, 0x208], [0x208, 0x208]]), 'gTileset_GiltPavilion', 'gTileset_Building')
 
 
 if __name__ == '__main__':

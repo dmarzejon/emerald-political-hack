@@ -497,10 +497,8 @@ Haymarket_CountingHouse_EventScript_CraneDesk::
 Haymarket_CountingHouse_EventScript_SealedLetter::
 	narrate Haymarket_Text_OfficeClearedOut
 	narrate Haymarket_Text_LetterOnDesk
-	playfanfare MUS_OBTAIN_ITEM
-	message Haymarket_Text_ReceivedSealedLetter
-	waitmessage
-	waitfanfare
+	setspeaker SP_NAME_NONE
+	giveitem ITEM_SEALED_LETTER
 	setflag FLAG_RECEIVED_SEALED_LETTER
 	narrate Haymarket_Text_DontOpenIt
 	releaseall
@@ -995,9 +993,6 @@ Haymarket_Text_LetterOnDesk::
 	.string "addressed to no one. The seal is a pale\l"
 	.string "bell, pressed so hard the wax has\l"
 	.string "cracked.$"
-
-Haymarket_Text_ReceivedSealedLetter::
-	.string "{PLAYER} took the SEALED LETTER!$"
 
 Haymarket_Text_DontOpenIt::
 	.string "Something tells you not to open it here.\n"

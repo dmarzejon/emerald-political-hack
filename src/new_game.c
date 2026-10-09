@@ -57,6 +57,7 @@ extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
 
 static void ClearFrontierRecord(void);
+static void SetSliceStartFlags(void);
 static void WarpToTruck(void);
 static void ResetMiniGamesRecords(void);
 static void ResetItemFlags(void);
@@ -216,6 +217,7 @@ void NewGameInitData(void)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
     else
         RunScriptImmediately(EventScript_ResetAllMapFlags);
+    SetSliceStartFlags();
 #if IS_FRLG
         StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 #endif
@@ -234,6 +236,21 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+}
+
+// Vertical slice NPCs that start hidden (docs/dialogue/events.md). The rest start shown.
+static void SetSliceStartFlags(void)
+{
+#if !IS_FRLG
+    FlagSet(FLAG_HIDE_OLD_LODGE_BRAM);
+    FlagSet(FLAG_HIDE_OLD_LODGE_COURIER);
+    FlagSet(FLAG_HIDE_LOWMERE_TAMSIN_ROAD);
+    FlagSet(FLAG_HIDE_MIRE_ROAD_TAMSIN);
+    FlagSet(FLAG_HIDE_MIRE_ROAD_TAMSIN_WAGON);
+    FlagSet(FLAG_HIDE_HAYMARKET_TAMSIN);
+    FlagSet(FLAG_HIDE_HAYMARKET_CRANE);
+    FlagSet(FLAG_HIDE_LOWMERE_GRAIN_CARTS);
+#endif
 }
 
 static void ResetMiniGamesRecords(void)

@@ -251,6 +251,7 @@ colour rather than editing the PNGs.
 | --- | --- | --- |
 | `Prince Corwin` | Rich Boy | Burgundy suit |
 | `Princess Isolde` | Lady | Deep green dress, auburn hair |
+| `Prince Brannoc` | Leader Brawly | Dusty ochre and stone work clothes |
 | `Tamsin` | Pokémon Ranger (F) | Soot and leather |
 | `Guild Clerk` | Super Nerd (FRLG) | Gold and tan |
 | `Foreman` | Engineer (FRLG) | Rust work clothes |

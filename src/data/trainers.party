@@ -4808,14 +4808,13 @@ Class: Leader
 Pic: Leader Roxanne
 Gender: Male
 Music: Male
-Items: Potion / Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Ace Pokemon
 
 Skwovet @ Oran Berry
 Ability: Cheek Pouch
-Level: 12
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 10
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Tackle
 - Bite
 - Tail Whip
@@ -4823,8 +4822,8 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Meowth
 Ability: Technician
-Level: 12
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 10
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Fake Out
 - Feint
 - Scratch
@@ -4832,21 +4831,20 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Bunnelby
 Ability: Pickup
-Level: 13
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 11
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Mud-Slap
 - Quick Attack
-- Mud Shot
+- Tackle
 - Leer
 
 Type: Null
 Ability: Battle Armor
-Level: 15
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Level: 12
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Tackle
 - Aerial Ace
 - Scary Face
-- Double Hit
 
 === TRAINER_BRAWLY_1 ===
 Name: BRAWLY
@@ -6006,11 +6004,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Lillipup
-Level: 10
+Level: 9
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Glameow
-Level: 11
+Level: 10
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_TOMMY ===
@@ -6023,11 +6021,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Skitty
-Level: 10
+Level: 9
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Minccino
-Level: 11
+Level: 10
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_JOEY ===
@@ -9539,6 +9537,8 @@ AI: Basic Trainer
 Treecko
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Pound
+- Leer
 
 === TRAINER_BRENDAN_ROUTE_110_MUDKIP ===
 Name: BRENDAN
@@ -9594,6 +9594,8 @@ AI: Basic Trainer
 Torchic
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scratch
+- Growl
 
 === TRAINER_BRENDAN_ROUTE_110_TREECKO ===
 Name: BRENDAN
@@ -9649,6 +9651,8 @@ AI: Basic Trainer
 Mudkip
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Growl
 
 === TRAINER_BRENDAN_ROUTE_110_TORCHIC ===
 Name: BRENDAN
@@ -9704,6 +9708,8 @@ AI: Basic Trainer
 Treecko
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Pound
+- Leer
 
 === TRAINER_MAY_ROUTE_110_MUDKIP ===
 Name: MAY
@@ -9759,6 +9765,8 @@ AI: Basic Trainer
 Torchic
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scratch
+- Growl
 
 === TRAINER_MAY_ROUTE_110_TREECKO ===
 Name: MAY
@@ -9814,6 +9822,8 @@ AI: Basic Trainer
 Mudkip
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Growl
 
 === TRAINER_MAY_ROUTE_110_TORCHIC ===
 Name: MAY
@@ -10587,11 +10597,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Lechonk
-Level: 11
+Level: 10
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 Aipom
-Level: 12
+Level: 11
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 === TRAINER_BRENDEN ===

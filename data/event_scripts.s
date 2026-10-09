@@ -1095,16 +1095,10 @@ EventScript_AfterWhiteOutHealMsg::
 	msgbox gText_MonsHealed
 	return
 
+@ Political hack: the player wakes in the Old Lodge, and Reeve Toft has them
+@ seen to. The scene is in data/scripts/slice/lowmere.inc.
 EventScript_AfterWhiteOutMomHeal::
-	lockall
-	textcolor NPC_TEXT_COLOR_FEMALE
-	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox gText_HadQuiteAnExperienceTakeRest
-	call Common_EventScript_OutOfCenterPartyHeal
-	msgbox gText_MomExplainHPGetPotions
-	fadedefaultbgm
-	releaseall
+	goto Lowmere_OldLodge_EventScript_WhiteOutHeal
 	end
 
 EventScript_ResetMrBriney::

@@ -263,8 +263,7 @@ MireRoad_Text_ClerkIntro::
 	.string "Toll inspection! The GILDED SCALE\n"
 	.string "keeps this road safe for honest trade.\p"
 	.string "Pay up, or... oh, you've got POKéMON.\n"
-	.string "HAYMARKET doesn't take IOUs, friend,\l"
-	.string "and neither do I!$"
+	.string "Then you can pay me in a battle, friend!$"
 
 MireRoad_Text_ClerkDefeat::
 	.string "Fine! Pass! Free of charge, just this\n"

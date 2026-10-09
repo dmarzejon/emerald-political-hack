@@ -27,11 +27,12 @@ version.
 
 | Map | Header |
 | --- | --- |
-| `InsideOfTruck` (the cart) | On frame, state 0: the prologue. Leaving the cart sets the respawn to the Lodge, hides the vanilla moving-day cast and warps to Lowmere (9,10), beside Bram. Prince and princess both arrive here |
-| `LittlerootTown` (Lowmere) | On frame: `Lowmere_EventScript_Arrival` at state 1, `Lowmere_EventScript_GrainArrives` at state 12 |
-| `LittlerootTown_BrendansHouse_1F` (the Old Lodge) | On frame: `Lowmere_OldLodge_EventScript_ToftLedger` at state 2, `Lowmere_OldLodge_EventScript_KingsGift` at state 6 |
+| `InsideOfTruck` (the cart) | On frame, state 0: the prologue, over black (a new game skips the moving-truck sequence; see `FieldCB_SlicePrologue` in `src/overworld.c`). It ends by setting the respawn to the Lodge, hiding the vanilla moving-day cast and warping to Lowmere (9,10), beside Bram. Prince and princess both arrive here |
+| `LittlerootTown` (Lowmere) | On frame: `Lowmere_EventScript_Arrival` at state 1; `Lowmere_EventScript_CheckReturn` (carts heard, Toft waving) on the first sight of a new stage at state 12. On transition: Marta's stall (`FLAG_TEMP_1`) is hidden at stage 0 |
+| `LittlerootTown_BrendansHouse_1F` (the Old Lodge) | On frame: `Lowmere_OldLodge_EventScript_ToftLedger` at state 2, `Lowmere_OldLodge_EventScript_KingsGift` at state 6, `Lowmere_OldLodge_EventScript_GrainArrives` at state 12. A whiteout wakes the player here with Toft (`Lowmere_OldLodge_EventScript_WhiteOutHeal`, called from `EventScript_AfterWhiteOutMomHeal`) |
 | `LittlerootTown_BrendansHouse_2F` | The player's room for both genders, with the player's PC and decorations |
-| `LittlerootTown_MaysHouse_1F` / `_2F` (Hesk's house), `LittlerootTown_ProfessorBirchsLab` (the Shed), `Route101`, `OldaleTown` | No scenes in the header |
+| `OldaleTown` (Haymarket) | On frame: `Haymarket_EventScript_Crane` at state 10 (the step out of the hall doesn't fire the trigger) |
+| `LittlerootTown_MaysHouse_1F` / `_2F` (Hesk's house), `LittlerootTown_ProfessorBirchsLab` (the Shed), `Route101` | No scenes in the header |
 
 The vanilla intro is cut: Mom, the twin, the trucks, the rival and Birch are gone from
 Lowmere, the Shed, the Mire Road and Haymarket, along with their scripts. In the two houses,
@@ -56,7 +57,7 @@ triggers are removed.
 | 10 | Trial granted by the magistrate | `Haymarket_MagistrateHall_EventScript_Arden` |
 | 11 | Crane's offer refused | `Haymarket_EventScript_Crane` |
 | 12 | Corwin beaten, pact signed | `GiltPavilion_EventScript_Corwin` |
-| 13 | Back in Lowmere, Stage 1 (end of slice) | `Lowmere_EventScript_GrainArrives` |
+| 13 | Back in Lowmere, Stage 1 (end of slice) | `Lowmere_OldLodge_EventScript_GrainArrives` |
 
 Other vars: `VAR_LOWMERE_STAGE` (raised by `signpact` after Corwin's Trial), `VAR_KINGS_GIFT_DOG`
 (0 Entei, 1 Raikou, 2 Suicune).
@@ -84,7 +85,7 @@ Outside (Lowmere map):
 | Kind | Label | Who / what | `local_id` | Hide flag | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Map script, on frame | `Lowmere_EventScript_Arrival` | | | | when state is 1, right after stepping off the cart |
-| Map script, on frame | `Lowmere_EventScript_GrainArrives` | | | | when state is 12 (first entry after the pact) |
+| Map script, on frame | `Lowmere_EventScript_CheckReturn` | | | | at state 12, the first time the Stage 1 town is seen; the Toft scene follows in the Old Lodge |
 | Object | `Lowmere_EventScript_BramAtCart` | Bram, beside the cart | `LOCALID_LOWMERE_BRAM` | `FLAG_HIDE_LOWMERE_ARRIVAL_BRAM` | visible at the start |
 | Object | `Lowmere_EventScript_TamsinForge` | Tamsin at the forge | | `FLAG_HIDE_LOWMERE_TAMSIN_FORGE` | visible at the start |
 | Object | `Lowmere_EventScript_TamsinRoad` | Tamsin on the north road, facing south | `LOCALID_LOWMERE_TAMSIN_ROAD` | `FLAG_HIDE_LOWMERE_TAMSIN_ROAD` | hidden at the start |
@@ -115,8 +116,8 @@ The Old Lodge (replaces the player's house):
 | Sign | `Lowmere_OldLodge_EventScript_Ledger` | ledger on the desk | | | |
 
 The Ranger's Shed (replaces Birch's Lab): Bram, `Lowmere_RangersShed_EventScript_Bram`.
-He gives the starter through `special ChooseStarter` (the bag menu), so no Poké Ball
-objects are needed.
+He gives the starter from a menu with each POKéMON's picture, so no Poké Ball objects are
+needed.
 
 Mother Hesk's house (Elena's old house): Hesk, `Lowmere_HeskHouse_EventScript_Hesk`;
 the bed, sign `Lowmere_HeskHouse_EventScript_ElenasBed`.
@@ -196,6 +197,5 @@ builds a throne-room map, `Prologue_EventScript_Apportionment` can run there ins
   reform or clemency) and the script calls `signpact PACT_HAYMARKET`, which sets
   `FLAG_PACT_HAYMARKET` and raises `VAR_LOWMERE_STAGE`. The return scene then marks the
   stage as seen.
-- The cart's door opens before the prologue plays, because on-frame scripts wait until the
-  cart's opening sequence gives back control.
-- Marta the stallkeeper shows at stage 0 too; her object has no hide flag yet.
+- The starter comes from a script menu (`Lowmere_RangersShed_EventScript_PickStarter`), not
+  `special ChooseStarter`, which brings Birch's text and a wild battle with it.

@@ -1930,6 +1930,15 @@ static bool8 RunFieldCallback(void)
     return TRUE;
 }
 
+// Political hack: no moving-truck sequence on a new game. The screen stays
+// black, and the court prologue (an on-frame script in InsideOfTruck, see
+// data/scripts/slice/prologue.inc) plays at once and then warps to Lowmere.
+static void FieldCB_SlicePrologue(void)
+{
+    CpuFastFill(0, gPlttBufferFaded, PLTT_SIZE);
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 16, RGB_BLACK);
+}
+
 void CB2_NewGame(void)
 {
     FieldClearVBlankHBlankCallbacks();
@@ -1943,7 +1952,7 @@ void CB2_NewGame(void)
     if (IS_FRLG)
         gFieldCallback = FieldCB_WarpExitFadeFromBlack;
     else
-        gFieldCallback = ExecuteTruckSequence;
+        gFieldCallback = FieldCB_SlicePrologue;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();

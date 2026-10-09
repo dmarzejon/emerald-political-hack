@@ -13,6 +13,12 @@
 Haymarket_EventScript_Arrival::
 	lockall
 	narrate Haymarket_Text_FirstLook
+	@ The trigger is on the road into town, 15 rows south of Penn's stall, so
+	@ the camera pans up over the square for the whole scene.
+	closemessage
+	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, Haymarket_Movement_CameraToSquare
+	waitmovement 0
 	playbgm MUS_ENCOUNTER_SUSPICIOUS, FALSE
 	say Slice_Name_Clerk, Haymarket_Text_ClerkTwoFines
 	applymovement LOCALID_HAYMARKET_PENN, Haymarket_Movement_PennProtest
@@ -48,8 +54,7 @@ Haymarket_EventScript_Arrival::
 	say Slice_Name_Crowd, Haymarket_Text_CrowdHurrah
 	applymovement LOCALID_HAYMARKET_CORWIN, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_HAYMARKET_CORWIN, Common_Movement_FacePlayer
-	waitmovement 0
+	turnobject LOCALID_HAYMARKET_CORWIN, DIR_SOUTH
 	say_g Slice_Name_Corwin, Haymarket_Text_CorwinFrog_M, Haymarket_Text_CorwinFrog_F
 	narrate Haymarket_Text_CrowdLaughs
 	say_g Slice_Name_Corwin, Haymarket_Text_CorwinBringMoney_M, Haymarket_Text_CorwinBringMoney_F
@@ -65,14 +70,28 @@ Haymarket_EventScript_Arrival::
 	addobject LOCALID_HAYMARKET_TAMSIN
 	fadedefaultbgm
 	fadescreen FADE_FROM_BLACK
-	applymovement LOCALID_HAYMARKET_TAMSIN, Common_Movement_FacePlayer
-	waitmovement 0
+	turnobject LOCALID_HAYMARKET_TAMSIN, DIR_SOUTH
 	say Slice_Name_Tamsin, Haymarket_Text_TamsinHeardThat
 	say Slice_Name_Tamsin, Haymarket_Text_TamsinWeNeedProof
 	closemessage
+	applymovement LOCALID_CAMERA, Haymarket_Movement_CameraBack
+	waitmovement 0
+	special RemoveCameraObject
 	setvar VAR_SLICE_STATE, 9
 	releaseall
 	end
+
+Haymarket_Movement_CameraToSquare:
+	.rept 18
+	walk_fast_up
+	.endr
+	step_end
+
+Haymarket_Movement_CameraBack:
+	.rept 18
+	walk_fast_down
+	.endr
+	step_end
 
 Haymarket_Movement_PennProtest:
 	walk_in_place_faster_left
@@ -182,7 +201,15 @@ Haymarket_EventScript_Granny::
 	end
 
 Haymarket_EventScript_GrannyAfterPact::
+	@ Under clemency the town never hears who fixed the scales.
+	getpactterms PACT_HAYMARKET
+	goto_if_eq VAR_RESULT, PACT_TERMS_CLEMENCY, Haymarket_EventScript_GrannyClemency
 	msgbox Haymarket_Text_GrannyKnew, MSGBOX_DEFAULT
+	release
+	end
+
+Haymarket_EventScript_GrannyClemency::
+	msgbox Haymarket_Text_GrannyWonder, MSGBOX_DEFAULT
 	release
 	end
 
@@ -692,6 +719,12 @@ Haymarket_Text_GrannyGoodBoy::
 	.string "SCALE.\p"
 	.string "The prince is a good boy. He just\n"
 	.string "doesn't see it.$"
+
+Haymarket_Text_GrannyWonder::
+	.string "The MAGISTRATE says the scales were\n"
+	.string "fixed. He won't say by whom.\p"
+	.string "The prince did look very pale at the\n"
+	.string "fair, though.$"
 
 Haymarket_Text_GrannyKnew::
 	.string "They say the prince knew about the\n"

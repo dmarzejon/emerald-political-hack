@@ -187,6 +187,7 @@ POND_RECT = (19, 18, 29, 23)
 JETTY_Y = 20
 ROWBOATS = [(27, 20), (20, 22)]     # 2x1, from Stage 2
 ORCHARD_Y, ORCHARD_XS = 17, (22, 24, 26, 28)
+GRAIN_CARTS = [(10, 9), (21, 9)]     # 3x2, from Stage 1: Haymarket's grain, parked by the Lodge road and the Shed
 LM_SIGNS = {'town': (14, 9), 'shed': (18, 6), 'lodge': (8, 7), 'hesk': (23, 13)}
 
 
@@ -286,6 +287,8 @@ def lowmere(stage):
         stall(c, 18, 14, 'crate')
         c.put(13, 10, LM['sacks_0_0'], 1, E_GROUND)
         c.put(19, 10, LM['crate_0_0'], 1, E_GROUND)
+        for (x, y) in GRAIN_CARTS:
+            c.grid(x, y, prop('cart', 3, 2), col=1, elev=E_GROUND)
     # gardens and berry plots once the marsh east of Hesk's is drained
     if stage >= 2:
         for x in range(22, 28):

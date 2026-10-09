@@ -118,9 +118,9 @@ def check(mapname, layout_id, problems):
             problems.append('%s: warp at (%d,%d) to %s is unreachable' % (tag, x, y, w['dest_map']))
     for (x, y), o in objs.items():
         name = o.get('local_id') or o['script']
-        # spectators (no script) may stand on the gallery boxes
+        # spectators (no script) may stand on the gallery boxes, and item balls on tables
         if (not walkable(lay, x, y) and o['script'] != '0x0'
-                and o['graphics_id'] not in ('OBJ_EVENT_GFX_TRUCK', 'OBJ_EVENT_GFX_BERRY_TREE')):
+                and o['graphics_id'] not in ('OBJ_EVENT_GFX_TRUCK', 'OBJ_EVENT_GFX_BERRY_TREE', 'OBJ_EVENT_GFX_ITEM_BALL')):
             problems.append('%s: %s stands on a wall at (%d,%d)' % (tag, name, x, y))
         if o['graphics_id'] in FRLG_GFX and o['script'] not in FRLG_GFX_OK:
             problems.append('%s: %s uses %s, an FRLG sprite that draws nothing' % (tag, name, o['graphics_id']))

@@ -27,6 +27,48 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Lowmere_RangersShed_EventScript_Bram",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_SHED_BALL_1",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 7,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Lowmere_RangersShed_EventScript_Bram",
+      "flag": "FLAG_SYS_POKEMON_GET"
+    },
+    {
+      "local_id": "LOCALID_SHED_BALL_2",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 8,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Lowmere_RangersShed_EventScript_Bram",
+      "flag": "FLAG_SYS_POKEMON_GET"
+    },
+    {
+      "local_id": "LOCALID_SHED_BALL_3",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 7,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Lowmere_RangersShed_EventScript_Bram",
+      "flag": "FLAG_SYS_POKEMON_GET"
     }
   ],
   "warp_events": [

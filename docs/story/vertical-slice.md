@@ -98,6 +98,10 @@ to adopt or rename; please record the final names in `docs/systems.md`.
 - Goal: **build a case** for the magistrate.
 
 ### 8. Building the case
+On first entering the square, the player watches two guild clerks take Widow Penn's
+Pokémon from her stall as "payment" while the crowd looks away (on-screen scene; see
+the tone rules in [README.md](README.md#tone)).
+
 Three pieces of evidence. Any order. Each is short.
 
 1. **The receipt** from the Mire Road (already held).

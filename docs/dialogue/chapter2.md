@@ -13,14 +13,13 @@ the crime-scene table in the [story bible README](../story/README.md).
 
 | What | File |
 | --- | --- |
-| Trainer names, local-id fallbacks, speaker names | `data/scripts/chapter2/common.inc` |
+| Trainer-name fallbacks, speaker names | `data/scripts/chapter2/common.inc` |
 | Orchard Road | `data/scripts/chapter2/orchard_road.inc` (`OrchardRoad_…`) |
 | Thornfield and its interiors | `data/scripts/chapter2/thornfield.inc` (`Thornfield_…`) |
 | Isolde's palace | `data/scripts/chapter2/glasshouse.inc` (`Glasshouse_…`) |
 
-Until the map thread's `map.json` files define the `LOCALID_…` names below, `common.inc`
-and `thornfield.inc` fall back to the ids in the tables. The same goes for the trainer
-names, which fall back to vanilla trainers until balance defines them.
+The `LOCALID_…` names below come from the map thread's `map.json` files (#16). The trainer
+names fall back to vanilla trainers in `common.inc` until balance defines them.
 
 ## Story progress
 

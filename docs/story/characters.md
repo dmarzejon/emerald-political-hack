@@ -2,23 +2,27 @@
 
 ## The player
 
-**Prince Rowan of Lowmere** (name chosen by the player; *Rowan* is the default). 16 years
-old, the tenth and youngest child of King Aldric III and the only one by Elena Marsh. The
-court calls him "the Marsh Prince" or simply "the bastard". He was raised in Lowmere by
-his mother's friends after she died when he was four.
+**Prince or Princess Rowan of Lowmere** (boy or girl and name chosen by the player;
+*Rowan* is the default). 16 years old, the tenth and youngest child of King Aldric III and
+the only one by Elena Marsh. The court calls them "the Marsh Prince" or "the Marsh
+Princess", or simply "the bastard". Raised in Lowmere by their mother's friends after she
+died when they were four.
 
-He is quiet and the player fills in his voice through choices, but his defining trait is
-fixed: he takes the town nobody wanted seriously. His goal at the start is small, to
-keep Lowmere fed. It grows into proving his worth, then into tearing the corrupt court
-down, then into building something better than a crown.
+The player is quiet and fills in their voice through choices, but their defining trait is
+fixed: they take the town nobody wanted seriously. Their goal at the start is small, to
+keep Lowmere fed. It grows into proving their worth, then into tearing the corrupt court
+down, and at the end into a choice between ruling and building something better than a
+crown (see [acts.md](acts.md#ending)).
 
-He carries his mother's **Lunar Wing** without knowing what it is (see
-[cult.md](cult.md#the-sleeper-and-the-lunar-wing)).
+They carry their mother's **Silver Wing** without knowing what it is, and from the start
+of the game they have their father's gift: **Entei, Raikou or Suicune** (see
+[vertical-slice.md](vertical-slice.md#5-the-kings-gift)).
 
 ## The nine siblings
 
-Fought youngest to eldest. "Stance" is how they treat the player at first meeting. "Arc"
-is where they end up. Gym types are fixed; balance owns the teams.
+Fought youngest to eldest, each in the throne hall of their own palace. "Stance" is how
+they treat the player at first meeting. "Arc" is where they end up. Trial types are
+fixed; balance owns the teams.
 
 ### 9th child. Prince Corwin, Haymarket. Normal.
 - **Age** 19. Charming, vain, a born salesman. The most popular sibling with commoners
@@ -31,13 +35,13 @@ is where they end up. Gym types are fixed; balance owns the teams.
 - **Arc:** humiliated in the first Trial. Sulks, then slowly becomes the player's first
   ally among the siblings. In Act 3 he uses his market contacts to smuggle food to
   Lowmere during the siege. The comic-relief sibling who turns out braver than expected.
-- **Gym flavour:** an auction hall. Signature Pokémon fits money and charm (Meowth line
-  or similar; balance decides).
+- **Palace flavour:** the Gilt Pavilion, a palace built like an auction house. Signature
+  Pokémon fits money and charm (Meowth line or similar; balance decides).
 
 ### 8th child. Princess Isolde, Thornfield. Grass.
 - **Age** 20. Gentle, idealistic, sheltered, writes poetry about the land.
 - **Stance:** pity. She is kind to the player in a way that makes it clear she thinks
-  he'll fail.
+  they'll fail.
 - **Secret:** none of her own. Her steward, a Gilded Scale man, has bound Thornfield's
   tenant farmers in debt in her name, and she has never looked at the ledgers.
 - **Arc:** devastated when the case exposes what was done in her name. After the Trial she
@@ -55,7 +59,7 @@ is where they end up. Gym types are fixed; balance owns the teams.
 
 ### 6th child. Princess Marisol, Saltmere. Water.
 - **Age** 24. Sharp, witty, pragmatic. Runs a free port and plays every side.
-- **Stance:** transactional. She'll deal with the player if he's useful.
+- **Stance:** transactional. She'll deal with the player if they're useful.
 - **Secret:** she knows the Gilded Scale smuggles something through Saltmere at night and
   takes her cut without asking what.
 - **Arc:** stays morally grey to the end. Sides with whoever is winning, which in Act 4
@@ -71,11 +75,12 @@ is where they end up. Gym types are fixed; balance owns the teams.
 
 ### 4th child. Princess Seraphine, Lumenhall. Psychic.
 - **Age** 28. Scholar and seer, calm, unsettling. The only sibling who visited Elena.
-- **Stance:** curious. She seems to know things about the player he doesn't.
+- **Stance:** curious. She seems to know things about the player that they don't.
 - **Secret:** she has been secretly investigating the Pale Choir for years and knows the
   truth about the king's illness and Elena's death.
 - **Arc:** the midpoint ally. After the Trial (which she half-wants to lose) she tells the
-  player about his mother and the Lunar Wing. The Choir abducts her at the end of Act 2.
+  player about their mother, the Silver Wing and the grove where Xerneas sleeps. The
+  Choir abducts her at the end of Act 2, using Yveltal.
   Rescued in Act 4.
 
 ### 3rd child. Prince Garrick, Emberfort. Fire.
@@ -85,7 +90,8 @@ is where they end up. Gym types are fixed; balance owns the teams.
 - **Secret:** none. He is exactly what he seems, which is what makes him dangerous.
   Chancellor Venn plays on his fear of chaos.
 - **Arc:** Act 3 antagonist. Declares martial law when the king collapses and marches on
-  Lowmere. Defeated in a Trial at Emberfort's gates. Surrenders his sword and lives with
+  Lowmere. Defeated in a Trial in the throne hall of his fortress
+  palace. Surrenders his sword and lives with
   it; not a friend, but no longer an enemy.
 
 ### 2nd child. Princess Vespera, Duskmoor. Dark.
@@ -94,14 +100,14 @@ is where they end up. Gym types are fixed; balance owns the teams.
 - **Secret:** a double agent. She joined the Pale Choir to destroy it from inside and has
   done terrible things to stay trusted.
 - **Arc:** the big Act 3 twist. She appears to betray the player to the Choir, then reveals
-  she has been feeding him information all along (the anonymous letters). Still holds her
-  Gym Trial: she wants to know he is strong enough before she risks her cover for him.
+  she has been feeding them information all along (the anonymous letters). Still holds her
+  palace Trial: she wants to know the player is strong enough before she risks her cover for them.
   Pays for it in Act 4, possibly with her life (D to decide).
 
 ### 1st child. Crown Prince Aurelian, Highcrest. Dragon.
 - **Age** 36. The heir. Brilliant, beloved, gracious. Everyone's idea of a perfect king.
 - **Stance:** courteous and unthreatened. He treats the player as a harmless younger
-  brother, which stings worse than insults.
+  sibling, which stings worse than insults.
 - **Secret:** he knows the king is being drugged into sleep and has let it continue
   because it guarantees his own succession. He is not a cultist; he thinks he can
   control them once he is crowned.
@@ -115,7 +121,7 @@ is where they end up. Gym types are fixed; balance owns the teams.
   starter. He was Elena's friend and knows more than he says.
 - **Tamsin Reed.** 16, the blacksmith's daughter, the player's oldest friend. Loud,
   stubborn, impatient with nobles. The rival: she battles the player throughout, and
-  becomes his envoy to the other towns. Replaces Emerald's May/Brendan rival role.
+  becomes their envoy to the other towns. Replaces Emerald's May/Brendan rival role.
 - **Mother Hesk.** Elderly herbalist, the town's memory. Keeps Elena's old house.
 - **Reeve Abel Toft.** Lowmere's only official, a tired clerk. Tracks the town's
   rebuilding; the person the player reports to when a pact brings new resources.
@@ -127,5 +133,6 @@ is where they end up. Gym types are fixed; balance owns the teams.
   [cult.md](cult.md).
 - **Silas Crane.** Guildmaster of the Gilded Scale in Haymarket, smooth and smiling.
   The first cult face the player meets, though he isn't revealed as one until later.
-- **Elena Marsh (deceased).** The player's mother. Healer whose Cresselia kept the king's
-  nightmares away. Killed by the Choir; her death was recorded as a fever.
+- **Elena Marsh (deceased).** The player's mother. Healer and the last keeper of Lugia,
+  whose guardianship kept the Choir out of the king's dreams. Killed by the Choir; her
+  death was recorded as a fever. Lugia withdrew to the deep sea the same night.

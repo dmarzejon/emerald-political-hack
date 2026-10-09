@@ -14,7 +14,7 @@ How well their town prospers is how the court judges their fitness to inherit. T
 eldest usually gets the richest town, so the custom mostly reinforces the order of birth.
 
 The king has ten children. Nine are by Queen Ottilie (died 6 years before the game). The
-tenth, the player, is by **Elena Marsh**, a commoner healer. He was apportioned
+tenth, the player, is by **Elena Marsh**, a commoner healer. The player was apportioned
 **Lowmere**, the poorest town in the kingdom, as a public insult arranged by the court.
 
 ### Diplomatic war
@@ -22,7 +22,8 @@ tenth, the player, is by **Elena Marsh**, a commoner healer. He was apportioned
 Heirs cannot raise armies against each other; the Crown forbids it. Instead they fight by
 **pacts**. An heir who wins a Trial of Standing against another heir may impose a pact on
 the loser's town: trade terms, reforms, the release of prisoners, the opening of roads.
-The player's campaign is a chain of these Trials. Each Gym battle is a Trial, and each win
+The player's campaign is a chain of these Trials. Each is fought in the throne hall of the
+sibling's palace, before their court; this replaces the Gym battle. Each win
 yields a pact that both reforms the sibling's town and sends something back to Lowmere,
 which is how Lowmere grows (see [vertical-slice.md](vertical-slice.md#lowmere-upgrade-stages)).
 
@@ -38,9 +39,13 @@ chambers. Royal decrees still come out under his seal, written by his Chancellor
 gossip says he is mad. The truth is that the Pale Choir keeps him in a nightmare state
 (see [cult.md](cult.md)).
 
-Aldric loved Elena and acknowledged the player as his son, which is why the player is a
-prince at all. He has not spoken to the player in years. When lucid, he is kind, guilty,
-and frightened.
+Aldric loved Elena and acknowledged the player as his child, which is why the player is
+a prince or princess at all. He has not spoken to the player in years. On the day of the
+Apportionment, in one of his rare lucid hours, he writes a letter in his own hand and
+sends the player a gift: a choice of three legendary Pokémon, **Entei, Raikou or
+Suicune**, from the royal kennels. It is the only thing he has written himself in years,
+and Chancellor Venn did not see it before it left. When lucid, he is kind, guilty, and
+frightened.
 
 ## Crownspire (capital)
 
@@ -55,12 +60,13 @@ Crownspire is closed to the player until Act 4.
 ## The ten towns
 
 Listed in the order the player confronts them. Map slots are suggestions for the map
-thread. Types are the ruling sibling's Gym type.
+thread. Types are the ruling sibling's Trial type. Each sibling's palace takes the place
+of their town's Gym.
 
-| # | Town | Ruler | Gym type | Theme | Suggested slot |
+| # | Town | Ruler | Trial type | Theme | Suggested slot |
 | --- | --- | --- | --- | --- | --- |
 | 0 | **Lowmere** | The player | (none until endgame) | Neglected marsh village; grows with every pact | Littleroot Town |
-| 1 | **Haymarket** | Prince Corwin (9th) | Normal | Grain market and fairground, rigged scales | Oldale Town (Gym added) |
+| 1 | **Haymarket** | Prince Corwin (9th) | Normal | Grain market and fairground, rigged scales | Oldale Town (palace added) |
 | 2 | **Thornfield** | Princess Isolde (8th) | Grass | Orchards and greenhouses, tenant farmers in debt | Petalburg City |
 | 3 | **Cragholt** | Prince Brannoc (7th) | Rock | Mining town, unsafe pits, child labour | Rustboro City |
 | 4 | **Saltmere** | Princess Marisol (6th) | Water | Free port, smugglers, the navy | Slateport City |

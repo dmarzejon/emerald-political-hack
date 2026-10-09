@@ -2,7 +2,8 @@
 
 The first playable chunk: from the opening cutscene to Lowmere's first upgrade. It should
 show every pillar of the game once: a hometown that changes, a route, a town with a
-corrupt sibling, a case to build, a Gym as a Trial, a pact, and a glimpse of the cult.
+corrupt sibling, a case to build, a Trial in a royal palace, a pact, and a glimpse of the
+cult.
 
 Target length: about 60-90 minutes for a first-time player.
 
@@ -18,7 +19,7 @@ to adopt or rename; please record the final names in `docs/systems.md`.
   king's chair is empty.
 - Venn, quietly, to the player as the court leaves: "Lowmere has good air, they say.
   Rest well there, Your Highness." (First Choir phrasing, unnoticed.)
-- Player names himself here (replaces Birch's intro). Can be a series of text boxes over
+- The player chooses boy or girl and their name here (replaces Birch's intro). Can be a series of text boxes over
   a still image if a full map is too much for the slice.
 
 ### 2. Arrival in Lowmere (Stage 0)
@@ -26,7 +27,7 @@ to adopt or rename; please record the final names in `docs/systems.md`.
   a broken well, an empty market square, a collapsed jetty, marsh all around.
 - Bram walks the player to **the Old Lodge**, the shabby house that is now the "royal
   residence". Replaces the player's house.
-- Reeve Toft greets him with a ledger: the town has eleven days of grain left.
+- Reeve Toft greets the player with a ledger: the town has eleven days of grain left.
   Haymarket's prices have tripled this year. Sets the goal: **get Lowmere fed**.
 - NPCs: Tamsin at the forge, Mother Hesk in Elena's old house, three or four villagers
   with complaints (rotten jetty, no healer, no shop, bad dreams).
@@ -35,16 +36,33 @@ to adopt or rename; please record the final names in `docs/systems.md`.
 - Bram takes the player to the **Ranger's Shed** (replaces Birch's Lab). Three Pokémon
   he has been caring for. Player picks one. Bram: "Your mother would have made you
   pick the one that was afraid of you. I'm not her. Pick the one you like."
-- Mother Hesk gives the **Lunar Wing**: "Your mother's. She said you'd want it one day."
-  It's a key item with a flavour description only for now.
-  `FLAG_RECEIVED_LUNAR_WING`.
+- Mother Hesk gives the **Silver Wing**: "Your mother's. She said you'd want it one day."
+  It's a key item with a flavour description only for now; in Act 3 it calls Lugia.
+  `FLAG_RECEIVED_SILVER_WING`.
 
 ### 4. Tamsin: first rival battle
 - Tamsin has the Pokémon that is strong against the player's (as in Emerald). She
-  challenges him at the edge of town to see "if a prince is worth following up the
-  road". First battle, then she joins him on the walk to the Mire Road.
+  challenges the player at the edge of town to see "if a prince (princess) is worth
+  following up the road". First battle. This comes before the king's gift so the rival
+  fight stays starter against starter.
 
-### 5. The Mire Road (route)
+### 5. The king's gift
+- Back at the Old Lodge, a royal courier is waiting, nervous and muddy. He carries a
+  letter sealed with the king's personal signet, not the Chancellery's, and three
+  Poké Balls from the royal kennels.
+- The letter is short and shaky, in Aldric's own hand: he is sorry, he is not well, he
+  could not stop the Apportionment, and he wants his child to have something of his.
+  "Choose the one that suits you. Your mother always said I chose badly for myself."
+- The player chooses **Entei, Raikou or Suicune**. `VAR_KINGS_GIFT_DOG` (0 Entei, 1
+  Raikou, 2 Suicune) and `FLAG_RECEIVED_KINGS_GIFT`.
+- Bram reads the letter over the player's shoulder and goes quiet. "He wrote this
+  himself. He hasn't written anything himself in years." First hint that the king is
+  not simply mad.
+- Balance note: the dog must not trivialise the first Trial. Suggested approach: it
+  arrives at a low level, close to the starter's (balance decides).
+- Tamsin then joins the player on the walk to the Mire Road.
+
+### 6. The Mire Road (route)
 - Suggested slot: Route 101, extended into a longer marsh path with boardwalks, tall
   grass and a few shallow pools.
 - **Wild Pokémon:** marsh and roadside species, early-game level. Balance owns the list.
@@ -59,16 +77,16 @@ to adopt or rename; please record the final names in `docs/systems.md`.
 - The carter NPC tells the player that the scales in Haymarket are rigged, and that
   the old weights were swapped this spring. First lead.
 
-### 6. Haymarket: arrival
+### 7. Haymarket: arrival
 - A bustling market town with a permanent fairground, stalls, a granary, the Gilded
-  Scale's counting house, a Pokémon Center and Mart, and Corwin's **Auction House**,
-  which is the Gym.
+  Scale's counting house, a Pokémon Center and Mart, and Corwin's palace, the **Gilt
+  Pavilion**, which replaces the Gym. It is built like an auction house.
 - Corwin is in the square throwing a fair. He spots the player and makes a show of it:
-  "Look, everyone, the Marsh Prince! Has Lowmere sent us its finest frog?" The crowd
+  "Look, everyone, the Marsh Prince (Princess)! Has Lowmere sent us its finest frog?" The crowd
   laughs. He refuses a Trial: "On what grounds? That you're poor?"
 - Goal: **build a case** for the magistrate.
 
-### 7. Building the case
+### 8. Building the case
 Three pieces of evidence. Any order. Each is short.
 
 1. **The receipt** from the Mire Road (already held).
@@ -84,20 +102,22 @@ Three pieces of evidence. Any order. Each is short.
 Townsfolk dialogue should make it clear that most people like Corwin and blame the
 guild, not him. The player should feel Corwin is careless rather than evil.
 
-### 8. The magistrate
+### 9. The magistrate
 - Magistrate Lyle Arden, an honest old man worn down by the guild. When shown all three
   pieces he authorises a **Trial of Standing**: "The law is old, Your Highness, but it
-  is still the law." `FLAG_HAYMARKET_TRIAL_GRANTED`; unlocks the Gym door.
+  is still the law." `FLAG_HAYMARKET_TRIAL_GRANTED`; opens the palace doors.
 - Silas Crane, the guildmaster, is waiting outside. Smiling, he offers the player a
-  "royal discount" on grain if he withdraws. Refusing is the only option. Crane:
-  "Then rest well tonight, little prince."
+  "royal discount" on grain if they withdraw. Refusing is the only option. Crane:
+  "Then rest well tonight, little prince (princess)."
 
-### 9. The Trial: Corwin's Auction House (Gym)
-- Theme: an auction hall. The gym trainers are **brokers** and **bidders**.
+### 10. The Trial: Corwin's palace, the Gilt Pavilion
+- Theme: a gaudy palace built around an auction floor. The trainers on the way in are
+  Corwin's courtiers: **brokers** and **bidders**. The Trial is fought on the auction
+  floor in front of the throne, with Haymarket's townsfolk packed into the galleries.
 - Puzzle idea for the map thread: the floor is a grid of lot numbers. An auctioneer calls
   numbers; stepping on the called lots opens the gates, wrong lots make a bidder
   challenge you. Simpler fallback: a straight run of 3 trainers with gate switches.
-- **Corwin, Gym Leader, Normal type.** Fights with showmanship: his Pokémon are
+- **Corwin, Trial 1, Normal type.** Fights with showmanship: his Pokémon are
   "lots" he presents to the crowd. Balance owns the team. Difficulty should be the
   first real wall, as Roxanne is in Emerald, and his ace should match the theme of
   money and charm.
@@ -107,7 +127,7 @@ guild, not him. The player should feel Corwin is careless rather than evil.
   He signs the pact, angrily, and the player gets the **Haymarket Seal** (badge 1).
   `FLAG_BADGE01_GET` as usual.
 
-### 10. The Pact of Fair Measure
+### 11. The Pact of Fair Measure
 - Terms: honest Crown weights restored, the Gilded Scale's grain contract cancelled,
   and Haymarket sells to Lowmere at fair price.
 - Corwin, privately, after the crowd leaves: he genuinely didn't know about the bell
@@ -116,7 +136,7 @@ guild, not him. The player should feel Corwin is careless rather than evil.
   unopened, addressed to no one. The player can't open it yet (key item for later).
   `FLAG_PACT_HAYMARKET`.
 
-### 11. Return to Lowmere (Stage 1)
+### 12. Return to Lowmere (Stage 1)
 - Grain carts arrive. Reeve Toft is giddy. The town upgrades to Stage 1 when the player
   re-enters (see below). Villagers comment on each change.
 - Tamsin: "One down. Eight to go, Your Highness." She's being sarcastic. Mostly.
@@ -133,10 +153,10 @@ and 1 working; 2-4 can be sketched.
 | Stage | Trigger | What visibly changes | Gameplay |
 | --- | --- | --- | --- |
 | 0 | Start | Broken well, boarded houses, empty square, collapsed jetty, mud paths | No Mart, no Center. Bram heals your party. |
-| 1 | Pact with Haymarket (Gym 1) | Well repaired, grain store open, two market stalls in the square, one house reopened, fences mended | A small Mart (stall) opens. Villagers return. |
-| 2 | Pacts with Thornfield and Cragholt (Gym 3) | Gardens and orchard plots, stone paths, jetty rebuilt with boats, Pokémon Center | Center opens. Berry plots. Boat to a new area. |
-| 3 | Pacts through Lumenhall (Gym 6) | Town walls and gate, new houses, a schoolhouse, lanterns, the Old Lodge restored as a manor hall | Move tutor, more shops. The town looks like a town. |
-| 4 | Siege survived, pacts through Duskmoor (Gym 8) | Banners of all allied towns, festival square, statue of Elena, a Gym building (closed until post-game) | Seat of the Ten-Town alliance. |
+| 1 | Pact with Haymarket (Trial 1) | Well repaired, grain store open, two market stalls in the square, one house reopened, fences mended | A small Mart (stall) opens. Villagers return. |
+| 2 | Pacts with Thornfield and Cragholt (Trial 3) | Gardens and orchard plots, stone paths, jetty rebuilt with boats, Pokémon Center | Center opens. Berry plots. Boat to a new area. |
+| 3 | Pacts through Lumenhall (Trial 6) | Town walls and gate, new houses, a schoolhouse, lanterns, the Old Lodge restored as a manor hall | Move tutor, more shops. The town looks like a town. |
+| 4 | Siege survived, pacts through Duskmoor (Trial 8) | Banners of all allied towns, festival square, statue of Elena, a palace hall for Trials (closed until post-game) | Seat of the Ten-Town alliance. |
 
 Each stage should look clearly different from the one before when the player walks in.
 The first upgrade is the most important moment in the slice: it is the payoff for the
@@ -149,14 +169,16 @@ Suggestions for the features thread.
 | Name | Set when |
 | --- | --- |
 | `VAR_LOWMERE_STAGE` | 0 at start, 1 after the Haymarket pact |
-| `FLAG_RECEIVED_LUNAR_WING` | Mother Hesk gives the keepsake |
+| `FLAG_RECEIVED_SILVER_WING` | Mother Hesk gives the keepsake |
+| `FLAG_RECEIVED_KINGS_GIFT` | The player picks the king's gift |
+| `VAR_KINGS_GIFT_DOG` | 0 Entei, 1 Raikou, 2 Suicune |
 | `FLAG_FOUND_BELL_RECEIPT` | Mire Road wagon event |
 | `FLAG_HAYMARKET_WEIGHTS_FOUND` | Granary evidence |
 | `FLAG_HAYMARKET_WITNESS` | Widow Penn agrees to testify |
-| `FLAG_HAYMARKET_TRIAL_GRANTED` | Magistrate authorises the Trial; Gym door opens |
-| `FLAG_PACT_HAYMARKET` | Pact signed after Gym 1 (diplomacy flag) |
+| `FLAG_HAYMARKET_TRIAL_GRANTED` | Magistrate authorises the Trial; palace doors open |
+| `FLAG_PACT_HAYMARKET` | Pact signed after Trial 1 (diplomacy flag) |
 
-New key items: **Lunar Wing** (exists in the expansion), **Bell Receipt**, **Sealed
+New key items: **Silver Wing** (exists in the expansion as an item; make it a key item), **Bell Receipt**, **Sealed
 Letter**.
 
 ## Cast in the slice
@@ -166,10 +188,11 @@ Letter**.
 | Player | All | Protagonist |
 | Bram Ashdown | Lowmere | Mentor, gives the starter, heals party at Stage 0 |
 | Tamsin Reed | Lowmere, Mire Road | Rival, first battle |
-| Mother Hesk | Lowmere | Gives the Lunar Wing, dream hook |
+| Mother Hesk | Lowmere | Gives the Silver Wing, dream hook |
+| Royal courier | Lowmere | Delivers the king's letter and gift |
 | Reeve Abel Toft | Lowmere | Tracks the town; announces upgrades |
 | Chancellor Venn | Prologue | Hidden cult leader |
-| Corwin | Haymarket | Gym Leader 1, Normal |
+| Corwin | Haymarket | Trial 1 (palace leader), Normal |
 | Silas Crane | Haymarket | Gilded Scale guildmaster, Warden |
 | Magistrate Lyle Arden | Haymarket | Grants the Trial |
 | Widow Penn | Haymarket | Witness |

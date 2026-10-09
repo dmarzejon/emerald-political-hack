@@ -109,11 +109,11 @@ waits in a line by the lift.
 
 | Kind | Label | Who / what | `local_id` | Flag | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Trigger | `Cragholt_EventScript_Arrival` | (15,54) and (16,54) on the south road in | | | while `VAR_CRAGHOLT_STATE` is 0 |
+| Trigger | `Cragholt_EventScript_Arrival` | (12..19,54) across the south road in | | | while `VAR_CRAGHOLT_STATE` is 0 |
 | Object | (none) | Brannoc at (18,52), facing right toward the headframe | `LOCALID_CRAGHOLT_BRANNOC` (1) | `FLAG_TEMP_1` | |
 | Object | (none) | the lift guard | `LOCALID_CRAGHOLT_GUARD` (2) | `FLAG_TEMP_1` | |
 | Objects | (none) | three bonded men east of the headframe, (21,51), (21,52) and one more, facing left | `LOCALID_CRAGHOLT_BONDED_1` (3) / `_2` (4) / `_3` (5) | `FLAG_TEMP_1` | turn to the lift and are removed under a fade |
-| Object | `Cragholt_EventScript_Tamsin` | Tamsin by the quota board | `LOCALID_CRAGHOLT_TAMSIN` (6) | `FLAG_TEMP_2` | for the scene she is moved to (15,53), ahead of the trigger (`CRAGHOLT_TAMSIN_SCENE_X` / `_Y` in `common.inc`) |
+| Object | `Cragholt_EventScript_Tamsin` | Tamsin by the quota board | `LOCALID_CRAGHOLT_TAMSIN` (6) | `FLAG_TEMP_2` | for the scene she is moved one tile ahead of the player, wherever they cross the trigger |
 | Objects | `Cragholt_EventScript_Crew1` / `_Crew2` / `_CrewGuard` | the next crew and its guard by the lift | | `FLAG_TEMP_3` | until state 3 |
 | Objects | `Cragholt_EventScript_FreedMiner1` / `_FreedMiner2` | freed miners in the square | | `FLAG_TEMP_4` | from state 3 |
 | Object | `Cragholt_EventScript_HallGuard` | guard on the Pithead Hall door | | `FLAG_TEMP_5` | blocks the door until state 2 |
@@ -130,7 +130,7 @@ Interiors:
 | Barracks | Sign | `Cragholt_Barracks_EventScript_Roll` | the roll on the wall; gives `ITEM_BONDING_ROLL` |
 | Barracks | Sign | `Cragholt_Barracks_EventScript_Bunks` | the bunks |
 | Ore office (`RustboroCity_DevonCorp_1F`) | Trainer | `Cragholt_OreOffice_EventScript_Clerk` | `TRAINER_ORE_OFFICE_CLERK`, in the way of the desk |
-| Ore office | Sign | `Cragholt_OreOffice_EventScript_Ledger` | the desk; gives `ITEM_QUOTA_LEDGER` |
+| Ore office | Sign | `Cragholt_OreOffice_EventScript_Ledger` | the desk; gives `ITEM_QUOTA_LEDGER`. Starts the clerk's battle first if he hasn't been beaten |
 | Ore office | Object, sign | `Cragholt_OreOffice_EventScript_Assayer`, `_OreSamples` | |
 | Magistrate's hall (`RustboroCity_House1`) | Object | `Cragholt_MagistrateHall_EventScript_Hollen` | Magistrate Hollen |
 | Magistrate's hall | Object | `Cragholt_MagistrateHall_EventScript_Wil` | flag `FLAG_TEMP_1`; there from the rescue until state 3 |

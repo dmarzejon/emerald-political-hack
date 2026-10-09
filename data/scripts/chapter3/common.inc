@@ -100,11 +100,3 @@ Ch3_Name_OreClerk::
 Ch3_Name_Cook::
 	.string "CANTEEN COOK$"
 
-@ ---------------------------------------------------------------------------
-@ Where Tamsin stands for the Cragholt arrival scene: beside the player at the
-@ arrival trigger, (15,54)-(16,54) on the south road in.
-@ ---------------------------------------------------------------------------
-#ifndef CRAGHOLT_TAMSIN_SCENE_X
-#define CRAGHOLT_TAMSIN_SCENE_X 15
-#define CRAGHOLT_TAMSIN_SCENE_Y 53
-#endif

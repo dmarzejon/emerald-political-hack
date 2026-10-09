@@ -106,10 +106,13 @@ Cragholt_EventScript_Arrival::
 	setflag FLAG_MET_BRANNOC
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_CRAGHOLT_BRANNOC
-	@ Tamsin's spot is by the quota board; for the scene she arrives on the
-	@ road, beside the player at the trigger.
+	@ Tamsin's spot is by the quota board; for the scene she stands on the
+	@ road one tile ahead of the player, who can be anywhere on the trigger
+	@ row (12..19,54).
 	clearflag FLAG_TEMP_2
-	setobjectxyperm LOCALID_CRAGHOLT_TAMSIN, CRAGHOLT_TAMSIN_SCENE_X, CRAGHOLT_TAMSIN_SCENE_Y
+	getplayerxy VAR_0x8004, VAR_0x8005
+	subvar VAR_0x8005, 1
+	setobjectxyperm LOCALID_CRAGHOLT_TAMSIN, VAR_0x8004, VAR_0x8005
 	addobject LOCALID_CRAGHOLT_TAMSIN
 	fadedefaultbgm
 	fadescreen FADE_FROM_BLACK
@@ -348,8 +351,19 @@ Cragholt_OreOffice_EventScript_Clerk::
 	npc Ch3_Name_OreClerk, Cragholt_Text_ClerkPostBattle
 	end
 
+@ The desk can be reached without passing the clerk, so reading it starts
+@ his battle if he hasn't been beaten.
 Cragholt_OreOffice_EventScript_Ledger::
 	goto_if_set FLAG_FOUND_QUOTA_LEDGER, Cragholt_OreOffice_EventScript_LedgerAgain
+	lockall
+	goto_if_defeated TRAINER_ORE_OFFICE_CLERK, Cragholt_OreOffice_EventScript_ReadLedger
+	say Ch3_Name_OreClerk, Cragholt_Text_ClerkIntro
+	closemessage
+	trainerbattle_no_intro TRAINER_ORE_OFFICE_CLERK, Cragholt_Text_ClerkDefeat
+	goto Cragholt_OreOffice_EventScript_ReadLedger
+	end
+
+Cragholt_OreOffice_EventScript_ReadLedger::
 	lockall
 	narrate Cragholt_Text_LedgerOpen
 	narrate Cragholt_Text_LedgerBonuses

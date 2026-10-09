@@ -42,7 +42,7 @@ down so Trial 1 stays fair.
 | 4 | Seraphine | Psychic | **Uxie** | Erases the memories of anyone who learns her secrets |
 | 3 | Garrick | Fire | **Heatran** | Sells commissions, extorts "protection levies", buried a massacre |
 | 2 | Vespera | Dark | **Chien-Pao** | Blackmails half the court and sells secrets to the highest bidder |
-| 1 | Aurelian | Dragon | **Dialga** | Bribes magistrates and lets the king be kept asleep to secure the throne |
+| 1 | Aurelian | Dragon | **Reshiram** | Bribes magistrates and lets the king be kept asleep to secure the throne |
 
 ### 9th child. Prince Corwin, Haymarket. Normal. Legendary: Type: Null.
 - **Age** 19. Charming, vain, a born salesman. The most popular sibling with commoners
@@ -153,14 +153,15 @@ down so Trial 1 stays fair.
   Trial: she wants to know the player is strong enough before she risks her cover for
   them. Pays for it in Act 4, possibly with her life (D to decide).
 
-### 1st child. Crown Prince Aurelian, Highcrest. Dragon. Legendary: Dialga.
+### 1st child. Crown Prince Aurelian, Highcrest. Dragon. Legendary: Reshiram.
 - **Age** 36. The heir. Brilliant, beloved, gracious. Everyone's idea of a perfect king.
 - **Stance:** courteous and unthreatened. He treats the player as a harmless younger
   sibling, which stings worse than insults.
 - **Corruption:** he pays most of the kingdom's magistrates to secure his succession. He
   knows the king is being kept asleep and has let it continue because it guarantees his
   throne. He is not a cultist; he thinks he can control them once he is crowned.
-- **Legendary:** Dialga, master of time. The heir who is content to wait.
+- **Legendary:** Reshiram, the white dragon of truth. A bitter irony for the heir who
+  lives a lie; it answers him fully only after he confesses.
 - **Arc:** the final sibling Trial. After losing he confesses his complicity in front of
   the court. He can't undo it, but he stands with the player against the Choir.
   The lesson of the game in one man: good manners are not good rule.

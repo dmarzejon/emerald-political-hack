@@ -96,6 +96,7 @@ purpose. Limits that keep it stageable on the GBA and readable:
 - 2026-10-09, D: the king gives the player a choice of Entei, Raikou or Suicune early on. The player gets both this and the starter.
 - 2026-10-09, D: every sibling is corrupt, and each has a legendary.
 - 2026-10-09, D: darker tone; sibling crimes and aftermath are shown on screen.
+- 2026-10-09, D: Aurelian gets a dragon other than Dialga (now Reshiram); bible approved.
 
 ## Open questions for D
 

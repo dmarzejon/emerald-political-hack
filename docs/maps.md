@@ -137,6 +137,10 @@ When you stand near a map edge, the game draws the neighbouring map's tiles with
 
 Haymarket's frame and the Mire Road's dry north end exist for this reason. Lowmere and the Mire Road share a tileset, so their seam has no limit. `validate.py` checks every seam the slice maps touch.
 
+## People's sprites
+
+The FRLG overworld sprites (everything from `OBJ_EVENT_GFX_RED_NORMAL` on, such as the balding man and the policeman) are only compiled into FireRed and LeafGreen builds. In this Emerald build they draw nothing, so a person using one is invisible but still talks. Use Emerald sprites. `validate.py` flags any slice object that uses an FRLG sprite.
+
 ## Tilesets
 
 - **`gTileset_Lowmere`** (`data/tilesets/secondary/lowmere`) is Petalburg with additions, so every Petalburg metatile id still works. It adds:
@@ -154,7 +158,7 @@ The scripts in `dev_scripts/slice_maps/` built everything above. Run them from t
 ```sh
 python3 dev_scripts/slice_maps/build_tileset.py   # tilesets (only if the art changes)
 python3 dev_scripts/slice_maps/build_maps.py      # layouts
-python3 dev_scripts/slice_maps/validate.py        # reachability and seam checks
+python3 dev_scripts/slice_maps/validate.py        # reachability, seam and sprite checks
 ```
 
 `build_events.py` placed the first events, and `wire_events.py` then pointed them at the dialogue scripts. Both have been run, and `map.json` is now the source of truth. Change events by hand or in Porymap. Do not re-run `build_events.py`, because it starts from origin/main and would overwrite the wiring. `build_maps.py` only writes layouts, so it is safe to re-run.

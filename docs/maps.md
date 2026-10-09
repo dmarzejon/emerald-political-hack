@@ -126,6 +126,7 @@ These are the exits:
 - **Gilt Pavilion:** Petalburg Gym rooms set into a 13-wide hall, with spectator boxes down both sides (the galleries). Six townsfolk watch from the boxes, and four box faces are the `Gallery` signs. The music is `MUS_GYM`.
   - Corwin stands below the throne at (6,4) (`LOCALID_PAVILION_CORWIN`), and the auctioneer by the door at (5,25).
   - The courtiers are `Broker1` at (3,10), `Bidder` at (9,15) and `Broker2` at (3,17), each with a sight range of 4.
+  - A servant (`GiltPavilion_EventScript_Servant`) at (3,5), facing down, heals the party before Corwin.
   - **The lot puzzle.** Three rows of numbered gold lots cross the hall, at rows 19, 13 and 7. On the row below each one (rows 20, 14 and 8), the auctioneer calls lot 7, then 12, then 20. Only the called lot lets you on. A wrong lot gets the auctioneer's "wrong lot" line and steps you back. A solved row stays open until you leave the Pavilion, and the floor goes quiet after the Trial. The scripts are in `data/maps/Haymarket_GiltPavilion/scripts.inc`, and they call the auctioneer's lines in `data/scripts/slice/gilt_pavilion.inc`.
 - **Counting house:** this reuses the Devon Corp 1F layout. The front clerk is at the desk, and stairs lead to a back room.
 - **Counting house back room:** this reuses Devon Corp 2F. Penn's Poké Ball is in the corner at (0,8) (`LOCALID_COUNTING_HOUSE_PENN_BALL`). You can only take it from (0,7) or (1,8). `Clerk2` at (0,4), facing down, watches the first, and `Clerk1` at (4,8), facing left, watches the second, so taking the ball always starts a clerk battle. Crane's desk is a sign at (2,4), and the payment shelves are signs at (10,4) and (11,4).
@@ -224,6 +225,7 @@ A walled garden with three terraces of hedges, climbing to Isolde's flagstone da
 | Gardener 1, trainer, faces right, sight 8 | (2,16) | `Glasshouse_EventScript_Gardener1` |
 | Gardener 2, trainer, faces left, sight 8 | (13,13) | `Glasshouse_EventScript_Gardener2` |
 | Courtier, trainer, faces right, sight 8 | (2,10) | `Glasshouse_EventScript_Courtier` |
+| Servant, heals the party, faces left | (13,7) | `Glasshouse_EventScript_Servant` |
 | Glass wall (signs) | (2–13,1) | `Glasshouse_EventScript_GlassWall` |
 | Exit mats (warps 0 and 1 to Thornfield warp 2) | (7,21), (8,21) | |
 

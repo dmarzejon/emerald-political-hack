@@ -3,9 +3,6 @@
 @ magistrate, Isolde on her terraces, and the town after the pact.
 @ Object, trigger and sign placement: docs/dialogue/chapter2.md#thornfield
 
-#ifndef LOCALID_STEWARDS_OFFICE_VOSS
-#define LOCALID_STEWARDS_OFFICE_VOSS    1
-#endif
 
 @ ---------------------------------------------------------------------------
 @ ON_TRANSITION helper for the town map. Temp flags are cleared on every map

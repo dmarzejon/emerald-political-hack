@@ -12,11 +12,12 @@ Four acts, nine sibling Trials, one capital. Each town follows the same loop:
 
 ## Prologue: The Apportionment
 
-Opens on the court in Crownspire. Chancellor Venn reads out the Apportionment of the
-tenth child: "To Rowan Marsh, called Valcourt, the town of Lowmere." Laughter from the
+Opens on a black screen: "Who are you?" The player chooses boy or girl and their name.
+Then the court in Crownspire: Chancellor Venn reads out the Apportionment of the tenth
+child: "To [Name] Marsh, called Valcourt, the town of Lowmere." Laughter from the
 siblings. Corwin: "Does it have a town, or just the mere?" The king's chair is empty.
 Cut to the player arriving in Lowmere by cart. This is the game's opening cutscene and
-replaces the truck ride. The player chooses boy or girl and their name here.
+replaces the truck ride.
 
 Soon after arrival, a royal courier brings the king's letter and gift: a choice of
 **Entei, Raikou or Suicune** (see [vertical-slice.md](vertical-slice.md)).
@@ -32,8 +33,8 @@ keeps turning up.
   turn their land into gardens. The player
   notices a sealed grove behind her palace that no one is allowed to enter.
 - **Cragholt, Brannoc, Rock.** Bonded convicts and debtors worked to death to beat ore
-  quotas. The pale bell is found in the mine
-  collapse, which was no accident.
+  quotas. The pale bell is found in a recent mine collapse, which was no accident: the
+  Choir's warning to Brannoc when he balked at a new quota.
 - **Act end:** Lowmere reaches Stage 2. Tamsin becomes the player's envoy. A letter
   sealed with a pale bell arrives: "The tenth child should stay small."
 
@@ -86,7 +87,8 @@ The court stops pretending.
 - **Storming Crownspire.** Marisol blockades the harbour, Teodor sabotages the engine
   from inside, Brannoc's miners open the undercroft. Seraphine is freed. The player
   climbs the Bell Tower through the Four Voices (the Privy Council, Elite Four slot).
-- **The Hierophant.** Venn at the top of the tower. Final human battle. As he loses, he
+- **The Hierophant.** Venn at the top of the tower. Final human battle; his team
+  includes the two dogs the player didn't choose, taken from the royal kennels. As he loses, he
   rings the great bell anyway. The sky tears and **Giratina** comes through.
 - **Rayquaza.** Drawn by the tear in the sky, **Rayquaza** descends on the tower and
   answers the player. Giratina battle.

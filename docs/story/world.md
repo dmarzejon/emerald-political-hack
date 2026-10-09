@@ -61,7 +61,8 @@ holds what the cult calls the Sleeper. Suggested map slot: Ever Grande City, wit
 Pokémon League rebuilt as the palace and the Elite Four rooms as the Privy Council
 chambers.
 
-Crownspire is closed to the player until Act 4.
+Crownspire can't be explored freely until Act 4. The prologue and the Act 2 Midsummer
+Court are scripted visits, so the map thread needs a throne-room scene for the slice.
 
 ## The ten towns
 
@@ -103,4 +104,4 @@ Crownspire.
   Choir's money.
 - **The Pale Choir**: the cult. See [cult.md](cult.md).
 - **The Commons**: ordinary townsfolk. The player's real power base. Each pact wins their
-  trust; by the end they are the council that replaces the court.
+  trust; by the end, whoever rules has to answer to them.

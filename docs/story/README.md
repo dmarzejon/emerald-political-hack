@@ -61,6 +61,11 @@ just as sport. Keep it readable for a Pokémon audience: no gore, menace stays i
 and humour comes from courtiers and townsfolk. Every sibling should be someone the player
 can understand, even the ones who never redeem themselves.
 
+**Rule for the darker crimes** (default until D confirms): the siblings' worst crimes
+(deaths in the mines, families sold into servitude, erased memories, the Emberfort
+massacre) are revealed only through documents, ledgers and testimony, never shown on
+screen. Dialogue says "never came back" or "didn't come home", not "died" or "killed".
+
 ## Decisions log
 
 - 2026-10-09, D: Trials take place in royal palaces, not Gyms.

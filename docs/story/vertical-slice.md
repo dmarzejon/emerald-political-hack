@@ -14,13 +14,16 @@ to adopt or rename; please record the final names in `docs/systems.md`.
 ## Scene list
 
 ### 1. Prologue: the Apportionment (cutscene)
-- Crownspire throne room. Chancellor Venn reads the Apportionment. Corwin's joke about
+- Black screen: "Who are you?" The player chooses boy or girl and their name (replaces
+  Birch's intro). This comes first so the court scene can use the right name and title.
+- Crownspire throne room. Chancellor Venn reads the Apportionment, using the player's
+  name. Corwin's joke about
   the mere. Isolde looks embarrassed for the player. Aurelian smiles politely. The
   king's chair is empty.
 - Venn, quietly, to the player as the court leaves: "Lowmere has good air, they say.
   Rest well there, Your Highness." (First Choir phrasing, unnoticed.)
-- The player chooses boy or girl and their name here (replaces Birch's intro). Can be a series of text boxes over
-  a still image if a full map is too much for the slice.
+- The throne room is a scripted scene, not an explorable map. It can be a series of text
+  boxes over a still image if a full map is too much for the slice.
 
 ### 2. Arrival in Lowmere (Stage 0)
 - The player arrives by cart with Bram Ashdown. Lowmere: six houses, three boarded up,
@@ -55,6 +58,13 @@ to adopt or rename; please record the final names in `docs/systems.md`.
   "Choose the one that suits you. Your mother always said I chose badly for myself."
 - The player chooses **Entei, Raikou or Suicune**. `VAR_KINGS_GIFT_DOG` (0 Entei, 1
   Raikou, 2 Suicune) and `FLAG_RECEIVED_KINGS_GIFT`.
+- The courier takes the other two Poké Balls back to the royal kennels. (Payoff: in
+  Act 4, Chancellor Venn's team includes both of them.)
+- How the gift got out: the kennel master was Elena's friend and slipped the three
+  Balls to the courier on the king's word. Venn found out and stopped the courier at
+  the city gate, then let him go: "The king's gift is the king's affair." The courier
+  repeats this, shaken. Venn's choice is deliberate: a bastard with a legendary will
+  stir up the heirs, which suits the Choir's plan to set them against each other.
 - Bram reads the letter over the player's shoulder and goes quiet. "He wrote this
   himself. He hasn't written anything himself in years." First hint that the king is
   not simply mad.
@@ -70,8 +80,9 @@ to adopt or rename; please record the final names in `docs/systems.md`.
 - **Trainers (3-4):** a Gilded Scale clerk ("Haymarket doesn't take IOUs"), a poacher, a
   youngster who wants to see a real prince, and a grain carter who quit over the scales.
 - **Event, mid-route:** a Gilded Scale wagon stuck in the mud, guarded by two
-  "clerks". The wagon is full of grain marked for Haymarket, not Lowmere, even though
-  it passed through Lowmere's land. One clerk battles the player. The other drops a
+  "clerks". The wagon is full of **Lowmere's own tithe grain**, collected by the guild
+  from the marsh farms and hauled to Haymarket, where it is sold back to Lowmere at triple
+  price over rigged scales. One clerk battles the player. The other drops a
   receipt stamped with a **pale bell** seal. `FLAG_FOUND_BELL_RECEIPT`. This receipt is
   later evidence in the case.
 - The carter NPC tells the player that the scales in Haymarket are rigged, and that

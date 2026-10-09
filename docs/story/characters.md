@@ -14,8 +14,9 @@ keep Lowmere fed. It grows into proving their worth, then into tearing the corru
 down, and at the end into a choice between ruling and building something better than a
 crown (see [acts.md](acts.md#ending)).
 
-They carry their mother's **Silver Wing** without knowing what it is, and from the start
-of the game they have their father's gift: **Entei, Raikou or Suicune** (see
+On arrival in Lowmere, Mother Hesk gives them their mother's **Silver Wing**, which they
+carry without knowing what it is. Soon after, a courier brings their father's gift: a
+choice of **Entei, Raikou or Suicune** (see
 [vertical-slice.md](vertical-slice.md#5-the-kings-gift)).
 
 ## The nine siblings
@@ -82,9 +83,11 @@ down so Trial 1 stays fair.
   convicts and debtors from other towns and works them in the deepest, most dangerous
   pits. He has hidden the deaths from the magistrate for two years.
 - **Legendary:** Regirock, which he says he dug out of the mountain himself.
-- **Arc:** respects the player after the Trial. Frees the bonded workers and defies the
-  quotas, which makes him the first sibling the cult targets openly (Act 2 mine
-  collapse). Survives and becomes a steady ally, trying to earn back what he did.
+- **Arc:** the Act 1 mine collapse was the Choir's warning to him when he started to balk
+  at a new quota rise; he blamed the workers. After the Trial he respects the player,
+  frees the bonded workers and defies the quotas for good. Becomes a steady ally, trying
+  to earn back what he did, and brings his miners to the Siege of Lowmere and the
+  storming of Crownspire.
 
 ### 6th child. Princess Marisol, Saltmere. Water. Legendary: Tapu Fini.
 - **Age** 24. Sharp, witty, pragmatic. Runs a free port and plays every side.

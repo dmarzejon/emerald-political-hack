@@ -25,7 +25,7 @@ a pin, a seal ring, or a stitched lining.
 | --- | --- | --- |
 | **Hierophant** | Chancellor Maelis Venn | Final human boss (Champion slot) |
 | **The Four Voices** | The king's Privy Council: Lady Orla Grise (Ghost), Master Dunstan Pell (Poison), Justiciar Hale (Steel), Sister Noor (Fairy) | Elite Four replacement |
-| **Wardens** | Regional leaders, one per act: Silas Crane (Gilded Scale), Warden Mott (navy), Warden Ysolde (academy), Warden Kael (army) | Admin-level fights, the "Team Aqua/Magma admin" slot |
+| **Wardens** | Regional leaders, one per act: Silas Crane (Gilded Scale), Warden Mott (navy), Warden Morwen (academy), Warden Kael (army) | Admin-level fights, the "Team Aqua/Magma admin" slot |
 | **Acolytes** | Robed, masked foot soldiers; in public, Gilded Scale clerks and guards | Grunt trainers |
 | **The Gilded Scale** | The merchant guild front | Shops, quest givers, money |
 
@@ -34,7 +34,8 @@ change them.
 
 ## Legendaries
 
-Six legendaries, three on each side. The Choir binds theirs through fear and the bell;
+These are the six legendaries that decide the war, three on each side. They are not a
+cap: the siblings' nine legendaries and the king's gift dogs are separate. The Choir binds theirs through fear and the bell;
 the player's answer because of who the player is and what their mother kept.
 
 ### The Choir's three
@@ -42,7 +43,7 @@ the player's answer because of who the player is and what their mother kept.
 | Pokémon | Role | Where it appears |
 | --- | --- | --- |
 | **Darkrai** | **The Sleeper.** Sealed for centuries beneath Crownspire's cathedral. Its nightmares hold King Aldric asleep and seep into every town as bad dreams. | Felt from Act 1 (dreams), seen in the Act 2 Midsummer Court, fought in the undercroft in Act 4 |
-| **Yveltal** | **The Choir's weapon.** Bound by Warden Ysolde with a dark relic. Drains life from what it passes over. | Abducts Seraphine at the end of Act 2; leads the attack in the Siege of Lowmere in Act 3; fought at the siege's end and driven off |
+| **Yveltal** | **The Choir's weapon.** Bound by Warden Morwen with a dark relic; she rides it at both the abduction and the siege. Drains life from what it passes over. | Abducts Seraphine at the end of Act 2; leads the attack in the Siege of Lowmere in Act 3; fought at the siege's end and driven off |
 | **Giratina** | **The Hierophant's own.** Venn draws it out of the Distortion World by ringing the Bell Tower's great bell. | Final battle of Act 4, at the top of the Bell Tower |
 
 ### The player's three
@@ -80,6 +81,6 @@ certainty.
 ## Rules for writing the Choir
 
 - They never rant. They are calm, polite and sure they are being kind.
-- Acolytes speak in hushed, sleepy phrases: "Rest now." "It's late, little prince."
+- Acolytes speak in hushed, sleepy phrases: "Rest now." "It's late, little prince." (or "little princess")
 - Venn should be likeable for most of the game. He is the one courtier who is
   consistently polite to the player, which is exactly how he keeps them close.

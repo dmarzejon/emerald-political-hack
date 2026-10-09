@@ -60,7 +60,7 @@ constant exists, so the owning thread can add it with no change here.
 | 12 | Corwin beaten, pact signed | `GiltPavilion_EventScript_Corwin` |
 | 13 | Back in Lowmere, Stage 1 (end of slice) | `Lowmere_EventScript_GrainArrives` |
 
-Other vars: `VAR_LOWMERE_STAGE` (set to 1 by the return scene), `VAR_KINGS_GIFT_DOG`
+Other vars: `VAR_LOWMERE_STAGE` (raised by `signpact` after Corwin's Trial), `VAR_KINGS_GIFT_DOG`
 (0 Entei, 1 Raikou, 2 Suicune).
 
 Flags: `FLAG_RECEIVED_SILVER_WING`, `FLAG_RECEIVED_KINGS_GIFT`, `FLAG_FOUND_BELL_RECEIPT`,
@@ -196,7 +196,9 @@ builds a throne-room map, `Prologue_EventScript_Apportionment` can run there ins
 
 - Scenes are written but not yet wired into maps (except the prologue). They go live as
   the map thread places the events above.
-- The Lowmere return scene sets `VAR_LOWMERE_STAGE` to 1 behind a fade; the map refresh
-  that shows the new layout is the features thread's API.
+- Corwin's pact: after the three fixed terms, the player adds a fourth (restitution,
+  reform or clemency) and the script calls `signpact PACT_HAYMARKET`, which sets
+  `FLAG_PACT_HAYMARKET` and raises `VAR_LOWMERE_STAGE`. The return scene then marks the
+  stage as seen.
 - The vanilla Littleroot intro (Mom, the clock, Birch) still runs after the prologue until
   the Lowmere map lands.

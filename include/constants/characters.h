@@ -270,6 +270,10 @@
 #define PLACEHOLDER_ID_KYOGRE        0xC
 #define PLACEHOLDER_ID_GROUDON       0xD
 #define PLACEHOLDER_ID_REGION        0xE
+#define PLACEHOLDER_ID_TITLE         0xF  // prince / princess
+#define PLACEHOLDER_ID_TITLE_CAP     0x10 // Prince / Princess
+#define PLACEHOLDER_ID_SIBLING       0x11 // brother / sister
+#define PLACEHOLDER_ID_CHILD         0x12 // son / daughter
 
 // battle placeholders are located in battle_message.h
 

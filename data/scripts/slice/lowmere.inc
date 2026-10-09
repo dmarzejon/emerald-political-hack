@@ -540,9 +540,9 @@ Lowmere_OldLodge_EventScript_Courier::
 
 @ ---------------------------------------------------------------------------
 @ Return to Lowmere (state 12 -> 13). On frame when the player enters Lowmere
-@ after the Haymarket pact. Toft runs out to meet them.
-@ The features thread owns how VAR_LOWMERE_STAGE changes the map. This script
-@ sets the var behind a fade; the layout swap itself is theirs to hook in.
+@ after the Haymarket pact. Toft runs out to meet them. signpact already raised
+@ VAR_LOWMERE_STAGE, so the map has loaded in its Stage 1 layout; this marks
+@ the stage as seen (see docs/systems.md, "Upgrade scene").
 @ ---------------------------------------------------------------------------
 Lowmere_EventScript_GrainArrives::
 	lockall
@@ -552,14 +552,9 @@ Lowmere_EventScript_GrainArrives::
 	say Slice_Name_Toft, Lowmere_Text_ToftEveryWeek
 	say Slice_Name_Toft, Lowmere_Text_ToftLeaveItWithMe
 	closemessage
-	fadescreen FADE_TO_BLACK
-	setvar VAR_LOWMERE_STAGE, 1
 	setvar VAR_SLICE_STATE, 13
 	setflag FLAG_HIDE_LOWMERE_GRAIN_CARTS
-	delay 30
-	special DrawWholeMapView
-	fadescreen FADE_FROM_BLACK
-	narrate Lowmere_Text_TownChanged
+	lowmere_mark_stage_seen
 	releaseall
 	end
 
@@ -1213,11 +1208,8 @@ Lowmere_Text_ToftLeaveItWithMe::
 	.string "We can mend the well. We can open the\n"
 	.string "grain store. Old MARTA says she'll open\l"
 	.string "a stall, if there's anything to sell.\p"
-	.string "Leave it with me. Leave it all with me!$"
-
-Lowmere_Text_TownChanged::
-	.string "Over the next few days, LOWMERE begins\n"
-	.string "to change.$"
+	.string "Look, Your Highness! We've already\n"
+	.string "started!$"
 
 Lowmere_Text_FishermanJetty::
 	.string "The jetty fell in last winter. Nobody\n"

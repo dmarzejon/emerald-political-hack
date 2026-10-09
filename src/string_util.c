@@ -521,6 +521,39 @@ static const u8 *ExpandPlaceholder_Region(void)
         return gText_Hoenn;
 }
 
+// The player is a prince or princess, chosen with their gender at the start.
+static const u8 *ExpandPlaceholder_Title(void)
+{
+    if (gSaveBlock2Ptr->playerGender == MALE)
+        return gText_ExpandedPlaceholder_Prince;
+    else
+        return gText_ExpandedPlaceholder_Princess;
+}
+
+static const u8 *ExpandPlaceholder_TitleCap(void)
+{
+    if (gSaveBlock2Ptr->playerGender == MALE)
+        return gText_ExpandedPlaceholder_PrinceCap;
+    else
+        return gText_ExpandedPlaceholder_PrincessCap;
+}
+
+static const u8 *ExpandPlaceholder_Sibling(void)
+{
+    if (gSaveBlock2Ptr->playerGender == MALE)
+        return gText_ExpandedPlaceholder_Brother;
+    else
+        return gText_ExpandedPlaceholder_Sister;
+}
+
+static const u8 *ExpandPlaceholder_Child(void)
+{
+    if (gSaveBlock2Ptr->playerGender == MALE)
+        return gText_ExpandedPlaceholder_Son;
+    else
+        return gText_ExpandedPlaceholder_Daughter;
+}
+
 const u8 *GetExpandedPlaceholder(u32 id)
 {
     typedef const u8 *(*ExpandPlaceholderFunc)(void);
@@ -542,6 +575,10 @@ const u8 *GetExpandedPlaceholder(u32 id)
         [PLACEHOLDER_ID_KYOGRE]       = ExpandPlaceholder_Kyogre,
         [PLACEHOLDER_ID_GROUDON]      = ExpandPlaceholder_Groudon,
         [PLACEHOLDER_ID_REGION]       = ExpandPlaceholder_Region,
+        [PLACEHOLDER_ID_TITLE]        = ExpandPlaceholder_Title,
+        [PLACEHOLDER_ID_TITLE_CAP]    = ExpandPlaceholder_TitleCap,
+        [PLACEHOLDER_ID_SIBLING]      = ExpandPlaceholder_Sibling,
+        [PLACEHOLDER_ID_CHILD]        = ExpandPlaceholder_Child,
     };
 
     if (id >= ARRAY_COUNT(funcs))

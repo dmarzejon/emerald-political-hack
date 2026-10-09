@@ -98,6 +98,40 @@ GiltPavilion_EventScript_CorwinDefeated::
 	say Slice_Name_Corwin, GiltPavilion_Text_CorwinNameYourTerms
 	narrate GiltPavilion_Text_ArdenStepsDown
 	say Slice_Name_Arden, GiltPavilion_Text_PactTerms
+	say Slice_Name_Arden, GiltPavilion_Text_ArdenFourthTerm
+	setspeaker SP_NAME_NONE
+	message GiltPavilion_Text_ChooseTerms
+	waitmessage
+	dynmultichoice 0, 0, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, GiltPavilion_Text_TermsRestitution, GiltPavilion_Text_TermsReform, GiltPavilion_Text_TermsClemency
+	@ Options are in PACT_TERMS_* order. signpact sets FLAG_PACT_HAYMARKET and
+	@ raises VAR_LOWMERE_STAGE.
+	signpact PACT_HAYMARKET, VAR_RESULT
+	getpactterms PACT_HAYMARKET
+	switch VAR_RESULT
+	case PACT_TERMS_RESTITUTION, GiltPavilion_EventScript_TermsRestitution
+	case PACT_TERMS_REFORM, GiltPavilion_EventScript_TermsReform
+	goto GiltPavilion_EventScript_TermsClemency
+	end
+
+GiltPavilion_EventScript_TermsRestitution::
+	say Slice_Name_Arden, GiltPavilion_Text_ArdenRestitution
+	say Slice_Name_Corwin, GiltPavilion_Text_CorwinRestitution
+	goto GiltPavilion_EventScript_SignPact
+	end
+
+GiltPavilion_EventScript_TermsReform::
+	say Slice_Name_Arden, GiltPavilion_Text_ArdenReform
+	say Slice_Name_Corwin, GiltPavilion_Text_CorwinReform
+	goto GiltPavilion_EventScript_SignPact
+	end
+
+GiltPavilion_EventScript_TermsClemency::
+	say Slice_Name_Arden, GiltPavilion_Text_ArdenClemency
+	say Slice_Name_Corwin, GiltPavilion_Text_CorwinClemency
+	goto GiltPavilion_EventScript_SignPact
+	end
+
+GiltPavilion_EventScript_SignPact::
 	narrate GiltPavilion_Text_CorwinSigns
 	say Slice_Name_Corwin, GiltPavilion_Text_CorwinHereIsYourSeal
 	setspeaker SP_NAME_NONE
@@ -105,7 +139,6 @@ GiltPavilion_EventScript_CorwinDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	setflag FLAG_BADGE01_GET
-	setflag FLAG_PACT_HAYMARKET
 	narrate GiltPavilion_Text_SealExplained
 	closemessage
 	fadescreen FADE_TO_BLACK
@@ -277,6 +310,55 @@ GiltPavilion_Text_PactTerms::
 	.string "is void.\p"
 	.string "Three. HAYMARKET sells grain to LOWMERE\n"
 	.string "at a fair price, by honest weight.$"
+
+GiltPavilion_Text_ArdenFourthTerm::
+	.string "By law, the victor may add one term of\n"
+	.string "their own. Your Highness?$"
+
+GiltPavilion_Text_ChooseTerms::
+	.string "What will you add to the pact?$"
+
+GiltPavilion_Text_TermsRestitution::
+	.string "The guild repays LOWMERE$"
+
+GiltPavilion_Text_TermsReform::
+	.string "Return every seized POKéMON$"
+
+GiltPavilion_Text_TermsClemency::
+	.string "Spare CORWIN the shame$"
+
+GiltPavilion_Text_ArdenRestitution::
+	.string "Four. The GILDED SCALE repays LOWMERE\n"
+	.string "for every sack of tithe grain it sold\l"
+	.string "back at false weight.$"
+
+GiltPavilion_Text_CorwinRestitution::
+	.string "That's a lot of sacks. That's a lot of\n"
+	.string "money.\p"
+	.string "...Fine. Take it out of CRANE's hide, not\n"
+	.string "mine.$"
+
+GiltPavilion_Text_ArdenReform::
+	.string "Four. Every POKéMON held by the GILDED\n"
+	.string "SCALE as “payment” is returned to its\l"
+	.string "owner, today.$"
+
+GiltPavilion_Text_CorwinReform::
+	.string "The shelves in the COUNTING HOUSE? All\n"
+	.string "of them?\p"
+	.string "...I never went into that back room. I\n"
+	.string "made sure I never had to.$"
+
+GiltPavilion_Text_ArdenClemency::
+	.string "Four. The terms of this pact are read in\n"
+	.string "this hall and nowhere else. HAYMARKET\l"
+	.string "will hear that the scales were fixed,\l"
+	.string "not who fixed them.$"
+
+GiltPavilion_Text_CorwinClemency::
+	.string "You're letting me keep my face? Why?\p"
+	.string "...Don't answer that. I don't want to owe\n"
+	.string "you. I already do.$"
 
 GiltPavilion_Text_CorwinSigns::
 	.string "CORWIN signs. He presses so hard that\n"

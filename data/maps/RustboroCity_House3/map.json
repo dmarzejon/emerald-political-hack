@@ -16,7 +16,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
       "x": 4,
       "y": 5,
       "elevation": 3,
@@ -25,11 +25,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_House3_EventScript_OldMan",
+      "script": "Cragholt_MasonHouse_EventScript_Mason",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
       "x": 7,
       "y": 5,
       "elevation": 3,
@@ -38,20 +38,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_House3_EventScript_OldWoman",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_PIKACHU",
-      "x": 4,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_House3_EventScript_Pekachu",
+      "script": "Cragholt_MasonHouse_EventScript_Girl",
       "flag": "0"
     }
   ],

@@ -48,8 +48,8 @@ CG_FOUNTAIN = (27, 38)              # 3x3
 CG_QUOTA_BOARD = (28, 39)
 CG_QUOTA_ORE = [(27, 39), (29, 39), (27, 40), (29, 40)]
 # The pithead by the road in from the south: a 2x3 winding frame over the shaft, in view
-# of the arrival trigger at (15-16, 53), with the bonded men's line two rows below it.
-CG_PITHEAD = (21, 49)
+# of the arrival trigger at (15-16, 54). Brannoc stands west of it, the bonded men east.
+CG_PITHEAD = (19, 50)
 
 
 def rail_line(c, x0, x1, y, carts):
@@ -87,13 +87,12 @@ MN_RAIL = (4, 19, 5)
 MN_CART = (8, 5)
 MN_ORE = [(5, 4), (13, 4)]
 MN_TIMBERS = [10, 14, 18]           # props on the wall faces above (row 3) and below (row 6)
-# The fall: a bank of rubble across the corridor, with one gap at (20,5) that dialogue's
-# rubble object (a breakable-rock sprite) fills until the rescue. The Chancellery crate
-# lies in front of it. A second fall in front of the ladder at (29,10) seals the far side,
-# so the trapped men can only be reached through the gap.
+# The fall: rubble across the corridor at (20,4)-(20,5), which the rescue script clears to
+# floor (0x201) over (20,4)-(21,5). The Chancellery crate lies in front of it. A second
+# fall in front of the ladder at (29,10) seals the far side, so the trapped men can only
+# be reached through the first.
 MN_RUBBLE_LOW = (20, 4)             # 2x1
-MN_RUBBLE_SMALL = [(29, 9)]
-MN_RUBBLE_GAP = (20, 5)
+MN_RUBBLE_SMALL = [(20, 5), (29, 9)]
 MN_CRATE = (19, 4)
 
 

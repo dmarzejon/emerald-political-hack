@@ -52,6 +52,28 @@ const struct Tileset gTileset_Petalburg =
     .callback = InitTilesetAnim_Petalburg,
 };
 
+const struct Tileset gTileset_Lowmere =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Lowmere,
+    .palettes = gTilesetPalettes_Lowmere,
+    .metatiles = gMetatiles_Lowmere,
+    .metatileAttributes = gMetatileAttributes_Lowmere,
+    .callback = InitTilesetAnim_Petalburg,
+};
+
+const struct Tileset gTileset_Haymarket =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Haymarket,
+    .palettes = gTilesetPalettes_Haymarket,
+    .metatiles = gMetatiles_Haymarket,
+    .metatileAttributes = gMetatileAttributes_Haymarket,
+    .callback = InitTilesetAnim_Slateport,
+};
+
 const struct Tileset gTileset_Rustboro =
 {
     .isCompressed = TRUE,

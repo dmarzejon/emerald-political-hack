@@ -66,6 +66,50 @@ const u16 gTilesetPalettes_Petalburg[][16] =
     INCGFX_U16("data/tilesets/secondary/petalburg/palettes/15.pal", ".gbapal"),
 };
 
+const u32 gTilesetTiles_Lowmere[] = INCGFX_U32("data/tilesets/secondary/lowmere/tiles.png", ".4bpp.fastSmol", "-num_tiles 287 -Wnum_tiles");
+
+const u16 gTilesetPalettes_Lowmere[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lowmere/palettes/15.pal", ".gbapal"),
+};
+
+const u32 gTilesetTiles_Haymarket[] = INCGFX_U32("data/tilesets/secondary/haymarket/tiles.png", ".4bpp.fastSmol", "-num_tiles 504 -Wnum_tiles");
+
+const u16 gTilesetPalettes_Haymarket[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/haymarket/palettes/15.pal", ".gbapal"),
+};
+
 const u32 gTilesetTiles_Rustboro[] = INCGFX_U32("data/tilesets/secondary/rustboro/tiles.png", ".4bpp.fastSmol", "-num_tiles 498 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Rustboro[][16] =

@@ -638,3 +638,7 @@ gSpecials::
 	def_special UpdateTrainerCardPhotoIcons
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
+	def_special SignPact
+	def_special GetPactTerms
+	def_special GetSignedPactCount
+	def_special UpdateLowmereStage

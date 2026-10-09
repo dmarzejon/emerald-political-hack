@@ -1014,3 +1014,74 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+@ ---- Map-thread placeholders. The dialogue thread replaces these. ----
+
+LittlerootTown_EventScript_Bram::
+	msgbox LittlerootTown_Text_Bram, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_Bram:
+	.string "BRAM: (placeholder)$"
+
+LittlerootTown_EventScript_Toft::
+	msgbox LittlerootTown_Text_Toft, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_Toft:
+	.string "REEVE TOFT: (placeholder)$"
+
+LittlerootTown_EventScript_Tamsin::
+	msgbox LittlerootTown_Text_Tamsin, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_Tamsin:
+	.string "TAMSIN: (placeholder)$"
+
+LittlerootTown_EventScript_Courier::
+	msgbox LittlerootTown_Text_Courier, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_Courier:
+	.string "COURIER: (placeholder)$"
+
+LittlerootTown_EventScript_JettyVillager::
+	msgbox LittlerootTown_Text_JettyVillager, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_JettyVillager:
+	.string "VILLAGER (rotten jetty): (placeholder)$"
+
+LittlerootTown_EventScript_HealerVillager::
+	msgbox LittlerootTown_Text_HealerVillager, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_HealerVillager:
+	.string "VILLAGER (no healer): (placeholder)$"
+
+LittlerootTown_EventScript_ShopVillager::
+	msgbox LittlerootTown_Text_ShopVillager, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_ShopVillager:
+	.string "VILLAGER (no shop): (placeholder)$"
+
+LittlerootTown_EventScript_DreamsVillager::
+	msgbox LittlerootTown_Text_DreamsVillager, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_DreamsVillager:
+	.string "VILLAGER (bad dreams): (placeholder)$"
+
+LittlerootTown_EventScript_GrainSeller::
+	msgbox LittlerootTown_Text_GrainSeller, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_GrainSeller:
+	.string "GRAIN SELLER (Stage 1+): (placeholder)$"
+
+LittlerootTown_EventScript_StallKeeper::
+	msgbox LittlerootTown_Text_StallKeeper, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_StallKeeper:
+	.string "STALL KEEPER (Stage 1+): (placeholder)$"

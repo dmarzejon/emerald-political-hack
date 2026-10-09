@@ -352,6 +352,10 @@ MAXIE          = FD 0B
 KYOGRE         = FD 0C
 GROUDON        = FD 0D
 REGION         = FD 0E
+TITLE          = FD 0F @ prince / princess, by player gender
+TITLE_CAP      = FD 10 @ Prince / Princess
+SIBLING        = FD 11 @ brother / sister
+CHILD          = FD 12 @ son / daughter
 
 @ battle string placeholders
 

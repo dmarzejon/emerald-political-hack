@@ -107,3 +107,43 @@ Route102_Text_RouteSignOldale:
 Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"
 	.string "{LEFT_ARROW} PETALBURG CITY$"
+
+@ Chapter 2 placeholders for the Orchard Road (map thread). The dialogue thread
+@ replaces these with the real scenes; see docs/maps.md, "Chapter 2 events".
+OrchardRoad_EventScript_EvictedGrandmother::
+	msgbox OrchardRoad_Text_EvictedGrandmother, MSGBOX_NPC
+	end
+
+OrchardRoad_EventScript_EvictedFarmer::
+	msgbox OrchardRoad_Text_EvictedFarmer, MSGBOX_NPC
+	end
+
+OrchardRoad_EventScript_EvictedChild::
+	msgbox OrchardRoad_Text_EvictedChild, MSGBOX_NPC
+	end
+
+OrchardRoad_EventScript_ForeclosureNotice::
+	msgbox OrchardRoad_Text_ForeclosureNotice, MSGBOX_SIGN
+	end
+
+OrchardRoad_EventScript_BoardedCottage::
+	msgbox OrchardRoad_Text_BoardedCottage, MSGBOX_SIGN
+	end
+
+OrchardRoad_Text_EvictedGrandmother:
+	.string "Forty years we worked that orchard.\n"
+	.string "Now it grows roses for the Princess.$"
+
+OrchardRoad_Text_EvictedFarmer:
+	.string "The steward says we owe more than\n"
+	.string "the land was ever worth.$"
+
+OrchardRoad_Text_EvictedChild:
+	.string "When can we go home?$"
+
+OrchardRoad_Text_ForeclosureNotice:
+	.string "By order of Her Highness Princess\n"
+	.string "Isolde, this holding is foreclosed.$"
+
+OrchardRoad_Text_BoardedCottage:
+	.string "The door is nailed shut.$"

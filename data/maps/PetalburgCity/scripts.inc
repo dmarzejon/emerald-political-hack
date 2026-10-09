@@ -758,3 +758,44 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm roaming the land in search of\n"
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
+
+@ Chapter 2 placeholders for Thornfield (map thread). The dialogue thread replaces
+@ these with the real scenes; see docs/maps.md, "Chapter 2 events".
+Thornfield_EventScript_PalaceSign::
+	msgbox Thornfield_Text_PalaceSign, MSGBOX_SIGN
+	end
+
+Thornfield_EventScript_GroveGate::
+	msgbox Thornfield_Text_GroveGate, MSGBOX_SIGN
+	end
+
+Thornfield_EventScript_Greenhouse::
+	msgbox Thornfield_Text_Greenhouse, MSGBOX_SIGN
+	end
+
+Thornfield_EventScript_TerraceNotice::
+	msgbox Thornfield_Text_TerraceNotice, MSGBOX_SIGN
+	end
+
+Thornfield_EventScript_TerraceGardener::
+	msgbox Thornfield_Text_TerraceGardener, MSGBOX_NPC
+	end
+
+Thornfield_Text_PalaceSign:
+	.string "THORNFIELD PALACE\n"
+	.string "Seat of Princess Isolde.$"
+
+Thornfield_Text_GroveGate:
+	.string "The gate is locked. A sign reads:\n"
+	.string "“The grove is sealed. No entry.”$"
+
+Thornfield_Text_Greenhouse:
+	.string "The glasshouse is locked.$"
+
+Thornfield_Text_TerraceNotice:
+	.string "THE PRINCESS'S TERRACES\n"
+	.string "Formerly the Hollin and Brook farms.$"
+
+Thornfield_Text_TerraceGardener:
+	.string "There were houses here last spring.\n"
+	.string "Now I plant tulips over the hearths.$"

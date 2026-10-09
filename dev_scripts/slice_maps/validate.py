@@ -16,7 +16,8 @@ from gfxlib import Layout, Tileset, path, tileset_dir_for
 MAPS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Haymarket_GiltPavilion', 'Haymarket_CountingHouse',
         'Haymarket_CountingHouse_BackRoom', 'Haymarket_Granary', 'Lowmere_Forge', 'Lowmere_ReevesHouse',
         'Lowmere_ReopenedHouse', 'OldaleTown_House1', 'OldaleTown_House2', 'LittlerootTown_MaysHouse_1F',
-        'LittlerootTown_MaysHouse_2F', 'LittlerootTown_BrendansHouse_1F', 'LittlerootTown_ProfessorBirchsLab']
+        'LittlerootTown_MaysHouse_2F', 'LittlerootTown_BrendansHouse_1F', 'LittlerootTown_ProfessorBirchsLab',
+        'Route102', 'PetalburgCity', 'Thornfield_Palace']
 LOWMERE_STAGES = ['LAYOUT_LOWMERE_STAGE%d' % i for i in range(5)]
 # Objects whose spot is meant to block (a guard on a door, a boulder) or that only appear in a cutscene.
 BLOCKING_OK = {'LOCALID_HAYMARKET_PAVILION_GUARD'}
@@ -40,6 +41,11 @@ def frlg_gfx():
 
 
 FRLG_GFX = frlg_gfx()
+
+# Vanilla things the slice maps keep as they are: items only reachable by Surf, and the
+# Petalburg / Route 104 seam, which the chapter 2 props stay well away from.
+SURF_ONLY = {('PetalburgCity', 19, 2), ('PetalburgCity', 3, 28), ('PetalburgCity', 11, 29)}
+VANILLA_SEAMS = {('PetalburgCity', 'ROUTE104')}
 
 # How far the game draws into a neighbouring map. Tiles this close to a seam are drawn with
 # whichever map you are standing in, so they must look the same under both maps' tilesets.
@@ -111,14 +117,15 @@ def check(mapname, layout_id, problems):
     for (x, y), o in objs.items():
         name = o.get('local_id') or o['script']
         # spectators (no script) may stand on the gallery boxes
-        if not walkable(lay, x, y) and o['graphics_id'] != 'OBJ_EVENT_GFX_TRUCK' and o['script'] != '0x0':
+        if (not walkable(lay, x, y) and o['script'] != '0x0'
+                and o['graphics_id'] not in ('OBJ_EVENT_GFX_TRUCK', 'OBJ_EVENT_GFX_BERRY_TREE')):
             problems.append('%s: %s stands on a wall at (%d,%d)' % (tag, name, x, y))
         if o['graphics_id'] in FRLG_GFX and o['script'] not in FRLG_GFX_OK:
             problems.append('%s: %s uses %s, an FRLG sprite that draws nothing' % (tag, name, o['graphics_id']))
-        if not near(x, y) and name not in BLOCKING_OK and o['script'] != '0x0':
+        if not near(x, y) and name not in BLOCKING_OK and o['script'] != '0x0' and (mapname, x, y) not in SURF_ONLY:
             problems.append('%s: nobody can reach %s at (%d,%d)' % (tag, name, x, y))
     for b in m['bg_events']:
-        if not near(b['x'], b['y']) and (b['x'], b['y']) not in seen:
+        if not near(b['x'], b['y']) and (b['x'], b['y']) not in seen and (mapname, b['x'], b['y']) not in SURF_ONLY:
             problems.append('%s: sign %s at (%d,%d) is unreachable' % (tag, b.get('script'), b['x'], b['y']))
     for c in m['coord_events']:
         if (c['x'], c['y']) not in seen:
@@ -191,17 +198,20 @@ def main():
         if len(sizes) > 1:
             problems.append('%s: stage layouts differ in size: %s' % (name, sorted(sizes)))
     # connections must meet open ground on both sides
-    for name in ('LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103'):
+    for name in ('LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity'):
         m = json.load(open(path('data/maps', name, 'map.json')))
         a = load_layout(m['layout'])
         for c in m['connections'] or []:
             other = c['map'].replace('MAP_', '')
             om = next(json.load(open(path('data/maps', n, 'map.json'))) for n in
-                      ('LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity', 'Route110')
+                      ('LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity', 'Route110',
+                       'Route104')
                       if json.load(open(path('data/maps', n, 'map.json')))['id'] == c['map'])
             b = load_layout(om['layout'])
             la, lb = LAYOUTS[m['layout']], LAYOUTS[om['layout']]
             o, d = c['offset'], c['direction']
+            if (name, other) in VANILLA_SEAMS:
+                continue
             pairs = []
             if d in ('up', 'down'):
                 ay, by = (0, b.h - 1) if d == 'up' else (a.h - 1, 0)
@@ -215,7 +225,7 @@ def main():
                 problems.append('%s -> %s (%s): no shared open tiles' % (name, other, d))
             if dangling:
                 problems.append('%s -> %s (%s): edge tiles open on one side only: %s' % (name, other, d, dangling))
-            if name in ('LittlerootTown', 'Route101', 'OldaleTown'):
+            if name in ('LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'PetalburgCity'):
                 seam_problems(name, a, la, other, b, lb, d, o, pairs, problems)
     for p in problems:
         print(p)

@@ -185,6 +185,8 @@ SQUARE = (12, 10, 20, 16)
 WELL = (15, 12)
 POND_RECT = (19, 18, 29, 23)
 JETTY_Y = 20
+ROWBOATS = [(27, 20), (20, 22)]     # 2x1, from Stage 2
+ORCHARD_Y, ORCHARD_XS = 17, (22, 24, 26, 28)
 LM_SIGNS = {'town': (14, 9), 'shed': (18, 6), 'lodge': (8, 7), 'hesk': (23, 13)}
 
 
@@ -222,8 +224,12 @@ def lowmere(stage):
         for i, (x, y) in enumerate(sorted(road)):
             if (x * 7 + y * 13) % 9 == 0:
                 c.put(x, y, LM['mud_a_0_0' if i % 2 else 'mud_b_0_0'], 0, E_GROUND)
-    else:
+    elif stage == 1:
         c.region(road, DIRT)
+    else:
+        # Thornfield's pact: the roads are laid with flagstones
+        for (x, y) in road:
+            c.put(x, y, LM['flagstones_0_0'], 0, E_GROUND)
 
     # the pond and the jetty
     c.pond(*POND_RECT)
@@ -238,6 +244,9 @@ def lowmere(stage):
     if stage < 2:
         c.put(24, JETTY_Y, BRIDGE['top'][1], 1, 0)    # a stranded piece you can't reach
         c.put(24, JETTY_Y + 1, BRIDGE['bot'][1], 1, 0)
+    else:
+        for (x, y) in ROWBOATS:                        # moored at the rebuilt jetty
+            c.grid(x, y, prop('rowboat', 2, 1), col=1, elev=0)
 
     # buildings
     raw(c, LODGE_POS[0], LODGE_POS[1], LODGE)
@@ -282,6 +291,8 @@ def lowmere(stage):
         for x in range(22, 28):
             c.put(x, 16, BERRY_SOIL if x % 2 == 0 else fortree(0x294), 0, E_GROUND)
             c.put(x, 15, FLOWERS, 0, E_GROUND)
+        for x in ORCHARD_XS:                           # fruit trees from Thornfield's nurseries
+            c.put(x, ORCHARD_Y, BUSH, 1, 0)
     # lanterns on the road and the square
     if stage >= 3:
         for (x, y) in ((14, 5), (17, 5), (11, 12), (21, 12)):

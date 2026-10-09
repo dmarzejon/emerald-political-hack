@@ -9,10 +9,13 @@ The maps reuse vanilla map slots so that vanilla scripts, flags and the map-grou
 | The Mire Road | `MAP_ROUTE101` | `LAYOUT_ROUTE101` | 24×44 | `gTileset_Lowmere` |
 | Haymarket | `MAP_OLDALE_TOWN` | `LAYOUT_OLDALE_TOWN` | 48×39 | `gTileset_Haymarket` |
 | Gilt Pavilion | `MAP_HAYMARKET_GILT_PAVILION` (new) | `LAYOUT_HAYMARKET_GILT_PAVILION` | 13×27 | `gTileset_GiltPavilion` |
+| The Orchard Road | `MAP_ROUTE102` | `LAYOUT_ORCHARD_ROAD` | 50×20 | `gTileset_Lowmere` |
+| Thornfield | `MAP_PETALBURG_CITY` | `LAYOUT_THORNFIELD` | 30×30 | `gTileset_Lowmere` |
+| Isolde's palace garden | `MAP_THORNFIELD_PALACE` (new) | `LAYOUT_THORNFIELD_PALACE` | 16×22 | `gTileset_Lowmere` |
 
 No wild Pokémon appear while the party is empty (`StandardWildEncounter` in `src/wild_encounter.c`), so Lowmere's reeds are safe before the Ranger's Shed hands out a starter.
 
-Map name popups still say LITTLEROOT TOWN, ROUTE 101 and OLDALE TOWN until the `MAPSEC_*` names are renamed.
+The map name popups come from `src/data/region_map/region_map_sections.json`: LOWMERE, MIRE ROAD, HAYMARKET, ORCHARD ROAD and THORNFIELD.
 
 ## Lowmere's upgrade stages
 
@@ -23,7 +26,7 @@ All five layouts are the same size and keep every door, exit and NPC spot in the
 |---|---|
 | 0 | Marsh paths with mud, a broken well, two empty stall frames, broken fences, houses A, B and C boarded up, and a collapsed jetty. |
 | 1 | Dirt roads, the well repaired, two working stalls with sacks and crates, fences mended, and house C reopened. |
-| 2 | A full jetty, berry plots and flowers, a Pokémon Center on house B's lot, and house A reopened. |
+| 2 | Flagstone roads, a full jetty with two rowboats, berry plots, flowers and a row of fruit trees, a Pokémon Center on house B's lot, and house A reopened. |
 | 3 | Lanterns, restored roofs, a Poké Mart on the empty lot, and more flowers. |
 | 4 | The same as stage 3 for now. |
 
@@ -128,6 +131,56 @@ These are the exits:
 - **Counting house back room:** this reuses Devon Corp 2F. Penn's Poké Ball is in the corner at (0,8) (`LOCALID_COUNTING_HOUSE_PENN_BALL`). You can only take it from (0,7) or (1,8). `Clerk2` at (0,4), facing down, watches the first, and `Clerk1` at (4,8), facing left, watches the second, so taking the ball always starts a clerk battle. Crane's desk is a sign at (2,4), and the payment shelves are signs at (10,4) and (11,4).
 - **Granary** (`LAYOUT_HAYMARKET_GRANARY`): Stern's Shipyard 1F with crate stacks added. The only way east is a one-tile gap at (13,10), plugged by a sack (a Strength boulder) that you push along a crate-lined lane. The only way up to the scale room is a one-tile aisle at x=17, and the foreman at (16,6), facing right, sees anyone who steps into it. The scale, the crown crate and the sacks are signs. The granary's map script turns on Strength, so the sacks can be pushed. Leaving and coming back puts the sacks back.
 
+## Chapter 2: the Orchard Road, Thornfield and Isolde's palace
+
+The road west from Haymarket (Route 102) leads to Thornfield (Petalburg). Both keep their vanilla layout, with props added by `build_chapter2.py`, and both now use `gTileset_Lowmere`, which draws every Petalburg metatile the same. The Petalburg Gym's door now leads to a new map, Isolde's palace garden. The vanilla gym map is no longer reachable.
+
+Every new event below points at a placeholder script in the map's own `scripts.inc`, with one plain line of text. The dialogue thread replaces them with the real scenes and can move or add people. The vanilla objects stay where they were until dialogue cuts their scripts. Thornfield's vanilla triggers (Wally's gym tour and Scott) are removed.
+
+### The Orchard Road (`MAP_ROUTE102`)
+
+| Event | Where | Placeholder script |
+|---|---|---|
+| Seized tenant cottage, boarded door (sign) | (12,5) | `OrchardRoad_EventScript_BoardedCottage` |
+| Foreclosure notice post (sign) | (15,5) | `OrchardRoad_EventScript_ForeclosureNotice` |
+| Evicted grandmother, `OLD_WOMAN`, faces right | (37,15) | `OrchardRoad_EventScript_EvictedGrandmother` |
+| Evicted farmer, `MAN_5`, faces left | (39,14) | `OrchardRoad_EventScript_EvictedFarmer` |
+| Evicted child, `LITTLE_GIRL`, faces down | (38,13) | `OrchardRoad_EventScript_EvictedChild` |
+
+- The cottage stands at (11,2) with a broken fence by its plot. A few orchard trees line the north edge near the berry trees.
+- The farmers' camp sits east of the middle of the road: tents at (36,12) and (40,12), a campfire at (38,14), and sacks and a crate. It stays 8 or more columns clear of the Haymarket seam.
+- The vanilla trainers (Calvin, Rick, Tiana and Allen) are still in place for the balance thread.
+
+### Thornfield (`MAP_PETALBURG_CITY`)
+
+| Event | Where | Placeholder script |
+|---|---|---|
+| Palace sign (was the gym sign) | (17,10) | `Thornfield_EventScript_PalaceSign` |
+| Gate to the sealed grove (sign) | (18,2) | `Thornfield_EventScript_GroveGate` |
+| Glasshouse door (sign) | (24,23) | `Thornfield_EventScript_Greenhouse` |
+| Terrace notices (signs) | (14,26) and (24,26) | `Thornfield_EventScript_TerraceNotice` |
+| Terrace gardener, `WOMAN_2`, faces left | (19,26) | `Thornfield_EventScript_TerraceGardener` |
+
+- **Isolde's palace** is the old gym building. Its door is warp 2 at (15,8), and it leads to `MAP_THORNFIELD_PALACE`. The GYM plate on its front is now a window, and the sign is plain.
+- **The sealed grove** is behind the palace. A one-tile path runs up between the palace and the pond, from (18,8) to a locked fence gate at (18,2). The grove map itself is for Act 2.
+- **Seized farmland:** the tenant house's vegetable plot (warp 4, `PetalburgCity_House2`) is now a glasshouse at (23,21), and the yard south of it, rows 25 to 27, is flower terraces.
+- Wally's house (warp 1, at (7,5)) and house 1 (warp 0, at (10,19)) are free for the steward's office and the magistrate. Their interiors are still vanilla.
+
+### Isolde's palace garden (`MAP_THORNFIELD_PALACE`)
+
+A walled garden with three terraces of hedges, climbing to Isolde's flagstone dais.
+
+| Event | Where | Placeholder script |
+|---|---|---|
+| Isolde, `BEAUTY`, faces down (`LOCALID_PALACE_ISOLDE`) | (7,3) | `ThornfieldPalace_EventScript_Isolde` |
+| Gardener 1, `MAN_2`, faces right | (2,16) | `ThornfieldPalace_EventScript_Gardener1` |
+| Gardener 2, `PICNICKER`, faces left | (13,13) | `ThornfieldPalace_EventScript_Gardener2` |
+| Gardener 3, `EXPERT_M`, faces right | (2,10) | `ThornfieldPalace_EventScript_Gardener3` |
+| Exit mats (warps 0 and 1 to Thornfield warp 2) | (7,21) and (8,21) | |
+
+- Each terrace has a hedge row with a gap at one end, and a flower planter that leaves only one lane open. You go up through the gap at x 12–13 in row 17, along row 16 to the gap at x 2–3, along row 13 to x 12–13, along row 10 to x 2–3, and up to the dais.
+- Each gardener stands at the far end of one lane and looks down it, so they are made to be trainers with a sight range of 8. They are plain NPCs for now (`TRAINER_TYPE_NONE`) until the balance thread gives them parties and dialogue gives them `trainerbattle` scripts. Set `trainer_type` to `TRAINER_TYPE_NORMAL` and the sight range to 8 at the same time.
+
 ## What other work owns
 
 - **Dialogue** owns the scripts and the map-script headers (on-frame and on-transition tables).
@@ -153,6 +206,7 @@ The FRLG overworld sprites (everything from `OBJ_EVENT_GFX_RED_NORMAL` on, such 
   - marsh, boardwalk and berry soil from Fortree
   - Slateport stall awnings
   - hand-drawn props: the well and broken well, fences, sacks, crates, the cart, lanterns, stumps, reeds (tall-grass behaviour), graves and mud (puddle behaviour)
+  - chapter 2 props: tents, a campfire, a 3×3 glasshouse, flagstones, a rowboat, a notice post, and a flagstone exit mat (south-arrow warp behaviour) for the palace garden
   - names for the added metatiles, in `dev_scripts/slice_maps/lowmere_ids.json`
 - **`gTileset_Haymarket`** (`data/tilesets/secondary/haymarket`) is Slateport plus a gilded Battle Tent dome. The dome uses palette 12.
 - **`gTileset_GiltPavilion`** (`data/tilesets/secondary/gilt_pavilion`) is Petalburg Gym plus gold lot plates numbered 1 to 21 in palette 9. Their ids are in `dev_scripts/slice_maps/gilt_pavilion_ids.json`.
@@ -164,7 +218,8 @@ The scripts in `dev_scripts/slice_maps/` built everything above. Run them from t
 ```sh
 python3 dev_scripts/slice_maps/build_tileset.py   # tilesets (only if the art changes)
 python3 dev_scripts/slice_maps/build_maps.py      # layouts
+python3 dev_scripts/slice_maps/build_chapter2.py  # chapter 2 layouts (from the vanilla Route 102 and Petalburg)
 python3 dev_scripts/slice_maps/validate.py        # reachability, seam and sprite checks
 ```
 
-`build_events.py` placed the first events, and `wire_events.py` then pointed them at the dialogue scripts. Both have been run, and `map.json` is now the source of truth. Change events by hand or in Porymap. Do not re-run `build_events.py` or `wire_events.py`, because they would overwrite the wiring and the later rework. `build_maps.py` only writes layouts, so it is safe to re-run.
+`build_events.py` placed the first events, and `wire_events.py` then pointed them at the dialogue scripts. Both have been run, and `map.json` is now the source of truth. Change events by hand or in Porymap. Do not re-run `build_events.py` or `wire_events.py`, because they would overwrite the wiring and the later rework. `build_maps.py` and `build_chapter2.py` only write layouts, so they are safe to re-run.

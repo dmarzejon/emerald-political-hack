@@ -21,6 +21,26 @@ LOWMERE_STAGES = ['LAYOUT_LOWMERE_STAGE%d' % i for i in range(5)]
 # Objects whose spot is meant to block (a guard on a door, a boulder) or that only appear in a cutscene.
 BLOCKING_OK = {'LOCALID_HAYMARKET_PAVILION_GUARD'}
 
+# The FRLG overworld sprites draw nothing in this build, so a person using one is invisible.
+# These vanilla objects are hidden for good but still named by vanilla scripts.
+FRLG_GFX_OK = {'RivalsHouse_1F_EventScript_RivalSibling'}
+
+
+def frlg_gfx():
+    names, on = set(), False
+    for line in open(path('include/constants/event_objects.h')):
+        name = line.strip().split(',')[0]
+        if name == 'OBJ_EVENT_GFX_RED_NORMAL':
+            on = True
+        if name == 'NUM_OBJ_EVENT_GFX':
+            break
+        if on and name.startswith('OBJ_EVENT_GFX_'):
+            names.add(name)
+    return names
+
+
+FRLG_GFX = frlg_gfx()
+
 # How far the game draws into a neighbouring map. Tiles this close to a seam are drawn with
 # whichever map you are standing in, so they must look the same under both maps' tilesets.
 SEAM_DEPTH_ROWS, SEAM_DEPTH_COLS, SEAM_SPREAD = 7, 8, 8
@@ -90,6 +110,8 @@ def check(mapname, layout_id, problems):
         name = o.get('local_id') or o['script']
         if not walkable(lay, x, y) and o['graphics_id'] != 'OBJ_EVENT_GFX_TRUCK':
             problems.append('%s: %s stands on a wall at (%d,%d)' % (tag, name, x, y))
+        if o['graphics_id'] in FRLG_GFX and o['script'] not in FRLG_GFX_OK:
+            problems.append('%s: %s uses %s, an FRLG sprite that draws nothing' % (tag, name, o['graphics_id']))
         if not near(x, y) and name not in BLOCKING_OK and o['script'] != '0x0':
             problems.append('%s: nobody can reach %s at (%d,%d)' % (tag, name, x, y))
     for b in m['bg_events']:

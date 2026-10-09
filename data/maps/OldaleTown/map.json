@@ -183,7 +183,7 @@
       "flag": "FLAG_HIDE_HAYMARKET_CRANE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
       "x": 27,
       "y": 12,
       "elevation": 3,

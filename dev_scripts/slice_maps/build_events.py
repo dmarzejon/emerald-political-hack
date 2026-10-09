@@ -180,7 +180,7 @@ def lowmere():
     ev += [
         obj('OBJ_EVENT_GFX_EXPERT_M', 9, 9, st.npc(p + 'Bram', 'BRAM'), 'LOCALID_LOWMERE_BRAM',
             move='MOVEMENT_TYPE_FACE_UP'),
-        obj('OBJ_EVENT_GFX_BALDING_MAN', 11, 8, st.npc(p + 'Toft', 'REEVE TOFT'), 'LOCALID_LOWMERE_TOFT'),
+        obj('OBJ_EVENT_GFX_FAT_MAN', 11, 8, st.npc(p + 'Toft', 'REEVE TOFT'), 'LOCALID_LOWMERE_TOFT'),
         obj('OBJ_EVENT_GFX_RIVAL_MAY_NORMAL', 5, 15, st.npc(p + 'Tamsin', 'TAMSIN'), 'LOCALID_LOWMERE_TAMSIN',
             move='MOVEMENT_TYPE_FACE_UP'),
         obj('OBJ_EVENT_GFX_MAN_3', 8, 8, st.npc(p + 'Courier', 'COURIER'), 'LOCALID_LOWMERE_COURIER',
@@ -346,7 +346,7 @@ def haymarket():
             'LOCALID_HAYMARKET_SEIZING_CLERK_B', move='MOVEMENT_TYPE_FACE_LEFT'),
         obj('OBJ_EVENT_GFX_GENTLEMAN', 8, 9, st.npc(p + 'Crane', 'SILAS CRANE'), 'LOCALID_HAYMARKET_CRANE',
             move='MOVEMENT_TYPE_FACE_LEFT'),
-        obj('OBJ_EVENT_GFX_POLICEMAN', pav[0], pav[1] + 1, st.npc(p + 'PavilionGuard', 'PALACE GUARD'),
+        obj('OBJ_EVENT_GFX_BLACK_BELT', pav[0], pav[1] + 1, st.npc(p + 'PavilionGuard', 'PALACE GUARD'),
             'LOCALID_HAYMARKET_PAVILION_GUARD'),
         obj('OBJ_EVENT_GFX_OLD_MAN', 14, 26, st.npc(p + 'Townsman', 'TOWNSMAN'), move='MOVEMENT_TYPE_WANDER_AROUND',
             rx=2, ry=1),
@@ -407,7 +407,7 @@ def haymarket():
         obj('OBJ_EVENT_GFX_WOMAN_5', 1, 9, st.npc(p + 'SpectatorA', 'SPECTATOR'), move='MOVEMENT_TYPE_FACE_RIGHT'),
         obj('OBJ_EVENT_GFX_MAN_1', 7, 12, st.npc(p + 'SpectatorB', 'SPECTATOR'), move='MOVEMENT_TYPE_FACE_LEFT'),
         obj('OBJ_EVENT_GFX_OLD_MAN', 7, 18, st.npc(p + 'SpectatorC', 'SPECTATOR'), move='MOVEMENT_TYPE_FACE_LEFT'),
-        obj('OBJ_EVENT_GFX_POLICEMAN', 3, 21, st.npc(p + 'Steward', 'STEWARD'), move='MOVEMENT_TYPE_FACE_DOWN'),
+        obj('OBJ_EVENT_GFX_BLACK_BELT', 3, 21, st.npc(p + 'Steward', 'STEWARD'), move='MOVEMENT_TYPE_FACE_DOWN'),
     ]
     w = [warp(4, h - 1, 'MAP_OLDALE_TOWN', 4), warp(5, h - 1, 'MAP_OLDALE_TOWN', 4)]
     save_map(name, interior(name, 'MAP_HAYMARKET_GILT_PAVILION', 'LAYOUT_HAYMARKET_GILT_PAVILION', 'MUS_GYM',

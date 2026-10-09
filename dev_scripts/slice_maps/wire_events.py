@@ -164,7 +164,7 @@ def lowmere():
 
     # The Old Lodge (the player's house)
     t = Map('LittlerootTown_BrendansHouse_1F')
-    t.add(npc('OBJ_EVENT_GFX_BALDING_MAN', 5, 7, 'Lowmere_EventScript_Toft', 'LOCALID_OLD_LODGE_TOFT',
+    t.add(npc('OBJ_EVENT_GFX_FAT_MAN', 5, 7, 'Lowmere_EventScript_Toft', 'LOCALID_OLD_LODGE_TOFT',
               'FLAG_HIDE_OLD_LODGE_TOFT', move='MOVEMENT_TYPE_FACE_LEFT'))
     t.add(npc('OBJ_EVENT_GFX_EXPERT_M', 7, 6, 'Lowmere_OldLodge_EventScript_Bram', 'LOCALID_OLD_LODGE_BRAM',
               'FLAG_HIDE_OLD_LODGE_BRAM', move='MOVEMENT_TYPE_FACE_LEFT'))

@@ -14,10 +14,21 @@ Lowmere_EventScript_Arrival::
 	narrate Lowmere_Text_FirstLook
 	say Slice_Name_Bram, Lowmere_Text_BramDontMakeThatFace
 	closemessage
+	@ Bram heads off to his shed, so he isn't in two places at once.
+	applymovement LOCALID_LOWMERE_BRAM, Lowmere_Movement_BramLeavesCart
+	waitmovement 0
+	removeobject LOCALID_LOWMERE_BRAM
 	setflag FLAG_HIDE_LOWMERE_ARRIVAL_BRAM
 	setvar VAR_SLICE_STATE, 2
 	releaseall
 	end
+
+Lowmere_Movement_BramLeavesCart:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
 
 @ Bram by the cart, if talked to before the scene clears him away.
 Lowmere_EventScript_BramAtCart::
@@ -114,7 +125,77 @@ Lowmere_RangersShed_EventScript_ChooseStarter::
 	say Slice_Name_Bram, Lowmere_Text_BramHaveALook
 	closemessage
 	setflag FLAG_SYS_POKEMON_GET
-	special ChooseStarter
+	goto Lowmere_RangersShed_EventScript_PickStarter
+	end
+
+@ Bram's three mended POKéMON. A script menu instead of special ChooseStarter,
+@ which brings Birch's text and the wild Zigzagoon battle with it.
+@ VAR_STARTER_MON keeps the vanilla order (0 grass, 1 fire, 2 water) for
+@ Tamsin's team.
+Lowmere_RangersShed_EventScript_PickStarter::
+	setspeaker SP_NAME_NONE
+	message Lowmere_Text_WhichStarter
+	waitmessage
+	dynmultichoice 0, 0, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, Lowmere_Text_Treecko, Lowmere_Text_Torchic, Lowmere_Text_Mudkip
+	switch VAR_RESULT
+	case 0, Lowmere_RangersShed_EventScript_LookTreecko
+	case 1, Lowmere_RangersShed_EventScript_LookTorchic
+	case 2, Lowmere_RangersShed_EventScript_LookMudkip
+	end
+
+Lowmere_RangersShed_EventScript_LookTreecko::
+	setvar VAR_STARTER_MON, 0
+	showmonpic SPECIES_TREECKO, 10, 3
+	playmoncry SPECIES_TREECKO, CRY_MODE_NORMAL
+	setspeaker SP_NAME_NONE
+	msgbox Lowmere_Text_AboutTreecko, MSGBOX_YESNO
+	goto Lowmere_RangersShed_EventScript_ConfirmStarter
+	end
+
+Lowmere_RangersShed_EventScript_LookTorchic::
+	setvar VAR_STARTER_MON, 1
+	showmonpic SPECIES_TORCHIC, 10, 3
+	playmoncry SPECIES_TORCHIC, CRY_MODE_NORMAL
+	setspeaker SP_NAME_NONE
+	msgbox Lowmere_Text_AboutTorchic, MSGBOX_YESNO
+	goto Lowmere_RangersShed_EventScript_ConfirmStarter
+	end
+
+Lowmere_RangersShed_EventScript_LookMudkip::
+	setvar VAR_STARTER_MON, 2
+	showmonpic SPECIES_MUDKIP, 10, 3
+	playmoncry SPECIES_MUDKIP, CRY_MODE_NORMAL
+	setspeaker SP_NAME_NONE
+	msgbox Lowmere_Text_AboutMudkip, MSGBOX_YESNO
+	goto Lowmere_RangersShed_EventScript_ConfirmStarter
+	end
+
+Lowmere_RangersShed_EventScript_ConfirmStarter::
+	waitmoncry
+	hidemonpic
+	goto_if_eq VAR_RESULT, NO, Lowmere_RangersShed_EventScript_PickStarter
+	switch VAR_STARTER_MON
+	case 0, Lowmere_RangersShed_EventScript_GiveTreecko
+	case 1, Lowmere_RangersShed_EventScript_GiveTorchic
+	case 2, Lowmere_RangersShed_EventScript_GiveMudkip
+	end
+
+Lowmere_RangersShed_EventScript_GiveTreecko::
+	givemon SPECIES_TREECKO, 5
+	goto Lowmere_RangersShed_EventScript_ReceivedStarter
+	end
+
+Lowmere_RangersShed_EventScript_GiveTorchic::
+	givemon SPECIES_TORCHIC, 5
+	goto Lowmere_RangersShed_EventScript_ReceivedStarter
+	end
+
+Lowmere_RangersShed_EventScript_GiveMudkip::
+	givemon SPECIES_MUDKIP, 5
+	goto Lowmere_RangersShed_EventScript_ReceivedStarter
+	end
+
+Lowmere_RangersShed_EventScript_ReceivedStarter::
 	bufferleadmonspeciesname STR_VAR_1
 	setspeaker SP_NAME_NONE
 	message Lowmere_Text_ReceivedStarter
@@ -138,6 +219,7 @@ Lowmere_RangersShed_EventScript_AfterStarter::
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	setflag FLAG_ADVENTURE_STARTED
 	say Slice_Name_Bram, Lowmere_Text_BramBoots
 	setspeaker SP_NAME_NONE
 	playfanfare MUS_OBTAIN_ITEM
@@ -151,6 +233,17 @@ Lowmere_RangersShed_EventScript_AfterStarter::
 	say Slice_Name_Bram, Lowmere_Text_BramGoSeeHesk
 	setvar VAR_SLICE_STATE, 4
 	release
+	end
+
+@ After a whiteout the player wakes in the Old Lodge (replaces vanilla Mom's
+@ EventScript_AfterWhiteOutMomHeal). Text only, so it works whoever is home.
+Lowmere_OldLodge_EventScript_WhiteOutHeal::
+	lockall
+	say Slice_Name_Toft, Lowmere_Text_ToftWhiteOut
+	call Common_EventScript_OutOfCenterPartyHeal
+	say Slice_Name_Toft, Lowmere_Text_ToftWhiteOutRest
+	fadedefaultbgm
+	releaseall
 	end
 
 @ Bram anywhere after the starter: heals the party, then a line that follows
@@ -499,6 +592,12 @@ Lowmere_OldLodge_EventScript_CourierLeaves::
 	say Slice_Name_Bram, Lowmere_Text_BramMadMen
 	say Slice_Name_Bram, Lowmere_Text_BramTamsinComing
 	closemessage
+	@ Bram goes back to his shed, and Tamsin leaves the forge for the road.
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_OLD_LODGE_BRAM
+	setflag FLAG_HIDE_OLD_LODGE_BRAM
+	setflag FLAG_HIDE_LOWMERE_TAMSIN_FORGE
+	fadescreen FADE_FROM_BLACK
 	setvar VAR_SLICE_STATE, 7
 	clearflag FLAG_HIDE_MIRE_ROAD_TAMSIN
 	clearflag FLAG_HIDE_MIRE_ROAD_TAMSIN_WAGON
@@ -518,14 +617,34 @@ Lowmere_OldLodge_EventScript_Courier::
 	end
 
 @ ---------------------------------------------------------------------------
-@ Return to Lowmere (state 12 -> 13). On frame when the player enters Lowmere
-@ after the Haymarket pact. Toft runs out to meet them. signpact already raised
-@ VAR_LOWMERE_STAGE, so the map has loaded in its Stage 1 layout; this marks
-@ the stage as seen (see docs/systems.md, "Upgrade scene").
+@ Return to Lowmere (state 12 -> 13). signpact already raised
+@ VAR_LOWMERE_STAGE, so the town loads in its Stage 1 layout. The first time
+@ the player sees it, the carts are heard and Toft waves from the Old Lodge
+@ (this marks the stage as seen; see docs/systems.md, "Upgrade scene"). The
+@ scene with Toft plays on entering the Lodge.
 @ ---------------------------------------------------------------------------
-Lowmere_EventScript_GrainArrives::
+Lowmere_EventScript_CheckReturn::
+	setvar VAR_TEMP_1, 1
+	goto_if_ne VAR_SLICE_STATE, 12, Lowmere_EventScript_CheckReturnEnd
+	goto_if_lowmere_stage_new Lowmere_EventScript_ReturnSeen
+Lowmere_EventScript_CheckReturnEnd::
+	end
+
+Lowmere_EventScript_ReturnSeen::
 	lockall
 	narrate Lowmere_Text_Cartwheels
+	narrate Lowmere_Text_ToftWaving
+	closemessage
+	lowmere_mark_stage_seen
+	releaseall
+	end
+
+Lowmere_OldLodge_EventScript_GrainArrives::
+	lockall
+	applymovement LOCALID_OLD_LODGE_TOFT, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_OLD_LODGE_TOFT, Common_Movement_FacePlayer
+	waitmovement 0
 	say Slice_Name_Toft, Lowmere_Text_ToftCarts
 	say Slice_Name_Toft, Lowmere_Text_ToftCountedFourTimes
 	say Slice_Name_Toft, Lowmere_Text_ToftEveryWeek
@@ -533,6 +652,7 @@ Lowmere_EventScript_GrainArrives::
 	closemessage
 	setvar VAR_SLICE_STATE, 13
 	setflag FLAG_HIDE_LOWMERE_GRAIN_CARTS
+	clearflag FLAG_HIDE_LOWMERE_TAMSIN_FORGE
 	lowmere_mark_stage_seen
 	releaseall
 	end
@@ -680,6 +800,8 @@ Lowmere_Text_BramHereWeAre::
 	.string "LOWMERE.$"
 
 Lowmere_Text_FirstLook::
+	.string "It is smaller and poorer than you\n"
+	.string "remember.\p"
 	.string "Six houses, and three of them boarded\n"
 	.string "up. A well with no bucket. A jetty that\l"
 	.string "stops halfway out over the water.\p"
@@ -693,7 +815,7 @@ Lowmere_Text_BramDontMakeThatFace::
 	.string "it.\p"
 	.string "The OLD LODGE is your royal residence.\n"
 	.string "REEVE TOFT is waiting for you there. Go\l"
-	.string "on. I'll see to the cart.$"
+	.string "on. You'll find me at my shed.$"
 
 Lowmere_Text_BramSeeToCart::
 	.string "The OLD LODGE. TOFT's waiting. I'll see\n"
@@ -703,6 +825,10 @@ Lowmere_Text_ToftWelcome::
 	.string "Your Highness! Welcome, welcome! ABEL\n"
 	.string "TOFT, reeve of LOWMERE. Which is to say,\l"
 	.string "the only official it has.\p"
+	.string "I took the post after you'd gone off to\n"
+	.string "court, so we've never met. But everyone\l"
+	.string "here still talks about the little one\l"
+	.string "who went to the palace.\p"
 	.string "I'd hoped to have the place swept for\n"
 	.string "you. I did sweep it. The marsh came back\l"
 	.string "in.\p"
@@ -809,6 +935,46 @@ Lowmere_Text_BramHaveALook::
 	.string "ledger.\p"
 	.string "Go on. Have a look at them.$"
 
+Lowmere_Text_ToftWhiteOut::
+	.string "Easy, Your Highness. Easy. The\n"
+	.string "fishermen found you on the road and\l"
+	.string "carried you in.$"
+
+Lowmere_Text_ToftWhiteOutRest::
+	.string "Your POKéMON have been seen to. Rest a\n"
+	.string "while before you go back out there.$"
+
+Lowmere_Text_WhichStarter::
+	.string "Three POKé BALLS sit on Bram's table.\n"
+	.string "Which one will you open?$"
+
+Lowmere_Text_Treecko::
+	.string "TREECKO$"
+
+Lowmere_Text_Torchic::
+	.string "TORCHIC$"
+
+Lowmere_Text_Mudkip::
+	.string "MUDKIP$"
+
+Lowmere_Text_AboutTreecko::
+	.string "TREECKO. Bram found it stuck in a snare\n"
+	.string "in the reeds. It bit him twice while he\l"
+	.string "cut it free.\p"
+	.string "Will you choose TREECKO?$"
+
+Lowmere_Text_AboutTorchic::
+	.string "TORCHIC. It wandered into the shed one\n"
+	.string "winter, half frozen, and slept by the\l"
+	.string "stove until spring.\p"
+	.string "Will you choose TORCHIC?$"
+
+Lowmere_Text_AboutMudkip::
+	.string "MUDKIP. It was pulled out of a drained\n"
+	.string "fish pond, too weak to swim. It swims\l"
+	.string "just fine now.\p"
+	.string "Will you choose MUDKIP?$"
+
 Lowmere_Text_ReceivedStarter::
 	.string "{PLAYER} received the {STR_VAR_1}!$"
 
@@ -882,9 +1048,9 @@ Lowmere_Text_BramThornfield::
 	.string "One pact, and TOFT's been singing all\n"
 	.string "morning. I've never heard TOFT sing\l"
 	.string "before. It's awful.\p"
-	.string "The road west goes to THORNFIELD.\n"
-	.string "PRINCESS ISOLDE's town. She'll be\l"
-	.string "kinder to you than CORWIN was.\p"
+	.string "Past HAYMARKET, the west road goes to\n"
+	.string "THORNFIELD. PRINCESS ISOLDE's town.\l"
+	.string "She'll be kinder to you than CORWIN was.\p"
 	.string "Be careful of the kind ones.$"
 
 Lowmere_Text_HeskSeeBramFirst::
@@ -1164,9 +1330,13 @@ Lowmere_Text_Cartwheels::
 	.string "hear it before you see it. Cartwheels. A\l"
 	.string "lot of cartwheels.$"
 
+Lowmere_Text_ToftWaving::
+	.string "REEVE TOFT is at the door of the OLD\n"
+	.string "LODGE, waving both arms.$"
+
 Lowmere_Text_ToftCarts::
-	.string "Your Highness! Your Highness! Carts!\n"
-	.string "From HAYMARKET!\p"
+	.string "Your Highness! Your Highness! Did you\n"
+	.string "see the carts? From HAYMARKET!\p"
 	.string "Grain, at fair weight, and the bill's a\n"
 	.string "third of last month's!$"
 
@@ -1184,8 +1354,8 @@ Lowmere_Text_ToftLeaveItWithMe::
 	.string "We can mend the well. We can open the\n"
 	.string "grain store. Old MARTA says she'll open\l"
 	.string "a stall, if there's anything to sell.\p"
-	.string "Look, Your Highness! We've already\n"
-	.string "started!$"
+	.string "Go and look, Your Highness! We've\n"
+	.string "already started!$"
 
 Lowmere_Text_FishermanJetty::
 	.string "The jetty fell in last winter. Nobody\n"

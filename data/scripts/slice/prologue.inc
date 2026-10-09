@@ -1,7 +1,6 @@
 @ Slice scene 1: the Apportionment.
-@ Plays over a black screen at the start of a new game, before the cart (the old
-@ moving truck) arrives in Lowmere. If the map thread builds a throne-room map,
-@ this script can move there unchanged; only the fades would change.
+@ Plays over a black screen at the start of a new game (on frame in the cart,
+@ the old moving truck, which is never shown), then warps to Lowmere.
 
 Prologue_EventScript_Apportionment::
 	lockall
@@ -33,7 +32,9 @@ Prologue_EventScript_Apportionment::
 	say Slice_Name_Bram, Prologue_Text_BramHoldOn
 	closemessage
 	setvar VAR_SLICE_STATE, 1
-	fadescreen FADE_FROM_BLACK
+	call InsideOfTruck_EventScript_LeaveCart
+	warpsilent MAP_LITTLEROOT_TOWN, 9, 10
+	waitstate
 	releaseall
 	end
 
@@ -84,7 +85,7 @@ Prologue_Text_CorwinJoke_M::
 
 Prologue_Text_CorwinJoke_F::
 	.string "LOWMERE! The marsh! Oh, that's perfect.\p"
-	.string "All hail our little sister, Lord of the\n"
+	.string "All hail our little sister, Lady of the\n"
 	.string "Mere! Mind the frogs don't stage a coup,\l"
 	.string "Your Highness.$"
 
@@ -135,7 +136,8 @@ Prologue_Text_VennGone::
 Prologue_Text_ThreeDaysLater::
 	.string "Three days later.\p"
 	.string "The cart jolts along the marsh road.\n"
-	.string "Somewhere up ahead is LOWMERE.$"
+	.string "Somewhere up ahead is LOWMERE. You\l"
+	.string "haven't seen it since you were ten.$"
 
 Prologue_Text_BramHoldOn::
 	.string "Hold on to something. The road gets\n"

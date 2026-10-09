@@ -65,8 +65,10 @@ Slice_EventScript_ShakeScreenSmall::
 @ Speaker names (name box). Proper names in capitals, as in Emerald.
 @ ---------------------------------------------------------------------------
 
+@ The name box is at most 64 pixels wide in the small font (about 13 capitals),
+@ so long titles are cut down to the name.
 Slice_Name_Venn::
-	.string "CHANCELLOR VENN$"
+	.string "VENN$"
 Slice_Name_Corwin::
 	.string "CORWIN$"
 Slice_Name_Isolde::
@@ -108,13 +110,13 @@ Slice_Name_Penn::
 Slice_Name_Crane::
 	.string "SILAS CRANE$"
 Slice_Name_Arden::
-	.string "MAGISTRATE ARDEN$"
+	.string "ARDEN$"
 Slice_Name_Foreman::
 	.string "FOREMAN$"
 Slice_Name_Auctioneer::
 	.string "AUCTIONEER$"
 Slice_Name_Guard::
-	.string "PAVILION GUARD$"
+	.string "GUARD$"
 Slice_Name_Crowd::
 	.string "CROWD$"
 Slice_Name_Townsfolk::

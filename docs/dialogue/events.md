@@ -10,32 +10,34 @@ upgrade) and the balance thread (trainer teams and levels). Story source:
 | What | File |
 | --- | --- |
 | Slice scenes, NPCs and their text | `data/scripts/slice/*.inc` (one file per area) |
-| Shared macros, speaker names, temporary constants | `data/scripts/slice/common.inc` |
+| Shared macros and speaker names | `data/scripts/slice/common.inc` |
 | New-game narration (replaces Birch's speech) | `data/text/birch_speech.inc` |
 | Court prologue hook | `data/maps/InsideOfTruck/scripts.inc` (on-frame, `VAR_SLICE_STATE == 0`) |
 
 Labels are named by **area**, not by map folder (`Lowmere_…`, `MireRoad_…`, `Haymarket_…`,
 `GiltPavilion_…`), so they work whichever map slot the map thread picks. A map's
 `map.json` can point an object, trigger or sign straight at one of these labels. Each map's
-own `scripts.inc` only needs the map-script header (on-frame and on-transition tables),
-which the dialogue thread fills in once the map exists.
+own `scripts.inc` only holds the map-script header (on-frame and on-transition tables).
 
 Names in a box use the engine's name box (`setspeaker`). Proper names are in capitals, as
 in Emerald. Every line that names the player's title has a boy (`_M`) and girl (`_F`)
 version.
 
-## Temporary constants
+## Map-script headers
 
-Until the owning thread defines the real names, the top of each area file defines
-fallbacks under `#ifndef`. A fallback disappears as soon as the real
-constant exists, so the owning thread can add it with no change here.
+| Map | Header |
+| --- | --- |
+| `InsideOfTruck` (the cart) | On frame, state 0: the prologue. Leaving the cart sets the respawn to the Lodge, hides the vanilla moving-day cast and warps to Lowmere (9,10), beside Bram. Prince and princess both arrive here |
+| `LittlerootTown` (Lowmere) | On frame: `Lowmere_EventScript_Arrival` at state 1, `Lowmere_EventScript_GrainArrives` at state 12 |
+| `LittlerootTown_BrendansHouse_1F` (the Old Lodge) | On frame: `Lowmere_OldLodge_EventScript_ToftLedger` at state 2, `Lowmere_OldLodge_EventScript_KingsGift` at state 6 |
+| `LittlerootTown_BrendansHouse_2F` | The player's room for both genders, with the player's PC and decorations |
+| `LittlerootTown_MaysHouse_1F` / `_2F` (Hesk's house), `LittlerootTown_ProfessorBirchsLab` (the Shed), `Route101`, `OldaleTown` | No scenes in the header |
 
-- **Features:** done. Every `VAR_*`, `FLAG_*` and `ITEM_*` the slice uses is defined on
-  main (PR #7), and the Silver Wing, Bell Receipt and Sealed Letter are given with `giveitem`.
-- **Balance:** done. Every `TRAINER_*` and `KINGS_GIFT_LEVEL` come from
-  `include/constants/slice_balance.h` (PR #4).
-- **Map:** every `LOCALID_*` below is a placeholder number. Give the object that
-  `local_id` in `map.json` and it takes over.
+The vanilla intro is cut: Mom, the twin, the trucks, the rival and Birch are gone from
+Lowmere, the Shed, the Mire Road and Haymarket, along with their scripts. In the two houses,
+Mom, the rival's family and the Vigoroths stay in `map.json` because the shared
+`data/scripts/players_house.inc` still names them, but they are hidden for good and their
+triggers are removed.
 
 ## Story progress: `VAR_SLICE_STATE`
 
@@ -190,11 +192,10 @@ builds a throne-room map, `Prologue_EventScript_Apportionment` can run there ins
 
 ## Known gaps
 
-- Scenes are written but not yet wired into maps (except the prologue). They go live as
-  the map thread places the events above.
 - Corwin's pact: after the three fixed terms, the player adds a fourth (restitution,
   reform or clemency) and the script calls `signpact PACT_HAYMARKET`, which sets
   `FLAG_PACT_HAYMARKET` and raises `VAR_LOWMERE_STAGE`. The return scene then marks the
   stage as seen.
-- The vanilla Littleroot intro (Mom, the clock, Birch) still runs after the prologue until
-  the Lowmere map lands.
+- The cart's door opens before the prologue plays, because on-frame scripts wait until the
+  cart's opening sequence gives back control.
+- Marta the stallkeeper shows at stage 0 too; her object has no hide flag yet.

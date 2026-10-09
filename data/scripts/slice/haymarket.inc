@@ -2,28 +2,6 @@
 @ the case (granary, counting house, witness), the magistrate and Silas Crane.
 @ Object, trigger and sign placement: docs/dialogue/events.md#haymarket
 
-#ifndef LOCALID_HAYMARKET_PENN
-#define LOCALID_HAYMARKET_PENN 1
-#endif
-#ifndef LOCALID_HAYMARKET_SEIZURE_CLERK_1
-#define LOCALID_HAYMARKET_SEIZURE_CLERK_1 2
-#endif
-#ifndef LOCALID_HAYMARKET_SEIZURE_CLERK_2
-#define LOCALID_HAYMARKET_SEIZURE_CLERK_2 3
-#endif
-#ifndef LOCALID_HAYMARKET_CORWIN
-#define LOCALID_HAYMARKET_CORWIN 4
-#endif
-#ifndef LOCALID_HAYMARKET_TAMSIN
-#define LOCALID_HAYMARKET_TAMSIN 5
-#endif
-#ifndef LOCALID_HAYMARKET_CRANE
-#define LOCALID_HAYMARKET_CRANE 6
-#endif
-#ifndef LOCALID_COUNTING_HOUSE_PENN_BALL
-#define LOCALID_COUNTING_HOUSE_PENN_BALL 1
-#endif
-
 @ Widow Penn's old POKéMON, seized by the guild.
 #define PENN_MON SPECIES_CHANSEY
 

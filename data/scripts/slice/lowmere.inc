@@ -2,22 +2,6 @@
 @ Mother Hesk's house, the first rival battle, the king's gift and the return.
 @ Object, trigger and sign placement: docs/dialogue/events.md#lowmere
 
-#ifndef LOCALID_LOWMERE_BRAM
-#define LOCALID_LOWMERE_BRAM 1
-#endif
-#ifndef LOCALID_LOWMERE_TAMSIN_ROAD
-#define LOCALID_LOWMERE_TAMSIN_ROAD 2
-#endif
-#ifndef LOCALID_OLD_LODGE_TOFT
-#define LOCALID_OLD_LODGE_TOFT 1
-#endif
-#ifndef LOCALID_OLD_LODGE_BRAM
-#define LOCALID_OLD_LODGE_BRAM 2
-#endif
-#ifndef LOCALID_OLD_LODGE_COURIER
-#define LOCALID_OLD_LODGE_COURIER 3
-#endif
-
 @ ---------------------------------------------------------------------------
 @ Arrival (VAR_SLICE_STATE 1 -> 2). Runs on frame when the player steps off
 @ the cart. Bram stands next to the cart.

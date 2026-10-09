@@ -27,34 +27,6 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_ROUTE101_BIRCH",
-      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
-      "x": 11,
-      "y": 39,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE"
-    },
-    {
-      "local_id": "LOCALID_ROUTE101_ZIGZAGOON",
-      "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_1",
-      "x": 12,
-      "y": 39,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_ROUTE_101_ZIGZAGOON"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 11,
       "y": 6,

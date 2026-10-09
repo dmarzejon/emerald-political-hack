@@ -37,6 +37,17 @@
 #define TRAINER_PALACE_COURTIER         TRAINER_GEORGE
 #define TRAINER_ISOLDE                  TRAINER_NORMAN_1
 
+// Chapter 3: Chain Road (Route 104 slot), Gallows Wood (Petalburg Woods), Cragholt and Brannoc's Trial.
+#define TRAINER_CHAIN_ROAD_FISHER           TRAINER_DARIAN
+#define TRAINER_CHAIN_ROAD_COLLECTOR        TRAINER_IVAN
+#define TRAINER_GALLOWS_WOOD_BUG_CATCHER    TRAINER_LYLE
+#define TRAINER_DEBT_WARDEN                 TRAINER_GRUNT_WEATHER_INST_1
+#define TRAINER_ORE_OFFICE_CLERK            TRAINER_GRUNT_WEATHER_INST_2
+#define TRAINER_PITHEAD_FOREMAN             TRAINER_MIKE_2
+#define TRAINER_PITHEAD_MINER_1             TRAINER_BRICE
+#define TRAINER_PITHEAD_MINER_2             TRAINER_CLARK
+#define TRAINER_BRANNOC                     TRAINER_BRAWLY_1
+
 // The king's gift dog. Give it explicit moves (see docs/balance.md) so Raikou
 // doesn't start with Extreme Speed.
 #define KINGS_GIFT_LEVEL                5

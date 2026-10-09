@@ -215,3 +215,74 @@ Torchic and the Orchard Road's Starly, Pikipek and Sewaddle all answer it.
 
 Shaymin is one level under the cap and holds no item, matching Corwin's ace at two above
 his team.
+
+## Chapter 3: Chain Road, Gallows Wood, Cragholt and Brannoc
+
+Chain Road uses the Route 104 slot, Gallows Wood the Petalburg Woods slot and Cragholt the
+Rustboro City slot. Brannoc's Trial is `TRAINER_BRAWLY_1`. The level cap after Isolde's seal
+is **24** (`src/caps.c`).
+
+### Level curve
+
+| Point | Player (expected) | Opponents |
+|---|---|---|
+| Leaving Thornfield | 17-18 | |
+| Chain Road and Gallows Wood grass | | 13-16 |
+| Chain Road and wood trainers | 18-19 | 15-18 |
+| Debt warden checkpoint (must fight) | 19 | 17, 18 |
+| Ore office and Pithead Hall | 19-21 | 18-19 |
+| **Brannoc, Trial 3** | 21-23 (cap 24) | 20, 20, 21, ace 23 |
+
+### Wild encounters
+
+**Chain Road, day** (13-16): Geodude, Roggenrola, Rolycoly, Nacli, Diglett, Pidove, Sandshrew,
+Phanpy, Drilbur, Hippopotas, Larvitar (1%), Rhyhorn (1%).
+
+**Chain Road, night** (13-16): Woobat, Gligar, Houndour, Purrloin, Sandile, Trapinch, Dwebble,
+Nosepass, Onix, Aron, Sableye (1%), Deino (1%).
+
+**Chain Road, surfing** (20-35, for later): Tentacool, Wingull, Finizen, Wailmer, Pelipper.
+
+**Chain Road, fishing**: Old Rod Magikarp, Tentacool; Good Rod Remoraid, Shellder, Wailmer;
+Super Rod Qwilfish, Remoraid, Chinchou, Wailmer, Skrelp (1%).
+
+**Gallows Wood, day** (13-16): Wurmple, Caterpie, Weedle, Scatterbug, Blipbug, Nymble, Paras,
+Pineco, Foongus, Joltik, Heracross (1%), Scyther (1%).
+
+**Gallows Wood, night** (13-16): Duskull, Misdreavus, Sinistea, Phantump, Gothita, Natu, Nickit,
+Greavard, Honedge, Yamask, Mimikyu (1%), Spiritomb (1%).
+
+That adds 57 new species, so the first three chapters hold 150. Rock-heavy grass gives
+Water, Grass and Fighting teams plenty of easy wins before Brannoc, and the night wood is
+the first real Ghost source.
+
+### Trainers
+
+| Constant | Story name | Who | Class / pic | Team |
+|---|---|---|---|---|
+| `TRAINER_DARIAN` | `TRAINER_CHAIN_ROAD_FISHER` | Odo, fisher | Fisherman | Remoraid 16, Chinchou 16, Wailmer 17 |
+| `TRAINER_IVAN` | `TRAINER_CHAIN_ROAD_COLLECTOR` | Aldric, Gilded Scale collector | Guild Clerk | Klefki 17, Mawile 18 |
+| `TRAINER_LYLE` | `TRAINER_GALLOWS_WOOD_BUG_CATCHER` | Colm, bug catcher | Bug Catcher | Nincada 15, Joltik 16, Dwebble 16 |
+| `TRAINER_GRUNT_WEATHER_INST_1` | `TRAINER_DEBT_WARDEN` | Debt warden, wood checkpoint | Bailiff | Pawniard 17, Mightyena 18 |
+| `TRAINER_GRUNT_WEATHER_INST_2` | `TRAINER_ORE_OFFICE_CLERK` | Chancellery ore clerk | Guild Clerk | Nosepass 18, Bronzor 18 |
+| `TRAINER_MIKE_2` | `TRAINER_PITHEAD_FOREMAN` | Durran, pithead foreman | Foreman | Rolycoly 18, Timburr 19 |
+| `TRAINER_BRICE` | `TRAINER_PITHEAD_MINER_1` | Tobin, miner | Hiker | Roggenrola 18, Onix 19 |
+| `TRAINER_CLARK` | `TRAINER_PITHEAD_MINER_2` | Maud, miner | Hiker | Drilbur 18, Nacli 19 |
+| `TRAINER_BRAWLY_1` | `TRAINER_BRANNOC` | **Prince Brannoc**, Trial 3 | Prince / Leader Brawly (placeholder pic) | See below |
+
+None of these IDs have rematches or Match Call entries. Brawly's gym rematches only trigger
+after the Champion. The two Weather Institute grunts share their defeat flags with the
+vanilla Route 119 battles, which the hack does not use.
+
+### Brannoc, Trial 3
+
+Ace Pokemon AI flag, no items. Rock is weak to Water, Grass, Fighting, Ground and Steel;
+Mudkip, Treecko, Suicune and Isolde's region's Grass catches all answer it. Two Sturdy
+leads punish players who rely on one big hit.
+
+| Pokémon | Lv | Ability | Moves | Role |
+|---|---|---|---|---|
+| Onix | 20 | Sturdy | Rock Tomb, Smack Down, Bind, Screech | Lead, slows the player |
+| Nosepass | 20 | Sturdy | Rock Tomb, Thunder Wave, Block, Rock Throw | Paralysis support |
+| Carkol | 21 | Steam Engine | Smack Down, Incinerate, Rapid Spin, Smokescreen | Punishes Grass |
+| **Regirock** | 23 | Clear Body | Rock Throw, Stomp, Charge Beam, Bulldoze | Ace, IVs 20 |

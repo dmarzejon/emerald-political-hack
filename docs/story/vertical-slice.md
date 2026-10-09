@@ -100,7 +100,8 @@ Three pieces of evidence. Any order. Each is short.
    `FLAG_HAYMARKET_WITNESS`.
 
 Townsfolk dialogue should make it clear that most people like Corwin and blame the
-guild, not him. The player should feel Corwin is careless rather than evil.
+guild, not him. The case should show that Corwin knows and takes his cut: greedy
+rather than cruel, but corrupt.
 
 ### 9. The magistrate
 - Magistrate Lyle Arden, an honest old man worn down by the guild. When shown all three
@@ -119,8 +120,9 @@ guild, not him. The player should feel Corwin is careless rather than evil.
   challenge you. Simpler fallback: a straight run of 3 trainers with gate switches.
 - **Corwin, Trial 1, Normal type.** Fights with showmanship: his Pokémon are
   "lots" he presents to the crowd. Balance owns the team. Difficulty should be the
-  first real wall, as Roxanne is in Emerald, and his ace should match the theme of
-  money and charm.
+  first real wall, as Roxanne is in Emerald. His ace is his bestowed legendary,
+  **Type: Null**, unveiled from under a sheet as the "final lot". Balance should keep
+  its level in line with the rest of his team.
 - **Before the battle:** "Fine! Let's give them a show. When I win, you go back to your
   puddle and you thank me for the grain."
 - **After the battle:** the crowd goes quiet. Corwin: "...They were cheering for you."

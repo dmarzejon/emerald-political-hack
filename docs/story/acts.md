@@ -23,14 +23,16 @@ Soon after arrival, a royal courier brings the king's letter and gift: a choice 
 
 ## Act 1: The Least Heir (Trials 1-3)
 
-The player learns how power works. Small towns, small corruption, a merchant guild that
+The player learns how power works. Small towns, siblings who profit from their people, a merchant guild that
 keeps turning up.
 
 - **Haymarket, Corwin, Normal.** Rigged grain scales. See
   [vertical-slice.md](vertical-slice.md).
-- **Thornfield, Isolde, Grass.** Tenant farmers bound in debt by her steward. The player
+- **Thornfield, Isolde, Grass.** Tenant farmers bound in debt and evicted so Isolde can
+  turn their land into gardens. The player
   notices a sealed grove behind her palace that no one is allowed to enter.
-- **Cragholt, Brannoc, Rock.** Lethal ore quotas. The pale bell is found in the mine
+- **Cragholt, Brannoc, Rock.** Bonded convicts and debtors worked to death to beat ore
+  quotas. The pale bell is found in the mine
   collapse, which was no accident.
 - **Act end:** Lowmere reaches Stage 2. Tamsin becomes the player's envoy. A letter
   sealed with a pale bell arrives: "The tenth child should stay small."
@@ -39,15 +41,17 @@ keeps turning up.
 
 The campaign gets noticed. The player is now a contender.
 
-- **Saltmere, Marisol, Water.** Night shipments of Acolytes and sleeping draught.
+- **Saltmere, Marisol, Water.** Marisol's own smuggling ring: night shipments of
+  Acolytes and sleeping draught, and families sold passage into servitude.
   First time the player hears "the Pale Choir".
-- **Voltaine, Teodor, Electric.** The power grid feeds something in Crownspire. Teodor
-  shrugs: the Chancellery pays.
+- **Voltaine, Teodor, Electric.** Towns that can't pay, Lowmere included, are left dark.
+  The grid also feeds something in Crownspire. Teodor shrugs: the Chancellery pays.
 - **Midpoint: the Midsummer Court.** All ten heirs are summoned to Crownspire. The king
   appears in public for the first time in years, sees the player, says Elena's name,
   and collapses. For an instant everyone in the hall sees the shadow of Darkrai behind
   the throne. Venn declares a regency.
-- **Lumenhall, Seraphine, Psychic.** Seraphine tells the player the truth about the
+- **Lumenhall, Seraphine, Psychic.** The case: students and servants with holes in
+  their memories. After the Trial, Seraphine tells the player the truth about the
   king, the Sleeper and their mother. She explains the Silver Wing, and that the grove
   behind Thornfield holds **Xerneas**, the one power that can undo the Sleeper's hold.
 - **Seraphine taken.** That night **Yveltal** descends on Lumenhall and carries her off.
@@ -66,8 +70,8 @@ The court stops pretending.
   gardeners, Brannoc's miners and Marisol's ships each hold a part of the defence (a
   sequence of battles in town). At the darkest point the Silver Wing calls **Lugia** out
   of the sea. Lugia and the player drive Yveltal off.
-- **Emberfort, Garrick, Fire.** The player takes the fight to Garrick's fortress palace
-  and wins the Trial in his throne hall. Garrick withdraws.
+- **Emberfort, Garrick, Fire.** The case is the buried bread-protest massacre. The player
+  takes the fight to Garrick's fortress palace and wins the Trial in his throne hall. Garrick withdraws.
 - **Duskmoor, Vespera, Dark.** Vespera hands the player to the Choir, then frees them in
   the same night: the double-agent reveal. She gives the player the Choir's plan for the
   Bell Tower. Her Trial follows: she insists.
@@ -76,8 +80,8 @@ The court stops pretending.
 
 ## Act 4: The Crown and the Choir (Trial 9, Crownspire)
 
-- **Highcrest, Aurelian, Dragon.** The final sibling Trial, fought in Highcrest's palace
-  in front of the whole court. Aurelian loses and confesses that he let the king be kept
+- **Highcrest, Aurelian, Dragon.** The case is the bribed magistrates. The final sibling
+  Trial, fought in Highcrest's palace in front of the whole court. Aurelian loses and confesses that he let the king be kept
   asleep.
 - **Storming Crownspire.** Marisol blockades the harbour, Teodor sabotages the engine
   from inside, Brannoc's miners open the undercroft. Seraphine is freed. The player

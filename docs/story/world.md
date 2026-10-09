@@ -13,6 +13,12 @@ By old custom each child of the king is given one town to govern when they come 
 How well their town prospers is how the court judges their fitness to inherit. The
 eldest usually gets the richest town, so the custom mostly reinforces the order of birth.
 
+With the town, each heir is **bestowed a legendary Pokémon** from the Crown's reliquary,
+as a sign of royal blood. The nine trueborn siblings each received one (see
+[characters.md](characters.md#the-nine-siblings)). The Chancellery withheld the player's,
+calling a bastard unworthy of it. That is why the king's private gift of Entei, Raikou or
+Suicune matters so much: it is the bestowal the court refused.
+
 The king has ten children. Nine are by Queen Ottilie (died 6 years before the game). The
 tenth, the player, is by **Elena Marsh**, a commoner healer. The player was apportioned
 **Lowmere**, the poorest town in the kingdom, as a public insult arranged by the court.

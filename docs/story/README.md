@@ -19,7 +19,9 @@ inventing it in place.
 | Cult | **The Pale Choir** |
 | Trial order | Siblings are fought youngest to eldest: Trial 1 is the 9th child, Trial 9 is the Crown Prince |
 | Player | Boy or girl, chosen at the start: **prince** or **princess** |
-| Father's gift | Choice of **Entei, Raikou or Suicune**, early in the slice |
+| Father's gift | Choice of **Entei, Raikou or Suicune**, early in the slice, in addition to the starter |
+| Siblings | All nine are corrupt, and each has a signature legendary as their ace; see [characters.md](characters.md#the-nine-siblings) |
+| Trial 1 legendary | Corwin's **Type: Null** |
 | Player's legendaries | **Lugia, Xerneas, Rayquaza** |
 | Cult's legendaries | **Darkrai, Yveltal, Giratina** |
 
@@ -66,10 +68,11 @@ can understand, even the ones who never redeem themselves.
 - 2026-10-09, D: the ending is a player choice (take the throne or found the Charter).
 - 2026-10-09, D: cult uses Darkrai, Yveltal and Giratina; player uses Rayquaza, Lugia and
   Xerneas.
-- 2026-10-09, D: the king gives the player a choice of Entei, Raikou or Suicune early on.
+- 2026-10-09, D: the king gives the player a choice of Entei, Raikou or Suicune early on. The player gets both this and the starter.
+- 2026-10-09, D: every sibling is corrupt, and each has a legendary.
 
 ## Open questions for D
 
-1. **The dog and the starter.** Draft gives both: Bram's starter first, then the king's
-   gift dog a few minutes later. Should the dog replace the starter instead?
-2. **Vespera's fate** in Act 4 (see [characters.md](characters.md)).
+1. **Vespera's fate** in Act 4 (see [characters.md](characters.md)).
+2. **Sibling legendaries.** Picked to fit each sibling's type and corruption; swap any
+   you'd rather see.

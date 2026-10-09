@@ -132,7 +132,7 @@ Four "lots", one per round of the auction, with Type: Null unveiled last. Corwin
 | Lot | Pokémon | Lv | Ability / item | Moves | Role |
 |---|---|---|---|---|---|
 | 1 | Skwovet | 10 | Cheek Pouch, Oran Berry | Tackle, Bite, Tail Whip, Stuff Cheeks | Eats its berry to heal and raise Defence: Corwin's hoarding |
-| 2 | Meowth | 10 | Technician | Fake Out, Feint, Scratch, Growl | Fake Out chip with Technician |
+| 2 | Meowth | 10 | Technician | Fake Out, Feint, Scratch, Pay Day | Pays out coins all match |
 | 3 | Bunnelby | 11 | Pickup | Mud-Slap, Quick Attack, Tackle, Leer | Ground coverage, the check on Entei and Raikou |
 | 4 | **Type: Null** | 12 | Battle Armor | Tackle, Aerial Ace, Scary Face | The final lot. Bulky (95 HP / 95 Def / 95 SpD), no crits |
 

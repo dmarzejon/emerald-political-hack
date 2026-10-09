@@ -4,6 +4,13 @@ gText_Birch_Welcome::
 	.string "The KINGDOM OF ALDMERE has been ruled\n"
 	.string "by the HOUSE OF VALCOURT for three\l"
 	.string "hundred years.\p"
+	.string "When heirs quarrel, they do not raise\n"
+	.string "armies. They battle. A TRIAL OF\l"
+	.string "STANDING settles the matter.\p"
+	.string "KING ALDRIC has ten children. Nine of\n"
+	.string "them were born to the late queen.\p"
+	.string "The tenth was not.\p"
+	.string "Who are you?\p"
 	.string "$"
 
 gText_Birch_Pokemon::
@@ -11,17 +18,11 @@ gText_Birch_Pokemon::
 	.string "\n"
 	.string "$"
 
+@ Not shown once the features thread's intro changes land; kept for the
+@ vanilla intro sequence.
 gText_Birch_MainSpeech::
 	.string "In ALDMERE, POKéMON and the law are\n"
 	.string "bound together.\p"
-	.string "Every noble keeps a team. When heirs\n"
-	.string "quarrel, they do not raise armies.\p"
-	.string "They battle. A TRIAL OF STANDING\n"
-	.string "settles the matter, and the loser must\l"
-	.string "accept the winner's terms.\p"
-	.string "KING ALDRIC has ten children. Nine of\n"
-	.string "them were born to the late queen.\p"
-	.string "The tenth was not.\p"
 	.string "$"
 
 gText_Birch_AndYouAre::

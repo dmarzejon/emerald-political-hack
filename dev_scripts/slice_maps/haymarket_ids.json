@@ -1,0 +1,30 @@
+{
+ "num_tiles": 512,
+ "ids": {
+  "gilt_pavilion_0_0": 918,
+  "gilt_pavilion_1_0": 919,
+  "gilt_pavilion_2_0": 920,
+  "gilt_pavilion_3_0": 921,
+  "gilt_pavilion_4_0": 922,
+  "gilt_pavilion_0_1": 923,
+  "gilt_pavilion_1_1": 924,
+  "gilt_pavilion_2_1": 925,
+  "gilt_pavilion_3_1": 926,
+  "gilt_pavilion_4_1": 927,
+  "gilt_pavilion_0_2": 928,
+  "gilt_pavilion_1_2": 929,
+  "gilt_pavilion_2_2": 930,
+  "gilt_pavilion_3_2": 931,
+  "gilt_pavilion_4_2": 932,
+  "gilt_pavilion_0_3": 933,
+  "gilt_pavilion_1_3": 934,
+  "gilt_pavilion_2_3": 935,
+  "gilt_pavilion_3_3": 936,
+  "gilt_pavilion_4_3": 937,
+  "gilt_pavilion_0_4": 938,
+  "gilt_pavilion_1_4": 939,
+  "gilt_pavilion_2_4": 940,
+  "gilt_pavilion_3_4": 941,
+  "gilt_pavilion_4_4": 942
+ }
+}

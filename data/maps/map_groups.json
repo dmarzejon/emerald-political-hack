@@ -140,14 +140,21 @@
     "LittlerootTown_BrendansHouse_2F",
     "LittlerootTown_MaysHouse_1F",
     "LittlerootTown_MaysHouse_2F",
-    "LittlerootTown_ProfessorBirchsLab"
+    "LittlerootTown_ProfessorBirchsLab",
+    "Lowmere_Forge",
+    "Lowmere_ReevesHouse",
+    "Lowmere_ReopenedHouse"
   ],
   "gMapGroup_IndoorOldale": [
     "OldaleTown_House1",
     "OldaleTown_House2",
     "OldaleTown_PokemonCenter_1F",
     "OldaleTown_PokemonCenter_2F",
-    "OldaleTown_Mart"
+    "OldaleTown_Mart",
+    "Haymarket_GiltPavilion",
+    "Haymarket_CountingHouse",
+    "Haymarket_CountingHouse_BackRoom",
+    "Haymarket_Granary"
   ],
   "gMapGroup_IndoorDewford": [
     "DewfordTown_House1",

@@ -274,7 +274,7 @@
 #define VAR_PACT_TERMS_2                                 0x40FB
 #define VAR_SLICE_STATE                                  0x40FC // Main story step; values in docs/dialogue/events.md
 #define VAR_THORNFIELD_STATE                             0x40FD // Trial 2 story step; values in docs/systems.md
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
+#define VAR_CRAGHOLT_STATE                               0x40FE // Trial 3 story step; values in docs/systems.md
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
 
 #define VARS_END                                         0x40FF

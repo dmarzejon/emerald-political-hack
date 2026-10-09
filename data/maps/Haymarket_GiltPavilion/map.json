@@ -16,7 +16,7 @@
   "connections": null,
   "object_events": [
     {
-      "local_id": "LOCALID_GILT_PAVILION_CORWIN",
+      "local_id": "LOCALID_PAVILION_CORWIN",
       "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
       "x": 4,
       "y": 4,
@@ -26,21 +26,20 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Haymarket_GiltPavilion_EventScript_Corwin",
+      "script": "GiltPavilion_EventScript_Corwin",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_GILT_PAVILION_AUCTIONEER",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 6,
-      "y": 5,
+      "x": 3,
+      "y": 24,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Haymarket_GiltPavilion_EventScript_Auctioneer",
+      "script": "GiltPavilion_EventScript_Auctioneer",
       "flag": "0"
     },
     {
@@ -53,7 +52,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Haymarket_GiltPavilion_EventScript_Fenwick",
+      "script": "GiltPavilion_EventScript_Broker1",
       "flag": "0"
     },
     {
@@ -66,7 +65,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Haymarket_GiltPavilion_EventScript_Celeste",
+      "script": "GiltPavilion_EventScript_Bidder",
       "flag": "0"
     },
     {
@@ -79,59 +78,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Haymarket_GiltPavilion_EventScript_Albrecht",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 1,
-      "y": 9,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Haymarket_GiltPavilion_EventScript_SpectatorA",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 7,
-      "y": 12,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Haymarket_GiltPavilion_EventScript_SpectatorB",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
-      "x": 7,
-      "y": 18,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Haymarket_GiltPavilion_EventScript_SpectatorC",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 3,
-      "y": 21,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Haymarket_GiltPavilion_EventScript_Steward",
+      "script": "GiltPavilion_EventScript_Broker2",
       "flag": "0"
     }
   ],
@@ -152,5 +99,22 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GiltPavilion_EventScript_Gallery"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GiltPavilion_EventScript_Gallery"
+    }
+  ]
 }

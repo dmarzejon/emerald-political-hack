@@ -36,32 +36,6 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 17,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_FatMan",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 14,
-      "y": 17,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Boy",
-      "flag": "0"
-    },
-    {
       "local_id": "LOCALID_LITTLEROOT_MOM",
       "graphics_id": "OBJ_EVENT_GFX_MOM",
       "x": 5,
@@ -140,25 +114,10 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Bram",
-      "flag": "0"
+      "script": "Lowmere_EventScript_BramAtCart",
+      "flag": "FLAG_HIDE_LOWMERE_ARRIVAL_BRAM"
     },
     {
-      "local_id": "LOCALID_LOWMERE_TOFT",
-      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 11,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Toft",
-      "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_LOWMERE_TAMSIN",
       "graphics_id": "OBJ_EVENT_GFX_RIVAL_MAY_NORMAL",
       "x": 5,
       "y": 15,
@@ -168,25 +127,10 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Tamsin",
-      "flag": "0"
+      "script": "Lowmere_EventScript_TamsinForge",
+      "flag": "FLAG_HIDE_LOWMERE_TAMSIN_FORGE"
     },
     {
-      "local_id": "LOCALID_LOWMERE_COURIER",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 8,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Courier",
-      "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_LOWMERE_JETTY_VILLAGER",
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
       "x": 18,
       "y": 20,
@@ -196,11 +140,10 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_JettyVillager",
+      "script": "Lowmere_EventScript_Fisherman",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_LOWMERE_HEALER_VILLAGER",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 13,
       "y": 12,
@@ -210,12 +153,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_HealerVillager",
+      "script": "Lowmere_EventScript_Mother",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_LOWMERE_SHOP_VILLAGER",
-      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
       "x": 19,
       "y": 12,
       "elevation": 3,
@@ -224,11 +166,10 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_ShopVillager",
+      "script": "Lowmere_EventScript_Child",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_LOWMERE_DREAMS_VILLAGER",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 23,
       "y": 14,
@@ -238,25 +179,10 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_DreamsVillager",
+      "script": "Lowmere_EventScript_OldMan",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_LOWMERE_GRAIN_SELLER",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 13,
-      "y": 17,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_GrainSeller",
-      "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_LOWMERE_STALL_KEEPER",
       "graphics_id": "OBJ_EVENT_GFX_MAN_4",
       "x": 19,
       "y": 17,
@@ -266,8 +192,22 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_StallKeeper",
+      "script": "Lowmere_EventScript_Stallkeeper",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LOWMERE_TAMSIN_ROAD",
+      "graphics_id": "OBJ_EVENT_GFX_RIVAL_MAY_NORMAL",
+      "x": 16,
+      "y": 0,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Lowmere_EventScript_TamsinRoad",
+      "flag": "FLAG_HIDE_LOWMERE_TAMSIN_ROAD"
     }
   ],
   "warp_events": [
@@ -320,81 +260,90 @@
       "x": 15,
       "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "0",
-      "script": "LittlerootTown_EventScript_NeedPokemonTriggerLeft"
+      "var": "VAR_SLICE_STATE",
+      "var_value": "5",
+      "script": "Lowmere_EventScript_TamsinRoad"
     },
     {
       "type": "trigger",
       "x": 16,
       "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "0",
-      "script": "LittlerootTown_EventScript_NeedPokemonTriggerRight"
-    },
-    {
-      "type": "trigger",
-      "x": 16,
-      "y": 1,
-      "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "1",
-      "script": "LittlerootTown_EventScript_GoSaveBirchTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 7,
-      "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger4"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 8,
-      "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger5"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 7,
-      "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger2"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 8,
-      "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger3"
+      "var": "VAR_SLICE_STATE",
+      "var_value": "5",
+      "script": "Lowmere_EventScript_TamsinRoad"
     },
     {
       "type": "trigger",
       "x": 15,
-      "y": 2,
+      "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger0"
+      "var": "VAR_SLICE_STATE",
+      "var_value": "2",
+      "script": "Lowmere_EventScript_NorthRoadBlock"
     },
     {
       "type": "trigger",
       "x": 16,
-      "y": 2,
+      "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_SLICE_STATE",
+      "var_value": "2",
+      "script": "Lowmere_EventScript_NorthRoadBlock"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 1,
+      "elevation": 3,
+      "var": "VAR_SLICE_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger1"
+      "script": "Lowmere_EventScript_NorthRoadBlock"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 1,
+      "elevation": 3,
+      "var": "VAR_SLICE_STATE",
+      "var_value": "3",
+      "script": "Lowmere_EventScript_NorthRoadBlock"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 1,
+      "elevation": 3,
+      "var": "VAR_SLICE_STATE",
+      "var_value": "4",
+      "script": "Lowmere_EventScript_NorthRoadBlock"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 1,
+      "elevation": 3,
+      "var": "VAR_SLICE_STATE",
+      "var_value": "4",
+      "script": "Lowmere_EventScript_NorthRoadBlock"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 1,
+      "elevation": 3,
+      "var": "VAR_SLICE_STATE",
+      "var_value": "6",
+      "script": "Lowmere_EventScript_NorthRoadBlock"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 1,
+      "elevation": 3,
+      "var": "VAR_SLICE_STATE",
+      "var_value": "6",
+      "script": "Lowmere_EventScript_NorthRoadBlock"
     }
   ],
   "bg_events": [
@@ -404,15 +353,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_TownSign"
-    },
-    {
-      "type": "sign",
-      "x": 18,
-      "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_BirchsLabSign"
+      "script": "Lowmere_EventScript_TownSign"
     },
     {
       "type": "sign",
@@ -420,7 +361,15 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_BrendansHouseSign"
+      "script": "Lowmere_EventScript_OldLodgeSign"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lowmere_EventScript_RangersShedSign"
     },
     {
       "type": "sign",
@@ -428,7 +377,47 @@
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_MaysHouseSign"
+      "script": "Lowmere_EventScript_HeskHouseSign"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lowmere_EventScript_Well"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lowmere_EventScript_Well"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lowmere_EventScript_GrainStore"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lowmere_EventScript_BoardedHouse"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lowmere_EventScript_Jetty"
     }
   ]
 }

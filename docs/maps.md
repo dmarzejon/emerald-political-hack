@@ -40,28 +40,42 @@ A boarded door has no door behaviour, so its warp does nothing until a later sta
 
 The north exit is at columns 15–16 and leads onto the Mire Road.
 
-### Lowmere people
+### Lowmere events
 
-These are new `LOCALID_LOWMERE_*` objects: `BRAM` (9,9), `TOFT` (11,8), `TAMSIN` (5,15), `COURIER` (8,8), `JETTY_VILLAGER` (18,20), `HEALER_VILLAGER` (13,12), `SHOP_VILLAGER` (19,12), `DREAMS_VILLAGER` (23,14), `GRAIN_SELLER` (13,17) and `STALL_KEEPER` (19,17).
-`LOCALID_LOWMERE_HESK` stands at (4,4) inside Hesk's house.
-The vanilla objects (Mom, the trucks, the rival, Birch, the twin, the fat man and the boy) keep their local ids and were moved to fit the new streets.
+Every object, sign and trigger runs a script from `data/scripts/slice/`. The labels and flags are listed in [the dialogue contract](dialogue/events.md).
+
+- **Outside:**
+  - Bram is at (9,9) (`LOCALID_LOWMERE_BRAM`).
+  - Tamsin works at the forge, (5,15).
+  - On the north road, Tamsin waits at (16,0) (`LOCALID_LOWMERE_TAMSIN_ROAD`).
+  - The fisherman, mother, old man, child and stallkeeper are townsfolk.
+  - Signs mark the town, the Lodge, the Shed, Hesk's house, the well, the grain store (house A's door), the boarded house (house C's door) and the jetty.
+- **North road triggers:** `TamsinRoad` (state 5) and `NorthRoadBlock` (states 2, 3, 4 and 6) both sit on row 1, at (15,1) and (16,1). Row 1 is the only way out.
+- **The Old Lodge** (Brendan's house 1F):
+  - Toft is at (5,7), Bram at (7,6) and the courier at (8,6).
+  - The ledger sign is on the table at (4,6).
+- **The Ranger's Shed:** Bram stands at (5,4).
+- **Hesk's house:** Hesk is at (4,4) downstairs, and Elena's bed is a sign at (7,5) upstairs.
+- **Vanilla objects still there:** Mom, the Twin, the trucks, the rival and Birch keep their spots, because vanilla scripts still name their local ids. The dialogue work removes them together with those scripts.
 
 ## The Mire Road
 
 This is a winding marsh road. The reeds and the tall grass at the north end give wild encounters.
 
 - **North end:** seven rows of dry ground, so the seam with Haymarket draws cleanly (see below).
-- **Middle:** the Gilded Scale wagon is stuck in the mud at (10,16). The `LOCALID_MIRE_ROAD_WAGON_CLERK` trainer stands at (11,18) and `LOCALID_MIRE_ROAD_RECEIPT_CLERK` at (13,17).
+- **Middle:** the Gilded Scale wagon is stuck in the mud at (10,16).
+  - The two guild clerks stand at (11,18) and (13,17) (`LOCALID_MIRE_ROAD_WAGON_CLERK`, `_2`).
+  - Tamsin's spot by the sacks is (9,18).
+  - The `WagonClerk` trigger (state 7) covers every open tile of row 20.
 - **Below the wagon:** a boardwalk crosses the pond at rows 23–24.
-- **South end:** the vanilla Birch-rescue objects and triggers.
+- **South end:** Tamsin waits at (13,41). The `TamsinJoins` trigger (state 7) covers the south edge, row 43.
 
-| Trainer | Slot | Spot |
+| Trainer | Script | Spot |
 |---|---|---|
-| Hobb | `TRAINER_RICK` | (11,6) |
-| Grisk | `TRAINER_TIANA` | (5,21) |
-| Willem | `TRAINER_ANDREW` | (16,17) |
-| Pip | `TRAINER_ALLEN` | (9,33) |
-| Wagon clerk | `TRAINER_GRUNT_PETALBURG_WOODS` | (11,18) |
+| Guild clerk | `MireRoad_EventScript_Clerk` | (11,6) |
+| Poacher | `MireRoad_EventScript_Poacher` | (5,21) |
+| Grain carter | `MireRoad_EventScript_Carter` | (16,17) |
+| Youngster | `MireRoad_EventScript_Youngster` | (9,33) |
 
 ## Haymarket
 
@@ -79,14 +93,20 @@ The town is a market square under the Gilt Pavilion's gold dome. A ring of fores
 | 5 | Counting house (41,13) | `MAP_HAYMARKET_COUNTING_HOUSE` (new) |
 | 6 | Granary (39,30) | `MAP_HAYMARKET_GRANARY` (new) |
 
-These are the town's objects:
+These are the town's events:
 
-- **At the fair:** `LOCALID_HAYMARKET_CORWIN` (29,14), fairgoers A, B and C (26,14), (32,14) and (28,13), and `CRANE` (16,13).
-- **The seizure:** `PENN` (28,20) between `SEIZING_CLERK_A` (27,20) and `SEIZING_CLERK_B` (29,20).
-- **At the Pavilion door:** `LOCALID_HAYMARKET_PAVILION_GUARD` stands on (28,12) and blocks the door. A script has to move him or hide him behind a flag.
-- **Unnamed townsfolk:** a townsman, a townswoman and a grain buyer.
+- **The seizure:** Penn is at (28,20) inside the market, with seizure clerk 1 at (27,20) and seizure clerk 2 at (29,20).
+- **Hidden until their scenes:**
+  - Corwin on the fair stage, (29,14)
+  - Crane outside the Magistrate's Hall, (16,13)
+  - Tamsin by the Pokémon Center, (21,13)
+- **The Pavilion guard:** he stands beside the door at (27,12). The `PavilionDoorTrigger` (states 8 and 9) is in front of it at (28,12).
+- **`Arrival` trigger (state 8):** this is where the dirt road enters town, (27,35) and (28,35). It is the only way in from the Mire Road.
+- **`Crane` trigger (state 10):** this is in front of the Magistrate's door, (14,13).
+- **Townsfolk:** the ribbon seller, nervous man, girl, granny, farmer and boy.
+- **Signs:** the town, the Pavilion, the Magistrate's Hall, the counting house and the granary.
 
-`LOCALID_HAYMARKET_PENN_HOME` is inside House 1 at (6,3), and `LOCALID_HAYMARKET_ARDEN` is inside House 2 at (6,3).
+Magistrate Arden is at (6,3) inside House 2, with his clerk. Penn's house (House 1) is empty for now.
 
 These are the exits:
 
@@ -98,17 +118,18 @@ These are the exits:
 
 ### Haymarket interiors
 
-- **Gilt Pavilion:** Corwin sits on the throne at (4,4), with the auctioneer at (6,5). The auction floor holds Fenwick (`TRAINER_MARC`), Celeste (`TRAINER_TOMMY`) and Albrecht (`TRAINER_JOSH`). Spectators and a steward fill the room, and the music is `MUS_GYM`.
-- **Counting house:** this reuses the Devon Corp 1F layout. A clerk trainer (`TRAINER_GRUNT_MUSEUM_1`) stands guard, and stairs lead to a back room.
-- **Counting house back room:** this reuses Devon Corp 2F. It holds a clerk trainer (`TRAINER_GRUNT_MUSEUM_2`), Penn's Pokémon as an item ball (`LOCALID_COUNTING_HOUSE_PENNS_POKEMON`), and Crane's desk as a sign.
-- **Granary:** this reuses Stern's Shipyard 1F. It holds the foreman (`TRAINER_GRUNT_RUSTURF_TUNNEL`), four Strength boulders as stacked sacks, and the weights crate and the scale as signs. The boulders need Strength or the features thread's sack push.
+- **Gilt Pavilion:** Corwin sits on the throne at (4,4) (`LOCALID_PAVILION_CORWIN`). The auctioneer stands by the door at (3,24). The auction floor holds the three courtiers, `Broker1` at (4,10), `Bidder` at (6,15) and `Broker2` at (2,17). The two statues are the `Gallery` signs, and the music is `MUS_GYM`.
+- **Counting house:** this reuses the Devon Corp 1F layout. The front clerk is at the desk, and stairs lead to a back room.
+- **Counting house back room:** this reuses Devon Corp 2F. It holds the trainers `Clerk1` at (9,6) and `Clerk2` at (13,6), and Penn's Poké Ball at (1,7) (`LOCALID_COUNTING_HOUSE_PENN_BALL`). Crane's desk is a sign at (2,4), and the payment shelves are signs at (10,4) and (11,4).
+- **Granary:** this reuses Stern's Shipyard 1F. It holds the foreman, a worker, four Strength boulders as stacked sacks, and the scale, the crown crate and the sacks as signs. The granary's map script turns on Strength, so the sacks can be pushed.
 
 ## What other work owns
 
-- **Dialogue** owns `scripts.inc`. Every new object and sign points at a placeholder script at the end of its map's `scripts.inc`, below the `Map-thread placeholders` marker. Dialogue can rename those scripts and set the `flag` and `script` fields in `map.json`.
-- **Vanilla movement scripts** still assume the old Littleroot and Oldale layouts. These include Mom and the rival in Littleroot and the Mart employee's walk to the Center in Oldale. They need rewriting or cutting.
-- **Heal locations** in `src/data/heal_locations.json` were moved to the new door spots for the Lodge, Hesk's house and the Haymarket Pokémon Center.
-- **Trainer slots** are listed above. The balance work owns the parties.
+- **Dialogue** owns the scripts and the map-script headers (on-frame and on-transition tables).
+- **Vanilla movement scripts** still assume the old Littleroot and Oldale layouts. These include Mom and the rival in Littleroot and the Mart employee's walk to the Center in Oldale. The dialogue work cuts them, along with their objects.
+- **Heal locations** in `src/data/heal_locations.json` point at the new door spots for the Lodge, Hesk's house and the Haymarket Pokémon Center.
+- **Balance** owns the trainer parties.
+- **Not wired yet:** the forge, the reeve's house and house C have no scenes, so they are empty. The stallkeeper has no flag to hide her before stage 1.
 
 ## Seams between maps with different tilesets
 
@@ -133,8 +154,7 @@ The scripts in `dev_scripts/slice_maps/` built everything above. Run them from t
 ```sh
 python3 dev_scripts/slice_maps/build_tileset.py   # tilesets (only if the art changes)
 python3 dev_scripts/slice_maps/build_maps.py      # layouts
-python3 dev_scripts/slice_maps/build_events.py    # map.json events, new interiors, placeholder scripts
 python3 dev_scripts/slice_maps/validate.py        # reachability and seam checks
 ```
 
-`build_events.py` starts from origin/main's `map.json` and overwrites the events of every map it touches. Once dialogue edits those maps, change them by hand, or in Porymap, rather than re-running it. `build_maps.py` only writes layouts, so it is safe to re-run.
+`build_events.py` placed the first events, and `wire_events.py` then pointed them at the dialogue scripts. Both have been run, and `map.json` is now the source of truth. Change events by hand or in Porymap. Do not re-run `build_events.py`, because it starts from origin/main and would overwrite the wiring. `build_maps.py` only writes layouts, so it is safe to re-run.

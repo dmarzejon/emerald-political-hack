@@ -17,12 +17,3 @@ OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon:
 	.string "If the POKéMON with you become\n"
 	.string "stronger, you'll be able to go farther\l"
 	.string "away from here.$"
-
-@ ---- Map-thread placeholders. The dialogue thread replaces these. ----
-
-OldaleTown_House2_EventScript_Arden::
-	msgbox OldaleTown_House2_Text_Arden, MSGBOX_NPC
-	end
-
-OldaleTown_House2_Text_Arden:
-	.string "MAGISTRATE ARDEN: (placeholder)$"

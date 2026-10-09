@@ -15,7 +15,8 @@ from gfxlib import Layout, Tileset, path, tileset_dir_for
 
 MAPS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Haymarket_GiltPavilion', 'Haymarket_CountingHouse',
         'Haymarket_CountingHouse_BackRoom', 'Haymarket_Granary', 'Lowmere_Forge', 'Lowmere_ReevesHouse',
-        'Lowmere_ReopenedHouse', 'OldaleTown_House1', 'OldaleTown_House2', 'LittlerootTown_MaysHouse_1F']
+        'Lowmere_ReopenedHouse', 'OldaleTown_House1', 'OldaleTown_House2', 'LittlerootTown_MaysHouse_1F',
+        'LittlerootTown_MaysHouse_2F', 'LittlerootTown_BrendansHouse_1F', 'LittlerootTown_ProfessorBirchsLab']
 LOWMERE_STAGES = ['LAYOUT_LOWMERE_STAGE%d' % i for i in range(5)]
 # Objects whose spot is meant to block (a guard on a door, a boulder) or that only appear in a cutscene.
 BLOCKING_OK = {'LOCALID_HAYMARKET_PAVILION_GUARD'}

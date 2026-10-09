@@ -469,6 +469,27 @@ const u16 gTrainerPalette_LadyFrlg[] = INCGFX_U16("graphics/trainers/palettes/la
 const u32 gTrainerFrontPic_PainterFrlg[] = INCGFX_U32("graphics/trainers/front_pics/painter_frlg.png", ".4bpp.smol");
 const u16 gTrainerPalette_PainterFrlg[] = INCGFX_U16("graphics/trainers/palettes/painter_frlg.pal", ".gbapal");
 
+const u32 gTrainerFrontPic_PrinceCorwin[] = INCGFX_U32("graphics/trainers/front_pics/prince_corwin.png", ".4bpp.smol");
+const u16 gTrainerPalette_PrinceCorwin[] = INCGFX_U16("graphics/trainers/front_pics/prince_corwin.png", ".gbapal");
+const u32 gTrainerFrontPic_PrincessIsolde[] = INCGFX_U32("graphics/trainers/front_pics/princess_isolde.png", ".4bpp.smol");
+const u16 gTrainerPalette_PrincessIsolde[] = INCGFX_U16("graphics/trainers/front_pics/princess_isolde.png", ".gbapal");
+const u32 gTrainerFrontPic_Tamsin[] = INCGFX_U32("graphics/trainers/front_pics/tamsin.png", ".4bpp.smol");
+const u16 gTrainerPalette_Tamsin[] = INCGFX_U16("graphics/trainers/front_pics/tamsin.png", ".gbapal");
+const u32 gTrainerFrontPic_GuildClerk[] = INCGFX_U32("graphics/trainers/front_pics/guild_clerk.png", ".4bpp.smol");
+const u16 gTrainerPalette_GuildClerk[] = INCGFX_U16("graphics/trainers/front_pics/guild_clerk.png", ".gbapal");
+const u32 gTrainerFrontPic_Foreman[] = INCGFX_U32("graphics/trainers/front_pics/foreman.png", ".4bpp.smol");
+const u16 gTrainerPalette_Foreman[] = INCGFX_U16("graphics/trainers/front_pics/foreman.png", ".gbapal");
+const u32 gTrainerFrontPic_Poacher[] = INCGFX_U32("graphics/trainers/front_pics/poacher.png", ".4bpp.smol");
+const u16 gTrainerPalette_Poacher[] = INCGFX_U16("graphics/trainers/front_pics/poacher.png", ".gbapal");
+const u32 gTrainerFrontPic_Carter[] = INCGFX_U32("graphics/trainers/front_pics/carter.png", ".4bpp.smol");
+const u16 gTrainerPalette_Carter[] = INCGFX_U16("graphics/trainers/front_pics/carter.png", ".gbapal");
+const u32 gTrainerFrontPic_Acolyte[] = INCGFX_U32("graphics/trainers/front_pics/acolyte.png", ".4bpp.smol");
+const u16 gTrainerPalette_Acolyte[] = INCGFX_U16("graphics/trainers/front_pics/acolyte.png", ".gbapal");
+const u32 gTrainerFrontPic_Bailiff[] = INCGFX_U32("graphics/trainers/front_pics/bailiff.png", ".4bpp.smol");
+const u16 gTrainerPalette_Bailiff[] = INCGFX_U16("graphics/trainers/front_pics/bailiff.png", ".gbapal");
+const u32 gTrainerFrontPic_Gardener[] = INCGFX_U32("graphics/trainers/front_pics/gardener.png", ".4bpp.smol");
+const u16 gTrainerPalette_Gardener[] = INCGFX_U16("graphics/trainers/front_pics/gardener.png", ".gbapal");
+
 static const u8 gTrainerBackPic_None[] = INCGFX_U8("graphics/trainers/back_pics/none.png", ".4bpp");
 const u8 gTrainerBackPic_Brendan[] = INCGFX_U8("graphics/trainers/back_pics/brendan.png", ".4bpp");
 const u8 gTrainerBackPic_May[] = INCGFX_U8("graphics/trainers/back_pics/may.png", ".4bpp");
@@ -1225,5 +1246,45 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_PAINTER_FRLG] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_PainterFrlg, gTrainerPalette_PainterFrlg),
+    },
+    [TRAINER_PIC_PRINCE_CORWIN] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_PrinceCorwin, gTrainerPalette_PrinceCorwin),
+    },
+    [TRAINER_PIC_PRINCESS_ISOLDE] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_PrincessIsolde, gTrainerPalette_PrincessIsolde),
+    },
+    [TRAINER_PIC_TAMSIN] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Tamsin, gTrainerPalette_Tamsin),
+    },
+    [TRAINER_PIC_GUILD_CLERK] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_GuildClerk, gTrainerPalette_GuildClerk),
+    },
+    [TRAINER_PIC_FOREMAN] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Foreman, gTrainerPalette_Foreman),
+    },
+    [TRAINER_PIC_POACHER] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Poacher, gTrainerPalette_Poacher),
+    },
+    [TRAINER_PIC_CARTER] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Carter, gTrainerPalette_Carter),
+    },
+    [TRAINER_PIC_ACOLYTE] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Acolyte, gTrainerPalette_Acolyte),
+    },
+    [TRAINER_PIC_BAILIFF] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Bailiff, gTrainerPalette_Bailiff),
+    },
+    [TRAINER_PIC_GARDENER] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Gardener, gTrainerPalette_Gardener),
     },
 };

@@ -414,6 +414,20 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_RUIN_MANIAC_FRLG] =     { _("RUIN MANIAC"), 12 },
     [TRAINER_CLASS_LADY_FRLG] =            { _("LADY"), 50 },
     [TRAINER_CLASS_PAINTER_FRLG] =         { _("PAINTER"), 4 },
+    [TRAINER_CLASS_PRINCE] = { _("PRINCE"), 30, BALL_LUXURY },
+    [TRAINER_CLASS_PRINCESS] = { _("PRINCESS"), 30, BALL_LUXURY },
+    [TRAINER_CLASS_FRIEND] = { _("FRIEND"), 4 },
+    [TRAINER_CLASS_GUILD_CLERK] = { _("GUILD CLERK"), 8 },
+    [TRAINER_CLASS_FOREMAN] = { _("FOREMAN"), 8 },
+    [TRAINER_CLASS_POACHER] = { _("POACHER"), 6, BALL_NET },
+    [TRAINER_CLASS_CARTER] = { _("CARTER"), 4 },
+    [TRAINER_CLASS_BROKER] = { _("BROKER"), 15, BALL_LUXURY },
+    [TRAINER_CLASS_BIDDER] = { _("BIDDER"), 15 },
+    [TRAINER_CLASS_ACOLYTE] = { _("ACOLYTE"), 5, BALL_DUSK },
+    [TRAINER_CLASS_WARDEN] = { _("WARDEN"), 12, BALL_DUSK },
+    [TRAINER_CLASS_BAILIFF] = { _("BAILIFF"), 8 },
+    [TRAINER_CLASS_GARDENER] = { _("GARDENER"), 6, BALL_NEST },
+    [TRAINER_CLASS_STEWARD] = { _("STEWARD"), 12 },
 };
 
 static void (*const sTurnActionsFuncsTable[])(void) =

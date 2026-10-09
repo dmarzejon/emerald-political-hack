@@ -31,6 +31,13 @@ Defined in `include/constants/flags.h`. Scripts use them with `setflag`, `checkf
 | `FLAG_PACT_DUSKMOOR` | Pact after Trial 8 (Vespera) |
 | `FLAG_PACT_HIGHCREST` | Pact after Trial 9 (Aurelian) |
 | `FLAG_LOWMERE_SIEGE_SURVIVED` | Lowmere survives the siege (needed for stage 4) |
+| `FLAG_FOUND_DEBT_LEDGER` | Trial 2: the steward's tenant ledger is found (give `ITEM_DEBT_LEDGER`) |
+| `FLAG_FOUND_FORECLOSURE_WRIT` | Trial 2: a writ signed by Isolde is found (give `ITEM_FORECLOSURE_WRIT`) |
+| `FLAG_THORNFIELD_WITNESS` | Trial 2: an evicted family agrees to testify |
+| `FLAG_THORNFIELD_TRIAL_GRANTED` | Trial 2 is granted; Isolde's palace opens |
+| `FLAG_THORNFIELD_GROVE_SEEN` | The player has seen the sealed grove behind the palace |
+| `FLAG_THORNFIELD_GROVE_OPENED` | Act 2: Isolde opens the grove (Xerneas) |
+| `FLAG_LOWMERE_GARDENERS_ARRIVED` | Lowmere scene after the Thornfield pact: seeds and gardeners arrive |
 
 The dialogue thread's slice scripts also use these, documented in `docs/dialogue/events.md`:
 `FLAG_PENN_MON_RECOVERED`, `FLAG_RECEIVED_SEALED_LETTER`, `FLAG_TALKED_TO_CARTER`,
@@ -58,6 +65,7 @@ Defined in `include/constants/vars.h`. They are saved with the game.
 | `VAR_LOWMERE_STAGE` | Lowmere's upgrade stage, `LOWMERE_STAGE_0` to `LOWMERE_STAGE_4`. Raised automatically by `signpact` |
 | `VAR_LOWMERE_STAGE_SEEN` | The last stage the player was shown an upgrade scene for |
 | `VAR_SLICE_STATE` | Main story step through the slice; the dialogue thread lists the values in its docs |
+| `VAR_THORNFIELD_STATE` | Story step through Trial 2, starting at 0. The dialogue thread owns the values, like `VAR_SLICE_STATE` |
 | `VAR_KINGS_GIFT_DOG` | `KINGS_GIFT_ENTEI` (0), `KINGS_GIFT_RAIKOU` (1), `KINGS_GIFT_SUICUNE` (2) |
 | `VAR_PACT_TERMS_1`, `VAR_PACT_TERMS_2` | Internal storage for pact terms. Read them with `getpactterms` |
 
@@ -197,5 +205,53 @@ The map popups and region map show **LOWMERE** (Littleroot Town's slot), **MIRE 
 | `ITEM_SILVER_WING` | Mother Hesk gives the keepsake (`FLAG_RECEIVED_SILVER_WING`) | Pretty Feather |
 | `ITEM_BELL_RECEIPT` | Mire Road wagon event (`FLAG_FOUND_BELL_RECEIPT`) | Bike Voucher |
 | `ITEM_SEALED_LETTER` | Found on Crane's desk after the Haymarket pact | Letter |
+| `ITEM_DEBT_LEDGER` | Trial 2 evidence: the steward's ledger with the pale bell stamp | Fame Checker |
+| `ITEM_FORECLOSURE_WRIT` | Trial 2 evidence: an eviction signed by Isolde | Old Sea Map |
 
-All three are key items with no use from the bag. Give them with `giveitem` as usual.
+All of them are key items with no use from the bag. Give them with `giveitem` as usual.
+
+## Trainer classes and pics
+
+New classes in `include/constants/trainers.h`, named in `gTrainerClasses` (`src/battle_main.c`).
+In `src/data/trainers.party` write them the usual way, e.g. `Class: Guild Clerk`.
+
+| Class (shown as) | For | Ball |
+| --- | --- | --- |
+| `PRINCE`, `PRINCESS` | The sibling Trials | Luxury |
+| `FRIEND` | Tamsin | Poké |
+| `GUILD CLERK` | Gilded Scale clerks (toll, wagon, counting house) | Poké |
+| `FOREMAN` | The granary foreman | Poké |
+| `POACHER` | Grisk and other marsh poachers | Net |
+| `CARTER` | Willem and other carters | Poké |
+| `BROKER`, `BIDDER` | Gilt Pavilion trainers | Luxury, Poké |
+| `ACOLYTE` | Pale Choir foot soldiers | Dusk |
+| `WARDEN` | Choir wardens (Silas Crane and the others) | Dusk |
+| `BAILIFF` | Trial 2: the steward's men who carry out evictions | Poké |
+| `GARDENER` | Trial 2: Isolde's gardeners | Nest |
+| `STEWARD` | Trial 2: Isolde's steward | Poké |
+
+New front pics, written `Pic: Prince Corwin` and so on. They are palette swaps of vanilla
+pics made by `dev_scripts/trainer_pics/recolor.py`, so rerun that script after changing a
+colour rather than editing the PNGs.
+
+| Pic | Base pic | Look |
+| --- | --- | --- |
+| `Prince Corwin` | Rich Boy | Burgundy suit |
+| `Princess Isolde` | Lady | Deep green dress, auburn hair |
+| `Tamsin` | Pokémon Ranger (F) | Soot and leather |
+| `Guild Clerk` | Super Nerd (FRLG) | Gold and tan |
+| `Foreman` | Engineer (FRLG) | Rust work clothes |
+| `Poacher` | Burglar (FRLG) | Marsh greens |
+| `Carter` | Hiker | Brown, blue neckerchief |
+| `Acolyte` | Hex Maniac | Pale robes |
+| `Bailiff` | Pokémon Ranger (M) | Green livery |
+| `Gardener` | Aroma Lady | Green apron |
+
+The Broker, Bidder, Warden and Steward classes have no pic of their own yet. Use Gentleman,
+Rich Boy, Lady or Expert until they do.
+
+## Speaker name box
+
+The name box above the message box is up to 13 tiles wide (`OW_NAME_BOX_DEFAULT_WIDTH` in
+`include/config/name_box.h`), enough for "CHANCELLOR VENN" or "MAGISTRATE ARDEN" in the small
+font. It still shrinks to fit shorter names.

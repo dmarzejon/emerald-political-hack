@@ -154,6 +154,28 @@ const u16 gTilesetPalettes_Rustboro[][16] =
     INCGFX_U16("data/tilesets/secondary/rustboro/palettes/15.pal", ".gbapal"),
 };
 
+const u32 gTilesetTiles_Cragholt[] = INCGFX_U32("data/tilesets/secondary/cragholt/tiles.png", ".4bpp.fastSmol", "-num_tiles 504 -Wnum_tiles");
+
+const u16 gTilesetPalettes_Cragholt[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt/palettes/15.pal", ".gbapal"),
+};
+
 const u32 gTilesetTiles_Dewford[] = INCGFX_U32("data/tilesets/secondary/dewford/tiles.png", ".4bpp.fastSmol", "-num_tiles 503 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Dewford[][16] =

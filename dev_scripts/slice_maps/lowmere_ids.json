@@ -1,6 +1,6 @@
 {
- "num_tiles": 355,
- "num_metatiles": 277,
+ "num_tiles": 363,
+ "num_metatiles": 279,
  "ids": {
   "boarded_door_high": 675,
   "boarded_door_low": 676,
@@ -94,6 +94,8 @@
   "fortree:30c": 728,
   "fortree:313": 729,
   "fortree:314": 730,
+  "glass_wall_0_0": 789,
+  "glass_wall_0_1": 790,
   "grave_0_0": 767,
   "greenhouse_0_0": 775,
   "greenhouse_0_1": 778,

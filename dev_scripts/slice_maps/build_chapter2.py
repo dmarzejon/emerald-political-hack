@@ -101,6 +101,9 @@ PAL_GARDENERS = [(2, 16, 'right'), (13, 13, 'left'), (2, 10, 'right')]
 def palace():
     c = Canvas(PAL_W, PAL_H, block(GRASS))
     c.forest(0, 0, PAL_W - 1, 1)
+    # the glass hall behind the dais that gives the palace its name, the Glasshouse
+    for x in range(2, PAL_W - 2):
+        c.grid(x, 0, prop('glass_wall', 1, 2), col=1, elev=0)
     c.forest(0, 2, 1, PAL_H - 1)
     c.forest(PAL_W - 2, 2, PAL_W - 1, PAL_H - 1)
     for x in range(2, PAL_W - 2):

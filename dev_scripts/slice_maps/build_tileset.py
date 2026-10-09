@@ -387,6 +387,24 @@ def draw_greenhouse():
     return im
 
 
+def draw_glass_wall():
+    """A tileable stretch of glasshouse wall (1x2 metatiles): glass panes over a stone base."""
+    im, d = canvas(16, 32)
+    d.rectangle([0, 0, 15, 25], fill=14)
+    d.line([0, 0, 15, 0], fill=6)
+    for y in (8, 17):
+        d.line([0, y, 15, y], fill=9)
+    d.line([0, 0, 0, 25], fill=9)
+    d.line([3, 3, 7, 1], fill=1)
+    d.line([3, 12, 6, 10], fill=1)
+    d.ellipse([8, 18, 15, 25], fill=15)
+    d.ellipse([0, 20, 6, 25], fill=15)
+    d.rectangle([0, 26, 15, 31], fill=8)
+    d.line([0, 26, 15, 26], fill=6)
+    d.line([7, 27, 7, 31], fill=9)
+    return im
+
+
 def draw_flagstones():
     im, d = canvas(16, 16)
     for box in ((0, 0, 7, 6), (8, 0, 15, 4), (0, 7, 5, 15), (6, 7, 15, 11), (8, 5, 15, 6), (6, 12, 15, 15)):
@@ -590,6 +608,7 @@ def main():
     b.prop(draw_rowboat(), 0x0D1, 'rowboat')
     b.prop(draw_notice(), grass, 'notice')
     b.prop(draw_flagstones(), grass, 'exit_mat', behavior=0x65)  # MB_SOUTH_ARROW_WARP
+    b.prop(draw_glass_wall(), grass, 'glass_wall')
 
     ntiles = len(b.ts.tiles)
     nmeta = len(b.ts.metatiles)

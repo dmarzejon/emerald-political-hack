@@ -66,7 +66,7 @@ const u16 gTilesetPalettes_Petalburg[][16] =
     INCGFX_U16("data/tilesets/secondary/petalburg/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Lowmere[] = INCGFX_U32("data/tilesets/secondary/lowmere/tiles.png", ".4bpp.fastSmol", "-num_tiles 355 -Wnum_tiles");
+const u32 gTilesetTiles_Lowmere[] = INCGFX_U32("data/tilesets/secondary/lowmere/tiles.png", ".4bpp.fastSmol", "-num_tiles 363 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Lowmere[][16] =
 {

@@ -14484,6 +14484,38 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_LavaCookieAndLetter,
     },
 
+    [ITEM_DEBT_LEDGER] =
+    {
+        .name = ITEM_NAME("Debt Ledger"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "The steward's book\n"
+            "of tenant debts,\n"
+            "stamped with a bell."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_FameChecker,
+        .iconPalette = gItemIconPalette_FameChecker,
+    },
+
+    [ITEM_FORECLOSURE_WRIT] =
+    {
+        .name = ITEM_NAME("Foreclosure Writ"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "An eviction order\n"
+            "signed in Princess\n"
+            "Isolde's own hand."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_OldSeaMap,
+        .iconPalette = gItemIconPalette_OldSeaMap,
+    },
+
     [ITEM_DEVON_PARTS] =
     {
         .name = ITEM_NAME("Devon Parts"),

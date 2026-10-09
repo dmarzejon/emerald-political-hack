@@ -638,21 +638,21 @@ Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DAISY ===
-Name: DAISY
-Class: Aroma Lady
-Pic: Aroma Lady
+Name: HAZEL
+Class: Picnicker
+Pic: Picnicker
 Gender: Female
-Music: Female
+Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Shroomish
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Combee
+Level: 11
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-Roselia
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bounsweet
+Level: 12
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 === TRAINER_ROSE_1 ===
 Name: ROSE
@@ -1273,71 +1273,72 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Surf
 
 === TRAINER_RANDALL ===
-Name: RANDALL
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Music: Cool
-Items: Hyper Potion
+Name: PRIMROSE
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Check Bad Move
 
-Swellow
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Quick Attack
-- Agility
-- Wing Attack
+Hoppip
+Level: 13
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Petilil
+Level: 14
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_PARKER ===
-Name: PARKER
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Music: Cool
-Items: Hyper Potion
+Name: BRYONY
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Check Bad Move
 
-Spinda
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Teeter Dance
-- Dizzy Punch
-- Focus Punch
+Foongus
+Level: 14
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Sewaddle
+Level: 14
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_GEORGE ===
-Name: GEORGE
-Class: Cooltrainer
-Pic: Cooltrainer M
+Name: OSWIN
+Class: Gentleman
+Pic: Gentleman
 Gender: Male
-Music: Cool
-Items: Hyper Potion
+Music: Rich
 Double Battle: No
-AI: Basic Trainer
+AI: Check Bad Move
 
-Slakoth @ Sitrus Berry
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Slack Off
-- Counter
-- Shadow Ball
+Sunkern
+Level: 14
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+
+Skiploom
+Level: 15
+IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 === TRAINER_BERKE ===
-Name: BERKE
-Class: Cooltrainer
-Pic: Cooltrainer M
+Name: BAILIFF
+Class: Team Aqua
+Pic: Aqua Grunt M
 Gender: Male
-Music: Cool
-Items: Hyper Potion
+Music: Aqua
 Double Battle: No
-AI: Basic Trainer
+AI: Check Bad Move
 
-Vigoroth
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Focus Energy
-- Slash
+Houndour
+Level: 13
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Grimer
+Level: 13
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 === TRAINER_BRAXTON ===
 Name: BRAXTON
@@ -4965,46 +4966,49 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Attract
 
 === TRAINER_NORMAN_1 ===
-Name: NORMAN
+Name: ISOLDE
 Class: Leader
 Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Hyper Potion / Hyper Potion
+Gender: Female
+Music: Female
 Double Battle: No
-AI: Basic Trainer
+AI: Basic Trainer / Ace Pokemon
 
-Spinda
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Teeter Dance
-- Psybeam
-- Facade
-- Encore
+Gloom
+Ability: Chlorophyll
+Level: 15
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Mega Drain
+- Acid
+- Poison Powder
+- Sweet Scent
 
-Vigoroth
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Facade
-- Encore
-- Feint Attack
+Skiddo
+Ability: Sap Sipper
+Level: 15
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Razor Leaf
+- Leech Seed
+- Tail Whip
+- Tackle
 
-Linoone
-Level: 29
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Belly Drum
-- Facade
-- Headbutt
+Roselia
+Ability: Natural Cure
+Level: 16
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Mega Drain
+- Stun Spore
+- Poison Sting
+- Leech Seed
 
-Slaking @ Sitrus Berry
-Level: 31
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Counter
-- Yawn
-- Facade
-- Feint Attack
+Shaymin
+Ability: Natural Cure
+Level: 18
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Magical Leaf
+- Leech Seed
+- Growth
+- Disarming Voice
 
 === TRAINER_WINONA_1 ===
 Name: WINONA
@@ -13094,20 +13098,24 @@ Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_MARCOS ===
-Name: MARCOS
-Class: Guitarist
-Pic: Guitarist
+Name: LIONEL
+Class: Gentleman
+Pic: Gentleman
 Gender: Male
-Music: Intense
+Music: Rich
 Double Battle: No
 AI: Check Bad Move
 
-Voltorb
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Flabebe
+Level: 11
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Kricketune
+Level: 13
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 === TRAINER_RHETT ===
-Name: RHETT
+Name: BRUNO
 Class: Black Belt
 Pic: Black Belt
 Gender: Male
@@ -13115,9 +13123,13 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Makuhita
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Machop
+Level: 12
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Meditite
+Level: 12
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 === TRAINER_TYRON ===
 Name: TYRON

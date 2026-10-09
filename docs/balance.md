@@ -148,3 +148,71 @@ out of 5. Corwin dropped two to three levels per Pokémon, lost his Potions (he 
 on Type: Null) and now saves Type: Null for last. The courtiers dropped a level each,
 the below-cap experience bonus is on, and Tamsin's starter only knows its level-1 moves
 (her Treecko's Leafage beat a Tackle-only Mudkip 3 times in 4).
+
+## Chapter 2: the Orchard Road, Thornfield and Isolde
+
+The Orchard Road uses the Route 102 slot and Thornfield the Petalburg City slot. Isolde's
+Trial is `TRAINER_NORMAN_1`. The level cap after Corwin's seal is **19** (`src/caps.c`).
+
+### Level curve
+
+| Point | Player (expected) | Opponents |
+|---|---|---|
+| Leaving Haymarket | 12-13 | |
+| Orchard Road wild grass | | 9-12 |
+| Orchard Road trainers | 13-14 | 11-13 |
+| Thornfield bailiff | 14-15 | 13 |
+| Isolde's gardeners and courtier | 15-16 | 13-15 |
+| **Isolde, Trial 2** | 16-18 (cap 19) | 15, 15, 16, ace 18 |
+
+### Wild encounters
+
+**Orchard Road, day** (9-12): Starly, Seedot, Shroomish, Nincada, Sewaddle, Smoliv, Cutiefly,
+Skiddo, Ralts, Pikipek, Applin (1%), Eevee (1%).
+
+**Orchard Road, night** (9-12): Oddish, Zubat, Venonat, Rattata, Pumpkaboo, Morelull,
+Hatenna, Spinarak, Litwick, Inkay, Zorua (1%), Rockruff (1%).
+
+**Orchard Road, surfing** (20-35, for later): Marill, Azurill, Surskit, Dewpider, Masquerain.
+
+**Orchard Road, fishing**: Old Rod Magikarp, Poliwag; Good Rod Poliwag, Goldeen, Corphish;
+Super Rod Poliwhirl, Seaking, Corphish, Clauncher, Tynamo (1%).
+
+**Thornfield terraces** (10-12, only if the map adds grass): Petilil, Bounsweet, Combee,
+Flabébé, Hoppip, Sunkern, Cherubi, Budew, Deerling, Bulbasaur, Comfey (1%), Smoliv (1%).
+
+**Thornfield, surfing and fishing**: garden-pond species (Lotad, Marill, Wooper, Poliwag,
+Goldeen), with Bruxish on the Super Rod.
+
+That adds 44 new species, so the first two chapters hold 93.
+
+### Trainers
+
+| Constant | Story name | Who | Class / pic | Team |
+|---|---|---|---|---|
+| `TRAINER_DAISY` | `TRAINER_ORCHARD_ROAD_PICKER` | Hazel, orchard hand | Picnicker | Combee 11, Bounsweet 12 |
+| `TRAINER_RHETT` | `TRAINER_ORCHARD_ROAD_BAILIFF` | Bruno, debt bailiff | Black Belt (placeholder) | Machop 12, Meditite 12 |
+| `TRAINER_MARCOS` | `TRAINER_ORCHARD_ROAD_POET` | Lionel, court poet | Gentleman | Flabébé 11, Kricketune 13 |
+| `TRAINER_BERKE` | `TRAINER_THORNFIELD_BAILIFF` | Bailiff at the Steward's Office | Team Aqua (placeholder) | Houndour 13, Grimer 13 |
+| `TRAINER_RANDALL` | `TRAINER_PALACE_GARDENER_1` | Primrose, gardener | Aroma Lady (placeholder) | Hoppip 13, Petilil 14 |
+| `TRAINER_PARKER` | `TRAINER_PALACE_GARDENER_2` | Bryony, gardener | Aroma Lady (placeholder) | Foongus 14, Sewaddle 14 |
+| `TRAINER_GEORGE` | `TRAINER_PALACE_COURTIER` | Oswin, courtier | Gentleman | Sunkern 14, Skiploom 15 |
+| `TRAINER_NORMAN_1` | `TRAINER_ISOLDE` | **Princess Isolde**, Trial 2 | Leader / Norman (placeholder pic) | See below |
+
+None of these IDs have rematches or Match Call entries. Norman's gym rematches
+(`NORMAN_2`-`5`) only trigger after the Champion, so they stay dormant.
+
+### Isolde, Trial 2
+
+Ace Pokemon AI flag, no items. Grass is weak to Fire, Ice, Flying, Bug and Poison; Entei,
+Torchic and the Orchard Road's Starly, Pikipek and Sewaddle all answer it.
+
+| Pokémon | Lv | Ability | Moves | Role |
+|---|---|---|---|---|
+| Gloom | 15 | Chlorophyll | Mega Drain, Acid, Poison Powder, Sweet Scent | Poison chip, resists Grass and Fighting |
+| Skiddo | 15 | Sap Sipper | Razor Leaf, Leech Seed, Tail Whip, Tackle | Absorbs the player's Grass moves |
+| Roselia | 16 | Natural Cure | Mega Drain, Stun Spore, Poison Sting, Leech Seed | Status and drain |
+| **Shaymin** | 18 | Natural Cure | Magical Leaf, Leech Seed, Growth, Disarming Voice | The ace that "only flowers where land has been taken". Disarming Voice hits Fighting and Dragon types |
+
+Shaymin is one level under the cap and holds no item, matching Corwin's ace at two above
+his team.

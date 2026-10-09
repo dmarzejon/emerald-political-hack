@@ -2,10 +2,6 @@
 @ Pact of Fair Measure.
 @ Object placement: docs/dialogue/events.md#gilt-pavilion
 
-#ifndef LOCALID_PAVILION_CORWIN
-#define LOCALID_PAVILION_CORWIN 1
-#endif
-
 @ ---------------------------------------------------------------------------
 @ The auctioneer at the door (the Gym guide's job).
 @ ---------------------------------------------------------------------------

@@ -1,19 +1,6 @@
 @ Slice scene 6: the Mire Road (route between Lowmere and Haymarket).
 @ Object, trigger and sign placement: docs/dialogue/events.md#mire-road
 
-#ifndef LOCALID_MIRE_ROAD_TAMSIN
-#define LOCALID_MIRE_ROAD_TAMSIN 1
-#endif
-#ifndef LOCALID_MIRE_ROAD_TAMSIN_WAGON
-#define LOCALID_MIRE_ROAD_TAMSIN_WAGON 4
-#endif
-#ifndef LOCALID_MIRE_ROAD_WAGON_CLERK
-#define LOCALID_MIRE_ROAD_WAGON_CLERK 2
-#endif
-#ifndef LOCALID_MIRE_ROAD_WAGON_CLERK_2
-#define LOCALID_MIRE_ROAD_WAGON_CLERK_2 3
-#endif
-
 @ ---------------------------------------------------------------------------
 @ Tamsin at the foot of the road. Coord trigger on the first steps of the
 @ route while VAR_SLICE_STATE is 7 and she hasn't spoken yet. She then goes on

@@ -198,6 +198,28 @@ def draw_rubble():
     return mirror(im)
 
 
+def draw_rubble_low():
+    """A 2x1 bank of fallen rock, low enough to show the wall behind it."""
+    im, d = canvas(32, 16)
+    d.polygon([(0, 15), (2, 7), (8, 3), (16, 1), (24, 3), (30, 7), (31, 15)], fill=15, outline=5)
+    for box in ([2, 7, 11, 15], [10, 3, 21, 12], [20, 7, 29, 15]):
+        d.ellipse(box, fill=14, outline=5)
+    for (x, y) in ((6, 10), (14, 6), (13, 13)):
+        d.point((x, y), fill=13)
+    return mirror(im)
+
+
+def draw_rubble_small():
+    """One tile of fallen rock."""
+    im, d = canvas(16, 16)
+    d.polygon([(0, 15), (2, 6), (8, 2), (13, 6), (15, 15)], fill=15, outline=5)
+    d.ellipse([2, 6, 9, 14], fill=14, outline=5)
+    d.ellipse([7, 4, 13, 11], fill=14, outline=5)
+    d.point((5, 9), fill=13)
+    d.point((9, 6), fill=1)
+    return im
+
+
 def draw_crate():
     """A Chancellery supply crate, bound with iron."""
     im, d = canvas(16, 16)
@@ -221,6 +243,8 @@ def build_mine():
     b.prop(draw_rubble(), MINE_FLOOR, 'rubble')
     b.prop(draw_timber(), MINE_WALL_FACE, 'timber_face')
     b.prop(draw_timber(), MINE_WALL_TOP, 'timber_top')
+    b.prop(draw_rubble_low(), MINE_FLOOR, 'rubble_low')
+    b.prop(draw_rubble_small(), MINE_FLOOR, 'rubble_small')
     assert len(b.ts.tiles) <= 512 and len(b.ts.metatiles) <= 512
     b.ts.save(MINE_OUT)
     print('cragholt mine tileset: %d tiles, %d metatiles' % (len(b.ts.tiles), len(b.ts.metatiles)))

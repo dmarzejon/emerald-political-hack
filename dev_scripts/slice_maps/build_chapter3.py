@@ -47,9 +47,9 @@ CG_YARD_ORE = [(7, 16), (7, 17), (16, 21)]
 CG_FOUNTAIN = (27, 38)              # 3x3
 CG_QUOTA_BOARD = (28, 39)
 CG_QUOTA_ORE = [(27, 39), (29, 39), (27, 40), (29, 40)]
-# The pithead by the road in from the south: a 2x3 winding frame over the shaft,
-# in view of the arrival trigger at (15-16, 54), with room for Brannoc and two miners.
-CG_PITHEAD = (19, 50)
+# The pithead by the road in from the south: a 2x3 winding frame over the shaft, in view
+# of the arrival trigger at (15-16, 53), with the bonded men's line two rows below it.
+CG_PITHEAD = (21, 49)
 
 
 def rail_line(c, x0, x1, y, carts):
@@ -87,8 +87,13 @@ MN_RAIL = (4, 19, 5)
 MN_CART = (8, 5)
 MN_ORE = [(5, 4), (13, 4)]
 MN_TIMBERS = [10, 14, 18]           # props on the wall faces above (row 3) and below (row 6)
-# The fall: rubble across the whole corridor, with the Chancellery crate in front of it.
-MN_RUBBLE = (20, 4)                 # 2x2, covers (20-21, 4-5)
+# The fall: a bank of rubble across the corridor, with one gap at (20,5) that dialogue's
+# rubble object (a breakable-rock sprite) fills until the rescue. The Chancellery crate
+# lies in front of it. A second fall in front of the ladder at (29,10) seals the far side,
+# so the trapped men can only be reached through the gap.
+MN_RUBBLE_LOW = (20, 4)             # 2x1
+MN_RUBBLE_SMALL = [(29, 9)]
+MN_RUBBLE_GAP = (20, 5)
 MN_CRATE = (19, 4)
 
 
@@ -105,10 +110,11 @@ def collapsed_mine():
     for x in MN_TIMBERS:
         c.put(x, 3, CR['mine_timber_face_0_0'], 1, E_MINE)
         c.put(x, 6, CR['mine_timber_top_0_0'], 1, E_MINE)
-    rx, ry = MN_RUBBLE
-    for dy in range(2):
-        for dx in range(2):
-            c.put(rx + dx, ry + dy, CR['mine_rubble_%d_%d' % (dx, dy)], 1, E_MINE)
+    rx, ry = MN_RUBBLE_LOW
+    for dx in range(2):
+        c.put(rx + dx, ry, CR['mine_rubble_low_%d_0' % dx], 1, E_MINE)
+    for (x, y) in MN_RUBBLE_SMALL:
+        c.put(x, y, CR['mine_rubble_small_0_0'], 1, E_MINE)
     c.put(*MN_CRATE, CR['mine_crate_0_0'], 1, E_MINE)
     return c
 

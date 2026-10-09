@@ -176,7 +176,7 @@ const u16 gTilesetPalettes_Cragholt[][16] =
     INCGFX_U16("data/tilesets/secondary/cragholt/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_CragholtMine[] = INCGFX_U32("data/tilesets/secondary/cragholt_mine/tiles.png", ".4bpp.fastSmol", "-num_tiles 161 -Wnum_tiles");
+const u32 gTilesetTiles_CragholtMine[] = INCGFX_U32("data/tilesets/secondary/cragholt_mine/tiles.png", ".4bpp.fastSmol", "-num_tiles 169 -Wnum_tiles");
 
 const u16 gTilesetPalettes_CragholtMine[][16] =
 {

@@ -1,7 +1,7 @@
 {
  "num_tiles": 512,
  "num_metatiles": 364,
- "mine_num_tiles": 161,
+ "mine_num_tiles": 169,
  "ids": {
   "cart_0_0": 864,
   "cart_dirt_0_0": 868,
@@ -20,6 +20,9 @@
   "mine_rubble_0_1": 602,
   "mine_rubble_1_0": 601,
   "mine_rubble_1_1": 603,
+  "mine_rubble_low_0_0": 606,
+  "mine_rubble_low_1_0": 607,
+  "mine_rubble_small_0_0": 608,
   "mine_timber_face_0_0": 604,
   "mine_timber_top_0_0": 605,
   "ore_0_0": 865,

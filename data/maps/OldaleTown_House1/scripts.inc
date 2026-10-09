@@ -13,3 +13,11 @@ OldaleTown_House1_Text_LeftPokemonGoesOutFirst:
 	.string "of your POKéMON.\p"
 	.string "It could give you an advantage.$"
 
+@ ---- Map-thread placeholders. The dialogue thread replaces these. ----
+
+OldaleTown_House1_EventScript_Arden::
+	msgbox OldaleTown_House1_Text_Arden, MSGBOX_NPC
+	end
+
+OldaleTown_House1_Text_Arden:
+	.string "WIDOW PENN (at home): (placeholder)$"

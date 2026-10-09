@@ -61,10 +61,30 @@ just as sport. Keep it readable for a Pokémon audience: no gore, menace stays i
 and humour comes from courtiers and townsfolk. Every sibling should be someone the player
 can understand, even the ones who never redeem themselves.
 
-**Rule for the darker crimes** (default until D confirms): the siblings' worst crimes
-(deaths in the mines, families sold into servitude, erased memories, the Emberfort
-massacre) are revealed only through documents, ledgers and testimony, never shown on
-screen. Dialogue says "never came back" or "didn't come home", not "died" or "killed".
+**Darker tone** (D's call, 2026-10-09): the siblings' crimes and their aftermath are
+**shown on screen**, not only reported. This is darker than a typical Pokémon game, on
+purpose. Limits that keep it stageable on the GBA and readable:
+
+- No blood, no bodies on screen. Deaths may be stated plainly ("died", "killed").
+- Stage violence with what the engine already does well: screen shake, flashes,
+  fade-to-black at the moment of harm, sprites walking off or being led away,
+  emote bubbles, weather (rain, fog), music cutting out.
+- Show the aftermath: boarded houses, graves and memorials, empty beds, a dropped
+  belonging, people who no longer recognise their friends.
+- Each case keeps its documents and testimony as well; the on-screen scene is what makes
+  it land.
+
+| Sibling | On-screen scene |
+| --- | --- |
+| Corwin | Guild clerks seize Widow Penn's Pokémon in the square as "payment" while the crowd looks away (slice scene 8). |
+| Isolde | The player watches guards march a farming family out of their house; the door is boarded behind them and Isolde's gardeners start digging up their field. |
+| Brannoc | The mine collapse: screen shake, dust, the lift comes back up empty. Later, roped-together bonded workers file past into the deep pit. |
+| Marisol | Night at the docks: families are led up a gangplank onto a ship; a child's doll is left on the pier. |
+| Teodor | Teodor throws a switch and Lowmere's lights go out mid-scene, including the healer's lamp during a sick child's treatment. |
+| Seraphine | The player watches Uxie wipe a student's memory; the student no longer recognises the friend standing next to them. |
+| Garrick | A flashback of the Emberfort bread protest: soldiers advance, Heatran's fire flashes, fade to black, then the mass grave marked only with a bread loaf. |
+| Vespera | A noble begs Vespera on his knees; she reads his secret aloud, and in the next scene his house is empty. |
+| Aurelian | Aurelian hands a magistrate a purse in a corridor, then stands at the sleeping king's bedside and does nothing. |
 
 ## Decisions log
 
@@ -75,6 +95,7 @@ screen. Dialogue says "never came back" or "didn't come home", not "died" or "ki
   Xerneas.
 - 2026-10-09, D: the king gives the player a choice of Entei, Raikou or Suicune early on. The player gets both this and the starter.
 - 2026-10-09, D: every sibling is corrupt, and each has a legendary.
+- 2026-10-09, D: darker tone; sibling crimes and aftermath are shown on screen.
 
 ## Open questions for D
 

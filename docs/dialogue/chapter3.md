@@ -70,7 +70,7 @@ send stone and masons to Lowmere. The fourth term changes later lines through
 | Penrose cottage (`Route104_MrBrineysHouse`) | On transition: `call_if_lt VAR_CRAGHOLT_STATE, 3, ChainRoad_PenroseCottage_EventScript_HideWil` |
 | Cragholt (`RustboroCity`) | On transition: `call Cragholt_EventScript_SetObjects` |
 | Magistrate's hall | On transition: `call Cragholt_MagistrateHall_EventScript_SetObjects` |
-| Collapsed mine (`RusturfTunnel`) | On transition: `call CollapsedMine_EventScript_SetObjects` |
+| Collapsed mine (`RusturfTunnel`) | On transition: `call CollapsedMine_EventScript_SetObjects`. On load: `call_if_set FLAG_RESCUED_WIL, CollapsedMine_EventScript_ClearRubble` |
 | Old Lodge (`LittlerootTown_BrendansHouse_1F`) | Done in this PR: on transition `Lowmere_OldLodge_EventScript_SetObjects`, on frame `Lowmere_OldLodge_EventScript_StoneArrives` at `VAR_CRAGHOLT_STATE` 3 |
 | Lowmere (`LittlerootTown`) | No change: `Lowmere_EventScript_CheckReturn` now also plays the first sight of Stage 2 |
 | Barracks, ore office, Tallis house, mason's house, Pithead Hall, Gallows Wood | No scenes in the header |
@@ -109,16 +109,16 @@ waits in a line by the lift.
 
 | Kind | Label | Who / what | `local_id` | Flag | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Trigger | `Cragholt_EventScript_Arrival` | on the road in from the south, with the lift in view | | | while `VAR_CRAGHOLT_STATE` is 0 |
-| Object | (none) | Brannoc by the lift, facing up | `LOCALID_CRAGHOLT_BRANNOC` (1) | `FLAG_TEMP_1` | |
+| Trigger | `Cragholt_EventScript_Arrival` | (15,54) and (16,54) on the south road in | | | while `VAR_CRAGHOLT_STATE` is 0 |
+| Object | (none) | Brannoc at (18,52), facing right toward the headframe | `LOCALID_CRAGHOLT_BRANNOC` (1) | `FLAG_TEMP_1` | |
 | Object | (none) | the lift guard | `LOCALID_CRAGHOLT_GUARD` (2) | `FLAG_TEMP_1` | |
-| Objects | (none) | three bonded men two tiles south of the lift, facing up | `LOCALID_CRAGHOLT_BONDED_1` (3) / `_2` (4) / `_3` (5) | `FLAG_TEMP_1` | walk two tiles up into the lift |
-| Object | `Cragholt_EventScript_Tamsin` | Tamsin by the quota board | `LOCALID_CRAGHOLT_TAMSIN` (6) | `FLAG_TEMP_2` | for the scene she is moved beside the trigger: set `CRAGHOLT_TAMSIN_SCENE_X` / `_Y` in `common.inc` |
+| Objects | (none) | three bonded men east of the headframe, (21,51), (21,52) and one more, facing left | `LOCALID_CRAGHOLT_BONDED_1` (3) / `_2` (4) / `_3` (5) | `FLAG_TEMP_1` | turn to the lift and are removed under a fade |
+| Object | `Cragholt_EventScript_Tamsin` | Tamsin by the quota board | `LOCALID_CRAGHOLT_TAMSIN` (6) | `FLAG_TEMP_2` | for the scene she is moved to (15,53), ahead of the trigger (`CRAGHOLT_TAMSIN_SCENE_X` / `_Y` in `common.inc`) |
 | Objects | `Cragholt_EventScript_Crew1` / `_Crew2` / `_CrewGuard` | the next crew and its guard by the lift | | `FLAG_TEMP_3` | until state 3 |
 | Objects | `Cragholt_EventScript_FreedMiner1` / `_FreedMiner2` | freed miners in the square | | `FLAG_TEMP_4` | from state 3 |
 | Object | `Cragholt_EventScript_HallGuard` | guard on the Pithead Hall door | | `FLAG_TEMP_5` | blocks the door until state 2 |
 | Objects | `Cragholt_EventScript_Woman` / `_OldMiner` / `_Child` | townsfolk | | | |
-| Signs | `Cragholt_EventScript_Lift` / `_QuotaBoard` | the lift; the quota board | | | |
+| Signs | `Cragholt_EventScript_Lift` / `_QuotaBoard` | the pit bell at (19,52) or (20,52); the quota board at (28,39) | | | |
 | Signs | `Cragholt_EventScript_TownSign` / `_HallSign` / `_OfficeSign` / `_BarracksSign` / `_MineSign` | | | | `_MineSign` at the collapsed mine entrance |
 
 Interiors:
@@ -132,23 +132,25 @@ Interiors:
 | Ore office (`RustboroCity_DevonCorp_1F`) | Trainer | `Cragholt_OreOffice_EventScript_Clerk` | `TRAINER_ORE_OFFICE_CLERK`, in the way of the desk |
 | Ore office | Sign | `Cragholt_OreOffice_EventScript_Ledger` | the desk; gives `ITEM_QUOTA_LEDGER` |
 | Ore office | Object, sign | `Cragholt_OreOffice_EventScript_Assayer`, `_OreSamples` | |
-| Magistrate's hall | Object | `Cragholt_MagistrateHall_EventScript_Hollen` | Magistrate Hollen |
+| Magistrate's hall (`RustboroCity_House1`) | Object | `Cragholt_MagistrateHall_EventScript_Hollen` | Magistrate Hollen |
 | Magistrate's hall | Object | `Cragholt_MagistrateHall_EventScript_Wil` | flag `FLAG_TEMP_1`; there from the rescue until state 3 |
 | Magistrate's hall | Sign | `Cragholt_MagistrateHall_EventScript_Reports` | the pit reports shelf |
-| Widow Tallis's house | Object, sign | `Cragholt_TallisHouse_EventScript_Tallis`, `_Boots` | |
-| Mason's house | Objects | `Cragholt_MasonHouse_EventScript_Mason`, `_Girl` | |
+| Widow Tallis's house (`RustboroCity_House2`) | Object, sign | `Cragholt_TallisHouse_EventScript_Tallis`, `_Boots` | |
+| Mason's house (`RustboroCity_House3`) | Objects | `Cragholt_MasonHouse_EventScript_Mason`, `_Girl` | |
 
 ### The collapsed mine
 
-The east tunnel (`RusturfTunnel`). A rubble fall blocks a side gallery where three men are
-trapped; the bell crate lies at the collapse face near the entrance.
+The east tunnel (`RusturfTunnel`). A rubble fall of metatiles at (20,4)-(21,5) closes the
+haulage way, with three men trapped behind it; the bell crate is a solid prop at (19,4). The
+rescue turns the rubble into floor (`CollapsedMine_EventScript_ClearRubble`, metatile 0x201),
+and the on-load script does the same once Wil is out.
 
 | Kind | Label | Who / what | `local_id` | Flag | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Object | `CollapsedMine_EventScript_Rubble` | the rubble fall (a breakable-rock sprite) | `LOCALID_COLLAPSED_MINE_RUBBLE` (1) | `FLAG_TEMP_1` | asks to clear it; the rescue sets `FLAG_RESCUED_WIL` |
-| Object | `CollapsedMine_EventScript_Wil` | Wil behind the rubble | `LOCALID_COLLAPSED_MINE_WIL` (2) | `FLAG_TEMP_1` | |
-| Objects | `CollapsedMine_EventScript_TrappedMiner` | two miners beside him | `LOCALID_COLLAPSED_MINE_MINER_1` (3) / `_2` (4) | `FLAG_TEMP_1` | |
-| Sign | `CollapsedMine_EventScript_BellCrate` | the crate at the collapse face | | | sets `FLAG_FOUND_BELL_CRATE` |
+| Sign | `CollapsedMine_EventScript_Rubble` | the rubble at (20,5), read from (19,5) facing right; also (20,4) | | | asks to clear it; the rescue sets `FLAG_RESCUED_WIL` |
+| Object | `CollapsedMine_EventScript_Wil` | Wil at (23,4) | `LOCALID_COLLAPSED_MINE_WIL` (1) | `FLAG_TEMP_1` | |
+| Objects | `CollapsedMine_EventScript_TrappedMiner` | miners at (24,5) and (26,4) | `LOCALID_COLLAPSED_MINE_MINER_1` (2) / `_2` (3) | `FLAG_TEMP_1` | |
+| Sign | `CollapsedMine_EventScript_BellCrate` | the crate at (19,4) | | | sets `FLAG_FOUND_BELL_CRATE` |
 | Signs | `CollapsedMine_EventScript_Props` / `_Sign` | snapped props; level sign | | | |
 
 ### The Pithead Hall
@@ -157,10 +159,10 @@ Brannoc's palace (`RustboroCity_Gym`): one bare stone hall with ore seams in the
 
 | Kind | Label | Notes |
 | --- | --- | --- |
-| Object | `PitheadHall_EventScript_Herald` | by the door |
+| Object | `PitheadHall_EventScript_Herald` | by the door, next to the cook |
 | Trainers | `PitheadHall_EventScript_Foreman` / `_Miner1` / `_Miner2` | `TRAINER_PITHEAD_FOREMAN`, `TRAINER_PITHEAD_MINER_1`, `TRAINER_PITHEAD_MINER_2` |
-| Object | `PitheadHall_EventScript_Cook` | the canteen cook; full heal before the Trial |
-| Object | `PitheadHall_EventScript_Brannoc` | Brannoc, `TRAINER_BRANNOC` |
+| Object | `PitheadHall_EventScript_Cook` | the canteen cook at the guide's spot (3,18); full heal before the Trial |
+| Object | `PitheadHall_EventScript_Brannoc` | Brannoc at (5,2), `TRAINER_BRANNOC` |
 | Signs | `PitheadHall_EventScript_Seam` | ore seams in the walls |
 
 Trainer slide for Brannoc's last Pokémon (Regirock): "I dug this one out myself."

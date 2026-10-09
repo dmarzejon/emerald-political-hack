@@ -123,14 +123,13 @@ Cragholt_EventScript_Arrival::
 	end
 
 Cragholt_Movement_BrannocToLift:
-	walk_in_place_faster_up
+	walk_in_place_faster_right
 	delay_16
-	walk_in_place_faster_up
+	walk_in_place_faster_right
 	step_end
 
 Cragholt_Movement_CrewToLift:
-	walk_up
-	walk_up
+	walk_in_place_faster_left
 	step_end
 
 @ ---------------------------------------------------------------------------
@@ -510,11 +509,22 @@ Cragholt_MasonHouse_EventScript_Girl::
 
 @ ---------------------------------------------------------------------------
 @ The collapsed mine (the Rusturf Tunnel slot). Wil and two miners are
-@ trapped behind a rubble fall. The bell crate is at the collapse face.
-@   FLAG_TEMP_1  the rubble fall and the three trapped men (until Wil is out)
+@ trapped behind a rubble fall, (20,4)-(21,5) on the haulage way. The bell
+@ crate is at the collapse face.
+@   FLAG_TEMP_1  the three trapped men (until Wil is out)
 @ ---------------------------------------------------------------------------
 CollapsedMine_EventScript_SetObjects::
 	call_if_set FLAG_RESCUED_WIL, CollapsedMine_EventScript_HideTrapped
+	return
+
+@ On load once Wil is out, and in the rescue under the fade: the rubble
+@ metatiles become floor (from the map thread).
+CollapsedMine_EventScript_ClearRubble::
+	setmetatile 20, 4, 0x201, FALSE
+	setmetatile 21, 4, 0x201, FALSE
+	setmetatile 20, 5, 0x201, FALSE
+	setmetatile 21, 5, 0x201, FALSE
+	special DrawWholeMapView
 	return
 
 CollapsedMine_EventScript_HideTrapped::
@@ -536,7 +546,7 @@ CollapsedMine_EventScript_Rubble::
 	delay 20
 	playse SE_M_ROCK_THROW
 	waitse
-	removeobject LOCALID_COLLAPSED_MINE_RUBBLE
+	call CollapsedMine_EventScript_ClearRubble
 	delay 20
 	fadescreen FADE_FROM_BLACK
 	narrate CollapsedMine_Text_GapOpens
@@ -563,13 +573,14 @@ CollapsedMine_EventScript_RubbleLeave::
 	releaseall
 	end
 
-@ The trapped men, talked to through gaps in the fall.
+@ The trapped men. They are behind the rubble until the rescue, which then
+@ walks them out, so these only answer if the scene is skipped somehow.
 CollapsedMine_EventScript_Wil::
-	goto CollapsedMine_EventScript_Rubble
+	npc Ch3_Name_Wil, CollapsedMine_Text_WilThanks
 	end
 
 CollapsedMine_EventScript_TrappedMiner::
-	goto CollapsedMine_EventScript_Rubble
+	npc Ch3_Name_Miner, CollapsedMine_Text_MinerNotRockfall
 	end
 
 @ The bell crate at the collapse face: the Pale Choir set the charges.
@@ -1059,9 +1070,9 @@ Cragholt_Text_MasonGirl::
 	.string "bell's bad luck.$"
 
 CollapsedMine_Text_RubbleVoices::
-	.string "A wall of broken rock blocks the tunnel.\n"
-	.string "Behind it, faintly, three knocks. Then\l"
-	.string "three more.$"
+	.string "A wall of broken rock blocks the\n"
+	.string "haulage way. Behind it, faintly, three\l"
+	.string "knocks. Then three more.$"
 
 CollapsedMine_Text_WilBehindRubble::
 	.string "Hello? Is someone there? We're alive!\n"

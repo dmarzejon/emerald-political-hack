@@ -57,17 +57,14 @@
 #ifndef LOCALID_CRAGHOLT_TAMSIN
 #define LOCALID_CRAGHOLT_TAMSIN          6
 #endif
-#ifndef LOCALID_COLLAPSED_MINE_RUBBLE
-#define LOCALID_COLLAPSED_MINE_RUBBLE    1
-#endif
 #ifndef LOCALID_COLLAPSED_MINE_WIL
-#define LOCALID_COLLAPSED_MINE_WIL       2
+#define LOCALID_COLLAPSED_MINE_WIL       1
 #endif
 #ifndef LOCALID_COLLAPSED_MINE_MINER_1
-#define LOCALID_COLLAPSED_MINE_MINER_1   3
+#define LOCALID_COLLAPSED_MINE_MINER_1   2
 #endif
 #ifndef LOCALID_COLLAPSED_MINE_MINER_2
-#define LOCALID_COLLAPSED_MINE_MINER_2   4
+#define LOCALID_COLLAPSED_MINE_MINER_2   3
 #endif
 #ifndef LOCALID_OLD_LODGE_TAMSIN
 #define LOCALID_OLD_LODGE_TAMSIN         11
@@ -105,9 +102,9 @@ Ch3_Name_Cook::
 
 @ ---------------------------------------------------------------------------
 @ Where Tamsin stands for the Cragholt arrival scene: beside the player at the
-@ arrival trigger. The map thread sets these to match the trigger.
+@ arrival trigger, (15,54)-(16,54) on the south road in.
 @ ---------------------------------------------------------------------------
 #ifndef CRAGHOLT_TAMSIN_SCENE_X
-#define CRAGHOLT_TAMSIN_SCENE_X 0
-#define CRAGHOLT_TAMSIN_SCENE_Y 0
+#define CRAGHOLT_TAMSIN_SCENE_X 15
+#define CRAGHOLT_TAMSIN_SCENE_Y 53
 #endif

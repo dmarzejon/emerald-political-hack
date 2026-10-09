@@ -20,7 +20,7 @@ MAPS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Haymarket_GiltPavilion', 'H
         'Route102', 'PetalburgCity', 'Thornfield_Palace']
 LOWMERE_STAGES = ['LAYOUT_LOWMERE_STAGE%d' % i for i in range(5)]
 # Objects whose spot is meant to block (a guard on a door, a boulder) or that only appear in a cutscene.
-BLOCKING_OK = {'LOCALID_HAYMARKET_PAVILION_GUARD'}
+BLOCKING_OK = {'LOCALID_HAYMARKET_PAVILION_GUARD', 'LOCALID_THORNFIELD_PALACE_GUARD'}
 
 # The FRLG overworld sprites draw nothing in this build, so a person using one is invisible.
 # These vanilla objects are hidden for good but still named by vanilla scripts.
@@ -74,8 +74,10 @@ def check(mapname, layout_id, problems):
     objs = {(o['x'], o['y']): o for o in m['object_events']}
     # cutscene-only objects (no script) are hidden in normal play
     # Strength boulders (the granary sacks) can be pushed out of the way.
+    # People shown by a temp flag are only there for one scene or chapter state.
     blocked = {p for p, o in objs.items()
-               if o['script'] != '0x0' and o['graphics_id'] != 'OBJ_EVENT_GFX_PUSHABLE_BOULDER'}
+               if o['script'] != '0x0' and o['graphics_id'] != 'OBJ_EVENT_GFX_PUSHABLE_BOULDER'
+               and not (o['flag'].startswith('FLAG_TEMP_') and o.get('local_id') not in BLOCKING_OK)}
 
     starts = []
     for w in m['warp_events']:

@@ -11,8 +11,8 @@ script can be re-run safely. All three use gTileset_Lowmere, which is Petalburg'
 tileset with the Lowmere props appended, so every vanilla Petalburg metatile still
 draws the same.
 """
-from build_maps import (BUSH, DIRT, FLOWERS, FOREST_BORDER, GRASS, LM, SIGNPOST, Canvas, house, prop, rect,
-                        save_layout)
+from build_maps import (BERRY_SOIL, BUSH, DIRT, FLOWERS, FOREST_BORDER, GRASS, LM, SIGNPOST, Canvas, fortree, house,
+                        prop, rect, save_layout)
 from gfxlib import Layout, block, path
 
 E_GROUND = 3
@@ -28,11 +28,14 @@ def from_vanilla(src):
 
 # ---- the Orchard Road (Route 102 slot) -----------------------------------
 ROAD_COTTAGE = (11, 2)                  # seized tenant cottage 4x4, boarded door +1,+3
-ROAD_NOTICE = (15, 5)                   # the foreclosure notice
 ROAD_ORCHARD = [(19, 2), (21, 2), (23, 2), (27, 3), (26, 2)]
 # The camp stays 8+ columns clear of the Haymarket seam (x 42-49), where only General tiles may go.
-ROAD_TENTS = [(36, 12), (40, 12)]       # 2x2 each
-ROAD_FIRE = (38, 14)
+# Row 14 stays clear: it is the only way between the two halves of the road.
+ROAD_TENTS = [(36, 12), (38, 12)]       # 2x2 each
+ROAD_FIRE = (41, 13)
+ROAD_CART = (37, 15)                    # 3x2, the tenant's cart
+# The warden stands at (47,10); a tree beside him closes the road's east end.
+ROAD_WARDEN_TREE = (47, 11)
 
 
 def orchard_road():
@@ -41,16 +44,17 @@ def orchard_road():
     # the cottage's fenced plot, gone to seed
     for x in (8, 9, 10):
         c.put(x, 6, LM['fence_broken_0_0' if x == 9 else 'fence_full_0_0'], 1, E_GROUND)
-    c.put(*ROAD_NOTICE, LM['notice_0_0'], 1, E_GROUND)
     for (x, y) in ROAD_ORCHARD:
         c.put(x, y, BUSH, 1, 0)
     # the evicted farmers' camp by the Haymarket end of the road
     for (x, y) in ROAD_TENTS:
         c.grid(x, y, prop('tent', 2, 2), col=1, elev=E_GROUND)
     c.put(*ROAD_FIRE, LM['campfire_0_0'], 1, E_GROUND)
-    c.put(39, 12, LM['sacks_0_0'], 1, E_GROUND)
-    c.put(41, 15, LM['crate_0_0'], 1, E_GROUND)
-    c.put(40, 15, LM['sacks_0_0'], 1, E_GROUND)
+    c.grid(*ROAD_CART, prop('cart', 3, 2), col=1, elev=E_GROUND)
+    c.put(40, 12, LM['sacks_0_0'], 1, E_GROUND)
+    c.put(*ROAD_WARDEN_TREE, BUSH, 1, 0)
+    # Thornfield's east edge at row 16 is the Willows' cottage now, so close the road's side too
+    c.put(0, 6, BUSH, 1, 0)
     return c
 
 
@@ -59,7 +63,9 @@ TF_PALACE_DOOR = (15, 8)        # vanilla gym door
 TF_GROVE_PATH = 18              # the column behind the palace that leads to the grove gate
 TF_GROVE_GATE = (18, 2)
 TF_PALACE_SIGN = (17, 10)
-TF_GREENHOUSE = (23, 21)        # 3x3, in the tenant's old vegetable plot; door +1,+2
+TF_GREENHOUSE = (23, 21)        # 3x3, in the head gardener's vegetable plot; door +1,+2
+TF_WILLOWS = (26, 13)           # the Willows' cottage, 4x4, door +1,+3 = (27,16), by the east road in
+TF_BEANS = rect(23, 13, 24, 15)  # their bean field
 TF_TERRACES = rect(14, 25, 24, 27)
 
 
@@ -76,7 +82,15 @@ def thornfield():
     # flower beds either side of the palace door
     for (x, y) in ((12, 8), (13, 8), (12, 9), (17, 9)):
         c.put(x, y, FLOWERS, 0, E_GROUND)
-    # seized farmland: the tenant's vegetable plot is a glasshouse, the south yard flower terraces
+    # the Willows' cottage and bean field, the first thing you see coming in from the Orchard Road
+    house(c, *TF_WILLOWS, state='weathered')
+    for dx in range(4):     # nothing to walk behind: the roof backs onto the Mart and the trees
+        c.set(TF_WILLOWS[0] + dx, TF_WILLOWS[1], c.get(TF_WILLOWS[0] + dx, TF_WILLOWS[1]) | (1 << 10))
+    for (x, y) in TF_BEANS:
+        c.put(x, y, BERRY_SOIL if y == 14 else fortree(0x294), 0, E_GROUND)
+    # the steward's office (Wally's house) has no name board
+    c.put(8, 9, GRASS, 0, E_GROUND)
+    # seized farmland: the gardener's vegetable plot is a glasshouse, the south yard flower terraces
     c.grid(*TF_GREENHOUSE, prop('greenhouse', 3, 3), col=1, elev=E_GROUND)
     for (x, y) in TF_TERRACES:
         if y != 26:

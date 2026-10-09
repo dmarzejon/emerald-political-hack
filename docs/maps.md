@@ -133,53 +133,101 @@ These are the exits:
 
 ## Chapter 2: the Orchard Road, Thornfield and Isolde's palace
 
-The road west from Haymarket (Route 102) leads to Thornfield (Petalburg). Both keep their vanilla layout, with props added by `build_chapter2.py`, and both now use `gTileset_Lowmere`, which draws every Petalburg metatile the same. The Petalburg Gym's door now leads to a new map, Isolde's palace garden. The vanilla gym map is no longer reachable.
+The road west from Haymarket (Route 102) leads to Thornfield (Petalburg). Both keep their vanilla layout, with props added by `build_chapter2.py`, and both now use `gTileset_Lowmere`, which draws every Petalburg metatile the same. The Petalburg Gym's door now leads to a new map, Isolde's palace, which the text calls the Glasshouse. The vanilla gym map is no longer reachable.
 
-Every new event below points at a placeholder script in the map's own `scripts.inc`, with one plain line of text. The dialogue thread replaces them with the real scenes and can move or add people. The vanilla objects stay where they were until dialogue cuts their scripts. Thornfield's vanilla triggers (Wally's gym tour and Scott) are removed.
+Every event points at the dialogue thread's chapter 2 scripts (`docs/dialogue/chapter2.md`, `data/scripts/chapter2/`). The vanilla Route 102, Petalburg, Wally's house and house 1 and 2 scripts are replaced by map headers only, and their vanilla people are gone.
 
 ### The Orchard Road (`MAP_ROUTE102`)
 
-| Event | Where | Placeholder script |
+| Event | Where | Script |
 |---|---|---|
-| Seized tenant cottage, boarded door (sign) | (12,5) | `OrchardRoad_EventScript_BoardedCottage` |
-| Foreclosure notice post (sign) | (15,5) | `OrchardRoad_EventScript_ForeclosureNotice` |
-| Evicted grandmother, `OLD_WOMAN`, faces right | (37,15) | `OrchardRoad_EventScript_EvictedGrandmother` |
-| Evicted farmer, `MAN_5`, faces left | (39,14) | `OrchardRoad_EventScript_EvictedFarmer` |
-| Evicted child, `LITTLE_GIRL`, faces down | (38,13) | `OrchardRoad_EventScript_EvictedChild` |
+| Warden, `LOCALID_ORCHARD_ROAD_WARDEN`, `FLAG_TEMP_1`, faces right | (47,10) | `OrchardRoad_EventScript_Warden` |
+| Tenant (man), faces left, beside his cart | (40,15) | `OrchardRoad_EventScript_Tenant` |
+| Tenant's family (old woman, girl) | (36,15), (41,12) | `OrchardRoad_EventScript_Tenant` |
+| Tenant's cart (signs) | (37–39,15) | `OrchardRoad_EventScript_TenantCart` |
+| Picker, trainer, faces left, sight 3 | (19,4) | `OrchardRoad_EventScript_Picker` |
+| Bailiff, trainer, faces left, sight 4 | (33,14) | `OrchardRoad_EventScript_Bailiff` |
+| Poet, trainer, faces down, sight 3 | (8,7) | `OrchardRoad_EventScript_Poet` |
+| Signs | (40,9), (17,2), (21,2) | `_SignEast`, `_SignWest`, `_Orchard` |
 
-- The cottage stands at (11,2) with a broken fence by its plot. A few orchard trees line the north edge near the berry trees.
-- The farmers' camp sits east of the middle of the road: tents at (36,12) and (40,12), a campfire at (38,14), and sacks and a crate. It stays 8 or more columns clear of the Haymarket seam.
-- The vanilla trainers (Calvin, Rick, Tiana and Allen) are still in place for the balance thread.
+- The warden and a tree at (47,11) close the road's east end until the header hides him (`VAR_SLICE_STATE` 13 or more).
+- The tenant camp sits in the middle of the road: tents at (36,12) and (38,12), a campfire at (41,13) and the cart at (37,15). Row 14 stays open, because it is the only way between the two halves of the road.
+- A boarded cottage at (11,2) and a few orchard trees are scenery.
+- The road's west edge at (0,6) is a tree, because Thornfield's side of that seam is the Willows' cottage.
 
 ### Thornfield (`MAP_PETALBURG_CITY`)
 
-| Event | Where | Placeholder script |
+**The eviction.** The Willows' cottage is at (26,13), right by the road in from the Orchard Road, with its door at (27,16) and its bean field at (23–24,13–15). `Thornfield_EventScript_Arrival` is a trigger on (29,17), (29,18) and (29,19), the first tiles you step on from the road, while `VAR_THORNFIELD_STATE` is 0. It fires on the step across the seam (checked in mGBA).
+
+| Person | Local id | Flag | Where | Facing | Script |
+|---|---|---|---|---|---|
+| Voss | `LOCALID_THORNFIELD_VOSS` | `FLAG_TEMP_1` | (27,18) | up | none |
+| Guard 1 | `LOCALID_THORNFIELD_GUARD_1` | `FLAG_TEMP_1` | (24,17) | up | none |
+| Guard 2 | `LOCALID_THORNFIELD_GUARD_2` | `FLAG_TEMP_1` | (28,17) | up | none |
+| Tom Willow | `LOCALID_THORNFIELD_WILLOW` | `FLAG_TEMP_3` | (27,17) | down | `Thornfield_EventScript_Willow` |
+| Mae Willow | `LOCALID_THORNFIELD_MAE` | `FLAG_TEMP_3` | (26,17) | down | `Thornfield_EventScript_Mae` |
+| Pip Willow | `LOCALID_THORNFIELD_PIP` | `FLAG_TEMP_3` | (25,17) | down | `Thornfield_EventScript_Pip` |
+| Digger 1 | `LOCALID_THORNFIELD_DIGGER_1` | `FLAG_TEMP_1` | (23,14) | down | none |
+| Digger 2 | `LOCALID_THORNFIELD_DIGGER_2` | `FLAG_TEMP_1` | (24,14) | down | none |
+| Tamsin | `LOCALID_THORNFIELD_TAMSIN` | `FLAG_TEMP_5` | (13,11) | down | `Thornfield_EventScript_Tamsin` |
+| Willow at the camp | `LOCALID_THORNFIELD_CAMP_WILLOW` | `FLAG_TEMP_2` | (24,20) | up | `Thornfield_EventScript_CampWillow` |
+| Mae at the camp | `LOCALID_THORNFIELD_CAMP_MAE` | `FLAG_TEMP_2` | (25,20) | up | `Thornfield_EventScript_CampMae` |
+| Pip at the camp | `LOCALID_THORNFIELD_CAMP_PIP` | `FLAG_TEMP_2` | (23,20) | right | `Thornfield_EventScript_CampPip` |
+| Isolde on the terraces | `LOCALID_THORNFIELD_ISOLDE` | `FLAG_TEMP_4` | (17,25) | down | `Thornfield_EventScript_IsoldeTerrace` |
+| Palace guard, on the door | `LOCALID_THORNFIELD_PALACE_GUARD` | `FLAG_TEMP_6` | (15,9) | down | `Thornfield_EventScript_PalaceGuard` |
+| Woman | | | (16,18) | left | `Thornfield_EventScript_Woman` |
+| Old man | | | (20,10) | down | `Thornfield_EventScript_OldMan` |
+| Gardener | | | (19,26) | left | `Thornfield_EventScript_Gardener` |
+
+Signs: `_BoardedHouse` on the Willows' door (27,16), `_Terraces` at (14,26) and (24,26), `_GroveGate` at (18,2), `_TownSign` at (17,16) and `_PalaceSign` at (17,10).
+
+**Boarding up the Willows' door.** `Thornfield_EventScript_BoardUpDoor` (called on load in states 1 and 2) should be:
+
+```
+	setmetatile 27, 15, 0x2A3, TRUE   @ boarded_door_high
+	setmetatile 27, 16, 0x2A4, TRUE   @ boarded_door_low
+	setmetatile 28, 15, 0x2A1, TRUE   @ boarded_window_high
+	setmetatile 28, 16, 0x2A2, TRUE   @ boarded_window_low
+	special DrawWholeMapView
+	return
+```
+
+The `DrawWholeMapView` is needed: walking in from the Orchard Road, the door is already on screen before the map loads, and without a redraw it stays unboarded until you leave and come back by a warp. Checked in mGBA.
+
+**Other places in town.**
+- **Isolde's palace** is the old gym building. Its door is warp 2 at (15,8). The GYM plate on its front is now a window, and the sign is plain.
+- **The sealed grove** is behind the palace. A one-tile path runs up between the palace and the pond, from (18,8) to the thorn gate at (18,2). The grove map itself is for Act 2.
+- **Old Mabry's cottage** is house 2 (warp 4, door (20,24)). Its vegetable plot is a glasshouse at (23,21), and the yard south of it, rows 25 to 27, is the flower terraces.
+- **The Steward's Office** is Wally's house (warp 1, door (7,5)), and **the Magistrate's Hall** is house 1 (warp 0, door (10,19)).
+- The Mart's two wall signs are gone, because the Willows' roof is in front of them.
+
+### Thornfield interiors
+
+| Map | Event | Where | Script |
+|---|---|---|---|
+| Steward's Office (`PETALBURG_CITY_WALLYS_HOUSE`) | Voss behind the table, `LOCALID_STEWARDS_OFFICE_VOSS`, `FLAG_TEMP_1`, faces down | (5,2) | `Thornfield_StewardsOffice_EventScript_Voss` |
+| | Bailiff, trainer, faces left, sight 3: the way to the table passes him | (6,5) | `Thornfield_StewardsOffice_EventScript_Bailiff` |
+| | Ledger on the table (signs) | (5,4), (6,4) | `Thornfield_StewardsOffice_EventScript_Ledger` |
+| Mabry's cottage (`PETALBURG_CITY_HOUSE2`) | Mabry, faces left | (7,5) | `Thornfield_MabryCottage_EventScript_Mabry` |
+| | Seed shelf (signs) | (8,1), (9,1) | `Thornfield_MabryCottage_EventScript_SeedShelf` |
+| Magistrate's Hall (`PETALBURG_CITY_HOUSE1`) | Fenwick behind the table, faces down | (4,2) | `Thornfield_MagistrateHall_EventScript_Fenwick` |
+| | Clerk, faces left | (7,4) | `Thornfield_MagistrateHall_EventScript_Clerk` |
+
+### Isolde's palace, the Glasshouse (`MAP_THORNFIELD_PALACE`)
+
+A walled garden with three terraces of hedges, climbing to Isolde's flagstone dais in front of a glass wall.
+
+| Event | Where | Script |
 |---|---|---|
-| Palace sign (was the gym sign) | (17,10) | `Thornfield_EventScript_PalaceSign` |
-| Gate to the sealed grove (sign) | (18,2) | `Thornfield_EventScript_GroveGate` |
-| Glasshouse door (sign) | (24,23) | `Thornfield_EventScript_Greenhouse` |
-| Terrace notices (signs) | (14,26) and (24,26) | `Thornfield_EventScript_TerraceNotice` |
-| Terrace gardener, `WOMAN_2`, faces left | (19,26) | `Thornfield_EventScript_TerraceGardener` |
+| Isolde on the dais, `LOCALID_PALACE_ISOLDE`, faces down | (7,3) | `Glasshouse_EventScript_Isolde` |
+| Herald by the entrance, faces right | (6,20) | `Glasshouse_EventScript_Herald` |
+| Gardener 1, trainer, faces right, sight 8 | (2,16) | `Glasshouse_EventScript_Gardener1` |
+| Gardener 2, trainer, faces left, sight 8 | (13,13) | `Glasshouse_EventScript_Gardener2` |
+| Courtier, trainer, faces right, sight 8 | (2,10) | `Glasshouse_EventScript_Courtier` |
+| Glass wall (signs) | (2–13,1) | `Glasshouse_EventScript_GlassWall` |
+| Exit mats (warps 0 and 1 to Thornfield warp 2) | (7,21), (8,21) | |
 
-- **Isolde's palace** is the old gym building. Its door is warp 2 at (15,8), and it leads to `MAP_THORNFIELD_PALACE`. The GYM plate on its front is now a window, and the sign is plain.
-- **The sealed grove** is behind the palace. A one-tile path runs up between the palace and the pond, from (18,8) to a locked fence gate at (18,2). The grove map itself is for Act 2.
-- **Seized farmland:** the tenant house's vegetable plot (warp 4, `PetalburgCity_House2`) is now a glasshouse at (23,21), and the yard south of it, rows 25 to 27, is flower terraces.
-- Wally's house (warp 1, at (7,5)) and house 1 (warp 0, at (10,19)) are free for the steward's office and the magistrate. Their interiors are still vanilla.
-
-### Isolde's palace garden (`MAP_THORNFIELD_PALACE`)
-
-A walled garden with three terraces of hedges, climbing to Isolde's flagstone dais.
-
-| Event | Where | Placeholder script |
-|---|---|---|
-| Isolde, `BEAUTY`, faces down (`LOCALID_PALACE_ISOLDE`) | (7,3) | `ThornfieldPalace_EventScript_Isolde` |
-| Gardener 1, `MAN_2`, faces right | (2,16) | `ThornfieldPalace_EventScript_Gardener1` |
-| Gardener 2, `PICNICKER`, faces left | (13,13) | `ThornfieldPalace_EventScript_Gardener2` |
-| Gardener 3, `EXPERT_M`, faces right | (2,10) | `ThornfieldPalace_EventScript_Gardener3` |
-| Exit mats (warps 0 and 1 to Thornfield warp 2) | (7,21) and (8,21) | |
-
-- Each terrace has a hedge row with a gap at one end, and a flower planter that leaves only one lane open. You go up through the gap at x 12–13 in row 17, along row 16 to the gap at x 2–3, along row 13 to x 12–13, along row 10 to x 2–3, and up to the dais.
-- Each gardener stands at the far end of one lane and looks down it, so they are made to be trainers with a sight range of 8. They are plain NPCs for now (`TRAINER_TYPE_NONE`) until the balance thread gives them parties and dialogue gives them `trainerbattle` scripts. Set `trainer_type` to `TRAINER_TYPE_NORMAL` and the sight range to 8 at the same time.
+Each terrace has a hedge row with a gap at one end, and a flower planter that leaves only one lane open. You go up through the gap at x 12–13 in row 17, along row 16 to the gap at x 2–3, along row 13 to x 12–13, along row 10 to x 2–3, and up to the dais. Each trainer stands at the far end of one lane and looks down it, so you cannot pass without a battle.
 
 ## What other work owns
 

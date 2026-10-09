@@ -129,6 +129,50 @@ def draw_ore():
     return mirror(im)
 
 
+def draw_headframe():
+    """The pithead: a 2x3 winding frame over the shaft, with the pit bell under the
+    sheave. Mirrored left-right, and the post and shaft rows repeat, so the whole
+    frame costs 8 tiles."""
+    im, d = canvas(32, 48)
+    # posts, plain and uniform from the beam down so their tile rows repeat
+    for x0 in (2, 26):
+        d.rectangle([x0, 4, x0 + 3, 47], fill=3)
+        d.line([x0, 4, x0, 47], fill=2)
+        d.line([x0 + 3, 4, x0 + 3, 47], fill=5)
+    # the cross-beam and the sheave wheel
+    d.rectangle([0, 3, 31, 7], fill=4, outline=5)
+    d.line([1, 4, 30, 4], fill=3)
+    d.ellipse([10, 0, 21, 11], fill=8, outline=5)
+    d.ellipse([13, 3, 18, 8], fill=7, outline=5)
+    # the pit bell hanging under it
+    d.polygon([(12, 20), (14, 14), (17, 14), (19, 20)], fill=13, outline=5)
+    d.line([15, 11, 15, 13], fill=5)
+    d.line([16, 11, 16, 13], fill=5)
+    d.point((15, 21), fill=5)
+    d.point((16, 21), fill=5)
+    # the winding ropes, uniform down to the shaft
+    for x in (11, 20):
+        d.line([x, 8, x, 31], fill=8)
+    # the shaft: a timber collar round a black pit, symmetric top to bottom
+    d.rectangle([6, 32, 25, 47], fill=4, outline=5)
+    d.rectangle([9, 35, 22, 44], fill=12, outline=5)
+    d.line([7, 33, 24, 33], fill=3)
+    d.line([7, 46, 24, 46], fill=3)
+    for x in (11, 20):
+        d.line([x, 35, x, 44], fill=8)
+    return vmirror_rows(mirror(im), 32, 48)
+
+
+def vmirror_rows(im, y0, y1):
+    """Mirror rows y0..y1-1 top to bottom, so a band's lower tiles flip its upper ones."""
+    px = im.load()
+    w = im.size[0]
+    for i in range((y1 - y0) // 2):
+        for x in range(w):
+            px[x, y1 - 1 - i] = px[x, y0 + i]
+    return im
+
+
 def draw_timber():
     """A pit prop: a timber post with a cross-beam, set against the wall."""
     im, d = canvas(16, 16)
@@ -193,6 +237,7 @@ def main():
         b.prop(draw_rail_v(), ground, 'rail_v' + suffix)
         b.prop(draw_cart(), ground, 'cart' + suffix)
         b.prop(draw_ore(), ground, 'ore' + suffix)
+    b.prop(draw_headframe(), PAVING, 'headframe')
 
     ntiles = len(b.ts.tiles)
     nmeta = len(b.ts.metatiles)

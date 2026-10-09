@@ -47,6 +47,9 @@ CG_YARD_ORE = [(7, 16), (7, 17), (16, 21)]
 CG_FOUNTAIN = (27, 38)              # 3x3
 CG_QUOTA_BOARD = (28, 39)
 CG_QUOTA_ORE = [(27, 39), (29, 39), (27, 40), (29, 40)]
+# The pithead by the road in from the south: a 2x3 winding frame over the shaft,
+# in view of the arrival trigger at (15-16, 54), with room for Brannoc and two miners.
+CG_PITHEAD = (19, 50)
 
 
 def rail_line(c, x0, x1, y, carts):
@@ -69,6 +72,10 @@ def cragholt():
             if (x, y) not in CG_QUOTA_ORE:
                 c.put(x, y, PAVING, 0, E_TOWN)
     c.put(*CG_QUOTA_BOARD, SIGNBOARD, 1, 0)
+    px, py = CG_PITHEAD
+    for dy in range(3):
+        for dx in range(2):
+            c.put(px + dx, py + dy, CR['headframe_%d_%d' % (dx, dy)], 1, E_TOWN)
     return c
 
 

@@ -1,10 +1,16 @@
 {
- "num_tiles": 504,
- "num_metatiles": 358,
+ "num_tiles": 512,
+ "num_metatiles": 364,
  "mine_num_tiles": 161,
  "ids": {
   "cart_0_0": 864,
   "cart_dirt_0_0": 868,
+  "headframe_0_0": 870,
+  "headframe_0_1": 872,
+  "headframe_0_2": 874,
+  "headframe_1_0": 871,
+  "headframe_1_1": 873,
+  "headframe_1_2": 875,
   "mine_cart_0_0": 597,
   "mine_crate_0_0": 599,
   "mine_ore_0_0": 598,

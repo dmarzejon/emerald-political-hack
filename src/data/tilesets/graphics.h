@@ -154,7 +154,7 @@ const u16 gTilesetPalettes_Rustboro[][16] =
     INCGFX_U16("data/tilesets/secondary/rustboro/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Cragholt[] = INCGFX_U32("data/tilesets/secondary/cragholt/tiles.png", ".4bpp.fastSmol", "-num_tiles 504 -Wnum_tiles");
+const u32 gTilesetTiles_Cragholt[] = INCGFX_U32("data/tilesets/secondary/cragholt/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Cragholt[][16] =
 {

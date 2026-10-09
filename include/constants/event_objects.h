@@ -413,6 +413,8 @@ enum
     OBJ_EVENT_GFX_PUSHABLE_BOULDER_FRLG,
     OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG,
     OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG,
+    // Political hack
+    OBJ_EVENT_GFX_TAMSIN,
     NUM_OBJ_EVENT_GFX,
 };
 
@@ -568,6 +570,7 @@ enum
 #define OBJ_EVENT_PAL_TAG_METEORITE               0x1131
 #define OBJ_EVENT_PAL_TAG_SEAGALLOP               0x1132
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                 0x1133
+#define OBJ_EVENT_PAL_TAG_TAMSIN                  0x1140 // Political hack
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

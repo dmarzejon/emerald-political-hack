@@ -32,7 +32,8 @@ def frlg_gfx():
         name = line.strip().split(',')[0]
         if name == 'OBJ_EVENT_GFX_RED_NORMAL':
             on = True
-        if name == 'NUM_OBJ_EVENT_GFX':
+        # The hack's own sprites are listed last and are built for Emerald.
+        if name in ('NUM_OBJ_EVENT_GFX', '// Political hack'):
             break
         if on and name.startswith('OBJ_EVENT_GFX_'):
             names.add(name)

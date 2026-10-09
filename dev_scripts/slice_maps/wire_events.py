@@ -129,7 +129,7 @@ def lowmere():
           flag='FLAG_HIDE_LOWMERE_ARRIVAL_BRAM')
     t.set({'local_id': 'LOCALID_LOWMERE_TAMSIN'}, local_id=None, script='Lowmere_EventScript_TamsinForge',
           flag='FLAG_HIDE_LOWMERE_TAMSIN_FORGE')
-    t.add(npc('OBJ_EVENT_GFX_RIVAL_MAY_NORMAL', 16, 0, 'Lowmere_EventScript_TamsinRoad',
+    t.add(npc('OBJ_EVENT_GFX_TAMSIN', 16, 0, 'Lowmere_EventScript_TamsinRoad',
               'LOCALID_LOWMERE_TAMSIN_ROAD', 'FLAG_HIDE_LOWMERE_TAMSIN_ROAD'))
     t.set({'local_id': 'LOCALID_LOWMERE_JETTY_VILLAGER'}, local_id=None, script='Lowmere_EventScript_Fisherman',
           graphics_id='OBJ_EVENT_GFX_FISHERMAN')
@@ -211,9 +211,9 @@ def mire_road():
           trainer_sight_or_berry_tree_id='0')
     t.set({'local_id': 'LOCALID_MIRE_ROAD_RECEIPT_CLERK'}, local_id='LOCALID_MIRE_ROAD_WAGON_CLERK_2',
           script='0x0', flag='FLAG_HIDE_MIRE_ROAD_WAGON_CLERKS')
-    t.add(npc('OBJ_EVENT_GFX_RIVAL_MAY_NORMAL', 13, 41, 'MireRoad_EventScript_Tamsin', 'LOCALID_MIRE_ROAD_TAMSIN',
+    t.add(npc('OBJ_EVENT_GFX_TAMSIN', 13, 41, 'MireRoad_EventScript_Tamsin', 'LOCALID_MIRE_ROAD_TAMSIN',
               'FLAG_HIDE_MIRE_ROAD_TAMSIN', move='MOVEMENT_TYPE_FACE_LEFT'))
-    t.add(npc('OBJ_EVENT_GFX_RIVAL_MAY_NORMAL', 9, 18, '0x0', 'LOCALID_MIRE_ROAD_TAMSIN_WAGON',
+    t.add(npc('OBJ_EVENT_GFX_TAMSIN', 9, 18, '0x0', 'LOCALID_MIRE_ROAD_TAMSIN_WAGON',
               'FLAG_HIDE_MIRE_ROAD_TAMSIN_WAGON', move='MOVEMENT_TYPE_FACE_UP'))
     for s in ('Route101_EventScript_Youngster', 'Route101_EventScript_BirchsBag',
               'ProfBirch_EventScript_RatePokedexOrRegister', 'Route101_EventScript_Boy'):
@@ -241,7 +241,7 @@ def haymarket():
     t.set({'local_id': 'LOCALID_HAYMARKET_CRANE'}, script='0x0', flag='FLAG_HIDE_HAYMARKET_CRANE')
     t.set({'local_id': 'LOCALID_HAYMARKET_PAVILION_GUARD'}, local_id=None, script='Haymarket_EventScript_PavilionGuard',
           x=27, y=12, movement_type='MOVEMENT_TYPE_FACE_RIGHT')
-    t.add(npc('OBJ_EVENT_GFX_RIVAL_MAY_NORMAL', 21, 13, 'Haymarket_EventScript_Tamsin', 'LOCALID_HAYMARKET_TAMSIN',
+    t.add(npc('OBJ_EVENT_GFX_TAMSIN', 21, 13, 'Haymarket_EventScript_Tamsin', 'LOCALID_HAYMARKET_TAMSIN',
               'FLAG_HIDE_HAYMARKET_TAMSIN'))
     for old, new, gfx in (('LOCALID_HAYMARKET_FAIRGOER_A', 'Haymarket_EventScript_RibbonSeller', None),
                           ('LOCALID_HAYMARKET_FAIRGOER_B', 'Haymarket_EventScript_NervousMan', None),

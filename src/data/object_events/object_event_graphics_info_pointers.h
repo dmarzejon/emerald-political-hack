@@ -333,6 +333,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TownMap;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pokedex;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CuttableTreeFrlg;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BreakableRockFrlg;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tamsin;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PushableBoulderFrlg;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FossilFrlg;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ruby;
@@ -791,6 +792,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEOXYS_N]                 = &gObjectEventGraphicsInfo_DeoxysN,
     [OBJ_EVENT_GFX_SS_ANNE]                  = &gObjectEventGraphicsInfo_SSAnne,
 #endif // IS_FRLG
+    // Political hack
+    [OBJ_EVENT_GFX_TAMSIN]                   = &gObjectEventGraphicsInfo_Tamsin,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

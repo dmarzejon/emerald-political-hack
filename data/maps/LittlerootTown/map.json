@@ -36,7 +36,7 @@
       "flag": "FLAG_HIDE_LOWMERE_ARRIVAL_BRAM"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_RIVAL_MAY_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_TAMSIN",
       "x": 5,
       "y": 15,
       "elevation": 3,
@@ -115,7 +115,7 @@
     },
     {
       "local_id": "LOCALID_LOWMERE_TAMSIN_ROAD",
-      "graphics_id": "OBJ_EVENT_GFX_RIVAL_MAY_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_TAMSIN",
       "x": 16,
       "y": 0,
       "elevation": 3,

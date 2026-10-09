@@ -99,8 +99,8 @@
 #define FLAG_THORNFIELD_GROVE_OPENED         0x4B
 #define FLAG_LOWMERE_GARDENERS_ARRIVED       0x4C
 #define FLAG_MET_ISOLDE                      0x4D
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
-#define FLAG_UNUSED_0x04F    0x4F // Unused Flag
+#define FLAG_FOUND_BONDING_ROLL              0x4E // Trial 3 (Cragholt), see docs/systems.md
+#define FLAG_FOUND_QUOTA_LEDGER              0x4F
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
@@ -526,12 +526,12 @@
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
-#define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
-#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
-#define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
+#define FLAG_FOUND_BELL_CRATE               0x1DE // Trial 3 (Cragholt), see docs/systems.md
+#define FLAG_RESCUED_WIL                    0x1DF
+#define FLAG_CRAGHOLT_TRIAL_GRANTED         0x1E0
+#define FLAG_MET_BRANNOC                    0x1E1
+#define FLAG_TAMSIN_ENVOY                   0x1E2
+#define FLAG_RECEIVED_PALE_LETTER           0x1E3
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_GIFT_DONE               0x1E4

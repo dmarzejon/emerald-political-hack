@@ -190,16 +190,19 @@ Lowmere_RangersShed_EventScript_ConfirmStarter::
 
 Lowmere_RangersShed_EventScript_GiveTreecko::
 	givemon SPECIES_TREECKO, 5
+	removeobject LOCALID_SHED_BALL_1
 	goto Lowmere_RangersShed_EventScript_ReceivedStarter
 	end
 
 Lowmere_RangersShed_EventScript_GiveTorchic::
 	givemon SPECIES_TORCHIC, 5
+	removeobject LOCALID_SHED_BALL_2
 	goto Lowmere_RangersShed_EventScript_ReceivedStarter
 	end
 
 Lowmere_RangersShed_EventScript_GiveMudkip::
 	givemon SPECIES_MUDKIP, 5
+	removeobject LOCALID_SHED_BALL_3
 	goto Lowmere_RangersShed_EventScript_ReceivedStarter
 	end
 

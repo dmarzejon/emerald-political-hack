@@ -32,50 +32,6 @@
 #endif
 
 @ ---------------------------------------------------------------------------
-@ Local ids. The map thread's map.json files will define these; until then
-@ they fall back to the ids in docs/dialogue/chapter2.md.
-@ ---------------------------------------------------------------------------
-#ifndef LOCALID_ORCHARD_ROAD_WARDEN
-#define LOCALID_ORCHARD_ROAD_WARDEN     1
-#endif
-#ifndef LOCALID_THORNFIELD_VOSS
-#define LOCALID_THORNFIELD_VOSS         1
-#endif
-#ifndef LOCALID_THORNFIELD_GUARD_1
-#define LOCALID_THORNFIELD_GUARD_1      2
-#endif
-#ifndef LOCALID_THORNFIELD_GUARD_2
-#define LOCALID_THORNFIELD_GUARD_2      3
-#endif
-#ifndef LOCALID_THORNFIELD_WILLOW
-#define LOCALID_THORNFIELD_WILLOW       4
-#endif
-#ifndef LOCALID_THORNFIELD_MAE
-#define LOCALID_THORNFIELD_MAE          5
-#endif
-#ifndef LOCALID_THORNFIELD_PIP
-#define LOCALID_THORNFIELD_PIP          6
-#endif
-#ifndef LOCALID_THORNFIELD_DIGGER_1
-#define LOCALID_THORNFIELD_DIGGER_1     7
-#endif
-#ifndef LOCALID_THORNFIELD_DIGGER_2
-#define LOCALID_THORNFIELD_DIGGER_2     8
-#endif
-#ifndef LOCALID_THORNFIELD_TAMSIN
-#define LOCALID_THORNFIELD_TAMSIN       9
-#endif
-#ifndef LOCALID_THORNFIELD_CAMP_WILLOW
-#define LOCALID_THORNFIELD_CAMP_WILLOW  10
-#endif
-#ifndef LOCALID_THORNFIELD_CAMP_MAE
-#define LOCALID_THORNFIELD_CAMP_MAE     11
-#endif
-#ifndef LOCALID_THORNFIELD_CAMP_PIP
-#define LOCALID_THORNFIELD_CAMP_PIP     12
-#endif
-
-@ ---------------------------------------------------------------------------
 @ Speaker names. At most about 13 capitals (64 px in the small font).
 @ ---------------------------------------------------------------------------
 Ch2_Name_Voss::

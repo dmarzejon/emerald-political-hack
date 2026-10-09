@@ -39,6 +39,14 @@ Defined in `include/constants/flags.h`. Scripts use them with `setflag`, `checkf
 | `FLAG_THORNFIELD_GROVE_OPENED` | Act 2: Isolde opens the grove (Xerneas) |
 | `FLAG_MET_ISOLDE` | Trial 2: the player talks with Isolde on her terrace |
 | `FLAG_LOWMERE_GARDENERS_ARRIVED` | Lowmere scene after the Thornfield pact: seeds and gardeners arrive |
+| `FLAG_FOUND_BONDING_ROLL` | Trial 3: the barracks roll of bonded workers is found (give `ITEM_BONDING_ROLL`) |
+| `FLAG_FOUND_QUOTA_LEDGER` | Trial 3: the Chancellery ore accounts are found (give `ITEM_QUOTA_LEDGER`) |
+| `FLAG_FOUND_BELL_CRATE` | Trial 3: the pale-bell crate is found in the mine collapse |
+| `FLAG_RESCUED_WIL` | Trial 3: Wil, the witness, is rescued |
+| `FLAG_CRAGHOLT_TRIAL_GRANTED` | Trial 3 is granted |
+| `FLAG_MET_BRANNOC` | The player first talks with Brannoc |
+| `FLAG_TAMSIN_ENVOY` | Act 1 end: Tamsin becomes the player's envoy |
+| `FLAG_RECEIVED_PALE_LETTER` | Act 1 end: the pale-bell letter arrives (give `ITEM_PALE_LETTER`) |
 
 The dialogue thread's slice scripts also use these, documented in `docs/dialogue/events.md`:
 `FLAG_PENN_MON_RECOVERED`, `FLAG_RECEIVED_SEALED_LETTER`, `FLAG_TALKED_TO_CARTER`,
@@ -67,6 +75,7 @@ Defined in `include/constants/vars.h`. They are saved with the game.
 | `VAR_LOWMERE_STAGE_SEEN` | The last stage the player was shown an upgrade scene for |
 | `VAR_SLICE_STATE` | Main story step through the slice; the dialogue thread lists the values in its docs |
 | `VAR_THORNFIELD_STATE` | Story step through Trial 2: 0 not arrived, 1 eviction seen (case open), 2 Trial granted, 3 Isolde beaten and pact signed |
+| `VAR_CRAGHOLT_STATE` | Story step through Trial 3: 0 not arrived, 1 collapse seen and case open, 2 Trial granted, 3 Brannoc beaten and pact signed, 4 act-end return to Lowmere seen |
 | `VAR_KINGS_GIFT_DOG` | `KINGS_GIFT_ENTEI` (0), `KINGS_GIFT_RAIKOU` (1), `KINGS_GIFT_SUICUNE` (2) |
 | `VAR_PACT_TERMS_1`, `VAR_PACT_TERMS_2` | Internal storage for pact terms. Read them with `getpactterms` |
 
@@ -208,6 +217,9 @@ The map popups and region map show **LOWMERE** (Littleroot Town's slot), **MIRE 
 | `ITEM_SEALED_LETTER` | Found on Crane's desk after the Haymarket pact | Letter |
 | `ITEM_DEBT_LEDGER` | Trial 2 evidence: the steward's ledger with the pale bell stamp | Fame Checker |
 | `ITEM_FORECLOSURE_WRIT` | Trial 2 evidence: an eviction signed by Isolde | Old Sea Map |
+| `ITEM_BONDING_ROLL` | Trial 3 evidence: the barracks roll of bonded workers | Old Sea Map |
+| `ITEM_QUOTA_LEDGER` | Trial 3 evidence: ore accounts showing Brannoc's bonuses | Fame Checker |
+| `ITEM_PALE_LETTER` | Act 1 end: "The tenth child should stay small." (not the slice's Sealed Letter) | Letter |
 
 All of them are key items with no use from the bag. Give them with `giveitem` as usual.
 

@@ -14516,6 +14516,54 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
+    [ITEM_BONDING_ROLL] =
+    {
+        .name = ITEM_NAME("Bonding Roll"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "The barracks roll\n"
+            "of bonded workers.\n"
+            "Many names struck."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_OldSeaMap,
+        .iconPalette = gItemIconPalette_OldSeaMap,
+    },
+
+    [ITEM_QUOTA_LEDGER] =
+    {
+        .name = ITEM_NAME("Quota Ledger"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Chancellery ore\n"
+            "accounts: bonuses\n"
+            "paid to Brannoc."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_FameChecker,
+        .iconPalette = gItemIconPalette_FameChecker,
+    },
+
+    [ITEM_PALE_LETTER] =
+    {
+        .name = ITEM_NAME("Pale Letter"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "“The tenth child\n"
+            "should stay small.”\n"
+            "A pale bell seal."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Letter,
+        .iconPalette = gItemIconPalette_LavaCookieAndLetter,
+    },
+
     [ITEM_DEVON_PARTS] =
     {
         .name = ITEM_NAME("Devon Parts"),

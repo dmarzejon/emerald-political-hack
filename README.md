@@ -6,7 +6,9 @@ Based off RHH's pokeemerald-expansion 1.17.1 https://github.com/rh-hideout/pokee
 
 ## Getting the ROM
 
-Every push to `main` and every pull request builds a playable ROM on GitHub Actions. Open the **Actions** tab, pick the latest **Build ROM** run, and download the `emerald-political-hack-…` file under **Artifacts**. Unzip it and load `pokeemerald.gba` in an emulator such as mGBA.
+Every push to `main` builds a playable ROM and publishes it on the repo's **Releases** page as `emerald-political-hack.gba` under **Latest build**. Load it in an emulator such as mGBA.
+
+Pull requests also build a ROM. When the account's Actions storage has room, it is attached to the run's Summary page under **Artifacts** for 7 days.
 
 ## Building locally
 

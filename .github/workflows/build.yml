@@ -18,6 +18,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -50,13 +52,29 @@ jobs:
       - name: Build ROM
         run: make -j$(nproc) -O all
 
-      # Download from the run's Summary page under "Artifacts".
-      - name: Upload ROM
+      # PR builds: download from the run's Summary page under "Artifacts".
+      # Artifacts count against the account's Actions storage quota, so a
+      # full quota should not fail an otherwise good build.
+      - name: Upload ROM artifact
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: emerald-political-hack-${{ github.sha }}
           path: pokeemerald.gba
-          retention-days: 30
+          retention-days: 7
+
+      # main builds: replace the ROM on the rolling "latest" release.
+      # Release assets don't count against the Actions storage quota.
+      - name: Publish ROM to latest release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp pokeemerald.gba emerald-political-hack.gba
+          gh release delete latest --cleanup-tag --yes || true
+          gh release create latest emerald-political-hack.gba --prerelease --target "$GITHUB_SHA" \
+            --title "Latest build" --notes "Built automatically from main at $GITHUB_SHA."
 
   test:
     runs-on: ubuntu-latest

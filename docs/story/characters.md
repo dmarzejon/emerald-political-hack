@@ -6,7 +6,11 @@
 *Rowan* is the default). 16 years old, the tenth and youngest child of King Aldric III and
 the only one by Elena Marsh. The court calls them "the Marsh Prince" or "the Marsh
 Princess", or simply "the bastard". Raised in Lowmere by their mother's friends after she
-died when they were four.
+died when they were four, until about age 10, when the Crown took them to court in
+Crownspire to be raised as a royal ward, kept at the edge of the family and never welcome
+in it. The Apportionment at 16 sends them back to Lowmere. They return as a stranger with
+a title: they know the town and its people, but the town has spent six years getting
+poorer without them.
 
 The player is quiet and fills in their voice through choices, but their defining trait is
 fixed: they take the town nobody wanted seriously. Their goal at the start is small, to
@@ -168,7 +172,8 @@ down so Trial 1 stays fair.
 
 ## Lowmere
 
-- **Bram Ashdown.** Retired royal Ranger, about 60, gruff, raised the player. Gives the
+- **Bram Ashdown.** Retired royal Ranger, about 60, gruff, raised the player until
+  the Crown took them to court, and fetches them home after the Apportionment. Gives the
   starter. He was Elena's friend and knows more than he says.
 - **Tamsin Reed.** 16, the blacksmith's daughter, the player's oldest friend. Loud,
   stubborn, impatient with nobles. The rival: she battles the player throughout, and

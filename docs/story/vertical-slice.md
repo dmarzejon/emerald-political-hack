@@ -26,7 +26,8 @@ to adopt or rename; please record the final names in `docs/systems.md`.
   boxes over a still image if a full map is too much for the slice.
 
 ### 2. Arrival in Lowmere (Stage 0)
-- The player arrives by cart with Bram Ashdown. Lowmere: six houses, three boarded up,
+- The player returns by cart with Bram Ashdown, six years after the Crown took them to
+  court. Townsfolk remember them as a child; some are glad, some resent the title. Lowmere: six houses, three boarded up,
   a broken well, an empty market square, a collapsed jetty, marsh all around.
 - Bram walks the player to **the Old Lodge**, the shabby house that is now the "royal
   residence". Replaces the player's house.

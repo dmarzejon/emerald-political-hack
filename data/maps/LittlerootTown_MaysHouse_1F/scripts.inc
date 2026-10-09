@@ -403,12 +403,3 @@ RivalsHouse_1F_Text_DoYouHavePokemon:
 	.string "Hi, neighbor!\p"
 	.string "Do you already have your\n"
 	.string "own POKéMON?$"
-
-@ ---- Map-thread placeholders. The dialogue thread replaces these. ----
-
-LittlerootTown_MaysHouse_1F_EventScript_Hesk::
-	msgbox LittlerootTown_MaysHouse_1F_Text_Hesk, MSGBOX_NPC
-	end
-
-LittlerootTown_MaysHouse_1F_Text_Hesk:
-	.string "MOTHER HESK: (placeholder)$"

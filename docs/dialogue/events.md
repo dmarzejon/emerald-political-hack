@@ -26,14 +26,14 @@ version.
 
 ## Temporary constants
 
-Until the owning thread defines the real names, `common.inc` (and the top of each area
-file) defines fallbacks under `#ifndef`. A fallback disappears as soon as the real
+Until the owning thread defines the real names, the top of each area file defines
+fallbacks under `#ifndef`. A fallback disappears as soon as the real
 constant exists, so the owning thread can add it with no change here.
 
 - **Features:** done. Every `VAR_*`, `FLAG_*` and `ITEM_*` the slice uses is defined on
   main (PR #7), and the Silver Wing, Bell Receipt and Sealed Letter are given with `giveitem`.
-- **Balance:** every `TRAINER_*` below borrows a vanilla early trainer so the battle runs.
-  `KINGS_GIFT_LEVEL` (default 5) is the level of the king's gift.
+- **Balance:** done. Every `TRAINER_*` and `KINGS_GIFT_LEVEL` come from
+  `include/constants/slice_balance.h` (PR #4).
 - **Map:** every `LOCALID_*` below is a placeholder number. Give the object that
   `local_id` in `map.json` and it takes over.
 

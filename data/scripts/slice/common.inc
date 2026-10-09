@@ -3,69 +3,6 @@
 @ other threads; see docs/dialogue/events.md for the contract.
 
 @ ---------------------------------------------------------------------------
-@ Temporary constants.
-@ The features thread now defines every flag, var and item the slice uses
-@ (include/constants/flags.h, vars.h, items.h). What is left here are the
-@ trainer names and KINGS_GIFT_LEVEL, which the balance thread defines in
-@ include/constants/slice_balance.h. Each fallback is inside #ifndef, so it
-@ drops out by itself once that header is on main.
-@ Delete this block once all of them are defined elsewhere.
-@ ---------------------------------------------------------------------------
-
-@ Trainers. The balance thread owns the teams; the fallbacks borrow vanilla
-@ early-game trainers so the battles run until the real ones exist.
-#ifndef TRAINER_TAMSIN_LOWMERE_0
-#define TRAINER_TAMSIN_LOWMERE_0 TRAINER_MAY_ROUTE_103_TREECKO
-#endif
-#ifndef TRAINER_TAMSIN_LOWMERE_1
-#define TRAINER_TAMSIN_LOWMERE_1 TRAINER_MAY_ROUTE_103_TORCHIC
-#endif
-#ifndef TRAINER_TAMSIN_LOWMERE_2
-#define TRAINER_TAMSIN_LOWMERE_2 TRAINER_MAY_ROUTE_103_MUDKIP
-#endif
-#ifndef TRAINER_MIRE_ROAD_CLERK
-#define TRAINER_MIRE_ROAD_CLERK TRAINER_CALVIN_1
-#endif
-#ifndef TRAINER_MIRE_ROAD_POACHER
-#define TRAINER_MIRE_ROAD_POACHER TRAINER_RICK
-#endif
-#ifndef TRAINER_MIRE_ROAD_YOUNGSTER
-#define TRAINER_MIRE_ROAD_YOUNGSTER TRAINER_ALLEN
-#endif
-#ifndef TRAINER_MIRE_ROAD_CARTER
-#define TRAINER_MIRE_ROAD_CARTER TRAINER_TIANA
-#endif
-#ifndef TRAINER_MIRE_ROAD_WAGON_CLERK
-#define TRAINER_MIRE_ROAD_WAGON_CLERK TRAINER_GRUNT_PETALBURG_WOODS
-#endif
-#ifndef TRAINER_HAYMARKET_FOREMAN
-#define TRAINER_HAYMARKET_FOREMAN TRAINER_JOSH
-#endif
-#ifndef TRAINER_HAYMARKET_CLERK_1
-#define TRAINER_HAYMARKET_CLERK_1 TRAINER_GRUNT_RUSTURF_TUNNEL
-#endif
-#ifndef TRAINER_HAYMARKET_CLERK_2
-#define TRAINER_HAYMARKET_CLERK_2 TRAINER_GRUNT_MUSEUM_1
-#endif
-#ifndef TRAINER_PAVILION_BROKER_1
-#define TRAINER_PAVILION_BROKER_1 TRAINER_TOMMY
-#endif
-#ifndef TRAINER_PAVILION_BIDDER
-#define TRAINER_PAVILION_BIDDER TRAINER_MARC
-#endif
-#ifndef TRAINER_PAVILION_BROKER_2
-#define TRAINER_PAVILION_BROKER_2 TRAINER_JOSH
-#endif
-#ifndef TRAINER_CORWIN
-#define TRAINER_CORWIN TRAINER_ROXANNE_1
-#endif
-
-@ Levels the balance thread owns.
-#ifndef KINGS_GIFT_LEVEL
-#define KINGS_GIFT_LEVEL 5
-#endif
-
-@ ---------------------------------------------------------------------------
 @ Macros
 @ ---------------------------------------------------------------------------
 

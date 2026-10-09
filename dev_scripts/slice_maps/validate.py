@@ -17,7 +17,7 @@ MAPS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Haymarket_GiltPavilion', 'H
         'Haymarket_CountingHouse_BackRoom', 'Haymarket_Granary', 'Lowmere_Forge', 'Lowmere_ReevesHouse',
         'Lowmere_ReopenedHouse', 'OldaleTown_House1', 'OldaleTown_House2', 'LittlerootTown_MaysHouse_1F',
         'LittlerootTown_MaysHouse_2F', 'LittlerootTown_BrendansHouse_1F', 'LittlerootTown_ProfessorBirchsLab',
-        'Route102', 'PetalburgCity', 'Thornfield_Palace']
+        'Route102', 'PetalburgCity', 'Thornfield_Palace', 'RustboroCity', 'RusturfTunnel', 'RustboroCity_Gym']
 LOWMERE_STAGES = ['LAYOUT_LOWMERE_STAGE%d' % i for i in range(5)]
 # Objects whose spot is meant to block (a guard on a door, a boulder) or that only appear in a cutscene.
 BLOCKING_OK = {'LOCALID_HAYMARKET_PAVILION_GUARD', 'LOCALID_THORNFIELD_PALACE_GUARD'}

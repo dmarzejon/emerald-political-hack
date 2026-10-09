@@ -107,6 +107,17 @@ const struct Tileset gTileset_Cragholt =
     .callback = InitTilesetAnim_Rustboro,
 };
 
+const struct Tileset gTileset_CragholtMine =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CragholtMine,
+    .palettes = gTilesetPalettes_CragholtMine,
+    .metatiles = gMetatiles_CragholtMine,
+    .metatileAttributes = gMetatileAttributes_CragholtMine,
+    .callback = NULL,
+};
+
 const struct Tileset gTileset_Dewford =
 {
     .isCompressed = TRUE,

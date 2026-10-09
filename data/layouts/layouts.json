@@ -9444,6 +9444,17 @@
       "border_filepath": "data/layouts/Cragholt/border.bin",
       "blockdata_filepath": "data/layouts/Cragholt/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CRAGHOLT_MINE",
+      "name": "Cragholt_Mine_Layout",
+      "width": 36,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CragholtMine",
+      "border_filepath": "data/layouts/Cragholt_Mine/border.bin",
+      "blockdata_filepath": "data/layouts/Cragholt_Mine/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

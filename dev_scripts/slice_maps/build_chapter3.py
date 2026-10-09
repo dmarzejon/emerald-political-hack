@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the chapter 3 layouts: Cragholt and the road to it.
+"""Generate the chapter 3 layouts: Cragholt, the road to it and the collapsed mine.
 
 Run build_cragholt_tileset.py first, then this, from the repo root:
     python3 dev_scripts/slice_maps/build_cragholt_tileset.py
@@ -23,6 +23,7 @@ E_TOWN = 3                      # Rustboro's paving sits at elevation 3
 PAVING = 0x2BB
 SIGNBOARD = 0x003               # General's signboard; Rustboro sets it at elevation 0
 VANILLA_RUSTBORO = Layout.load(path('data/layouts/RustboroCity/map.bin'), 40)
+VANILLA_RUSTURF = Layout.load(path('data/layouts/RusturfTunnel/map.bin'), 36)
 
 # Layouts that keep their blocks and only switch to the Cragholt tileset.
 RETILED = ['LAYOUT_ROUTE104', 'LAYOUT_PETALBURG_WOODS', 'LAYOUT_ROUTE116']
@@ -71,17 +72,55 @@ def cragholt():
     return c
 
 
-def main():
-    c = cragholt()
-    d = path('data/layouts', 'Cragholt')
+# ---- the collapsed mine (Rusturf Tunnel slot) -----------------------------
+E_MINE = 3
+MINE_FLOOR = 0x201
+# The haulage way: the long corridor from the west entrance, rows 4-5.
+MN_RAIL = (4, 19, 5)
+MN_CART = (8, 5)
+MN_ORE = [(5, 4), (13, 4)]
+MN_TIMBERS = [10, 14, 18]           # props on the wall faces above (row 3) and below (row 6)
+# The fall: rubble across the whole corridor, with the Chancellery crate in front of it.
+MN_RUBBLE = (20, 4)                 # 2x2, covers (20-21, 4-5)
+MN_CRATE = (19, 4)
+
+
+def collapsed_mine():
+    c = from_vanilla(VANILLA_RUSTURF)
+    x0, x1, y = MN_RAIL
+    for x in range(x0, x1 + 1):
+        if (x, y) == MN_CART:
+            c.put(x, y, CR['mine_cart_0_0'], 1, E_MINE)
+        else:
+            c.put(x, y, CR['mine_rail_h_0_0'], 0, E_MINE)
+    for (x, y) in MN_ORE:
+        c.put(x, y, CR['mine_ore_0_0'], 1, E_MINE)
+    for x in MN_TIMBERS:
+        c.put(x, 3, CR['mine_timber_face_0_0'], 1, E_MINE)
+        c.put(x, 6, CR['mine_timber_top_0_0'], 1, E_MINE)
+    rx, ry = MN_RUBBLE
+    for dy in range(2):
+        for dx in range(2):
+            c.put(rx + dx, ry + dy, CR['mine_rubble_%d_%d' % (dx, dy)], 1, E_MINE)
+    c.put(*MN_CRATE, CR['mine_crate_0_0'], 1, E_MINE)
+    return c
+
+
+def save(c, name, layout_id, border_from, secondary):
+    d = path('data/layouts', name)
     c.save(os.path.join(d, 'map.bin'))
-    Layout.load(path('data/layouts/RustboroCity/border.bin'), 2).save(os.path.join(d, 'border.bin'))
-    register_layout('LAYOUT_CRAGHOLT', 'Cragholt', c.w, c.h, 'gTileset_Cragholt')
+    Layout.load(path('data/layouts', border_from, 'border.bin'), 2).save(os.path.join(d, 'border.bin'))
+    register_layout(layout_id, name, c.w, c.h, secondary)
+
+
+def main():
+    save(cragholt(), 'Cragholt', 'LAYOUT_CRAGHOLT', 'RustboroCity', 'gTileset_Cragholt')
+    save(collapsed_mine(), 'Cragholt_Mine', 'LAYOUT_CRAGHOLT_MINE', 'RusturfTunnel', 'gTileset_CragholtMine')
     layouts = json.load(open(path('data/layouts/layouts.json')))['layouts']
     for l in layouts:
         if l.get('id') in RETILED:
             register_layout(l['id'], l['name'][:-len('_Layout')], l['width'], l['height'], 'gTileset_Cragholt')
-    print('wrote Cragholt and moved the road to the Cragholt tileset')
+    print('wrote Cragholt and the collapsed mine, and moved the road to the Cragholt tileset')
 
 
 if __name__ == '__main__':

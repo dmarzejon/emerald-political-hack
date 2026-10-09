@@ -176,6 +176,28 @@ const u16 gTilesetPalettes_Cragholt[][16] =
     INCGFX_U16("data/tilesets/secondary/cragholt/palettes/15.pal", ".gbapal"),
 };
 
+const u32 gTilesetTiles_CragholtMine[] = INCGFX_U32("data/tilesets/secondary/cragholt_mine/tiles.png", ".4bpp.fastSmol", "-num_tiles 161 -Wnum_tiles");
+
+const u16 gTilesetPalettes_CragholtMine[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cragholt_mine/palettes/15.pal", ".gbapal"),
+};
+
 const u32 gTilesetTiles_Dewford[] = INCGFX_U32("data/tilesets/secondary/dewford/tiles.png", ".4bpp.fastSmol", "-num_tiles 503 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Dewford[][16] =

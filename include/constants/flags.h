@@ -91,13 +91,13 @@
 #define FLAG_HIDE_LOWMERE_GRAIN_CARTS        0x43
 #define FLAG_HIDE_MIRE_ROAD_TAMSIN_WAGON     0x44
 #define FLAG_HIDE_HAYMARKET_TAMSIN           0x45
-#define FLAG_FOUND_DEBT_LEDGER               0x46 // Trial 2 (Thornfield), see docs/systems.md
-#define FLAG_FOUND_FORECLOSURE_WRIT          0x47
-#define FLAG_THORNFIELD_WITNESS              0x48
-#define FLAG_THORNFIELD_TRIAL_GRANTED        0x49
-#define FLAG_THORNFIELD_GROVE_SEEN           0x4A
-#define FLAG_THORNFIELD_GROVE_OPENED         0x4B
-#define FLAG_LOWMERE_GARDENERS_ARRIVED       0x4C
+#define FLAG_UNUSED_0x046    0x46 // Unused Flag
+#define FLAG_UNUSED_0x047    0x47 // Unused Flag
+#define FLAG_UNUSED_0x048    0x48 // Unused Flag
+#define FLAG_UNUSED_0x049    0x49 // Unused Flag
+#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
+#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
+#define FLAG_UNUSED_0x04C    0x4C // Unused Flag
 #define FLAG_UNUSED_0x04D    0x4D // Unused Flag
 #define FLAG_UNUSED_0x04E    0x4E // Unused Flag
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag

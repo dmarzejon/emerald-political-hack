@@ -8,6 +8,13 @@
 #include "test/overworld_script.h"
 #include "test/test.h"
 
+// The script macros in asm/macros/event.inc aren't run through the C preprocessor in tests,
+// so give the assembler the constants they use.
+asm(".set VAR_0x8004, " STR(VAR_0x8004) "\n"
+    ".set VAR_0x8005, " STR(VAR_0x8005) "\n"
+    ".set VAR_LOWMERE_STAGE, " STR(VAR_LOWMERE_STAGE) "\n"
+    ".set VAR_LOWMERE_STAGE_SEEN, " STR(VAR_LOWMERE_STAGE_SEEN) "\n");
+
 TEST("Lowmere starts at stage 0 with no pacts")
 {
     EXPECT_EQ(CountSignedPacts(), 0);

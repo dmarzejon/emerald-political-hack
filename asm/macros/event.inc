@@ -3035,7 +3035,7 @@
 	@ (VAR_LOWMERE_STAGE > VAR_LOWMERE_STAGE_SEEN). Use it in a Lowmere map script to start the
 	@ upgrade scene, then call lowmere_mark_stage_seen at the end of the scene.
 	.macro goto_if_lowmere_stage_new dest:req
-	compare VAR_LOWMERE_STAGE_SEEN, VAR_LOWMERE_STAGE
+	compare_var_to_var VAR_LOWMERE_STAGE_SEEN, VAR_LOWMERE_STAGE
 	goto_if_lt \dest
 	.endm
 

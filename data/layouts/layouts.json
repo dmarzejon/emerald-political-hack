@@ -9400,6 +9400,39 @@
       "border_filepath": "data/layouts/Lowmere_RangersShed/border.bin",
       "blockdata_filepath": "data/layouts/Lowmere_RangersShed/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ORCHARD_ROAD",
+      "name": "OrchardRoad_Layout",
+      "width": 50,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lowmere",
+      "border_filepath": "data/layouts/OrchardRoad/border.bin",
+      "blockdata_filepath": "data/layouts/OrchardRoad/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_THORNFIELD",
+      "name": "Thornfield_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lowmere",
+      "border_filepath": "data/layouts/Thornfield/border.bin",
+      "blockdata_filepath": "data/layouts/Thornfield/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_THORNFIELD_PALACE",
+      "name": "Thornfield_Palace_Layout",
+      "width": 16,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lowmere",
+      "border_filepath": "data/layouts/Thornfield_Palace/border.bin",
+      "blockdata_filepath": "data/layouts/Thornfield_Palace/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

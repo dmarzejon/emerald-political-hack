@@ -337,6 +337,105 @@ def draw_grave():
     return im
 
 
+def draw_tent():
+    """A patched canvas tent, front on (2x2 metatiles): the evicted farmers' camp."""
+    im, d = canvas(32, 32)
+    d.polygon([(16, 1), (31, 30), (0, 30)], fill=12, outline=6)
+    d.polygon([(16, 1), (24, 30), (8, 30)], fill=11, outline=6)
+    d.polygon([(16, 12), (21, 30), (11, 30)], fill=6)             # the open flap
+    d.line([16, 0, 16, 3], fill=4)
+    d.rectangle([22, 18, 26, 22], fill=3, outline=5)               # a patch
+    d.rectangle([4, 24, 8, 27], fill=4, outline=5)
+    d.line([0, 31, 31, 31], fill=5)
+    return im
+
+
+def draw_campfire():
+    im, d = canvas(16, 16)
+    for (x, y) in ((1, 11), (5, 13), (10, 13), (13, 10), (3, 8)):
+        d.ellipse([x, y, x + 3, y + 2], fill=9, outline=10)
+    d.line([4, 12, 12, 9], fill=5, width=2)
+    d.line([4, 9, 12, 12], fill=4, width=2)
+    d.polygon([(8, 1), (12, 9), (8, 11), (4, 9)], fill=12, outline=4)
+    d.polygon([(8, 4), (10, 9), (8, 10), (6, 9)], fill=11)
+    d.point([(8, 7)], fill=1)
+    return im
+
+
+def draw_greenhouse():
+    """Glass house with a stone base and plants inside (3x3 metatiles, door at +1,+2)."""
+    im, d = canvas(48, 48)
+    d.polygon([(0, 18), (24, 1), (47, 18)], fill=14, outline=6)    # glass roof
+    for x in range(6, 44, 6):
+        d.line([x, 18, 24 + (x - 24) // 2, 9 if x != 24 else 1], fill=9)
+    d.line([24, 1, 24, 18], fill=9)
+    d.line([9, 12, 17, 7], fill=1)
+    d.rectangle([1, 18, 46, 41], fill=14, outline=6)               # glass walls
+    for x in range(8, 46, 8):
+        d.line([x, 19, x, 40], fill=9)
+    d.line([2, 29, 45, 29], fill=9)
+    for x in range(3, 44, 6):                                      # leaves behind the glass
+        d.ellipse([x, 31, x + 6, 39], fill=15)
+    for x in (4, 36):
+        d.line([x, 21, x + 4, 25], fill=1)
+    d.rectangle([0, 40, 47, 47], fill=8, outline=6)                # stone base
+    for x in range(8, 47, 12):
+        d.line([x, 41, x, 46], fill=9)
+    d.rectangle([18, 26, 29, 47], fill=13, outline=6)              # door
+    d.line([23, 27, 23, 46], fill=9)
+    d.point([(27, 37)], fill=1)
+    return im
+
+
+def draw_glass_wall():
+    """A tileable stretch of glasshouse wall (1x2 metatiles): glass panes over a stone base."""
+    im, d = canvas(16, 32)
+    d.rectangle([0, 0, 15, 25], fill=14)
+    d.line([0, 0, 15, 0], fill=6)
+    for y in (8, 17):
+        d.line([0, y, 15, y], fill=9)
+    d.line([0, 0, 0, 25], fill=9)
+    d.line([3, 3, 7, 1], fill=1)
+    d.line([3, 12, 6, 10], fill=1)
+    d.ellipse([8, 18, 15, 25], fill=15)
+    d.ellipse([0, 20, 6, 25], fill=15)
+    d.rectangle([0, 26, 15, 31], fill=8)
+    d.line([0, 26, 15, 26], fill=6)
+    d.line([7, 27, 7, 31], fill=9)
+    return im
+
+
+def draw_flagstones():
+    im, d = canvas(16, 16)
+    for box in ((0, 0, 7, 6), (8, 0, 15, 4), (0, 7, 5, 15), (6, 7, 15, 11), (8, 5, 15, 6), (6, 12, 15, 15)):
+        d.rectangle(box, fill=7, outline=8)
+    d.point([(2, 2), (11, 2), (3, 10), (9, 9), (12, 14)], fill=9)
+    return im
+
+
+def draw_rowboat():
+    """A moored rowboat, bow to the left (2x1 metatiles on water)."""
+    im, d = canvas(32, 16)
+    d.polygon([(0, 7), (6, 2), (29, 2), (31, 5), (29, 13), (6, 13)], fill=3, outline=6)
+    d.polygon([(4, 7), (8, 4), (27, 4), (28, 7), (27, 11), (8, 11)], fill=5)
+    for x in (13, 21):
+        d.rectangle([x, 4, x + 2, 11], fill=2, outline=4)
+    d.line([1, 7, 29, 7], fill=4)
+    return im
+
+
+def draw_notice():
+    """A nailed foreclosure notice on a post (1x1)."""
+    im, d = canvas(16, 16)
+    d.rectangle([7, 9, 8, 15], fill=4, outline=6)
+    d.rectangle([2, 1, 13, 10], fill=1, outline=6)
+    for y in (3, 5, 7):
+        d.line([4, y, 11, y], fill=9)
+    d.point([(7, 2)], fill=6)
+    d.rectangle([9, 7, 11, 9], fill=13)    # the seal
+    return im
+
+
 def boards(kind):
     """16x16 overlay in palette-9 indices for a boarded window (on 28f/27d) or door (27f/287)."""
     P, S, D = 3, 4, 8  # plank, shadow, dark
@@ -501,6 +600,15 @@ def main():
     b.prop(draw_grave(), grass, 'grave')
     b.prop(draw_mud(0), marsh, 'mud_a', behavior=0x16)  # MB_PUDDLE
     b.prop(draw_mud(1), marsh, 'mud_b', behavior=0x16)
+    # Chapter 2 (Thornfield and the Orchard Road). Append only: earlier ids must not move.
+    b.prop(draw_tent(), grass, 'tent')
+    b.prop(draw_campfire(), grass, 'campfire')
+    b.prop(draw_greenhouse(), grass, 'greenhouse')
+    b.prop(draw_flagstones(), grass, 'flagstones')
+    b.prop(draw_rowboat(), 0x0D1, 'rowboat')
+    b.prop(draw_notice(), grass, 'notice')
+    b.prop(draw_flagstones(), grass, 'exit_mat', behavior=0x65)  # MB_SOUTH_ARROW_WARP
+    b.prop(draw_glass_wall(), grass, 'glass_wall')
 
     ntiles = len(b.ts.tiles)
     nmeta = len(b.ts.metatiles)

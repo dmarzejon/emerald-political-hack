@@ -97,7 +97,7 @@ That is 49 different species across the slice's two areas.
 
 The expansion only has room for 9 new trainer IDs before trainer flags overflow, and the
 slice needs 14. So the slice reuses vanilla trainer IDs from the matching story beat
-(none of them have rematches). Map and dialogue threads should use these constants.
+(none of them have rematches). `include/constants/slice_balance.h` gives each one a story name (`TRAINER_CORWIN`, `TRAINER_TAMSIN_LOWMERE_0`, ...) for scripts to use, and defines `KINGS_GIFT_LEVEL`.
 Names, classes and sprites are placeholders where noted until features adds proper
 trainer classes and pics.
 
@@ -113,7 +113,7 @@ trainer classes and pics.
 | `TRAINER_GRUNT_MUSEUM_1` | Clerk | Counting house | Team Aqua (placeholder) | Purrloin 9, Poochyena 9 |
 | `TRAINER_GRUNT_MUSEUM_2` | Clerk | Counting house | Team Aqua (placeholder) | Murkrow 9, Pawniard 10 |
 | `TRAINER_JOSH` | Albrecht, bidder | Gilt Pavilion | Rich Boy | Lillipup 10, Glameow 11 |
-| `TRAINER_TOMMY` | Celeste, bidder | Gilt Pavilion | Lady | Skitty 10, Minccino 11 |
+| `TRAINER_TOMMY` | Celeste, broker | Gilt Pavilion | Lady | Skitty 10, Minccino 11 |
 | `TRAINER_MARC` | Fenwick, broker | Gilt Pavilion | Gentleman | Lechonk 11, Aipom 12 |
 | `TRAINER_ROXANNE_1` | **Prince Corwin**, Trial 1 | Gilt Pavilion | Leader / Roxanne (placeholder pic) | See below |
 

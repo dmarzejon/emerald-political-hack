@@ -800,6 +800,8 @@ Lowmere_Text_BramHereWeAre::
 	.string "LOWMERE.$"
 
 Lowmere_Text_FirstLook::
+	.string "It is smaller and poorer than you\n"
+	.string "remember.\p"
 	.string "Six houses, and three of them boarded\n"
 	.string "up. A well with no bucket. A jetty that\l"
 	.string "stops halfway out over the water.\p"
@@ -823,6 +825,10 @@ Lowmere_Text_ToftWelcome::
 	.string "Your Highness! Welcome, welcome! ABEL\n"
 	.string "TOFT, reeve of LOWMERE. Which is to say,\l"
 	.string "the only official it has.\p"
+	.string "I took the post after you'd gone off to\n"
+	.string "court, so we've never met. But everyone\l"
+	.string "here still talks about the little one\l"
+	.string "who went to the palace.\p"
 	.string "I'd hoped to have the place swept for\n"
 	.string "you. I did sweep it. The marsh came back\l"
 	.string "in.\p"

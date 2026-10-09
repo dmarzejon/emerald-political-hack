@@ -136,7 +136,8 @@ Prologue_Text_VennGone::
 Prologue_Text_ThreeDaysLater::
 	.string "Three days later.\p"
 	.string "The cart jolts along the marsh road.\n"
-	.string "Somewhere up ahead is LOWMERE.$"
+	.string "Somewhere up ahead is LOWMERE. You\l"
+	.string "haven't seen it since you were ten.$"
 
 Prologue_Text_BramHoldOn::
 	.string "Hold on to something. The road gets\n"

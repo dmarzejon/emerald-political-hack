@@ -101,24 +101,23 @@ That is 49 different species across the slice's two areas.
 The expansion only has room for 9 new trainer IDs before trainer flags overflow, and the
 slice needs 14. So the slice reuses vanilla trainer IDs from the matching story beat
 (none of them have rematches). `include/constants/slice_balance.h` gives each one a story name (`TRAINER_CORWIN`, `TRAINER_TAMSIN_LOWMERE_0`, ...) for scripts to use, and defines `KINGS_GIFT_LEVEL`.
-Names, classes and sprites are placeholders where noted until features adds proper
-trainer classes and pics.
+Classes and pics come from the features thread (docs/systems.md, "Trainer classes and pics").
 
-| Constant | Who | Where | Class / pic (placeholder?) | Team |
+| Constant | Who | Where | Class / pic | Team |
 |---|---|---|---|---|
-| `TRAINER_MAY_ROUTE_103_*`, `TRAINER_BRENDAN_ROUTE_103_*` | **Tamsin** | Edge of Lowmere | Rival / May (placeholder pic) | Starter that beats the player's, Lv 5, level-1 moves only |
-| `TRAINER_RICK` | Clerk Hobb, Gilded Scale toll | Mire Road | Gentleman (placeholder) | Purrloin 5, Galarian Zigzagoon 5 |
-| `TRAINER_TIANA` | Grisk, poacher | Mire Road | Hiker (placeholder) | Wooper 5, Croagunk 6 |
+| `TRAINER_MAY_ROUTE_103_*`, `TRAINER_BRENDAN_ROUTE_103_*` | **Tamsin** | Edge of Lowmere | Friend / Tamsin | Starter that beats the player's, Lv 5, level-1 moves only |
+| `TRAINER_RICK` | Clerk Hobb, Gilded Scale toll | Mire Road | Guild Clerk | Purrloin 5, Galarian Zigzagoon 5 |
+| `TRAINER_TIANA` | Grisk, poacher | Mire Road | Poacher | Wooper 5, Croagunk 6 |
 | `TRAINER_ALLEN` | Pip, youngster | Mire Road | Youngster | Bidoof 4, Lillipup 5 |
-| `TRAINER_ANDREW` | Willem, grain carter | Mire Road | Fisherman (placeholder) | Mudbray 6, Skwovet 6 |
-| `TRAINER_GRUNT_PETALBURG_WOODS` | Wagon clerk | Mire Road event | Team Aqua (placeholder) | Poochyena 6, Galarian Meowth 7 |
-| `TRAINER_GRUNT_RUSTURF_TUNNEL` | Guild foreman | Haymarket granary | Team Aqua (placeholder) | Mudbray 9, Timburr 10 |
-| `TRAINER_GRUNT_MUSEUM_1` | Clerk | Counting house | Team Aqua (placeholder) | Purrloin 9, Poochyena 9 |
-| `TRAINER_GRUNT_MUSEUM_2` | Clerk | Counting house | Team Aqua (placeholder) | Murkrow 9, Pawniard 10 |
-| `TRAINER_JOSH` | Albrecht, bidder | Gilt Pavilion | Rich Boy | Lillipup 9, Glameow 10 |
-| `TRAINER_TOMMY` | Celeste, broker | Gilt Pavilion | Lady | Skitty 9, Minccino 10 |
-| `TRAINER_MARC` | Fenwick, broker | Gilt Pavilion | Gentleman | Lechonk 10, Aipom 11 |
-| `TRAINER_ROXANNE_1` | **Prince Corwin**, Trial 1 | Gilt Pavilion | Leader / Roxanne (placeholder pic) | See below |
+| `TRAINER_ANDREW` | Willem, grain carter | Mire Road | Carter | Mudbray 6, Skwovet 6 |
+| `TRAINER_GRUNT_PETALBURG_WOODS` | Wagon clerk | Mire Road event | Guild Clerk | Poochyena 6, Galarian Meowth 7 |
+| `TRAINER_GRUNT_RUSTURF_TUNNEL` | Guild foreman | Haymarket granary | Foreman | Mudbray 9, Timburr 10 |
+| `TRAINER_GRUNT_MUSEUM_1` | Clerk | Counting house | Guild Clerk | Purrloin 9, Poochyena 9 |
+| `TRAINER_GRUNT_MUSEUM_2` | Clerk | Counting house | Guild Clerk | Murkrow 9, Pawniard 10 |
+| `TRAINER_JOSH` | Albrecht, bidder | Gilt Pavilion | Bidder / Rich Boy | Lillipup 9, Glameow 10 |
+| `TRAINER_TOMMY` | Celeste, broker | Gilt Pavilion | Broker / Lady | Skitty 9, Minccino 10 |
+| `TRAINER_MARC` | Fenwick, broker | Gilt Pavilion | Broker / Gentleman | Lechonk 10, Aipom 11 |
+| `TRAINER_ROXANNE_1` | **Prince Corwin**, Trial 1 | Gilt Pavilion | Prince / Prince Corwin | See below |
 
 Tamsin's constant suffix is the **player's** starter, as in vanilla: `_MUDKIP` means the
 player chose Mudkip, so Tamsin has Treecko. Both the May and Brendan sets are identical, so
@@ -191,13 +190,13 @@ That adds 44 new species, so the first two chapters hold 93.
 | Constant | Story name | Who | Class / pic | Team |
 |---|---|---|---|---|
 | `TRAINER_DAISY` | `TRAINER_ORCHARD_ROAD_PICKER` | Hazel, orchard hand | Picnicker | Combee 11, Bounsweet 12 |
-| `TRAINER_RHETT` | `TRAINER_ORCHARD_ROAD_BAILIFF` | Bruno, debt bailiff | Black Belt (placeholder) | Machop 12, Meditite 12 |
+| `TRAINER_RHETT` | `TRAINER_ORCHARD_ROAD_BAILIFF` | Bruno, debt bailiff | Bailiff | Machop 12, Meditite 12 |
 | `TRAINER_MARCOS` | `TRAINER_ORCHARD_ROAD_POET` | Lionel, court poet | Gentleman | Flabébé 11, Kricketune 13 |
-| `TRAINER_BERKE` | `TRAINER_THORNFIELD_BAILIFF` | Bailiff at the Steward's Office | Team Aqua (placeholder) | Houndour 13, Grimer 13 |
-| `TRAINER_RANDALL` | `TRAINER_PALACE_GARDENER_1` | Primrose, gardener | Aroma Lady (placeholder) | Hoppip 13, Petilil 14 |
-| `TRAINER_PARKER` | `TRAINER_PALACE_GARDENER_2` | Bryony, gardener | Aroma Lady (placeholder) | Foongus 14, Sewaddle 14 |
+| `TRAINER_BERKE` | `TRAINER_THORNFIELD_BAILIFF` | Bailiff at the Steward's Office | Bailiff | Houndour 13, Grimer 13 |
+| `TRAINER_RANDALL` | `TRAINER_PALACE_GARDENER_1` | Primrose, gardener | Gardener | Hoppip 13, Petilil 14 |
+| `TRAINER_PARKER` | `TRAINER_PALACE_GARDENER_2` | Bryony, gardener | Gardener | Foongus 14, Sewaddle 14 |
 | `TRAINER_GEORGE` | `TRAINER_PALACE_COURTIER` | Oswin, courtier | Gentleman | Sunkern 14, Skiploom 15 |
-| `TRAINER_NORMAN_1` | `TRAINER_ISOLDE` | **Princess Isolde**, Trial 2 | Leader / Norman (placeholder pic) | See below |
+| `TRAINER_NORMAN_1` | `TRAINER_ISOLDE` | **Princess Isolde**, Trial 2 | Princess / Princess Isolde | See below |
 
 None of these IDs have rematches or Match Call entries. Norman's gym rematches
 (`NORMAN_2`-`5`) only trigger after the Champion, so they stay dormant.

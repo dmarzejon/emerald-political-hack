@@ -226,10 +226,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_PETALBURG_WOODS ===
 Name: CLERK
-Class: Team Aqua
-Pic: Aqua Grunt M
+Class: Guild Clerk
+Pic: Guild Clerk
 Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
@@ -321,10 +321,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_RUSTURF_TUNNEL ===
 Name: FOREMAN
-Class: Team Aqua
-Pic: Aqua Grunt M
+Class: Foreman
+Pic: Foreman
 Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
@@ -393,10 +393,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MUSEUM_1 ===
 Name: CLERK
-Class: Team Aqua
-Pic: Aqua Grunt M
+Class: Guild Clerk
+Pic: Guild Clerk
 Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
@@ -410,10 +410,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MUSEUM_2 ===
 Name: CLERK
-Class: Team Aqua
-Pic: Aqua Grunt M
+Class: Guild Clerk
+Pic: Guild Clerk
 Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
@@ -1274,8 +1274,8 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_RANDALL ===
 Name: PRIMROSE
-Class: Aroma Lady
-Pic: Aroma Lady
+Class: Gardener
+Pic: Gardener
 Gender: Female
 Music: Female
 Double Battle: No
@@ -1291,8 +1291,8 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_PARKER ===
 Name: BRYONY
-Class: Aroma Lady
-Pic: Aroma Lady
+Class: Gardener
+Pic: Gardener
 Gender: Female
 Music: Female
 Double Battle: No
@@ -1325,10 +1325,10 @@ IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 === TRAINER_BERKE ===
 Name: BAILIFF
-Class: Team Aqua
-Pic: Aqua Grunt M
+Class: Bailiff
+Pic: Bailiff
 Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
@@ -4805,8 +4805,8 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_ROXANNE_1 ===
 Name: CORWIN
-Class: Leader
-Pic: Leader Roxanne
+Class: Prince
+Pic: Prince Corwin
 Gender: Male
 Music: Male
 Double Battle: No
@@ -4967,8 +4967,8 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_NORMAN_1 ===
 Name: ISOLDE
-Class: Leader
-Pic: Leader Norman
+Class: Princess
+Pic: Princess Isolde
 Gender: Female
 Music: Female
 Double Battle: No
@@ -6000,7 +6000,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOSH ===
 Name: ALBRECHT
-Class: Rich Boy
+Class: Bidder
 Pic: Rich Boy
 Gender: Male
 Music: Rich
@@ -6017,7 +6017,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_TOMMY ===
 Name: CELESTE
-Class: Lady
+Class: Broker
 Pic: Lady
 Gender: Female
 Music: Rich
@@ -6332,8 +6332,8 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_ANDREW ===
 Name: WILLEM
-Class: Fisherman
-Pic: Fisherman
+Class: Carter
+Pic: Carter
 Gender: Male
 Music: Hiker
 Double Battle: No
@@ -9531,8 +9531,8 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_BRENDAN_ROUTE_103_MUDKIP ===
 Name: TAMSIN
-Class: Rival
-Pic: May
+Class: Friend
+Pic: Tamsin
 Gender: Female
 Music: Female
 Double Battle: No
@@ -9588,8 +9588,8 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_BRENDAN_ROUTE_103_TREECKO ===
 Name: TAMSIN
-Class: Rival
-Pic: May
+Class: Friend
+Pic: Tamsin
 Gender: Female
 Music: Female
 Double Battle: No
@@ -9645,8 +9645,8 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_BRENDAN_ROUTE_103_TORCHIC ===
 Name: TAMSIN
-Class: Rival
-Pic: May
+Class: Friend
+Pic: Tamsin
 Gender: Female
 Music: Female
 Double Battle: No
@@ -9702,8 +9702,8 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_MAY_ROUTE_103_MUDKIP ===
 Name: TAMSIN
-Class: Rival
-Pic: May
+Class: Friend
+Pic: Tamsin
 Gender: Female
 Music: Female
 Double Battle: No
@@ -9759,8 +9759,8 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_MAY_ROUTE_103_TREECKO ===
 Name: TAMSIN
-Class: Rival
-Pic: May
+Class: Friend
+Pic: Tamsin
 Gender: Female
 Music: Female
 Double Battle: No
@@ -9816,8 +9816,8 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_MAY_ROUTE_103_TORCHIC ===
 Name: TAMSIN
-Class: Rival
-Pic: May
+Class: Friend
+Pic: Tamsin
 Gender: Female
 Music: Female
 Double Battle: No
@@ -10593,7 +10593,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_MARC ===
 Name: FENWICK
-Class: Gentleman
+Class: Broker
 Pic: Gentleman
 Gender: Male
 Music: Rich
@@ -11086,8 +11086,8 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_TIANA ===
 Name: GRISK
-Class: Hiker
-Pic: Hiker
+Class: Poacher
+Pic: Poacher
 Gender: Male
 Music: Hiker
 Double Battle: No
@@ -11290,8 +11290,8 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_RICK ===
 Name: HOBB
-Class: Gentleman
-Pic: Gentleman
+Class: Guild Clerk
+Pic: Guild Clerk
 Gender: Male
 Music: Male
 Double Battle: No
@@ -13116,10 +13116,10 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 === TRAINER_RHETT ===
 Name: BRUNO
-Class: Black Belt
-Pic: Black Belt
+Class: Bailiff
+Pic: Bailiff
 Gender: Male
-Music: Intense
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 

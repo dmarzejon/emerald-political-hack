@@ -5,14 +5,20 @@ LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_OnFrame
 	.byte 0
 
-@ Marta's stall only opens at Stage 1 (her object's flag is FLAG_TEMP_1).
+@ Marta's stall only opens at Stage 1 (her object's flag is FLAG_TEMP_1). Thornfield's
+@ two gardeners (FLAG_TEMP_2) tend the fenced garden once Toft has announced them.
 LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	call_if_eq VAR_LOWMERE_STAGE, LOWMERE_STAGE_0, LittlerootTown_EventScript_HideStallkeeper
+	call_if_unset FLAG_LOWMERE_GARDENERS_ARRIVED, LittlerootTown_EventScript_HideGardeners
 	end
 
 LittlerootTown_EventScript_HideStallkeeper::
 	setflag FLAG_TEMP_1
+	return
+
+LittlerootTown_EventScript_HideGardeners::
+	setflag FLAG_TEMP_2
 	return
 
 @ Bram's greeting as the player steps off the cart, and the carts heard on

@@ -453,9 +453,20 @@ Thornfield_StewardsOffice_EventScript_Bailiff::
 	npc Ch2_Name_Bailiff, Thornfield_Text_OfficeBailiffPostBattle
 	end
 
+@ The desk can be reached without crossing the bailiff's sight, so reading
+@ it starts his battle if he hasn't been beaten.
 Thornfield_StewardsOffice_EventScript_Ledger::
 	lockall
 	goto_if_set FLAG_FOUND_DEBT_LEDGER, Thornfield_StewardsOffice_EventScript_LedgerAgain
+	goto_if_defeated TRAINER_THORNFIELD_BAILIFF, Thornfield_StewardsOffice_EventScript_ReadLedger
+	say Ch2_Name_Bailiff, Thornfield_Text_OfficeBailiffIntro
+	closemessage
+	trainerbattle_no_intro TRAINER_THORNFIELD_BAILIFF, Thornfield_Text_OfficeBailiffDefeat
+	goto Thornfield_StewardsOffice_EventScript_ReadLedger
+	end
+
+Thornfield_StewardsOffice_EventScript_ReadLedger::
+	lockall
 	narrate Thornfield_Text_LedgerOpen
 	narrate Thornfield_Text_LedgerWillow
 	narrate Thornfield_Text_LedgerFortyOne

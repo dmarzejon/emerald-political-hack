@@ -120,7 +120,7 @@ Interiors:
 | --- | --- | --- | --- |
 | Steward's Office | Object | `Thornfield_StewardsOffice_EventScript_Voss` | Voss behind the desk, `local_id` `LOCALID_STEWARDS_OFFICE_VOSS` (1), flag `FLAG_TEMP_1` |
 | Steward's Office | Trainer | `Thornfield_StewardsOffice_EventScript_Bailiff` | `TRAINER_THORNFIELD_BAILIFF`, in the way of the ledger desk |
-| Steward's Office | Sign | `Thornfield_StewardsOffice_EventScript_Ledger` | the ledger; gives `ITEM_DEBT_LEDGER`. The pale bell is stamped inside its cover |
+| Steward's Office | Sign | `Thornfield_StewardsOffice_EventScript_Ledger` | the ledger; gives `ITEM_DEBT_LEDGER`. The pale bell is stamped inside its cover. Starts the bailiff's battle first if he hasn't been beaten |
 | Old Mabry's cottage | Object | `Thornfield_MabryCottage_EventScript_Mabry` | the witness once the player has the ledger page; sets `FLAG_THORNFIELD_WITNESS` |
 | Old Mabry's cottage | Sign | `Thornfield_MabryCottage_EventScript_SeedShelf` | seed packets labelled with tenants' names |
 | Magistrate's Hall | Object | `Thornfield_MagistrateHall_EventScript_Fenwick` | Magistrate Fenwick |
@@ -160,5 +160,6 @@ vanilla trainers no other map uses:
 ## Lowmere after the pact
 
 Reeve Toft has a new line from `VAR_THORNFIELD_STATE` 3 (`Lowmere_EventScript_ToftThornfield`): carts of
-seed and two gardeners arrive from Thornfield. Lowmere stays at Stage 1 until the Cragholt
+seed and two gardeners arrive from Thornfield. The gardeners then tend the fenced garden
+(`Lowmere_EventScript_Gardener1` / `_Gardener2`). Lowmere stays at Stage 1 until the Cragholt
 pact.

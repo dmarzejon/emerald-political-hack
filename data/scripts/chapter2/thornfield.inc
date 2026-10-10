@@ -84,6 +84,14 @@ Thornfield_EventScript_Arrival::
 	waitmovement 0
 	narrate Thornfield_Text_LedAway
 	closemessage
+	@ The guards march the family west along the road, in single file. Each
+	@ starts a step after the one ahead so no one bumps into the next.
+	applymovement LOCALID_THORNFIELD_GUARD_1, Thornfield_Movement_LeadAway0
+	applymovement LOCALID_THORNFIELD_PIP, Thornfield_Movement_LeadAway1
+	applymovement LOCALID_THORNFIELD_MAE, Thornfield_Movement_LeadAway2
+	applymovement LOCALID_THORNFIELD_WILLOW, Thornfield_Movement_LeadAway3
+	applymovement LOCALID_THORNFIELD_GUARD_2, Thornfield_Movement_LeadAway4
+	waitmovement 0
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_THORNFIELD_WILLOW
 	removeobject LOCALID_THORNFIELD_MAE
@@ -147,6 +155,61 @@ Thornfield_Movement_Protest:
 
 Thornfield_Movement_GuardStepIn:
 	walk_in_place_faster_up
+	step_end
+
+@ Row 17 is clear from x 14 to 29, so five steps west is safe for all five.
+Thornfield_Movement_LeadAway0:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Thornfield_Movement_LeadAway1:
+	face_left
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Thornfield_Movement_LeadAway2:
+	face_left
+	delay_16
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Thornfield_Movement_LeadAway3:
+	face_left
+	delay_16
+	delay_16
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Thornfield_Movement_LeadAway4:
+	face_left
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 Thornfield_Movement_Dig:
@@ -390,9 +453,20 @@ Thornfield_StewardsOffice_EventScript_Bailiff::
 	npc Ch2_Name_Bailiff, Thornfield_Text_OfficeBailiffPostBattle
 	end
 
+@ The desk can be reached without crossing the bailiff's sight, so reading
+@ it starts his battle if he hasn't been beaten.
 Thornfield_StewardsOffice_EventScript_Ledger::
 	lockall
 	goto_if_set FLAG_FOUND_DEBT_LEDGER, Thornfield_StewardsOffice_EventScript_LedgerAgain
+	goto_if_defeated TRAINER_THORNFIELD_BAILIFF, Thornfield_StewardsOffice_EventScript_ReadLedger
+	say Ch2_Name_Bailiff, Thornfield_Text_OfficeBailiffIntro
+	closemessage
+	trainerbattle_no_intro TRAINER_THORNFIELD_BAILIFF, Thornfield_Text_OfficeBailiffDefeat
+	goto Thornfield_StewardsOffice_EventScript_ReadLedger
+	end
+
+Thornfield_StewardsOffice_EventScript_ReadLedger::
+	lockall
 	narrate Thornfield_Text_LedgerOpen
 	narrate Thornfield_Text_LedgerWillow
 	narrate Thornfield_Text_LedgerFortyOne

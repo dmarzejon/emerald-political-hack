@@ -116,6 +116,16 @@ Lowmere_EventScript_ToftThornfield::
 	release
 	end
 
+@ Chapter 2: the two gardeners from Thornfield, in the fenced garden once
+@ Toft has told the player they came (FLAG_LOWMERE_GARDENERS_ARRIVED).
+Lowmere_EventScript_Gardener1::
+	npc Ch2_Name_Gardener, Lowmere_Text_Gardener1
+	end
+
+Lowmere_EventScript_Gardener2::
+	npc Ch2_Name_Gardener, Lowmere_Text_Gardener2
+	end
+
 @ Chapter 3: after the stone arrives from Cragholt (Stage 2).
 Lowmere_EventScript_ToftCragholt::
 	msgbox Lowmere_Text_ToftCragholt, MSGBOX_DEFAULT
@@ -1634,4 +1644,19 @@ Lowmere_Text_TamsinLodge::
 	.string "Envoy TAMSIN of LOWMERE. It sounds\n"
 	.string "made up.\p"
 	.string "I like it.$"
+
+Lowmere_Text_Gardener1::
+	.string "In THORNFIELD we dug down to find the\n"
+	.string "soil. Here we dig down and find more\l"
+	.string "water.\p"
+	.string "So we're building the beds up instead.\n"
+	.string "Turnips don't mind wet feet. Much.$"
+
+Lowmere_Text_Gardener2::
+	.string "I tended the princess's roses for\n"
+	.string "eleven years. She never once asked my\l"
+	.string "name.\p"
+	.string "The children here bring me frogs and\n"
+	.string "ask what everything's called. I think I\l"
+	.string "like it better.$"
 

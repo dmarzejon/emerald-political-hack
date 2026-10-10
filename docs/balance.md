@@ -162,7 +162,7 @@ Trial is `TRAINER_NORMAN_1`. The level cap after Corwin's seal is **19** (`src/c
 | Orchard Road trainers | 13-14 | 11-13 |
 | Thornfield bailiff | 14-15 | 13 |
 | Isolde's gardeners and courtier | 15-16 | 13-15 |
-| **Isolde, Trial 2** | 16-18 (cap 19) | 14, 14, 15, ace 17 |
+| **Isolde, Trial 2** | 16-18 (cap 19) | 14, 14, 15, ace 16 |
 
 ### Wild encounters
 
@@ -207,6 +207,8 @@ A bot with two Pokémon, no items and no catches lost 6 of 6 to Corwin (Treecko 
 and 6 of 6 to Isolde (Treecko 14, Entei 17). Both Trials drop a level per Pokémon and their
 aces' IVs fall from 20 to 15; Shaymin swaps Growth for Sweet Scent so it can no longer snowball.
 A player who catches a third Pokémon or carries Potions should now find both comfortable.
+A retest with Entei's Ember kept won Corwin 6 of 8 (Lv 13/11) but lost Isolde 8 of 8 (Lv 16/16):
+Ember cleared her first three, then Shaymin won every time, so Shaymin dropped one more level to 16.
 Trainers whose name repeated their class (FOREMAN FOREMAN, GUILD CLERK CLERK, BAILIFF BAILIFF)
 got real names, and the Pavilion broker Fenwick is now Hargreave so he no longer shares a
 name with Magistrate Fenwick.
@@ -221,9 +223,9 @@ Torchic and the Orchard Road's Starly, Pikipek and Sewaddle all answer it.
 | Gloom | 14 | Chlorophyll | Mega Drain, Acid, Poison Powder, Sweet Scent | Poison chip, resists Grass and Fighting |
 | Skiddo | 14 | Sap Sipper | Razor Leaf, Leech Seed, Tail Whip, Tackle | Absorbs the player's Grass moves |
 | Roselia | 15 | Natural Cure | Mega Drain, Stun Spore, Poison Sting, Leech Seed | Status and drain |
-| **Shaymin** | 17 | Natural Cure | Magical Leaf, Leech Seed, Sweet Scent, Disarming Voice | The ace that "only flowers where land has been taken". Disarming Voice hits Fighting and Dragon types |
+| **Shaymin** | 16 | Natural Cure | Magical Leaf, Leech Seed, Sweet Scent, Disarming Voice | The ace that "only flowers where land has been taken". Disarming Voice hits Fighting and Dragon types |
 
-Shaymin is two levels under the cap and holds no item, matching Corwin's ace at two above
+Shaymin is three levels under the cap and holds no item, matching Corwin's ace at two above
 his team.
 
 ## Chapter 3: Chain Road, Gallows Wood, Cragholt and Brannoc

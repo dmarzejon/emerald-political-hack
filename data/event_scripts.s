@@ -134,6 +134,7 @@ gStdScripts_End::
 	@ Shared constants and macros for the vertical slice; must come before map scripts.
 	.include "data/scripts/slice/common.inc"
 	.include "data/scripts/chapter2/common.inc"
+	.include "data/scripts/chapter3/common.inc"
 
 	.include "data/maps/PetalburgCity/scripts.inc"
 	.include "data/maps/SlateportCity/scripts.inc"
@@ -1755,3 +1756,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/chapter2/orchard_road.inc"
 	.include "data/scripts/chapter2/thornfield.inc"
 	.include "data/scripts/chapter2/glasshouse.inc"
+	@ Chapter 3: the Chain Road, Cragholt, the collapsed mine, the Pithead Hall (see docs/dialogue/chapter3.md)
+	.include "data/scripts/chapter3/chain_road.inc"
+	.include "data/scripts/chapter3/cragholt.inc"
+	.include "data/scripts/chapter3/pithead_hall.inc"

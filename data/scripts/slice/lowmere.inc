@@ -73,6 +73,7 @@ Lowmere_EventScript_Toft::
 	lock
 	faceplayer
 	setspeaker Slice_Name_Toft
+	goto_if_ge VAR_CRAGHOLT_STATE, 4, Lowmere_EventScript_ToftCragholt
 	goto_if_ge VAR_THORNFIELD_STATE, 3, Lowmere_EventScript_ToftThornfield
 	goto_if_ge VAR_LOWMERE_STAGE, 1, Lowmere_EventScript_ToftStage1
 	goto_if_ge VAR_SLICE_STATE, 12, Lowmere_EventScript_ToftPactSigned
@@ -112,6 +113,12 @@ Lowmere_EventScript_ToftStage1::
 Lowmere_EventScript_ToftThornfield::
 	setflag FLAG_LOWMERE_GARDENERS_ARRIVED
 	msgbox Lowmere_Text_ToftThornfield, MSGBOX_DEFAULT
+	release
+	end
+
+@ Chapter 3: after the stone arrives from Cragholt (Stage 2).
+Lowmere_EventScript_ToftCragholt::
+	msgbox Lowmere_Text_ToftCragholt, MSGBOX_DEFAULT
 	release
 	end
 
@@ -636,9 +643,28 @@ Lowmere_OldLodge_EventScript_Courier::
 @ ---------------------------------------------------------------------------
 Lowmere_EventScript_CheckReturn::
 	setvar VAR_TEMP_1, 1
+	goto_if_eq VAR_CRAGHOLT_STATE, 3, Lowmere_EventScript_CheckStoneReturn
 	goto_if_ne VAR_SLICE_STATE, 12, Lowmere_EventScript_CheckReturnEnd
 	goto_if_lowmere_stage_new Lowmere_EventScript_ReturnSeen
 Lowmere_EventScript_CheckReturnEnd::
+	end
+
+@ Chapter 3: back from Cragholt with the third pact. signpact raised
+@ VAR_LOWMERE_STAGE to Stage 2; the first sight of it plays here, and the
+@ scene with Toft and Tamsin plays on entering the Old Lodge.
+Lowmere_EventScript_CheckStoneReturn::
+	goto_if_lowmere_stage_new Lowmere_EventScript_StoneReturnSeen
+	end
+
+Lowmere_EventScript_StoneReturnSeen::
+	lockall
+	playse SE_M_ROCK_THROW
+	waitse
+	narrate Lowmere_Text_Masons
+	narrate Lowmere_Text_ToftWavingAgain
+	closemessage
+	lowmere_mark_stage_seen
+	releaseall
 	end
 
 Lowmere_EventScript_ReturnSeen::
@@ -666,6 +692,56 @@ Lowmere_OldLodge_EventScript_GrainArrives::
 	clearflag FLAG_HIDE_LOWMERE_TAMSIN_FORGE
 	lowmere_mark_stage_seen
 	releaseall
+	end
+
+@ ---------------------------------------------------------------------------
+@ Chapter 3 act end (VAR_CRAGHOLT_STATE 3 -> 4), on frame in the Old Lodge.
+@ Stone and masons from Cragholt, Tamsin made envoy, and a letter under the
+@ door with the pale bell on its seal.
+@   FLAG_TEMP_1  Tamsin in the Lodge (state 3 only)
+@ ---------------------------------------------------------------------------
+Lowmere_OldLodge_EventScript_SetObjects::
+	call_if_ne VAR_CRAGHOLT_STATE, 3, Lowmere_OldLodge_EventScript_HideTamsin
+	return
+
+Lowmere_OldLodge_EventScript_HideTamsin::
+	setflag FLAG_TEMP_1
+	return
+
+Lowmere_OldLodge_EventScript_StoneArrives::
+	lockall
+	applymovement LOCALID_OLD_LODGE_TOFT, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_OLD_LODGE_TOFT, Common_Movement_FacePlayer
+	waitmovement 0
+	say Slice_Name_Toft, Lowmere_Text_ToftStone
+	say Slice_Name_Toft, Lowmere_Text_ToftCenter
+	applymovement LOCALID_OLD_LODGE_TAMSIN, Common_Movement_FacePlayer
+	waitmovement 0
+	say Slice_Name_Tamsin, Lowmere_Text_TamsinBroughtThemHome
+	say Slice_Name_Toft, Lowmere_Text_ToftEnvoy
+	say Slice_Name_Tamsin, Lowmere_Text_TamsinEnvoy
+	setflag FLAG_TAMSIN_ENVOY
+	closemessage
+	delay 30
+	playse SE_DOOR
+	waitse
+	narrate Lowmere_Text_LetterUnderDoor
+	narrate Lowmere_Text_LetterSeal
+	narrate Lowmere_Text_LetterReads
+	setspeaker SP_NAME_NONE
+	giveitem ITEM_PALE_LETTER
+	setflag FLAG_RECEIVED_PALE_LETTER
+	say Slice_Name_Tamsin, Lowmere_Text_TamsinTenthChild
+	say Slice_Name_Toft, Lowmere_Text_ToftWallsFirst
+	closemessage
+	setvar VAR_CRAGHOLT_STATE, 4
+	lowmere_mark_stage_seen
+	releaseall
+	end
+
+Lowmere_OldLodge_EventScript_Tamsin::
+	npc Slice_Name_Tamsin, Lowmere_Text_TamsinLodge
 	end
 
 @ ---------------------------------------------------------------------------
@@ -1477,4 +1553,85 @@ Lowmere_Text_LedgerStage1::
 	.string "TOFT's new ledger. GRAIN IN STORE: 30\n"
 	.string "DAYS. Someone has drawn a small smiling\l"
 	.string "face in the margin.$"
+
+
+Lowmere_Text_ToftCragholt::
+	.string "Stone walls, Your Highness! Stone! The\n"
+	.string "marsh can howl all it likes now.\p"
+	.string "And a POKéMON CENTER, with a real nurse\n"
+	.string "in it. I keep going in just to look at the\l"
+	.string "floor.$"
+
+Lowmere_Text_Masons::
+	.string "The sound of hammers on stone rings\n"
+	.string "across the marsh. Masons from CRAGHOLT\l"
+	.string "are raising a wall along the water.$"
+
+Lowmere_Text_ToftWavingAgain::
+	.string "At the door of the OLD LODGE, Reeve\n"
+	.string "TOFT is waving both arms over his head.$"
+
+Lowmere_Text_ToftStone::
+	.string "Your Highness! Did you see them? Thirty\n"
+	.string "carts of CRAGHOLT stone, and twelve\l"
+	.string "masons who actually know what they're\l"
+	.string "doing!\p"
+	.string "The sea wall's half up already. The east\n"
+	.string "road's paved. Nobody's lost a boot in\l"
+	.string "the mud all week.$"
+
+Lowmere_Text_ToftCenter::
+	.string "And the masons built us a POKéMON\n"
+	.string "CENTER. A proper one, by the square. A\l"
+	.string "nurse came up from HAYMARKET to run it.\p"
+	.string "LOWMERE has a healer. I never thought\n"
+	.string "I'd write that in the ledger.$"
+
+Lowmere_Text_TamsinBroughtThemHome::
+	.string "I walked them all the way down the\n"
+	.string "CHAIN ROAD. Some of them were bonded\l"
+	.string "men, last month.\p"
+	.string "They wanted to see the town the stone\n"
+	.string "was for.$"
+
+Lowmere_Text_ToftEnvoy::
+	.string "About that. LOWMERE needs someone to\n"
+	.string "speak for it in the other towns.\l"
+	.string "Someone who isn't scared of princes.\p"
+	.string "TAMSIN, I'm naming you the town's envoy.\n"
+	.string "It comes with a coat and no pay.$"
+
+Lowmere_Text_TamsinEnvoy::
+	.string "...Envoy. Me.\p"
+	.string "I'll need a better coat than that.$"
+
+Lowmere_Text_LetterUnderDoor::
+	.string "There's a soft knock at the door. When\n"
+	.string "TAMSIN opens it, nobody is there.\p"
+	.string "A letter lies on the step.$"
+
+Lowmere_Text_LetterSeal::
+	.string "The letter is sealed in pale wax,\n"
+	.string "pressed with the shape of a small bell.$"
+
+Lowmere_Text_LetterReads::
+	.string "There is no name on it. Inside, a single\n"
+	.string "line in a neat, careful hand:\p"
+	.string "“The tenth child should stay small.”$"
+
+Lowmere_Text_TamsinTenthChild::
+	.string "The tenth child. That's you. There are\n"
+	.string "nine of them before you.\p"
+	.string "Somebody's watching this town.\n"
+	.string "Somebody who knows exactly who you\l"
+	.string "are.$"
+
+Lowmere_Text_ToftWallsFirst::
+	.string "Then let them watch. We've got walls\n"
+	.string "now.$"
+
+Lowmere_Text_TamsinLodge::
+	.string "Envoy TAMSIN of LOWMERE. It sounds\n"
+	.string "made up.\p"
+	.string "I like it.$"
 

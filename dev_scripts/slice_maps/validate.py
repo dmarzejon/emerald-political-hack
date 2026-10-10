@@ -17,7 +17,8 @@ MAPS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Haymarket_GiltPavilion', 'H
         'Haymarket_CountingHouse_BackRoom', 'Haymarket_Granary', 'Lowmere_Forge', 'Lowmere_ReevesHouse',
         'Lowmere_ReopenedHouse', 'OldaleTown_House1', 'OldaleTown_House2', 'LittlerootTown_MaysHouse_1F',
         'LittlerootTown_MaysHouse_2F', 'LittlerootTown_BrendansHouse_1F', 'LittlerootTown_ProfessorBirchsLab',
-        'Route102', 'PetalburgCity', 'Thornfield_Palace', 'Route104', 'Route104_MrBrineysHouse',
+        'Route102', 'PetalburgCity', 'PetalburgCity_House1', 'PetalburgCity_House2',
+        'PetalburgCity_WallysHouse', 'Thornfield_Palace', 'Route104', 'Route104_MrBrineysHouse',
         'PetalburgWoods', 'RustboroCity', 'RustboroCity_PokemonSchool', 'RustboroCity_DevonCorp_1F',
         'RustboroCity_House1', 'RustboroCity_House2', 'RustboroCity_House3', 'RusturfTunnel',
         'RustboroCity_Gym']

@@ -54,6 +54,7 @@ Every object, sign and trigger runs a script from `data/scripts/slice/`. The lab
   - Tamsin works at the forge, (5,15).
   - On the north road, Tamsin waits at (16,0) (`LOCALID_LOWMERE_TAMSIN_ROAD`).
   - The fisherman, mother, old man, child and stallkeeper are townsfolk.
+  - Thornfield's two gardeners (`LOCALID_LOWMERE_GARDENER_1` and `_2`, `FLAG_TEMP_2`) tend the fenced garden at (3,10) and (6,10), facing up. The header hides them until `FLAG_LOWMERE_GARDENERS_ARRIVED`, which Toft sets when he announces them after the Thornfield pact.
   - Signs mark the town, the Lodge, the Shed, Hesk's house, the well, the grain store (house A's door), the boarded house (house C's door) and the jetty.
 - **North road triggers:** `TamsinRoad` (state 5) and `NorthRoadBlock` (states 2, 3, 4 and 6) both sit on row 1, at (15,1) and (16,1). Row 1 is the only way out.
 - **The Old Lodge** (Brendan's house 1F):
@@ -207,7 +208,7 @@ The `DrawWholeMapView` is needed: walking in from the Orchard Road, the door is 
 | Map | Event | Where | Script |
 |---|---|---|---|
 | Steward's Office (`PETALBURG_CITY_WALLYS_HOUSE`) | Voss behind the table, `LOCALID_STEWARDS_OFFICE_VOSS`, `FLAG_TEMP_1`, faces down | (5,2) | `Thornfield_StewardsOffice_EventScript_Voss` |
-| | Bailiff, trainer, faces left, sight 3: the way to the table passes him | (6,5) | `Thornfield_StewardsOffice_EventScript_Bailiff` |
+| | Bailiff, trainer, faces down, sight 3, beside the table. The ledger can be read without passing him, so the ledger script starts his battle | (7,4) | `Thornfield_StewardsOffice_EventScript_Bailiff` |
 | | Ledger on the table (signs) | (5,4), (6,4) | `Thornfield_StewardsOffice_EventScript_Ledger` |
 | Mabry's cottage (`PETALBURG_CITY_HOUSE2`) | Mabry, faces left | (7,5) | `Thornfield_MabryCottage_EventScript_Mabry` |
 | | Seed shelf (signs) | (8,1), (9,1) | `Thornfield_MabryCottage_EventScript_SeedShelf` |
@@ -216,20 +217,21 @@ The `DrawWholeMapView` is needed: walking in from the Orchard Road, the door is 
 
 ### Isolde's palace, the Glasshouse (`MAP_THORNFIELD_PALACE`)
 
-A walled garden with three terraces of hedges, climbing to Isolde's flagstone dais in front of a glass wall.
+A court under glass: glass walls on three sides and a glass hall behind the dais, enclosing three terraces of hedges that climb to Isolde's flagstone dais.
 
 | Event | Where | Script |
 |---|---|---|
 | Isolde on the dais, `LOCALID_PALACE_ISOLDE`, faces down | (7,3) | `Glasshouse_EventScript_Isolde` |
 | Herald by the entrance, faces right | (6,20) | `Glasshouse_EventScript_Herald` |
-| Gardener 1, trainer, faces right, sight 8 | (2,16) | `Glasshouse_EventScript_Gardener1` |
-| Gardener 2, trainer, faces left, sight 8 | (13,13) | `Glasshouse_EventScript_Gardener2` |
-| Courtier, trainer, faces right, sight 8 | (2,10) | `Glasshouse_EventScript_Courtier` |
-| Servant, heals the party, faces left | (13,7) | `Glasshouse_EventScript_Servant` |
-| Glass wall (signs) | (2–13,1) | `Glasshouse_EventScript_GlassWall` |
+| Gardener 1, trainer, faces down, sight 1 | (8,15) | `Glasshouse_EventScript_Gardener1` |
+| Gardener 2, trainer, faces down, sight 1 | (7,12) | `Glasshouse_EventScript_Gardener2` |
+| Courtier, trainer, faces down, sight 1 | (8,9) | `Glasshouse_EventScript_Courtier` |
+| Servant, heals the party, faces left | (12,7) | `Glasshouse_EventScript_Servant` |
+| The court: Magistrate Fenwick and old Mabry on the dais, two courtiers in the beds, all hidden by `FLAG_PACT_THORNFIELD` | (5,2), (10,2); (4,5), (11,5) | none |
+| Glass wall (signs) | (3–12,1) | `Glasshouse_EventScript_GlassWall` |
 | Exit mats (warps 0 and 1 to Thornfield warp 2) | (7,21), (8,21) | |
 
-Each terrace has a hedge row with a gap at one end, and a flower planter that leaves only one lane open. You go up through the gap at x 12–13 in row 17, along row 16 to the gap at x 2–3, along row 13 to x 12–13, along row 10 to x 2–3, and up to the dais. Each trainer stands at the far end of one lane and looks down it, so you cannot pass without a battle.
+Each terrace has a hedge row with a gap at one end, and a flower planter that leaves only one lane open. You go up through the gap at x 12 in row 17, along row 16 to the gap at x 3, along row 13 to x 12, along row 10 to x 3, and up to the dais. Each trainer stands in a pocket cut into the planter above one lane and faces down into it, so you cannot pass without a battle, and after it the trainer stays in the pocket instead of blocking the one-row lane.
 
 ## Chapter 3: the Chain Road, Gallows Wood, Cragholt and the collapsed mine
 
@@ -332,7 +334,7 @@ Tamsin (`LOCALID_OLD_LODGE_TAMSIN`, `FLAG_TEMP_1`, faces left) is object 11, at 
 - **Vanilla movement scripts** still assume the old Littleroot and Oldale layouts. These include Mom and the rival in Littleroot and the Mart employee's walk to the Center in Oldale. The dialogue work cuts them, along with their objects.
 - **Heal locations** in `src/data/heal_locations.json` point at the new door spots for the Lodge, Hesk's house and the Haymarket Pokémon Center.
 - **Balance** owns the trainer parties.
-- **Not wired yet:** the forge, the reeve's house and house C have no scenes, so they are empty. The stallkeeper has no flag to hide her before stage 1.
+- **Not wired yet:** the forge, the reeve's house and house C have no scenes, so they are empty.
 
 ## Seams between maps with different tilesets
 

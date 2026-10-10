@@ -108,8 +108,10 @@ PAL_EXITS = ((7, 21), (8, 21))
 # Hedge rows (y, first x, last x) and planters that narrow each lane to one row.
 PAL_HEDGES = [(17, 2, 11), (14, 4, 13), (11, 2, 11), (8, 4, 13)]
 PAL_PLANTERS = [(15, 4, 11), (12, 4, 11), (9, 4, 11)]
-# Gardeners: (x, y, facing). Each one looks down the only lane through its terrace.
-PAL_GARDENERS = [(2, 16, 'right'), (13, 13, 'left'), (2, 10, 'right')]
+# The Trial's three trainers stand in pockets cut into the planters, one above each lane,
+# facing down with sight 1: you must pass in front of each, and after the battle they stay
+# in their pocket instead of standing in the one-row lane.
+PAL_POCKETS = [(8, 15), (7, 12), (8, 9)]
 
 
 def palace():
@@ -120,13 +122,13 @@ def palace():
         c.grid(x, 0, prop('glass_wall', 1, 2), col=1, elev=0)
     c.forest(0, 2, 1, PAL_H - 1)
     c.forest(PAL_W - 2, 2, PAL_W - 1, PAL_H - 1)
-    for x in range(2, PAL_W - 2):
-        c.put(x, PAL_H - 1, BUSH, 1, 0)
     for (y, x0, x1) in PAL_HEDGES:
         c.fill(x0, y, x1, y, BUSH, 1, 0)
     for (y, x0, x1) in PAL_PLANTERS:
         c.fill(x0, y, x1, y, BUSH, 1, 0)
         c.fill(x0 + 1, y, x1 - 1, y, FLOWERS, 1, E_GROUND)
+    for (x, y) in PAL_POCKETS:
+        c.put(x, y, GRASS, 0, E_GROUND)
     # Isolde's terrace: a flagstone dais in a bed of flowers
     c.fill(2, 2, PAL_W - 3, 6, FLOWERS, 0, E_GROUND)
     for (x, y) in PAL_DAIS:
@@ -137,6 +139,13 @@ def palace():
     for (x, _) in PAL_EXITS:
         for y in range(18, PAL_H - 1):
             c.put(x, y, LM['flagstones_0_0'], 0, E_GROUND)
+    # glass walls down both sides and along the front: the court sits under glass
+    for y in range(2, PAL_H - 1):
+        c.put(2, y, LM['glass_wall_0_0'], 1, 0)
+        c.put(PAL_W - 3, y, LM['glass_wall_0_0'], 1, 0)
+    for x in range(2, PAL_W - 2):
+        if (x, PAL_H - 1) not in PAL_EXITS:
+            c.put(x, PAL_H - 1, LM['glass_wall_0_1'], 1, 0)
     for (x, y) in PAL_EXITS:
         c.put(x, y, LM['exit_mat_0_0'], 0, E_GROUND)
     return c

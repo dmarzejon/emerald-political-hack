@@ -39,7 +39,7 @@ Trial is built.
 | Mire Road trainers and wagon clerk | 7-9 | 4-7 |
 | Haymarket granary and counting house | 9-11 | 9-10 |
 | Gilt Pavilion courtiers | 10-12 | 9-11 |
-| **Corwin, Trial 1** | 11-13 (cap 15) | 10, 10, 11, ace 12 |
+| **Corwin, Trial 1** | 11-13 (cap 15) | 9, 9, 10, ace 11 |
 
 ## The king's gift
 
@@ -110,13 +110,13 @@ Classes and pics come from the features thread (docs/systems.md, "Trainer classe
 | `TRAINER_TIANA` | Grisk, poacher | Mire Road | Poacher | Wooper 5, Croagunk 6 |
 | `TRAINER_ALLEN` | Pip, youngster | Mire Road | Youngster | Bidoof 4, Lillipup 5 |
 | `TRAINER_ANDREW` | Willem, grain carter | Mire Road | Carter | Mudbray 6, Skwovet 6 |
-| `TRAINER_GRUNT_PETALBURG_WOODS` | Wagon clerk | Mire Road event | Guild Clerk | Poochyena 6, Galarian Meowth 7 |
-| `TRAINER_GRUNT_RUSTURF_TUNNEL` | Guild foreman | Haymarket granary | Foreman | Mudbray 9, Timburr 10 |
-| `TRAINER_GRUNT_MUSEUM_1` | Clerk | Counting house | Guild Clerk | Purrloin 9, Poochyena 9 |
-| `TRAINER_GRUNT_MUSEUM_2` | Clerk | Counting house | Guild Clerk | Murkrow 9, Pawniard 10 |
+| `TRAINER_GRUNT_PETALBURG_WOODS` | Odell, wagon clerk | Mire Road event | Guild Clerk | Poochyena 6, Galarian Meowth 7 |
+| `TRAINER_GRUNT_RUSTURF_TUNNEL` | Hollis, guild foreman | Haymarket granary | Foreman | Mudbray 9, Timburr 10 |
+| `TRAINER_GRUNT_MUSEUM_1` | Ashby, clerk | Counting house | Guild Clerk | Purrloin 9, Poochyena 9 |
+| `TRAINER_GRUNT_MUSEUM_2` | Quill, clerk | Counting house | Guild Clerk | Murkrow 9, Pawniard 10 |
 | `TRAINER_JOSH` | Albrecht, bidder | Gilt Pavilion | Bidder / Rich Boy | Lillipup 9, Glameow 10 |
 | `TRAINER_TOMMY` | Celeste, broker | Gilt Pavilion | Broker / Lady | Skitty 9, Minccino 10 |
-| `TRAINER_MARC` | Fenwick, broker | Gilt Pavilion | Broker / Gentleman | Lechonk 10, Aipom 11 |
+| `TRAINER_MARC` | Hargreave, broker | Gilt Pavilion | Broker / Gentleman | Lechonk 10, Aipom 11 |
 | `TRAINER_ROXANNE_1` | **Prince Corwin**, Trial 1 | Gilt Pavilion | Prince / Prince Corwin | See below |
 
 Tamsin's constant suffix is the **player's** starter, as in vanilla: `_MUDKIP` means the
@@ -130,10 +130,10 @@ Four "lots", one per round of the auction, with Type: Null unveiled last. Corwin
 
 | Lot | Pokémon | Lv | Ability / item | Moves | Role |
 |---|---|---|---|---|---|
-| 1 | Skwovet | 10 | Cheek Pouch, Oran Berry | Tackle, Bite, Tail Whip, Stuff Cheeks | Eats its berry to heal and raise Defence: Corwin's hoarding |
-| 2 | Meowth | 10 | Technician | Fake Out, Feint, Scratch, Pay Day | Pays out coins all match |
-| 3 | Bunnelby | 11 | Pickup | Mud-Slap, Quick Attack, Tackle, Leer | Ground coverage, the check on Entei and Raikou |
-| 4 | **Type: Null** | 12 | Battle Armor | Tackle, Aerial Ace, Scary Face | The final lot. Bulky (95 HP / 95 Def / 95 SpD), no crits |
+| 1 | Skwovet | 9 | Cheek Pouch, Oran Berry | Tackle, Bite, Tail Whip, Stuff Cheeks | Eats its berry to heal and raise Defence: Corwin's hoarding |
+| 2 | Meowth | 9 | Technician | Fake Out, Feint, Scratch, Pay Day | Pays out coins all match |
+| 3 | Bunnelby | 10 | Pickup | Mud-Slap, Quick Attack, Tackle, Leer | Ground coverage, the check on Entei and Raikou |
+| 4 | **Type: Null** | 11 | Battle Armor | Tackle, Aerial Ace, Scary Face | The final lot. Bulky (95 HP / 95 Def / 95 SpD), no crits |
 
 Type: Null sits two levels above the rest, like Roxanne's Nosepass, and holds no item (an Eviolite
 would make it unbeatable at this level). Normal type has one weakness, Fighting, which
@@ -162,7 +162,7 @@ Trial is `TRAINER_NORMAN_1`. The level cap after Corwin's seal is **19** (`src/c
 | Orchard Road trainers | 13-14 | 11-13 |
 | Thornfield bailiff | 14-15 | 13 |
 | Isolde's gardeners and courtier | 15-16 | 13-15 |
-| **Isolde, Trial 2** | 16-18 (cap 19) | 15, 15, 16, ace 18 |
+| **Isolde, Trial 2** | 16-18 (cap 19) | 14, 14, 15, ace 17 |
 
 ### Wild encounters
 
@@ -192,7 +192,7 @@ That adds 44 new species, so the first two chapters hold 93.
 | `TRAINER_DAISY` | `TRAINER_ORCHARD_ROAD_PICKER` | Hazel, orchard hand | Picnicker | Combee 11, Bounsweet 12 |
 | `TRAINER_RHETT` | `TRAINER_ORCHARD_ROAD_BAILIFF` | Bruno, debt bailiff | Bailiff | Machop 12, Meditite 12 |
 | `TRAINER_MARCOS` | `TRAINER_ORCHARD_ROAD_POET` | Lionel, court poet | Gentleman | Flabébé 11, Kricketune 13 |
-| `TRAINER_BERKE` | `TRAINER_THORNFIELD_BAILIFF` | Bailiff at the Steward's Office | Bailiff | Houndour 13, Grimer 13 |
+| `TRAINER_BERKE` | `TRAINER_THORNFIELD_BAILIFF` | Cormac, bailiff at the Steward's Office | Bailiff | Houndour 13, Grimer 13 |
 | `TRAINER_RANDALL` | `TRAINER_PALACE_GARDENER_1` | Primrose, gardener | Gardener | Hoppip 13, Petilil 14 |
 | `TRAINER_PARKER` | `TRAINER_PALACE_GARDENER_2` | Bryony, gardener | Gardener | Foongus 14, Sewaddle 14 |
 | `TRAINER_GEORGE` | `TRAINER_PALACE_COURTIER` | Oswin, courtier | Gentleman | Sunkern 14, Skiploom 15 |
@@ -201,6 +201,16 @@ That adds 44 new species, so the first two chapters hold 93.
 None of these IDs have rematches or Match Call entries. Norman's gym rematches
 (`NORMAN_2`-`5`) only trigger after the Champion, so they stay dormant.
 
+### Playtest 2 changes (2026-10-10)
+
+A bot with two Pokémon, no items and no catches lost 6 of 6 to Corwin (Treecko 13, Entei 11)
+and 6 of 6 to Isolde (Treecko 14, Entei 17). Both Trials drop a level per Pokémon and their
+aces' IVs fall from 20 to 15; Shaymin swaps Growth for Sweet Scent so it can no longer snowball.
+A player who catches a third Pokémon or carries Potions should now find both comfortable.
+Trainers whose name repeated their class (FOREMAN FOREMAN, GUILD CLERK CLERK, BAILIFF BAILIFF)
+got real names, and the Pavilion broker Fenwick is now Hargreave so he no longer shares a
+name with Magistrate Fenwick.
+
 ### Isolde, Trial 2
 
 Ace Pokemon AI flag, no items. Grass is weak to Fire, Ice, Flying, Bug and Poison; Entei,
@@ -208,12 +218,12 @@ Torchic and the Orchard Road's Starly, Pikipek and Sewaddle all answer it.
 
 | Pokémon | Lv | Ability | Moves | Role |
 |---|---|---|---|---|
-| Gloom | 15 | Chlorophyll | Mega Drain, Acid, Poison Powder, Sweet Scent | Poison chip, resists Grass and Fighting |
-| Skiddo | 15 | Sap Sipper | Razor Leaf, Leech Seed, Tail Whip, Tackle | Absorbs the player's Grass moves |
-| Roselia | 16 | Natural Cure | Mega Drain, Stun Spore, Poison Sting, Leech Seed | Status and drain |
-| **Shaymin** | 18 | Natural Cure | Magical Leaf, Leech Seed, Growth, Disarming Voice | The ace that "only flowers where land has been taken". Disarming Voice hits Fighting and Dragon types |
+| Gloom | 14 | Chlorophyll | Mega Drain, Acid, Poison Powder, Sweet Scent | Poison chip, resists Grass and Fighting |
+| Skiddo | 14 | Sap Sipper | Razor Leaf, Leech Seed, Tail Whip, Tackle | Absorbs the player's Grass moves |
+| Roselia | 15 | Natural Cure | Mega Drain, Stun Spore, Poison Sting, Leech Seed | Status and drain |
+| **Shaymin** | 17 | Natural Cure | Magical Leaf, Leech Seed, Sweet Scent, Disarming Voice | The ace that "only flowers where land has been taken". Disarming Voice hits Fighting and Dragon types |
 
-Shaymin is one level under the cap and holds no item, matching Corwin's ace at two above
+Shaymin is two levels under the cap and holds no item, matching Corwin's ace at two above
 his team.
 
 ## Chapter 3: Chain Road, Gallows Wood, Cragholt and Brannoc
@@ -264,7 +274,7 @@ the first real Ghost source.
 | `TRAINER_IVAN` | `TRAINER_CHAIN_ROAD_COLLECTOR` | Aldric, Gilded Scale collector | Guild Clerk | Klefki 17, Mawile 18 |
 | `TRAINER_LYLE` | `TRAINER_GALLOWS_WOOD_BUG_CATCHER` | Colm, bug catcher | Bug Catcher | Nincada 15, Joltik 16, Dwebble 16 |
 | `TRAINER_GRUNT_WEATHER_INST_1` | `TRAINER_DEBT_WARDEN` | Debt warden, wood checkpoint | Bailiff | Pawniard 17, Mightyena 18 |
-| `TRAINER_GRUNT_WEATHER_INST_2` | `TRAINER_ORE_OFFICE_CLERK` | Chancellery ore clerk | Guild Clerk | Nosepass 18, Bronzor 18 |
+| `TRAINER_GRUNT_WEATHER_INST_2` | `TRAINER_ORE_OFFICE_CLERK` | Pell, Chancellery ore clerk | Guild Clerk | Nosepass 18, Bronzor 18 |
 | `TRAINER_MIKE_2` | `TRAINER_PITHEAD_FOREMAN` | Durran, pithead foreman | Foreman | Rolycoly 18, Timburr 19 |
 | `TRAINER_BRICE` | `TRAINER_PITHEAD_MINER_1` | Tobin, miner | Hiker | Roggenrola 18, Onix 19 |
 | `TRAINER_CLARK` | `TRAINER_PITHEAD_MINER_2` | Maud, miner | Hiker / Picnicker | Drilbur 18, Nacli 19 |

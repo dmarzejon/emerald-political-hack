@@ -225,7 +225,7 @@ Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_PETALBURG_WOODS ===
-Name: CLERK
+Name: ODELL
 Class: Guild Clerk
 Pic: Guild Clerk
 Gender: Male
@@ -320,7 +320,7 @@ Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_RUSTURF_TUNNEL ===
-Name: FOREMAN
+Name: HOLLIS
 Class: Foreman
 Pic: Foreman
 Gender: Male
@@ -354,7 +354,7 @@ Level: 18
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 === TRAINER_GRUNT_WEATHER_INST_2 ===
-Name: CLERK
+Name: PELL
 Class: Guild Clerk
 Pic: Guild Clerk
 Gender: Male
@@ -392,7 +392,7 @@ Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MUSEUM_1 ===
-Name: CLERK
+Name: ASHBY
 Class: Guild Clerk
 Pic: Guild Clerk
 Gender: Male
@@ -409,7 +409,7 @@ Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MUSEUM_2 ===
-Name: CLERK
+Name: QUILL
 Class: Guild Clerk
 Pic: Guild Clerk
 Gender: Male
@@ -1324,7 +1324,7 @@ Level: 15
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 === TRAINER_BERKE ===
-Name: BAILIFF
+Name: CORMAC
 Class: Bailiff
 Pic: Bailiff
 Gender: Male
@@ -4814,7 +4814,7 @@ AI: Basic Trainer / Ace Pokemon
 
 Skwovet @ Oran Berry
 Ability: Cheek Pouch
-Level: 10
+Level: 9
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Tackle
 - Bite
@@ -4823,7 +4823,7 @@ IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 Meowth
 Ability: Technician
-Level: 10
+Level: 9
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Fake Out
 - Feint
@@ -4832,7 +4832,7 @@ IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 Bunnelby
 Ability: Pickup
-Level: 11
+Level: 10
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Mud-Slap
 - Quick Attack
@@ -4841,8 +4841,8 @@ IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 Type: Null
 Ability: Battle Armor
-Level: 12
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 11
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Tackle
 - Aerial Ace
 - Scary Face
@@ -4987,7 +4987,7 @@ AI: Basic Trainer / Ace Pokemon
 
 Gloom
 Ability: Chlorophyll
-Level: 15
+Level: 14
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Mega Drain
 - Acid
@@ -4996,7 +4996,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Skiddo
 Ability: Sap Sipper
-Level: 15
+Level: 14
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Razor Leaf
 - Leech Seed
@@ -5005,7 +5005,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Roselia
 Ability: Natural Cure
-Level: 16
+Level: 15
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Mega Drain
 - Stun Spore
@@ -5014,11 +5014,11 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Shaymin
 Ability: Natural Cure
-Level: 18
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 17
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Magical Leaf
 - Leech Seed
-- Growth
+- Sweet Scent
 - Disarming Voice
 
 === TRAINER_WINONA_1 ===
@@ -10599,7 +10599,7 @@ Level: 22
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_MARC ===
-Name: FENWICK
+Name: HARGREAVE
 Class: Broker
 Pic: Gentleman
 Gender: Male

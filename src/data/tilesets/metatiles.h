@@ -24,6 +24,11 @@ const u16 gMetatileAttributes_GiltPavilion[] = INCBIN_U16("data/tilesets/seconda
 const u16 gMetatiles_Rustboro[] = INCBIN_U16("data/tilesets/secondary/rustboro/metatiles.bin");
 const u16 gMetatileAttributes_Rustboro[] = INCBIN_U16("data/tilesets/secondary/rustboro/metatile_attributes.bin");
 
+const u16 gMetatiles_Cragholt[] = INCBIN_U16("data/tilesets/secondary/cragholt/metatiles.bin");
+const u16 gMetatileAttributes_Cragholt[] = INCBIN_U16("data/tilesets/secondary/cragholt/metatile_attributes.bin");
+const u16 gMetatiles_CragholtMine[] = INCBIN_U16("data/tilesets/secondary/cragholt_mine/metatiles.bin");
+const u16 gMetatileAttributes_CragholtMine[] = INCBIN_U16("data/tilesets/secondary/cragholt_mine/metatile_attributes.bin");
+
 const u16 gMetatiles_Dewford[] = INCBIN_U16("data/tilesets/secondary/dewford/metatiles.bin");
 const u16 gMetatileAttributes_Dewford[] = INCBIN_U16("data/tilesets/secondary/dewford/metatile_attributes.bin");
 

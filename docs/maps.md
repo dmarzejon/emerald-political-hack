@@ -231,6 +231,101 @@ A walled garden with three terraces of hedges, climbing to Isolde's flagstone da
 
 Each terrace has a hedge row with a gap at one end, and a flower planter that leaves only one lane open. You go up through the gap at x 12–13 in row 17, along row 16 to the gap at x 2–3, along row 13 to x 12–13, along row 10 to x 2–3, and up to the dais. Each trainer stands at the far end of one lane and looks down it, so you cannot pass without a battle.
 
+## Chapter 3: the Chain Road, Gallows Wood, Cragholt and the collapsed mine
+
+The road north from Thornfield (Route 104, the Chain Road, with Petalburg Woods as Gallows Wood) leads to Cragholt (Rustboro City), Prince Brannoc's mining town. East of town, Rusturf Tunnel is the collapsed mine. The Rustboro Gym is the Pithead Hall, Brannoc's palace. Cragholt and the mine have new layouts, `LAYOUT_CRAGHOLT` and `LAYOUT_CRAGHOLT_MINE`, built from the vanilla ones by `build_chapter3.py`. Route 104, Petalburg Woods and Route 116 keep their vanilla blocks on the Cragholt tileset.
+
+Every event points at the dialogue thread's chapter 3 scripts (`docs/dialogue/chapter3.md`). `wire_chapter3.py` placed them. It rebuilds each map's events from scratch, so it is safe to re-run until someone edits these maps by hand. The vanilla scripts of all twelve maps are replaced by map headers only. Their vanilla people and story triggers are gone. Item balls, hidden items, berry trees and cut trees stay.
+
+### The Chain Road (`MAP_ROUTE104`) and the Penrose cottage
+
+| Event | Where | Script |
+|---|---|---|
+| Harrow and two bonded men, `FLAG_TEMP_1`, face down | (23,52), (25,52), (27,52) | `ChainRoad_EventScript_Harrow`, `_Bonded1`, `_Bonded2` |
+| Their guard, `FLAG_TEMP_1`, faces right | (22,52) | `ChainRoad_EventScript_CoffleGuard` |
+| The rope (signs between the men) | (24,52), (26,52) | `ChainRoad_EventScript_Rope` |
+| Fisher, trainer, faces left, sight 2 | (15,59) | `ChainRoad_EventScript_Fisher` |
+| Collector, trainer, faces down, sight 3 | (21,25) | `ChainRoad_EventScript_Collector` |
+| Road signs | (27,66), (23,5) | `_SignSouth`, `_SignNorth` |
+| Penrose cottage: Penrose; Wil (`FLAG_TEMP_1`) | (5,3); (6,3) | `ChainRoad_PenroseCottage_EventScript_Penrose`, `_Wil` |
+| Penrose cottage: the nets | (9,5) | `ChainRoad_PenroseCottage_EventScript_Nets` |
+
+The flower shop is still vanilla, so its sign keeps its vanilla label in `Route104/scripts.inc`.
+
+### Gallows Wood (`MAP_PETALBURG_WOODS`)
+
+| Event | Where | Script |
+|---|---|---|
+| Debt warden, trainer, faces right, sight 5 | (12,7) | `GallowsWood_EventScript_DebtWarden` |
+| Bug catcher, trainer, sight 3 | (7,32) | `GallowsWood_EventScript_BugCatcher` |
+| Checkpoint notice; wood sign | (11,8); (14,32) | `_Checkpoint`, `_Sign` |
+
+Row 7 from x 12 to 17 is the only way to the north exit at (14–15,5), so the warden sees every step of it and cannot be skipped.
+
+### Cragholt (`MAP_RUSTBORO_CITY`)
+
+The ore line runs along the north street (row 11) with carts at (26,11) and (33,11). A siding runs through the ore office yard (row 22). The fountain square is now the quota board at (28,39), with ore heaped on either side. The pithead, a 2×3 winding frame, stands at (19–20,50–52) by the road in from the south.
+
+`Cragholt_EventScript_Arrival` is a trigger on (12,54) to (19,54) while `VAR_CRAGHOLT_STATE` is 0. The road in is eight tiles wide there, and nothing else leads into town from the south, so the scene can start on any of those tiles.
+
+| Person | Local id | Flag | Where | Facing | Script |
+|---|---|---|---|---|---|
+| Brannoc | `LOCALID_CRAGHOLT_BRANNOC` | `FLAG_TEMP_1` | (18,52) | right | none |
+| Lift guard | `LOCALID_CRAGHOLT_GUARD` | `FLAG_TEMP_1` | (22,52) | left | none |
+| Bonded men | `LOCALID_CRAGHOLT_BONDED_1` to `_3` | `FLAG_TEMP_1` | (21,51), (21,52), (21,53) | left | none |
+| Tamsin | `LOCALID_CRAGHOLT_TAMSIN` | `FLAG_TEMP_2` | (30,40) | left | `Cragholt_EventScript_Tamsin` |
+| Next crew; their guard | | `FLAG_TEMP_3` | (24,52), (25,52); (26,51) | left | `_Crew1`, `_Crew2`, `_CrewGuard` |
+| Freed miners | | `FLAG_TEMP_4` | (25,41), (30,42) | look around | `_FreedMiner1`, `_FreedMiner2` |
+| Hall guard, on the Pithead Hall door | `LOCALID_CRAGHOLT_HALL_GUARD` | `FLAG_TEMP_5` | (27,20) | down | `_HallGuard` |
+| Woman; old miner; child | | | (22,34); (19,27); (21,46) | | `_Woman`, `_OldMiner`, `_Child` |
+
+Signs: the pit bell at (19,52) and (20,52) (`_Lift`), the quota board (28,39), the town sign (19,49), the hall sign (23,19), the ore office sign (17,20), the barracks sign (25,35) and the mine sign (30,8). The Pokémon Center and Mart signs stay.
+
+### Cragholt interiors
+
+| Map | Event | Where | Script |
+|---|---|---|---|
+| Barracks (`RustboroCity_PokemonSchool`) | Roll keeper; sleeping bonded man | (5,3) down; (3,8) up | `Cragholt_Barracks_EventScript_Keeper`, `_Sleeper` |
+| Barracks | The roll (blackboard); the bunks | (4,2), (6,2), (7,2); (3,5) | `_Roll`, `_Bunks` |
+| Ore office (`RustboroCity_DevonCorp_1F`) | Clerk, trainer, faces down, sight 3 | (5,5) | `Cragholt_OreOffice_EventScript_Clerk` |
+| Ore office | The ledger (desk) | (4,4), (5,4), (6,4) | `_Ledger` |
+| Ore office | Assayer, `LOCALID_ORE_OFFICE_ASSAYER`, keeps the stairs | (14,2) | `_Assayer` |
+| Ore office | Ore samples (display cases) | (3,2), (8,2) | `_OreSamples` |
+| Magistrate's hall (`RustboroCity_House1`) | Hollen; Wil (`FLAG_TEMP_1`, faces left) | (9,2); (6,4) | `Cragholt_MagistrateHall_EventScript_Hollen`, `_Wil` |
+| Magistrate's hall | The pit reports | (3,1) | `_Reports` |
+| Tallis house (`RustboroCity_House2`) | Widow Tallis; the boots | (4,4); (2,1) | `Cragholt_TallisHouse_EventScript_Tallis`, `_Boots` |
+| Mason's house (`RustboroCity_House3`) | Mason (faces right); girl (faces left) | (4,5); (7,5) | `Cragholt_MasonHouse_EventScript_Mason`, `_Girl` |
+
+The clerk only sees the lane up from the door. The ledger can also be read from (4,5) or (6,5) without passing him, so the ledger script should start the battle if he is not beaten.
+
+### The Pithead Hall (`MAP_RUSTBORO_CITY_GYM`)
+
+| Event | Where | Script |
+|---|---|---|
+| Brannoc | (5,2) | `PitheadHall_EventScript_Brannoc` |
+| Foreman, trainer, faces down, sight 3 | (1,6) | `_Foreman` |
+| Miner 1, trainer, faces left, sight 3; miner 2, faces down, sight 2 | (3,9); (5,13) | `_Miner1`, `_Miner2` |
+| Cook (faces down); herald (faces right) | (3,18); (4,18) | `_Cook`, `_Herald` |
+| Ore seams (the statues) | (2,18), (8,18) | `_Seam` |
+
+`RustboroCity_Gym_EventScript_RegisterRoxanne` stays as a stub, because `src/field_control_avatar.c` still names it.
+
+### The collapsed mine (`MAP_RUSTURF_TUNNEL`)
+
+The haulage way runs along rows 4–5 from the west entrance, with rails, a cart at (8,5), ore at (5,4) and (13,4), and pit props at x 10, 14 and 18. The fall is rubble at (20,4), (21,4) and (20,5), with the Chancellery's bell crate at (19,4). `CollapsedMine_EventScript_ClearRubble` turns (20,4)–(21,5) into floor (`0x201`). A second fall at (29,9) blocks the only ladder down to the Route 116 and Verdanturf exits, so the trapped men can only be reached through the cleared rubble. `validate.py` treats the rubble as cleared when it checks reachability.
+
+| Event | Local id | Flag | Where | Script |
+|---|---|---|---|---|
+| Wil, faces left | `LOCALID_COLLAPSED_MINE_WIL` | `FLAG_TEMP_1` | (23,4) | `CollapsedMine_EventScript_Wil` |
+| Trapped miners | `LOCALID_COLLAPSED_MINE_MINER_1`, `_2` | `FLAG_TEMP_1` | (24,5), (26,4) | `_TrappedMiner` |
+| The rubble | | | (20,5), (20,4) | `_Rubble` |
+| The bell crate | | | (19,4) | `_BellCrate` |
+| Snapped props; level sign | | | (14,3), (18,3); (7,10) | `_Props`; `_Sign` |
+
+### The Old Lodge
+
+Tamsin (`LOCALID_OLD_LODGE_TAMSIN`, `FLAG_TEMP_1`, faces left) is object 11, at (6,7) beside Toft, running `Lowmere_OldLodge_EventScript_Tamsin`.
+
 ## What other work owns
 
 - **Dialogue** owns the scripts and the map-script headers (on-frame and on-transition tables).
@@ -259,6 +354,8 @@ The FRLG overworld sprites (everything from `OBJ_EVENT_GFX_RED_NORMAL` on, such 
   - chapter 2 props: tents, a campfire, a 3×3 glasshouse, flagstones, a rowboat, a notice post, and a flagstone exit mat (south-arrow warp behaviour) for the palace garden
   - names for the added metatiles, in `dev_scripts/slice_maps/lowmere_ids.json`
 - **`gTileset_Haymarket`** (`data/tilesets/secondary/haymarket`) is Slateport plus a gilded Battle Tent dome. The dome uses palette 12.
+- **`gTileset_Cragholt`** (`data/tilesets/secondary/cragholt`) is Rustboro plus mine props in palette 6: rails, ore carts, ore heaps and the pithead frame, each on paving and on dirt. Rustboro's tiles fill the remaining tile space exactly (512 of 512).
+- **`gTileset_CragholtMine`** (`data/tilesets/secondary/cragholt_mine`) is Rusturf Tunnel plus the same props in palette 7, with crates, pit props and rubble. Ids for both are in `dev_scripts/slice_maps/cragholt_ids.json`, written by `build_cragholt_tileset.py`.
 - **`gTileset_GiltPavilion`** (`data/tilesets/secondary/gilt_pavilion`) is Petalburg Gym plus gold lot plates numbered 1 to 21 in palette 9. Their ids are in `dev_scripts/slice_maps/gilt_pavilion_ids.json`.
 
 ## Regenerating
@@ -269,6 +366,9 @@ The scripts in `dev_scripts/slice_maps/` built everything above. Run them from t
 python3 dev_scripts/slice_maps/build_tileset.py   # tilesets (only if the art changes)
 python3 dev_scripts/slice_maps/build_maps.py      # layouts
 python3 dev_scripts/slice_maps/build_chapter2.py  # chapter 2 layouts (from the vanilla Route 102 and Petalburg)
+python3 dev_scripts/slice_maps/build_cragholt_tileset.py  # chapter 3 tilesets
+git checkout data/layouts/layouts.json && python3 dev_scripts/slice_maps/build_chapter3.py  # chapter 3 layouts
+python3 dev_scripts/slice_maps/wire_chapter3.py   # chapter 3 events (from the vanilla map.json files)
 python3 dev_scripts/slice_maps/validate.py        # reachability, seam and sprite checks
 ```
 

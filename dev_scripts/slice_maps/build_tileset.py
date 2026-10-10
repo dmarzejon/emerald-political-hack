@@ -53,11 +53,13 @@ def drab(c):
 
 
 class Builder:
-    def __init__(self):
-        self.ts = Tileset(path('data/tilesets/secondary/petalburg'))
-        self.ts.pals[7] = list(PROP_PAL)
-        self.ts.pals[11] = list(Tileset(path('data/tilesets/secondary/slateport')).pals[9])
-        self.ts.pals[12] = [self.ts.pals[10][0]] + [drab(c) for c in self.ts.pals[10][1:]]
+    def __init__(self, base='petalburg', prop_slot=7, prop_pal=PROP_PAL):
+        self.ts = Tileset(path('data/tilesets/secondary', base))
+        self.prop_slot = prop_slot
+        self.ts.pals[prop_slot] = list(prop_pal)
+        if base == 'petalburg':
+            self.ts.pals[11] = list(Tileset(path('data/tilesets/secondary/slateport')).pals[9])
+            self.ts.pals[12] = [self.ts.pals[10][0]] + [drab(c) for c in self.ts.pals[10][1:]]
         self.primary = Tileset(path('data/tilesets/primary/general'))
         self.ids = {}
         self.src_cache = {}
@@ -155,7 +157,7 @@ class Builder:
 
     # ---- hand-drawn props --------------------------------------------
     def prop(self, img, ground, name, layer=LAYER_COVERED, behavior=MB_NORMAL, above_rows=0):
-        """img: 'P' image (palette-7 indices, 0 transparent), multiple of 16 px.
+        """img: 'P' image (prop palette indices, 0 transparent), multiple of 16 px.
         ground: metatile id whose bottom layer shows under the prop.
         Registers name_X_Y for each 16x16 cell. The first above_rows rows are drawn
         over the player (layer type NORMAL), for things the player walks behind."""
@@ -169,7 +171,7 @@ class Builder:
                     ox, oy = cx * 16 + (q % 2) * 8, cy * 16 + (q // 2) * 8
                     tile = tuple(px[ox + x, oy + y] for y in range(8) for x in range(8))
                     t, hf, vf = self.add_tile(tile)
-                    top.append(t | (hf << 10) | (vf << 11) | (7 << 12) if t else 0)
+                    top.append(t | (hf << 10) | (vf << 11) | (self.prop_slot << 12) if t else 0)
                 lt = LAYER_NORMAL if cy < above_rows else layer
                 self.add_metatile(g[:4] + top, (lt << 12) | behavior, '%s_%d_%d' % (name, cx, cy))
 

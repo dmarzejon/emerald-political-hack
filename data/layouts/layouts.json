@@ -205,7 +205,7 @@
       "width": 40,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Cragholt",
       "border_filepath": "data/layouts/Route104/border.bin",
       "blockdata_filepath": "data/layouts/Route104/map.bin",
       "layout_version": "emerald"
@@ -337,7 +337,7 @@
       "width": 100,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Cragholt",
       "border_filepath": "data/layouts/Route116/border.bin",
       "blockdata_filepath": "data/layouts/Route116/map.bin",
       "layout_version": "emerald"
@@ -1470,7 +1470,7 @@
       "width": 48,
       "height": 44,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Cragholt",
       "border_filepath": "data/layouts/PetalburgWoods/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgWoods/map.bin",
       "layout_version": "emerald"
@@ -9432,6 +9432,28 @@
       "secondary_tileset": "gTileset_Lowmere",
       "border_filepath": "data/layouts/Thornfield_Palace/border.bin",
       "blockdata_filepath": "data/layouts/Thornfield_Palace/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CRAGHOLT",
+      "name": "Cragholt_Layout",
+      "width": 40,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cragholt",
+      "border_filepath": "data/layouts/Cragholt/border.bin",
+      "blockdata_filepath": "data/layouts/Cragholt/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_CRAGHOLT_MINE",
+      "name": "Cragholt_Mine_Layout",
+      "width": 36,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CragholtMine",
+      "border_filepath": "data/layouts/Cragholt_Mine/border.bin",
+      "blockdata_filepath": "data/layouts/Cragholt_Mine/map.bin",
       "layout_version": "emerald"
     }
   ]

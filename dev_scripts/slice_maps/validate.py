@@ -17,10 +17,14 @@ MAPS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Haymarket_GiltPavilion', 'H
         'Haymarket_CountingHouse_BackRoom', 'Haymarket_Granary', 'Lowmere_Forge', 'Lowmere_ReevesHouse',
         'Lowmere_ReopenedHouse', 'OldaleTown_House1', 'OldaleTown_House2', 'LittlerootTown_MaysHouse_1F',
         'LittlerootTown_MaysHouse_2F', 'LittlerootTown_BrendansHouse_1F', 'LittlerootTown_ProfessorBirchsLab',
-        'Route102', 'PetalburgCity', 'Thornfield_Palace']
+        'Route102', 'PetalburgCity', 'Thornfield_Palace', 'Route104', 'Route104_MrBrineysHouse',
+        'PetalburgWoods', 'RustboroCity', 'RustboroCity_PokemonSchool', 'RustboroCity_DevonCorp_1F',
+        'RustboroCity_House1', 'RustboroCity_House2', 'RustboroCity_House3', 'RusturfTunnel',
+        'RustboroCity_Gym']
 LOWMERE_STAGES = ['LAYOUT_LOWMERE_STAGE%d' % i for i in range(5)]
 # Objects whose spot is meant to block (a guard on a door, a boulder) or that only appear in a cutscene.
-BLOCKING_OK = {'LOCALID_HAYMARKET_PAVILION_GUARD', 'LOCALID_THORNFIELD_PALACE_GUARD'}
+BLOCKING_OK = {'LOCALID_HAYMARKET_PAVILION_GUARD', 'LOCALID_THORNFIELD_PALACE_GUARD',
+               'LOCALID_CRAGHOLT_HALL_GUARD', 'LOCALID_ORE_OFFICE_ASSAYER'}
 
 # The FRLG overworld sprites draw nothing in this build, so a person using one is invisible.
 # These vanilla objects are hidden for good but still named by vanilla scripts.
@@ -43,10 +47,15 @@ def frlg_gfx():
 
 FRLG_GFX = frlg_gfx()
 
-# Vanilla things the slice maps keep as they are: items only reachable by Surf, and the
-# Petalburg / Route 104 seam, which the chapter 2 props stay well away from.
-SURF_ONLY = {('PetalburgCity', 19, 2), ('PetalburgCity', 3, 28), ('PetalburgCity', 11, 29)}
+# Vanilla things the slice maps keep as they are: items only reachable by Surf or down a
+# ledge, sea routes, and the Petalburg / Route 104 seam, which the chapter 2 props stay
+# well away from.
+SURF_ONLY = {('PetalburgCity', 19, 2), ('PetalburgCity', 3, 28), ('PetalburgCity', 11, 29),
+             ('PetalburgWoods', 35, 20), ('PetalburgWoods', 40, 29)}
+SEA_EDGES = {('Route104', 'MAP_ROUTE105')}
 VANILLA_SEAMS = {('PetalburgCity', 'ROUTE104')}
+# Tiles a story script turns into floor: the collapsed mine's rubble, cleared by the rescue.
+CLEARED_BY_SCRIPT = {'RusturfTunnel': {(20, 4), (21, 4), (20, 5), (21, 5)}}
 
 # How far the game draws into a neighbouring map. Tiles this close to a seam are drawn with
 # whichever map you are standing in, so they must look the same under both maps' tilesets.
@@ -71,6 +80,11 @@ def walkable(lay, x, y):
 def check(mapname, layout_id, problems):
     m = json.load(open(path('data/maps', mapname, 'map.json')))
     lay = load_layout(layout_id)
+    cleared = CLEARED_BY_SCRIPT.get(mapname, set())
+    if cleared:
+        lay = lay.copy()
+        for (x, y) in cleared:
+            lay.set(x, y, 0x3201)           # floor, as the script leaves it
     tag = '%s (%s)' % (mapname, layout_id)
     objs = {(o['x'], o['y']): o for o in m['object_events']}
     # cutscene-only objects (no script) are hidden in normal play
@@ -94,7 +108,7 @@ def check(mapname, layout_id, problems):
         edge = {'up': [(x, 0) for x in range(lay.w)], 'down': [(x, lay.h - 1) for x in range(lay.w)],
                 'left': [(0, y) for y in range(lay.h)], 'right': [(lay.w - 1, y) for y in range(lay.h)]}[d]
         open_edge = [p for p in edge if walkable(lay, *p)]
-        if not open_edge:
+        if not open_edge and (mapname, c['map']) not in SEA_EDGES:
             problems.append('%s: no walkable tile on the %s edge for %s' % (tag, d, c['map']))
         starts += open_edge
 

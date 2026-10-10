@@ -1,15 +1,22 @@
 @ The Old Lodge, the player's home in Lowmere for both the prince and the
 @ princess. Reeve Toft's ledger on first entry, the king's courier after
-@ the road battle, and the grain news after the Haymarket pact.
+@ the road battle, the grain news after the Haymarket pact, and the stone
+@ from Cragholt after the third pact.
 @ Scenes: data/scripts/slice/lowmere.inc.
 LittlerootTown_BrendansHouse_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_1F_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_BrendansHouse_1F_OnFrame
 	.byte 0
+
+LittlerootTown_BrendansHouse_1F_OnTransition:
+	call Lowmere_OldLodge_EventScript_SetObjects
+	end
 
 LittlerootTown_BrendansHouse_1F_OnFrame:
 	map_script_2 VAR_SLICE_STATE, 2, Lowmere_OldLodge_EventScript_ToftLedger
 	map_script_2 VAR_SLICE_STATE, 6, Lowmere_OldLodge_EventScript_KingsGift
 	map_script_2 VAR_SLICE_STATE, 12, Lowmere_OldLodge_EventScript_GrainArrives
+	map_script_2 VAR_CRAGHOLT_STATE, 3, Lowmere_OldLodge_EventScript_StoneArrives
 	.2byte 0
 
 LittlerootTown_BrendansHouse_1F_EventScript_GoUpstairsToSetClock::

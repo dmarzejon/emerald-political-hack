@@ -25,6 +25,7 @@
 - [Game systems (political hack)](./systems.md)
 - [Slice Dialogue and Events](./dialogue/events.md)
 - [Chapter 2 Dialogue and Events](./dialogue/chapter2.md)
+- [Chapter 3 Dialogue and Events](./dialogue/chapter3.md)
 - [Balance: vertical slice](balance.md)
 - [Tutorials]()
   - [What are AI Flags?](tutorials/ai_flags.md)
